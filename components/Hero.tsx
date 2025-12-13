@@ -1,10 +1,12 @@
 import { Highlight } from "@/components/Highlight";
+import { ShadowBlob } from "@/components/ShadowBlob";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 
 function Hero() {
   return (
-    <main className="flex items-center justify-center h-[90vh] flex-col gap-7">
+    <main className="flex items-center justify-center h-[90vh] flex-col gap-7 relative overflow-hidden">
+      <ShadowBlob />
       <h1 className="text-center text-accent-foreground text-7xl font-bold">
         Costruisci la Tua
         <br />
