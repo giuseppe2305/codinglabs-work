@@ -7,16 +7,16 @@ function Hero() {
   return (
     <main className="flex items-center justify-center h-[90vh] flex-col gap-7 relative overflow-hidden">
       <ShadowBlob />
-      <h1 className="text-center text-accent-foreground text-7xl font-bold">
+      <h1 className="text-center text-accent-foreground text-3xl md:text-5xl lg:text-7xl font-bold">
         Costruisci la Tua
         <br />
         Carriera nel <Highlight>Coding</Highlight>
       </h1>
-      <p className="w-150 text-center text-lg">
+      <p className="max-w-150 w-[90%] text-center md:text-lg">
         Dalla teoria alla pratica: costruisci progetti reali, scrivi codice funzionante e sviluppa le competenze
         richieste dal mercato.
       </p>
-      <div className="flex items-center gap-4">
+      <div className="flex max-md:flex-col items-center gap-4">
         <Button size="lg">
           Inizia ora
           <ChevronRight />
