@@ -1,7 +1,7 @@
 import Link from "next/link";
+import type { ChildrenNode } from "@/types/ChildrenNode";
 
-interface Props {
-  children: React.ReactNode;
+interface Props extends ChildrenNode {
   href: string;
 }
 

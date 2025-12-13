@@ -1,8 +1,6 @@
-interface Props {
-  children: React.ReactNode;
-}
+import type { ChildrenNode } from "@/types/ChildrenNode";
 
-function Highlight({ children }: Props) {
+function Highlight({ children }: ChildrenNode) {
   return <span className="text-primary">{children}</span>;
 }
 
