@@ -7,7 +7,7 @@ interface Props {
 
 function HoverLink({ children, href }: Props) {
   return (
-    <Link href={href} className="hover:text-primary-foreground duration-150">
+    <Link href={href} className="hover:text-popover-foreground duration-150">
       {children}
     </Link>
   );
