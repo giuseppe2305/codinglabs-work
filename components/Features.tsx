@@ -1,8 +1,11 @@
+import { Section } from "@/components/Section/Section";
+
 function Features() {
   return (
-    <section>
-      <h2>Features</h2>
-    </section>
+    <Section>
+      <Section.Title>Features and Services</Section.Title>
+      <Section.Subtitle>Attualmente il sito é in costruzione, grazie per averci visitato.</Section.Subtitle>
+    </Section>
   );
 }
 
