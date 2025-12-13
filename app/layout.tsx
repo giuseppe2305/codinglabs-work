@@ -2,6 +2,8 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import type { ChildrenNode } from "@/types/ChildrenNode";
 
+import { Analytics } from "@vercel/analytics/next";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({ children }: ChildrenNode) {
@@ -9,6 +11,7 @@ export default function RootLayout({ children }: ChildrenNode) {
     <html lang="en">
       <body className={`${inter.className} bg-background text-foreground dark flex flex-col max-w-screen`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );
