@@ -10,7 +10,9 @@ interface Props {
 export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-background text-foreground dark`}>{children}</body>
+      <body className={`${inter.className} bg-background text-foreground dark flex flex-col w-screen divide-y`}>
+        {children}
+      </body>
     </html>
   );
 }
