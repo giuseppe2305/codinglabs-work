@@ -1,16 +1,14 @@
-import Image from "next/image";
-
 import { Button } from "@/components/ui/button";
 import { HoverLink } from "@/components/HoverLink";
+import { Logo } from "@/components/Logo";
+
 import { ShoppingCart } from "lucide-react";
 
 function Navbar() {
   return (
-    <header className="fixed py-3 w-full items-center">
+    <header className="fixed py-3 w-full items-center z-1">
       <div className="w-[95%] grid grid-cols-[1fr_auto_1fr] items-center mx-auto">
-        <div className="size-9 relative">
-          <Image fill src="/logo.svg" alt="logo" sizes="48px" />
-        </div>
+        <Logo />
         <nav className="flex items-center gap-12">
           <HoverLink href="#">Corsi</HoverLink>
           <HoverLink href="#">Bundle</HoverLink>
