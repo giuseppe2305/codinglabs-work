@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { Button } from "@/components/ui/button";
 import { HoverLink } from "@/components/HoverLink";
 import { Logo } from "@/components/Logo";
@@ -12,7 +14,6 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import Link from "next/link";
 
 function Navbar() {
   return (
