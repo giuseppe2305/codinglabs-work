@@ -45,8 +45,8 @@ function Navbar() {
                     </NavigationMenuLink>
                     <NavigationMenuLink asChild>
                       <Link href="#">
-                        <div className="font-medium">Next.js</div>
-                        <div className="text-muted-foreground">Build Fullstack applications with React</div>
+                        <div className="font-medium">Other</div>
+                        <div className="text-muted-foreground">Explore all the courses I made</div>
                       </Link>
                     </NavigationMenuLink>
                   </li>
