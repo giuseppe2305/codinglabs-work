@@ -3,7 +3,14 @@ import { HoverLink } from "@/components/HoverLink";
 import { Logo } from "@/components/Logo";
 
 import { ShoppingCart } from "lucide-react";
-import { NavigationMenu, NavigationMenuList } from "@/components/ui/navigation-menu";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
+import Link from "next/link";
 
 function Navbar() {
   return (
@@ -16,7 +23,22 @@ function Navbar() {
           <HoverLink href="#">Risorse</HoverLink>
         </nav> */}
         <NavigationMenu>
-          <NavigationMenuList></NavigationMenuList>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <NavigationMenuLink asChild>
+                <Link href="/">Home</Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Corsi</NavigationMenuTrigger>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Bundle</NavigationMenuTrigger>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Risorse</NavigationMenuTrigger>
+            </NavigationMenuItem>
+          </NavigationMenuList>
         </NavigationMenu>
         <div className="justify-self-end flex items-center gap-8">
           <HoverLink href="#">
