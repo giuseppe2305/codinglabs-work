@@ -17,11 +17,6 @@ function Navbar() {
     <header className="fixed py-3 w-full items-center z-1 backdrop-blur-3xl bg-background/90">
       <div className="w-[95%] grid grid-cols-2 md:grid-cols-[1fr_auto_1fr] items-center mx-auto">
         <Logo />
-        {/* <nav className="flex items-center gap-12 max-sm:hidden">
-          <HoverLink href="#">Corsi</HoverLink>
-          <HoverLink href="#">Bundle</HoverLink>
-          <HoverLink href="#">Risorse</HoverLink>
-        </nav> */}
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
