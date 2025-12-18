@@ -5,6 +5,7 @@ import { Logo } from "@/components/Logo";
 import { ShoppingCart } from "lucide-react";
 import {
   NavigationMenu,
+  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
@@ -27,6 +28,30 @@ function Navbar() {
             </NavigationMenuItem>
             <NavigationMenuItem>
               <NavigationMenuTrigger>Corsi</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-75 gap-4">
+                  <li>
+                    <NavigationMenuLink asChild>
+                      <Link href="#">
+                        <div className="font-medium">Javascript</div>
+                        <div className="text-muted-foreground">Learn modern Javascript development</div>
+                      </Link>
+                    </NavigationMenuLink>
+                    <NavigationMenuLink asChild>
+                      <Link href="#">
+                        <div className="font-medium">React</div>
+                        <div className="text-muted-foreground">Build UIs with the React Framework</div>
+                      </Link>
+                    </NavigationMenuLink>
+                    <NavigationMenuLink asChild>
+                      <Link href="#">
+                        <div className="font-medium">Next.js</div>
+                        <div className="text-muted-foreground">Build Fullstack applications with React</div>
+                      </Link>
+                    </NavigationMenuLink>
+                  </li>
+                </ul>
+              </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <NavigationMenuTrigger>Bundle</NavigationMenuTrigger>
