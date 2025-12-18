@@ -29,24 +29,24 @@ function Navbar() {
             <NavigationMenuItem>
               <NavigationMenuTrigger>Corsi</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid w-75 gap-4">
+                <ul className="grid w-80 gap-4">
                   <li>
                     <NavigationMenuLink asChild>
                       <Link href="#">
                         <div className="font-medium">Javascript</div>
-                        <div className="text-muted-foreground">Learn modern Javascript development</div>
+                        <div className="text-muted-foreground">Impara lo sviluppo moderno con Javascript</div>
                       </Link>
                     </NavigationMenuLink>
                     <NavigationMenuLink asChild>
                       <Link href="#">
                         <div className="font-medium">React</div>
-                        <div className="text-muted-foreground">Build UIs with the React Framework</div>
+                        <div className="text-muted-foreground">Costruisci UIs con il framework piú popolare</div>
                       </Link>
                     </NavigationMenuLink>
                     <NavigationMenuLink asChild>
                       <Link href="#">
                         <div className="font-medium">Other</div>
-                        <div className="text-muted-foreground">Explore all the courses I made</div>
+                        <div className="text-muted-foreground">Esplora gli altri corsi che ho realizzato</div>
                       </Link>
                     </NavigationMenuLink>
                   </li>
