@@ -58,6 +58,18 @@ function Navbar() {
             </NavigationMenuItem>
             <NavigationMenuItem>
               <NavigationMenuTrigger>Risorse</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-80 gap-4">
+                  <li>
+                    <NavigationMenuLink asChild>
+                      <Link href="#">
+                        <div className="font-medium">Documentazione</div>
+                        <div className="text-muted-foreground">Tutte le documentazioni necessarie per sviluppare</div>
+                      </Link>
+                    </NavigationMenuLink>
+                  </li>
+                </ul>
+              </NavigationMenuContent>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
