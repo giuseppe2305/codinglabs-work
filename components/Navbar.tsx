@@ -9,6 +9,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
 
@@ -20,7 +21,7 @@ function Navbar() {
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuLink asChild>
+              <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                 <Link href="/">Home</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
