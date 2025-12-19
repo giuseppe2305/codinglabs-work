@@ -1,6 +1,7 @@
 import { Section } from "@/components/Section/Section";
 import Content from "./content.mdx";
 import { AsideNavigation } from "@/components/AsideNavigation";
+import { AsideIndex } from "@/components/AsideIndex";
 
 export default function Page() {
   return (
@@ -9,7 +10,7 @@ export default function Page() {
       <article>
         <Content />
       </article>
-      <aside>Indice</aside>
+      <AsideIndex />
     </Section>
   );
 }
