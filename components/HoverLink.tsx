@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ChildrenNode } from "@/types/ChildrenNode";
+import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 
 interface Props extends ChildrenNode {
   href: string;
@@ -7,7 +8,7 @@ interface Props extends ChildrenNode {
 
 function HoverLink({ children, href }: Props) {
   return (
-    <Link href={href} className="hover:text-popover-foreground duration-150">
+    <Link href={href} className={navigationMenuTriggerStyle()}>
       {children}
     </Link>
   );
