@@ -4,11 +4,11 @@ import Content from "./content.mdx";
 export default function Page() {
   return (
     <Section className="grid grid-cols-[220px_auto_220px] mt-20">
-      <div>BASE JAVASCRIPT</div>
+      <aside>BASE JAVASCRIPT</aside>
       <article>
         <Content />
       </article>
-      <div>Indice</div>
+      <aside>Indice</aside>
     </Section>
   );
 }
