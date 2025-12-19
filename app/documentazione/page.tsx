@@ -16,10 +16,10 @@ export default function page() {
         </div>
       </Section>
       <Section className="grid grid-cols-3 gap-10 mt-4">
-        <LanguageCard />
-        <LanguageCard />
-        <LanguageCard />
-        <LanguageCard />
+        <LanguageCard
+          title="Javascript"
+          description="Il linguaggio di programmazione per eccellenza nello sviluppo web, sia per il frontend che per il backend."
+        />
       </Section>
     </>
   );
