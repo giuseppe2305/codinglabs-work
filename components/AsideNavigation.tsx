@@ -1,4 +1,4 @@
-import { HoverLink } from "@/components/HoverLink";
+import Link from "next/link";
 
 interface AsideNavigation {
   subtitle: string;
@@ -13,28 +13,21 @@ function AsideNavigation({ navigation }: Props) {
   return (
     <aside className="flex flex-col">
       {navigation.map((section) => (
-        <div key={section.subtitle}>
-          <span>{section.subtitle}</span>
-          <div>
+        <div className="not-first:mt-6" key={section.subtitle}>
+          <div className="px-3 font-medium mb-3 border-b uppercase py-1">{section.subtitle}</div>
+          <div className="flex flex-col gap-3">
             {section.content.map((page) => (
-              <div key={page}>{page}</div>
+              <Link
+                href={`javascript/${page.toLowerCase()}`}
+                className="hover:bg-accent hover:text-accent-foreground duration-150 px-4 py-1.5 rounded-md cursor-pointer"
+                key={page}
+              >
+                {page}
+              </Link>
             ))}
           </div>
         </div>
       ))}
-      {/* <div className="flex flex-col text-sm gap-4">
-        <span className="px-3 font-medium uppercase border-b py-1 not-first:mt-4">Introduzione a Javascript</span>
-        <HoverLink href="#">Introduzione</HoverLink>
-        <HoverLink href="#">Versioni</HoverLink>
-        <HoverLink href="#">Storia</HoverLink>
-        <HoverLink href="#">Sintassi</HoverLink>
-
-        <span className="px-3 font-medium uppercase border-b py-1 not-first:mt-4">Introduzione a Javascript</span>
-        <HoverLink href="#">Introduzione</HoverLink>
-        <HoverLink href="#">Versioni</HoverLink>
-        <HoverLink href="#">Storia</HoverLink>
-        <HoverLink href="#">Sintassi</HoverLink>
-      </div> */}
     </aside>
   );
 }
