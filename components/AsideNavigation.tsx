@@ -11,11 +11,11 @@ interface Props {
 
 function AsideNavigation({ navigation }: Props) {
   return (
-    <aside className="flex flex-col">
+    <aside className="flex flex-col text-sm">
       {navigation.map((section) => (
         <div className="not-first:mt-6" key={section.subtitle}>
-          <div className="px-3 font-medium mb-3 border-b uppercase py-1">{section.subtitle}</div>
-          <div className="flex flex-col gap-3">
+          <div className="px-3 font-semibold mb-3 border-b uppercase py-1">{section.subtitle}</div>
+          <div className="flex flex-col gap-2">
             {section.content.map((page) => (
               <Link
                 href={`javascript/${page.toLowerCase()}`}
