@@ -1,3 +1,4 @@
+import { AsideSubtitle } from "@/components/AsideSubtitle";
 import Link from "next/link";
 
 interface AsideNavigation {
@@ -14,7 +15,7 @@ function AsideNavigation({ navigation }: Props) {
     <aside className="flex flex-col text-sm">
       {navigation.map((section) => (
         <div className="not-first:mt-6" key={section.subtitle}>
-          <div className="px-3 font-semibold mb-3 border-b uppercase py-1">{section.subtitle}</div>
+          <AsideSubtitle>{section.subtitle}</AsideSubtitle>
           <div className="flex flex-col gap-2">
             {section.content.map((page) => (
               <Link
