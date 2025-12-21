@@ -1,15 +1,13 @@
-import { MDXRemote } from "next-mdx-remote/rsc";
+import { ContentSource } from "@/components/ContentSource";
+import { getDoc } from "@/lib/getDoc";
 
 export default async function page({ params }) {
-  const pageInfo = await params;
-
-  const MDXContent = await import(
-    `@/content/${pageInfo.topic}/${pageInfo.slug}.mdx`
-  );
+  const paramsData = await params;
+  const source = getDoc(paramsData.topic, paramsData.slug);
 
   return (
     <div className="mt-20">
-      <MDXRemote source={MDXContent} />
+      <ContentSource source={source} />
     </div>
   );
 }
