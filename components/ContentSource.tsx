@@ -1,3 +1,4 @@
+import { useMDXComponents } from "@/mdx-components";
 import { MDXRemote } from "next-mdx-remote/rsc";
 
 interface Props {
@@ -5,9 +6,11 @@ interface Props {
 }
 
 function ContentSource({ source }: Props) {
+  const components = useMDXComponents();
+
   return (
     <article>
-      <MDXRemote source={source} />
+      <MDXRemote source={source} components={components} />
     </article>
   );
 }
