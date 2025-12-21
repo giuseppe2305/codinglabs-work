@@ -1,5 +1,5 @@
 import { ContentSource } from "@/components/ContentSource";
-import { getDoc } from "@/lib/getDoc";
+import { getDoc } from "@/lib/docs";
 
 interface Props {
   params: Promise<{ topic: string; slug: string }>;
