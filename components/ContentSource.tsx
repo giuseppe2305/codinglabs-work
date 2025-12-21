@@ -6,9 +6,9 @@ interface Props {
 
 function ContentSource({ source }: Props) {
   return (
-    <div>
+    <article>
       <MDXRemote source={source} />
-    </div>
+    </article>
   );
 }
 
