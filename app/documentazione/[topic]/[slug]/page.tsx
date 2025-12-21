@@ -1,4 +1,7 @@
+import { AsideIndex } from "@/components/AsideIndex";
+import { AsideNavigation } from "@/components/AsideNavigation";
 import { ContentSource } from "@/components/ContentSource";
+import { Section } from "@/components/Section/Section";
 import { getDoc } from "@/lib/getDoc";
 
 interface Props {
@@ -10,8 +13,10 @@ export default async function page({ params }: Props) {
   const source = getDoc(paramsData.topic, paramsData.slug);
 
   return (
-    <div className="mt-20">
+    <Section className="grid grid-cols-[200px_1fr_200px]">
+      <AsideNavigation navigation={[]} />
       <ContentSource source={source} />
-    </div>
+      <AsideIndex />
+    </Section>
   );
 }
