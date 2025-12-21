@@ -5,7 +5,11 @@ interface Props {
 }
 
 function ContentSource({ source }: Props) {
-  return <MDXRemote source={source} />;
+  return (
+    <div>
+      <MDXRemote source={source} />
+    </div>
+  );
 }
 
 export { ContentSource };
