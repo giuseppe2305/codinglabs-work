@@ -13,7 +13,7 @@ export default async function page({ params }: Props) {
   const source = getDoc(paramsData.topic, paramsData.slug);
 
   return (
-    <Section className="grid grid-cols-[200px_1fr_200px]">
+    <Section className="grid grid-cols-[200px_1fr_200px] mt-20">
       <AsideNavigation navigation={[]} />
       <ContentSource source={source} />
       <AsideIndex />
