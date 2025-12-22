@@ -16,6 +16,9 @@ function AsideNavigation({ topic }: Props) {
         {navigation.map((article) => (
           <ArticleLink key={article.slug} topic={topic} article={article} />
         ))}
+        <li className="text-center mt-4 italic py-2 text-muted-foreground rounded-md">
+          In arrivo...
+        </li>
       </ul>
     </aside>
   );
