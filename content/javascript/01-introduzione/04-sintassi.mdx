@@ -1,0 +1,102 @@
+# La Sintassi di JavaScript
+
+La sintassi di JavaScript definisce le regole per scrivere istruzioni che il browser o l'ambiente Node.js possono comprendere ed eseguire. Comprendere la sintassi è fondamentale per scrivere codice corretto ed efficiente.
+
+## Commenti
+
+I commenti servono a spiegare il codice senza influenzarne l’esecuzione:
+
+```javascript
+// Commento su una riga
+
+/*
+Commento
+su più righe
+*/
+```
+
+## Variabili
+
+Le variabili sono contenitori per memorizzare dati. Possono essere dichiarate con `var`, `let` o `const`:
+
+```javascript
+var nome = "Mario"; // vecchio modo, ancora valido
+let eta = 20; // variabile modificabile
+const citta = "Roma"; // costante, non modificabile
+```
+
+## Tipi di dati
+
+JavaScript gestisce diversi tipi di dati:
+
+- **String**: `"Ciao"`
+- **Number**: `42`
+- **Boolean**: `true` / `false`
+- **Array**: `[1, 2, 3]`
+- **Object**: `{nome: "Mario", eta: 20}`
+- **Null**: `null`
+- **Undefined**: `undefined`
+
+## Operatori
+
+JavaScript offre operatori aritmetici, logici e di confronto:
+
+```javascript
+let a = 10;
+let b = 5;
+
+console.log(a + b); // 15
+console.log(a > b); // true
+console.log(a && b); // true (logico)
+```
+
+## Funzioni
+
+Le funzioni permettono di raggruppare codice riutilizzabile:
+
+```javascript
+function saluta(nome) {
+  return "Ciao " + nome + "!";
+}
+
+console.log(saluta("Luigi"));
+```
+
+Con ES6 è possibile usare **arrow functions**:
+
+```javascript
+const somma = (x, y) => x + y;
+console.log(somma(5, 3)); // 8
+```
+
+## Condizioni e cicli
+
+### Condizioni
+
+```javascript
+let eta = 18;
+
+if (eta >= 18) {
+  console.log("Sei maggiorenne");
+} else {
+  console.log("Sei minorenne");
+}
+```
+
+### Cicli
+
+```javascript
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+
+let j = 0;
+while (j < 5) {
+  console.log(j);
+  j++;
+}
+```
+
+## Conclusione
+
+Conoscere la sintassi di JavaScript è essenziale per scrivere codice leggibile, corretto e funzionale. Variabili, funzioni, condizioni e cicli sono le basi su cui costruire programmi sempre più complessi.
