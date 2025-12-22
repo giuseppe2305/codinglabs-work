@@ -13,7 +13,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function RootLayout({ children }: ChildrenNode) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-background text-foreground dark flex flex-col max-w-screen`}>
+      <body className={`${inter.className} bg-background min-h-screen text-foreground dark flex flex-col max-w-screen`}>
         <Alert className="bg-primary rounded-none flex items-center justify-center">
           <Smile className="translate-y-0!" />
           <AlertTitle>

@@ -6,7 +6,7 @@ import Link from "next/link";
 
 function Hero() {
   return (
-    <main className="flex items-center justify-center h-[90vh] flex-col gap-7 relative overflow-hidden">
+    <main className="flex items-center justify-center grow flex-col gap-7 relative overflow-hidden">
       <ShadowBlob />
       <h1 className="text-center text-accent-foreground text-3xl md:text-5xl lg:text-7xl font-bold">
         Costruisci la Tua
