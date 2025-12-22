@@ -5,9 +5,9 @@ const CONTENT_PATH = path.join(process.cwd(), "content");
 
 export function getDoc(topic: string, slug: string) {
   const file = addFilePrefix(topic, slug);
-  const fullPath = path.join(CONTENT_PATH, topic, `${file}`);
+  if (!file) throw new Error("File not found.");
 
-  return readFileSync(fullPath, "utf-8");
+  return readFileSync(file, "utf-8");
 }
 
 export function getDocsList(topic: string) {
@@ -23,8 +23,25 @@ export function getDocsList(topic: string) {
 }
 
 function addFilePrefix(topic: string, slug: string) {
-  const directory = readdirSync(`content/${topic}`);
-  const file = directory.find((file) => file.includes(`${slug}.mdx`));
+  const directory = path.join(CONTENT_PATH, topic);
+  const file = findFileRecursively(directory, slug);
 
   return file;
+}
+
+function findFileRecursively(dir: string, fileName: string): string | null {
+  const files = readdirSync(dir, { withFileTypes: true });
+
+  for (const file of files) {
+    const fullPath = path.join(dir, file.name);
+
+    if (file.isDirectory()) {
+      const found = findFileRecursively(fullPath, fileName);
+      if (found) return found;
+    } else if (file.name.includes(fileName)) {
+      return fullPath;
+    }
+  }
+
+  return null;
 }
