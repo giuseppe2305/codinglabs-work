@@ -4,14 +4,24 @@ import { ProfileCard } from "./components/ProfileCard";
 const components: MDXComponents = {
   h1: ({ children }) => (
     <>
-      <h1 className="text-accent-foreground text-3xl font-bold pb-3">{children}</h1>
+      <h1 id={children.toLowerCase().replaceAll(" ", "-")} className="text-accent-foreground text-3xl font-bold pb-3">
+        {children}
+      </h1>
       <ProfileCard />
     </>
   ),
 
-  h2: ({ children }) => <h2 className="text-accent-foreground text-xl font-bold pt-8 pb-3">{children}</h2>,
+  h2: ({ children }) => (
+    <h2 id={children.toLowerCase().replaceAll(" ", "-")} className="text-accent-foreground text-xl font-bold pt-8 pb-3">
+      {children}
+    </h2>
+  ),
 
-  h3: ({ children }) => <h2 className="text-accent-foreground text-xl font-bold pt-4 pb-3">{children}</h2>,
+  h3: ({ children }) => (
+    <h3 id={children.toLowerCase().replaceAll(" ", "-")} className="text-accent-foreground text-xl font-bold pt-4 pb-3">
+      {children}
+    </h3>
+  ),
 
   ul: ({ children }) => <ul className="my-2">{children}</ul>,
   li: ({ children }) => <li className="list-disc list-inside">{children}</li>,
