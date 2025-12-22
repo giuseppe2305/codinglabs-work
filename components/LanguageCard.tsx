@@ -16,7 +16,7 @@ function LanguageCard({ title, description, disabled = false }: Props) {
             <div className={` size-1 rounded-full ${disabled ? "bg-destructive" : "bg-primary"}`}></div>
             {title}
           </CardTitle>
-          <CardDescription className={`mt-4 ${disabled ? "text-muted-foreground/50" : ""}`}>
+          <CardDescription className={`mt-3 ${disabled ? "text-muted-foreground/50" : ""}`}>
             {description}
           </CardDescription>
         </CardContent>
