@@ -1,6 +1,6 @@
 import { AsideSubtitle } from "@/components/AsideSubtitle";
 import { getDocsList } from "@/lib/docs";
-import Link from "next/link";
+import { ArticleLink } from "./ArticleLink";
 
 interface Props {
   topic: string;
@@ -12,16 +12,9 @@ function AsideNavigation({ topic }: Props) {
   return (
     <aside className="flex flex-col text-sm">
       <AsideSubtitle>Articles</AsideSubtitle>
-      <ul>
+      <ul className="flex flex-col gap-2">
         {navigation.map((article) => (
-          <li className="not-first:mt-6" key={article.slug}>
-            <Link
-              href={`/documentazione/${topic}/${article.slug}`}
-              className="flex flex-col gap-2"
-            >
-              {article.title}
-            </Link>
-          </li>
+          <ArticleLink key={article.slug} topic={topic} article={article} />
         ))}
       </ul>
     </aside>
