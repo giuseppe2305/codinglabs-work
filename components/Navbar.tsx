@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { HoverLink } from "@/components/HoverLink";
 import { Logo } from "@/components/Logo";
 
-import { ShoppingCart } from "lucide-react";
+import { Clock, ShoppingCart } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -33,21 +33,39 @@ function Navbar() {
                 <ul className="grid w-80 gap-4">
                   <li>
                     <NavigationMenuLink asChild>
-                      <Link href="#">
-                        <div className="font-medium">Javascript</div>
+                      <Link href="#" className="cursor-not-allowed">
+                        <div className="font-medium flex items-center justify-between text-muted-foreground">
+                          <div className="font-bold">Javascript</div>
+                          <div className="flex items-center italic gap-1">
+                            <Clock className="size-3.5" />
+                            In arrivo
+                          </div>
+                        </div>
                         <div className="text-muted-foreground">Impara lo sviluppo moderno con Javascript</div>
                       </Link>
                     </NavigationMenuLink>
                     <NavigationMenuLink asChild>
-                      <Link href="#">
-                        <div className="font-medium">React</div>
+                      <Link href="#" className="cursor-not-allowed">
+                        <div className="font-medium flex items-center justify-between text-muted-foreground">
+                          <div>React</div>
+                          <div className="flex items-center italic gap-1">
+                            <Clock className="size-3.5" />
+                            In arrivo
+                          </div>
+                        </div>
                         <div className="text-muted-foreground">Costruisci UIs con il framework piú popolare</div>
                       </Link>
                     </NavigationMenuLink>
                     <NavigationMenuLink asChild>
-                      <Link href="#">
-                        <div className="font-medium">Other</div>
-                        <div className="text-muted-foreground">Esplora gli altri corsi che ho realizzato</div>
+                      <Link href="#" className="cursor-not-allowed">
+                        <div className="font-medium flex items-center justify-between text-muted-foreground">
+                          <div>Next.js</div>
+                          <div className="flex items-center italic gap-1">
+                            <Clock className="size-3.5" />
+                            In arrivo
+                          </div>
+                        </div>
+                        <div className="text-muted-foreground">Full-stack development basato su React</div>
                       </Link>
                     </NavigationMenuLink>
                   </li>
