@@ -4,6 +4,8 @@ import type { ChildrenNode } from "@/types/ChildrenNode";
 
 import { Analytics } from "@vercel/analytics/next";
 import { Navbar } from "@/components/Navbar";
+import { Alert, AlertTitle } from "@/components/ui/alert";
+import { Smile } from "lucide-react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,6 +13,10 @@ export default function RootLayout({ children }: ChildrenNode) {
   return (
     <html lang="en">
       <body className={`${inter.className} bg-background text-foreground dark flex flex-col max-w-screen`}>
+        <Alert className="bg-primary rounded-none flex items-center justify-center">
+          <Smile />
+          <AlertTitle>Attenzione</AlertTitle>
+        </Alert>
         <Navbar />
         {children}
         <Analytics />
