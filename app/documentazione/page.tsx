@@ -7,7 +7,7 @@ export default function page() {
     <>
       <Section className="border-b">
         <div className="h-100 mt-30 w-1/2 flex flex-col justify-center">
-          <Section.Title>Documentazioni</Section.Title>
+          <Section.Title>Documentazione</Section.Title>
           <Section.Subtitle>
             Esplora la nostra raccolta completa di guide, tutorial e documentazione tecnica. Dalle basi alla padronanza
             avanzata, con esempi pratici e approfondimenti dettagliati.
