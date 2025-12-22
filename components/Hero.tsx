@@ -2,6 +2,7 @@ import { Highlight } from "@/components/Highlight";
 import { ShadowBlob } from "@/components/ShadowBlob";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 function Hero() {
   return (
@@ -17,12 +18,14 @@ function Hero() {
         richieste dal mercato.
       </p>
       <div className="flex max-md:flex-col items-center gap-4">
-        <Button size="lg">
-          Inizia ora
-          <ChevronRight />
+        <Button size="lg" asChild>
+          <Link href="documentazione">
+            Inizia ora
+            <ChevronRight />
+          </Link>
         </Button>
-        <Button size="lg" variant="secondary">
-          Risorse utili
+        <Button size="lg" variant="secondary" asChild>
+          <Link href="documentazione">Risorse utili</Link>
         </Button>
       </div>
     </main>
