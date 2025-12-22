@@ -17,7 +17,7 @@ import {
 
 function Navbar() {
   return (
-    <header className="sticky h-15 flex w-full items-center z-1 backdrop-blur-3xl bg-background/90 border-b">
+    <header className="sticky top-0 h-15 flex w-full items-center z-1 backdrop-blur-3xl bg-background/90 border-b">
       <div className="w-[95%] grid grid-cols-2 md:grid-cols-[1fr_auto_1fr] items-center mx-auto">
         <Logo />
         <NavigationMenu>
