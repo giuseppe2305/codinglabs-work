@@ -115,10 +115,10 @@ function Navbar() {
           </NavigationMenuList>
         </NavigationMenu>
         <div className="justify-self-end flex items-center gap-4">
-          <HoverLink href="#">
+          <HoverLink href="#" className="cursor-not-allowed">
             <ShoppingCart />
           </HoverLink>
-          <Button>Accedi</Button>
+          <Button className="cursor-not-allowed">Accedi</Button>
         </div>
       </div>
     </header>
