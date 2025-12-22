@@ -1,17 +1,183 @@
 # Variabili in JavaScript
 
-Le variabili servono a **memorizzare dati** che possono essere riutilizzati e manipolati nel codice.  
-In JavaScript esistono **tre modi** per dichiarare una variabile: `var`, `let` e `const`. Non sono equivalenti.
+Le variabili sono contenitori che permettono di **memorizzare valori** e riutilizzarli nel codice.  
+In JavaScript il tipo di una variabile dipende dal valore assegnato, non dalla dichiarazione.
 
 ---
 
-## Dichiarare una variabile
+## Dichiarazione delle variabili
 
-### `let`
+In JavaScript esistono **tre parole chiave** per dichiarare variabili:
 
-È il modo **standard e consigliato** per dichiarare variabili che **possono cambiare valore**.
+- `let`
+- `const`
+- `var` (obsoleta)
+
+---
+
+## let
+
+`let` si usa quando il valore **può cambiare nel tempo**.
 
 ```js
-let age = 30;
-age = 31;
+let counter = 0;
+counter = counter + 1;
 ```
+
+Caratteristiche:
+
+- Scope di blocco
+- Può essere riassegnata
+- Non può essere ridichiarata nello stesso scope
+
+---
+
+## const
+
+`const` si usa quando il valore **non deve essere riassegnato**.
+
+```js
+const API_URL = "https://api.example.com";
+```
+
+Caratteristiche:
+
+- Scope di blocco
+- Deve essere inizializzata subito
+- Non può essere riassegnata
+
+### Importante
+
+`const` **non rende il valore immutabile**, ma il riferimento.
+
+```js
+const user = { name: "Mario" };
+user.name = "Luigi";
+```
+
+---
+
+## var (da evitare)
+
+`var` è il vecchio modo di dichiarare variabili.
+
+```js
+var name = "Giuseppe";
+```
+
+Problemi principali:
+
+- Scope di funzione invece che di blocco
+- Può essere ridichiarata
+- Porta a bug difficili da individuare
+
+Nel codice moderno **non va usata**.
+
+---
+
+## Scope delle variabili
+
+Lo scope definisce **dove una variabile è accessibile**.
+
+### Scope di blocco
+
+```js
+if (true) {
+  let x = 10;
+  const y = 20;
+}
+```
+
+`x` e `y` non sono accessibili fuori dal blocco.
+
+---
+
+### Scope di funzione
+
+```js
+function example() {
+  var z = 5;
+}
+```
+
+`z` è accessibile solo all’interno della funzione.
+
+---
+
+## Hoisting
+
+JavaScript sposta le **dichiarazioni** in cima allo scope.
+
+- `var` viene inizializzata a `undefined`
+- `let` e `const` non sono utilizzabili prima della dichiarazione
+
+```js
+console.log(a); // undefined
+var a = 10;
+
+console.log(b); // errore
+let b = 10;
+```
+
+---
+
+## Tipi di dati
+
+JavaScript è **debolmente tipizzato**.
+
+```js
+let value = 10;
+value = "dieci";
+```
+
+Tipi principali:
+
+- string
+- number
+- boolean
+- null
+- undefined
+- object
+- array
+
+---
+
+## Convenzioni di naming
+
+- Usa camelCase
+- Usa nomi chiari e descrittivi
+- Evita abbreviazioni inutili
+
+```js
+let totalPrice;
+const MAX_ITEMS = 50;
+```
+
+---
+
+## Best practice
+
+- Usa `const` come scelta predefinita
+- Usa `let` solo se devi riassegnare
+- Non usare `var`
+- Una variabile deve avere una sola responsabilità
+
+---
+
+## Esempio completo
+
+```js
+const TAX_RATE = 0.22;
+let price = 100;
+
+const tax = price * TAX_RATE;
+const finalPrice = price + tax;
+```
+
+---
+
+## Conclusione
+
+Le variabili sono fondamentali in JavaScript.  
+Usarle correttamente riduce bug e rende il codice più leggibile.  
+Non è una questione di stile: è **correttezza tecnica**.
