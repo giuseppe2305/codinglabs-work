@@ -23,26 +23,31 @@ export default function page() {
         />
 
         <LanguageCard
+          disabled
           title="Typescript"
           description="Un set di strumenti potente che aggiunge tipi statici a JavaScript per codice più robusto e scalabile."
         />
 
         <LanguageCard
+          disabled
           title="Python"
           description="Linguaggio versatile e leggibile, leader nel campo dell'intelligenza artificiale e nell'analisi dati."
         />
 
         <LanguageCard
+          disabled
           title="HTML"
           description="Lo standard essenziale per definire la struttura e i contenuti di ogni pagina navigabile sul web."
         />
 
         <LanguageCard
+          disabled
           title="CSS"
           description="Il linguaggio stilistico usato per curare l'estetica, il layout e il design responsivo dei siti moderni."
         />
 
         <LanguageCard
+          disabled
           title="C++"
           description="Linguaggio ad alte prestazioni, ideale per lo sviluppo di sistemi, motori grafici e software complessi."
         />
