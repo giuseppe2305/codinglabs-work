@@ -123,4 +123,20 @@
   *::selection {
     @apply bg-primary/70 text-primary-foreground;
   }
+
+  *::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  *::-webkit-scrollbar-track {
+    @apply bg-background rounded-md;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    @apply bg-accent rounded-md;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    @apply bg-background;
+  }
 }
