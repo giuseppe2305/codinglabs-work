@@ -74,6 +74,26 @@ function Navbar() {
             </NavigationMenuItem>
             <NavigationMenuItem>
               <NavigationMenuTrigger>Bundle</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-80 gap-4">
+                  <li>
+                    <NavigationMenuLink asChild>
+                      <Link href="#" className="cursor-not-allowed">
+                        <div className="font-medium flex items-center justify-between text-muted-foreground">
+                          <div>Bundle Frontend</div>
+                          <div className="flex items-center italic gap-1">
+                            <Clock className="size-3.5" />
+                            In arrivo
+                          </div>
+                        </div>
+                        <div className="text-muted-foreground">
+                          Tutto quello che ti serve per diventare uno sviluppatore frontend nel 2026
+                        </div>
+                      </Link>
+                    </NavigationMenuLink>
+                  </li>
+                </ul>
+              </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <NavigationMenuTrigger>Risorse</NavigationMenuTrigger>
@@ -82,8 +102,10 @@ function Navbar() {
                   <li>
                     <NavigationMenuLink asChild>
                       <Link href="/documentazione">
-                        <div className="font-medium">Documentazione</div>
-                        <div className="text-muted-foreground">Tutte le documentazioni necessarie per sviluppare</div>
+                        <div className="font-medium text-white">Documentazione</div>
+                        <div className="text-muted-foreground">
+                          Tutte le documentazioni necessarie per il tuo apprendimento
+                        </div>
                       </Link>
                     </NavigationMenuLink>
                   </li>
@@ -92,7 +114,7 @@ function Navbar() {
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
-        <div className="justify-self-end flex items-center gap-8">
+        <div className="justify-self-end flex items-center gap-4">
           <HoverLink href="#">
             <ShoppingCart />
           </HoverLink>
