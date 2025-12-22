@@ -19,7 +19,7 @@ export default function RootLayout({ children }: ChildrenNode) {
           <AlertTitle>
             Benvenuto! il sito attualmente é in costruzione, ti invitiamo a visitare la pagina{" "}
             <Link href="/documentazione" className="underline">
-              Documentazione
+              documentazione
             </Link>{" "}
             se vuoi iniziare ad imparare.
           </AlertTitle>
