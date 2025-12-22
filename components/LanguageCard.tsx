@@ -1,4 +1,9 @@
-import { Card, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
+import {
+  Card,
+  CardTitle,
+  CardContent,
+  CardDescription,
+} from "@/components/ui/card";
 import Link from "next/link";
 
 interface Props {
@@ -8,7 +13,7 @@ interface Props {
 
 function LanguageCard({ title, description }: Props) {
   return (
-    <Link href={`/documentazione/${title.toLowerCase()}`}>
+    <Link href={`/documentazione/${title.toLowerCase()}/introduzione`}>
       <Card className="w-100 hover:bg-secondary cursor-pointer">
         <CardContent>
           <CardTitle className="text-lg flex items-center gap-3">
