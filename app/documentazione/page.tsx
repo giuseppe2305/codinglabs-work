@@ -16,9 +16,35 @@ export default function page() {
         </div>
       </Section>
       <Section className="grid grid-cols-3 gap-10 mt-4">
+        <h2 className="text-xl font-medium text-accent-foreground col-span-3">Linguaggi</h2>
         <LanguageCard
           title="Javascript"
-          description="Il linguaggio di programmazione per eccellenza nello sviluppo web, sia per il frontend che per il backend."
+          description="Il linguaggio fondamentale per creare interattività nel web moderno, sia lato client che lato server."
+        />
+
+        <LanguageCard
+          title="Typescript"
+          description="Un set di strumenti potente che aggiunge tipi statici a JavaScript per codice più robusto e scalabile."
+        />
+
+        <LanguageCard
+          title="Python"
+          description="Linguaggio versatile e leggibile, leader nel campo dell'intelligenza artificiale e nell'analisi dati."
+        />
+
+        <LanguageCard
+          title="HTML"
+          description="Lo standard essenziale per definire la struttura e i contenuti di ogni pagina navigabile sul web."
+        />
+
+        <LanguageCard
+          title="CSS"
+          description="Il linguaggio stilistico usato per curare l'estetica, il layout e il design responsivo dei siti moderni."
+        />
+
+        <LanguageCard
+          title="C++"
+          description="Linguaggio ad alte prestazioni, ideale per lo sviluppo di sistemi, motori grafici e software complessi."
         />
       </Section>
     </>
