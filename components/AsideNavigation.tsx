@@ -13,7 +13,6 @@ function AsideNavigation({ topic }: Props) {
     <aside className="flex flex-col text-sm">
       <ul className="flex flex-col gap-2">
         {sections.map((s) => (
-          // <ArticleLink key={s} topic={s} article={s} />
           <div key={s.section}>
             <AsideSubtitle>{s.section}</AsideSubtitle>
             {s.pages.map((p) => (
