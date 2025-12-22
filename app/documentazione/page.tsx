@@ -12,7 +12,7 @@ export default function page() {
             Esplora la nostra raccolta completa di guide, tutorial e documentazione tecnica. Dalle basi alla padronanza
             avanzata, con esempi pratici e approfondimenti dettagliati.
           </Section.Subtitle>
-          <Button className="self-start mt-10">Suggerisci Modifiche</Button>
+          <Button className="self-start mt-6">Suggerisci Modifiche</Button>
         </div>
       </Section>
       <Section className="grid grid-cols-3 gap-10 mt-4">
