@@ -1,37 +1,42 @@
 import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkMdx from "remark-mdx";
-import remarkSlug from "remark-slug";
-import type { Heading } from "@/types/Heading";
-import type { Root } from "remark-slug";
+import { visit } from "unist-util-visit";
+import type { Heading as MdastHeading, Text } from "mdast";
 
-export function generateTOC(mdxContent: string) {
-  const tree = unified()
-    .use(remarkParse)
-    .use(remarkMdx)
-    .use(remarkSlug)
-    .parse(mdxContent);
+export interface TOCItem {
+  title: string;
+  url: string;
+  depth: number;
+}
 
-  const headings: Heading[] = [];
+export function generateTOC(mdxContent: string): TOCItem[] {
+  const tree = unified().use(remarkParse).use(remarkMdx).parse(mdxContent);
 
-  function visit(node: Root) {
-    if (node.type === "heading" && (node.depth === 2 || node.depth === 3)) {
-      const text = node.children
-        .filter((child) => child.type === "text")
-        .map((child) => child.value)
-        .join("");
-      headings.push({
-        text,
-        id: node.data?.id || text.toLowerCase().replace(/\s+/g, "-"),
+  const toc: TOCItem[] = [];
+
+  visit(tree, "heading", (node: MdastHeading) => {
+    // Extract text content from the heading's children
+    const title = node.children
+      .filter((child): child is Text => child.type === "text")
+      .map((child) => child.value)
+      .join("");
+
+    // Create a URL-friendly slug
+    const url = `#${title
+      .toLowerCase()
+      .replace(/\s+/g, "-")
+      .replace(/[^\w-]/g, "")}`;
+
+    // We usually only want H2 and H3 for a TOC
+    if (node.depth > 1 && node.depth < 4) {
+      toc.push({
+        title,
+        url,
         depth: node.depth,
       });
     }
-    if (node.children) {
-      node.children.forEach(visit);
-    }
-  }
+  });
 
-  visit(tree);
-
-  return headings;
+  return toc;
 }
