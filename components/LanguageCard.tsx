@@ -10,7 +10,11 @@ interface Props {
 function LanguageCard({ title, description, disabled = false }: Props) {
   return (
     <Link href={disabled ? "/" : `/documentazione/${title.toLowerCase()}/introduzione`}>
-      <Card className={`w-100 ${disabled ? "cursor-not-allowed" : "cursor-pointer hover:bg-secondary"}`}>
+      <Card
+        className={`w-full max-w-80 sm:max-w-100 ${
+          disabled ? "cursor-not-allowed" : "cursor-pointer hover:bg-secondary"
+        }`}
+      >
         <CardContent>
           <CardTitle className={`text-lg flex items-center gap-3 ${disabled ? "text-muted-foreground" : ""}`}>
             <div className={` size-1 rounded-full ${disabled ? "bg-destructive" : "bg-primary"}`}></div>
