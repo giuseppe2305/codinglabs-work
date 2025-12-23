@@ -6,7 +6,6 @@ interface Props {
 }
 
 function AsideTOC({ headings }: Props) {
-  console.log(headings);
   return (
     <aside className="text-sm flex flex-col gap-2">
       <AsideSubtitle>Tabella dei Contenuti</AsideSubtitle>
