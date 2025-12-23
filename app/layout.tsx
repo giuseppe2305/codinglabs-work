@@ -7,8 +7,27 @@ import { Navbar } from "@/components/Navbar";
 import { Alert, AlertTitle } from "@/components/ui/alert";
 import { Smile } from "lucide-react";
 import Link from "next/link";
+import { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  title: "Coding Labs",
+  description: "Diventa uno sviluppatore, studiando in italiano.",
+  icons: {
+    icon: [
+      {
+        media: "(prefers-color-scheme: light)",
+        url: "/logo-dark.svg",
+      },
+
+      {
+        media: "(prefers-color-scheme: dark)",
+        url: "/logo-light.svg",
+      },
+    ],
+  },
+};
 
 export default function RootLayout({ children }: ChildrenNode) {
   return (
