@@ -11,7 +11,7 @@ export default async function layout({ children, params }: Props) {
   const { topic } = await params;
 
   return (
-    <Section className="grid grid-cols-[200px_1fr_200px] gap-8 mt-10">
+    <Section className="grid md:grid-rows-[auto_1fr] md:grid-cols-[200px_1fr] lg:grid-cols-[200px_1fr_200px] gap-8 mt-10">
       <AsideNavigation topic={topic} />
       {children}
     </Section>

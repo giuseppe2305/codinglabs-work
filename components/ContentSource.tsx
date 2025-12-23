@@ -9,7 +9,7 @@ function ContentSource({ source }: Props) {
   const components = useMDXComponents();
 
   return (
-    <article>
+    <article className="row-span-2">
       <MDXRemote source={source} components={components} />
     </article>
   );
