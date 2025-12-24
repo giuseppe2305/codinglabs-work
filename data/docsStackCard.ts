@@ -10,7 +10,7 @@ export const languages = [
     id: 1,
     title: "Typescript",
     description:
-      "Un set di strumenti potente che aggiunge tipi statici a JavaScript per codice più robusto e scalabile.",
+      "Un set di strumenti potente che aggiunge tipi statici a JavaScript per codice scalabile.",
     disabled: true,
   },
   {
@@ -38,7 +38,7 @@ export const languages = [
     id: 5,
     title: "C++",
     description:
-      "Linguaggio ad alte prestazioni, ideale per lo sviluppo di sistemi, motori grafici e software complessi.",
+      "Linguaggio ad alte prestazioni, ideale per lo sviluppo di sistemi e software complessi.",
     disabled: true,
   },
 ];
@@ -48,14 +48,14 @@ export const frameworks = [
     id: 0,
     title: "React",
     description:
-      "Libreria UI basata su componenti, focalizzata sulla gestione dello stato e sulla composizione dell’interfaccia.",
+      "Libreria UI basata su componenti, gestione dello stato e sulla composizione dell'interfaccia.",
     disabled: false,
   },
   {
     id: 1,
     title: "Vue",
     description:
-      "Framework progressivo che combina semplicità e potenza, con una curva di apprendimento graduale.",
+      "Framework progressivo che combina semplicità e potenza, recentemente in crescita.",
     disabled: true,
   },
   {
