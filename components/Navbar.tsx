@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
@@ -23,53 +25,60 @@ function Navbar() {
         <NavigationMenu className="max-md:hidden">
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+              <NavigationMenuLink
+                asChild
+                className={navigationMenuTriggerStyle()}
+              >
                 <Link href="/">Home</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <NavigationMenuTrigger>Corsi</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid w-80 gap-4">
-                  <li>
-                    <NavigationMenuLink asChild>
-                      <Link href="#" className="cursor-not-allowed">
-                        <div className="font-medium flex items-center justify-between text-muted-foreground">
-                          <div className="font-bold">Javascript</div>
-                          <div className="flex items-center italic gap-1">
-                            <Clock className="size-3.5" />
-                            In arrivo
-                          </div>
+                <div className="flex flex-col w-80 gap-4">
+                  <NavigationMenuLink asChild>
+                    <Link href="/" className="cursor-not-allowed">
+                      <div className="font-medium flex items-center justify-between text-muted-foreground">
+                        <div className="font-bold">Javascript</div>
+                        <div className="flex items-center italic gap-1">
+                          <Clock className="size-3.5" />
+                          In arrivo
                         </div>
-                        <div className="text-muted-foreground">Impara lo sviluppo moderno con Javascript</div>
-                      </Link>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink asChild>
-                      <Link href="#" className="cursor-not-allowed">
-                        <div className="font-medium flex items-center justify-between text-muted-foreground">
-                          <div>React</div>
-                          <div className="flex items-center italic gap-1">
-                            <Clock className="size-3.5" />
-                            In arrivo
-                          </div>
+                      </div>
+                      <div className="text-muted-foreground">
+                        Impara lo sviluppo moderno con Javascript
+                      </div>
+                    </Link>
+                  </NavigationMenuLink>
+                  <NavigationMenuLink asChild>
+                    <Link href="/" className="cursor-not-allowed">
+                      <div className="font-medium flex items-center justify-between text-muted-foreground">
+                        <div>React</div>
+                        <div className="flex items-center italic gap-1">
+                          <Clock className="size-3.5" />
+                          In arrivo
                         </div>
-                        <div className="text-muted-foreground">Costruisci UIs con il framework piú popolare</div>
-                      </Link>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink asChild>
-                      <Link href="#" className="cursor-not-allowed">
-                        <div className="font-medium flex items-center justify-between text-muted-foreground">
-                          <div>Next.js</div>
-                          <div className="flex items-center italic gap-1">
-                            <Clock className="size-3.5" />
-                            In arrivo
-                          </div>
+                      </div>
+                      <div className="text-muted-foreground">
+                        Costruisci UIs con il framework piú popolare
+                      </div>
+                    </Link>
+                  </NavigationMenuLink>
+                  <NavigationMenuLink asChild>
+                    <Link href="/" className="cursor-not-allowed">
+                      <div className="font-medium flex items-center justify-between text-muted-foreground">
+                        <div>Next.js</div>
+                        <div className="flex items-center italic gap-1">
+                          <Clock className="size-3.5" />
+                          In arrivo
                         </div>
-                        <div className="text-muted-foreground">Full-stack development basato su React</div>
-                      </Link>
-                    </NavigationMenuLink>
-                  </li>
-                </ul>
+                      </div>
+                      <div className="text-muted-foreground">
+                        Full-stack development basato su React
+                      </div>
+                    </Link>
+                  </NavigationMenuLink>
+                </div>
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
@@ -78,7 +87,7 @@ function Navbar() {
                 <ul className="grid w-80 gap-4">
                   <li>
                     <NavigationMenuLink asChild>
-                      <Link href="#" className="cursor-not-allowed">
+                      <Link href="/" className="cursor-not-allowed">
                         <div className="font-medium flex items-center justify-between text-muted-foreground">
                           <div>Bundle Frontend</div>
                           <div className="flex items-center italic gap-1">
@@ -87,7 +96,8 @@ function Navbar() {
                           </div>
                         </div>
                         <div className="text-muted-foreground">
-                          Tutto quello che ti serve per diventare uno sviluppatore frontend nel 2026
+                          Tutto quello che ti serve per diventare uno
+                          sviluppatore frontend nel 2026
                         </div>
                       </Link>
                     </NavigationMenuLink>
@@ -102,9 +112,12 @@ function Navbar() {
                   <li>
                     <NavigationMenuLink asChild>
                       <Link href="/documentazione">
-                        <div className="font-medium text-white">Documentazione</div>
+                        <div className="font-medium text-white">
+                          Documentazione
+                        </div>
                         <div className="text-muted-foreground">
-                          Tutte le documentazioni necessarie per il tuo apprendimento
+                          Tutte le documentazioni necessarie per il tuo
+                          apprendimento
                         </div>
                       </Link>
                     </NavigationMenuLink>
@@ -115,7 +128,7 @@ function Navbar() {
           </NavigationMenuList>
         </NavigationMenu>
         <div className="justify-self-end flex items-center gap-4">
-          <HoverLink href="#" className="cursor-not-allowed">
+          <HoverLink href="/" className="cursor-not-allowed">
             <ShoppingCart />
           </HoverLink>
           <Button className="cursor-not-allowed">Accedi</Button>
