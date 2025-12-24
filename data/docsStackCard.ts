@@ -49,7 +49,7 @@ export const frameworks = [
     title: "React",
     description:
       "Libreria UI basata su componenti, focalizzata sulla gestione dello stato e sulla composizione dell’interfaccia.",
-    disabled: true,
+    disabled: false,
   },
   {
     id: 1,
@@ -67,23 +67,33 @@ export const frameworks = [
   },
   {
     id: 3,
-    title: "Next.js",
-    description:
-      "Framework React per applicazioni full-stack, con rendering ibrido e routing basato su file.",
-    disabled: true,
-  },
-  {
-    id: 4,
     title: "Svelte",
     description:
       "Framework compilato che sposta il lavoro dal browser al build step, riducendo il runtime.",
     disabled: true,
   },
   {
-    id: 5,
+    id: 4,
     title: "Solid",
     description:
       "Framework reattivo ad alte prestazioni, ispirato a React ma senza Virtual DOM.",
+    disabled: true,
+  },
+];
+
+export const metaFrameworks = [
+  {
+    id: 0,
+    title: "Next.js",
+    description:
+      "Framework React per applicazioni web complete con rendering lato server e generazione statica",
+    disabled: true,
+  },
+  {
+    id: 1,
+    title: "Astro",
+    description:
+      "Framework moderno per siti web veloci che invia il minimo JavaScript necessario",
     disabled: true,
   },
 ];
