@@ -6,25 +6,25 @@ import Link from "next/link";
 
 function Hero() {
   return (
-    <main className="flex items-center justify-center grow flex-col gap-7 relative overflow-hidden">
+    <main className="flex items-center justify-center grow flex-col gap-7 relative overflow-hidden p-4">
       <ShadowBlob />
-      <h1 className="text-center text-accent-foreground text-4xl sm:text-5xl lg:text-7xl font-bold">
+      <h1 className="text-center text-accent-foreground text-4xl sm:text-5xl lg:text-7xl font-extrabold">
         Costruisci la Tua
         <br />
         Carriera nel <Highlight>Coding</Highlight>
       </h1>
-      <p className="max-w-150 w-[90%] text-center md:text-lg">
-        Dalla teoria alla pratica: costruisci progetti reali, scrivi codice funzionante e sviluppa le competenze
-        richieste dal mercato.
+      <p className="max-w-150 w-full text-center sm:text-lg">
+        Dalla teoria alla pratica: costruisci progetti reali, scrivi codice
+        funzionante e sviluppa le competenze richieste dal mercato.
       </p>
       <div className="flex max-md:flex-col max-md:mt-10 items-center gap-4">
-        <Button size="lg" asChild>
+        <Button size="lg" asChild className="group">
           <Link href="documentazione">
             Inizia ora
-            <ChevronRight />
+            <ChevronRight className="group-hover:translate-x-2 duration-150" />
           </Link>
         </Button>
-        <Button size="lg" variant="secondary" asChild>
+        <Button size="lg" variant="outline" asChild>
           <Link href="documentazione">Risorse utili</Link>
         </Button>
       </div>
