@@ -49,7 +49,7 @@ export const frameworks = [
     title: "React",
     description:
       "Libreria UI basata su componenti, focalizzata sulla gestione dello stato e sulla composizione dell’interfaccia.",
-    disabled: false,
+    disabled: true,
   },
   {
     id: 1,
