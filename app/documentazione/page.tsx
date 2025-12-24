@@ -1,7 +1,7 @@
 import { DocsCardSection } from "@/components/DocsCardSection";
 import { Section } from "@/components/Section/Section";
 import { Button } from "@/components/ui/button";
-import { languages } from "@/data/docsStackCard";
+import { frameworks, languages } from "@/data/docsStackCard";
 
 export default function page() {
   return (
@@ -20,6 +20,7 @@ export default function page() {
         </div>
       </Section>
       <DocsCardSection label="Linguaggi" list={languages} />
+      <DocsCardSection label="Frameworks" list={frameworks} />
     </>
   );
 }
