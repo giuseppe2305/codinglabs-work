@@ -21,7 +21,9 @@ function DocsStackCard({ title, description, disabled = false }: Props) {
     >
       <Card
         className={`w-full h-full py-3 max-w-100 duration-150 hover:scale-101 ${
-          disabled ? "cursor-not-allowed" : "cursor-pointer hover:bg-secondary"
+          disabled
+            ? "cursor-not-allowed hover:border-destructive/30"
+            : "cursor-pointer hover:bg-secondary hover:border-primary/30"
         }`}
       >
         <CardContent className="px-4">
