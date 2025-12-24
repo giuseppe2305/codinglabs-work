@@ -19,7 +19,7 @@ function Hero() {
       </p>
       <div className="flex max-md:flex-col max-md:mt-10 items-center gap-4">
         <Button size="lg" asChild className="group">
-          <Link href="documentazione">
+          <Link href="corsi">
             Inizia ora
             <ChevronRight className="group-hover:translate-x-2 duration-150" />
           </Link>
