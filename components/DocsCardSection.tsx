@@ -1,7 +1,7 @@
 import type { DocsTechnology } from "@/types/DocsTechnology";
 
 import { Section } from "./Section/Section";
-import { LanguageCard } from "./LanguageCard";
+import { DocsStackCard } from "./DocsStackCard";
 
 interface Props {
   list: DocsTechnology[];
@@ -15,7 +15,7 @@ function DocsCardSection({ list, label }: Props) {
         {label}
       </h2>
       {list.map((lan) => (
-        <LanguageCard
+        <DocsStackCard
           key={lan.id}
           title={lan.title}
           description={lan.description}
