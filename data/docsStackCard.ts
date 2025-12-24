@@ -42,3 +42,48 @@ export const languages = [
     disabled: true,
   },
 ];
+
+export const frameworks = [
+  {
+    id: 0,
+    title: "React",
+    description:
+      "Libreria UI basata su componenti, focalizzata sulla gestione dello stato e sulla composizione dell’interfaccia.",
+    disabled: false,
+  },
+  {
+    id: 1,
+    title: "Vue",
+    description:
+      "Framework progressivo che combina semplicità e potenza, con una curva di apprendimento graduale.",
+    disabled: true,
+  },
+  {
+    id: 2,
+    title: "Angular",
+    description:
+      "Framework completo e opinionated, pensato per applicazioni enterprise di grandi dimensioni.",
+    disabled: true,
+  },
+  {
+    id: 3,
+    title: "Next.js",
+    description:
+      "Framework React per applicazioni full-stack, con rendering ibrido e routing basato su file.",
+    disabled: true,
+  },
+  {
+    id: 4,
+    title: "Svelte",
+    description:
+      "Framework compilato che sposta il lavoro dal browser al build step, riducendo il runtime.",
+    disabled: true,
+  },
+  {
+    id: 5,
+    title: "Solid",
+    description:
+      "Framework reattivo ad alte prestazioni, ispirato a React ma senza Virtual DOM.",
+    disabled: true,
+  },
+];
