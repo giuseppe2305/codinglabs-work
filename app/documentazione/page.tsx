@@ -1,4 +1,4 @@
-import { DocsCardSection } from "@/components/DocsCardSection";
+import { DocsStackSection } from "@/components/DocsStackSection";
 import { Section } from "@/components/Section/Section";
 import { Button } from "@/components/ui/button";
 import { frameworks, languages, metaFrameworks } from "@/data/docsStackCard";
@@ -19,9 +19,9 @@ export default function page() {
           </Button>
         </div>
       </Section>
-      <DocsCardSection label="Linguaggi" list={languages} />
-      <DocsCardSection label="Frameworks" list={frameworks} />
-      <DocsCardSection label="Meta Frameworks" list={metaFrameworks} />
+      <DocsStackSection label="Linguaggi" list={languages} />
+      <DocsStackSection label="Frameworks" list={frameworks} />
+      <DocsStackSection label="Meta Frameworks" list={metaFrameworks} />
     </>
   );
 }
