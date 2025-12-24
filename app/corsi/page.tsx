@@ -1,5 +1,6 @@
 import { Highlight } from "@/components/Highlight";
 import { Section } from "@/components/Section/Section";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function page() {
   return (
@@ -13,6 +14,13 @@ export default function page() {
       </Section>
       <Section>
         <Section.Title>I nostri corsi</Section.Title>
+        <div className="grid grid-cols-3 mt-10">
+          <Card>
+            <CardHeader>
+              <CardTitle>CSS Moderno</CardTitle>
+            </CardHeader>
+          </Card>
+        </div>
       </Section>
     </>
   );
