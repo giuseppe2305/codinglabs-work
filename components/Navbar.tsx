@@ -70,7 +70,26 @@ function Navbar() {
                       description:
                         "Tutte le documentazioni necessarie per il tuo apprendimento",
                     }}
+                  />
+
+                  <NavigationListItem
                     disabled
+                    data={{
+                      link: "/",
+                      label: "Esercizi",
+                      description:
+                        "Centinaia di esercizi per migliorare le tue competenze",
+                    }}
+                  />
+
+                  <NavigationListItem
+                    disabled
+                    data={{
+                      link: "/",
+                      label: "Softwares e Tools",
+                      description:
+                        "Esplora i softwares e tools utilizzati nello sviluppo moderno",
+                    }}
                   />
                 </ul>
               </NavigationMenuContent>
