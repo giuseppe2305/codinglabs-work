@@ -7,7 +7,13 @@ import type { ClassName } from "@/types/ClassName";
 type Props = ChildrenNode & ClassName;
 
 function Section({ children, className }: Props) {
-  return <section className={`w-[90%] max-w-300 mx-auto py-15 ${className}`}>{children}</section>;
+  return (
+    <section
+      className={`w-[95%] max-w-300 mx-auto py-15 border-b ${className}`}
+    >
+      {children}
+    </section>
+  );
 }
 
 Section.Title = Title;
