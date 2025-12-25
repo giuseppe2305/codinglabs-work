@@ -1,6 +1,6 @@
-import { AsideSubtitle } from "@/components/AsideSubtitle";
+import { AsideSubtitle } from "@/components/documentation/AsideSubtitle";
 import { getDocsList } from "@/lib/docs";
-import { InFutureLabel } from "./InFutureLabel";
+import { InFutureLabel } from "../InFutureLabel";
 import { AsideList } from "./AsideList";
 import { ArticleLink } from "./ArticleLink";
 
