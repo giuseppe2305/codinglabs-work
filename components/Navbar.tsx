@@ -86,7 +86,7 @@ function Navbar() {
                     disabled
                     data={{
                       link: "/",
-                      label: "Softwares e Tools",
+                      label: "Software e Tools",
                       description:
                         "Esplora i softwares e tools utilizzati nello sviluppo moderno",
                     }}
