@@ -6,7 +6,7 @@ type Props = ChildrenString & ClassName;
 function Title({ children, className }: Props) {
   return (
     <h2
-      className={`text-3xl md:text-4xl text-accent-foreground font-semibold ${className}`}
+      className={`text-3xl max-md:text-center md:text-4xl text-accent-foreground font-semibold ${className}`}
     >
       {children}
     </h2>
