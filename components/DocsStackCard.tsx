@@ -40,9 +40,7 @@ function DocsStackCard({ title, description, disabled = false }: Props) {
             {title}
           </CardTitle>
           <CardDescription
-            className={`mt-3 ${
-              disabled ? "text-muted-foreground" : "text-foreground"
-            }`}
+            className={`mt-3 ${disabled ? "text-muted-foreground" : ""}`}
           >
             {description}
           </CardDescription>
