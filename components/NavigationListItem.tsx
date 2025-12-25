@@ -10,7 +10,10 @@ interface Props {
 function NavigationListItem({ data, disabled = false }: Props) {
   return (
     <li>
-      <NavigationMenuLink href={disabled ? "/" : data.link}>
+      <NavigationMenuLink
+        className={disabled ? "cursor-not-allowed" : ""}
+        href={disabled ? "/" : data.link}
+      >
         <div
           className={`font-medium flex items-center justify-between ${
             disabled ? "text-muted-foreground" : "text-white"
@@ -19,7 +22,9 @@ function NavigationListItem({ data, disabled = false }: Props) {
           <p>{data.label}</p>
           {disabled && <InFutureLabel />}
         </div>
-        <div className="text-muted-foreground">{data.description}</div>
+        <div className={disabled ? "text-muted-foreground" : "text-foreground"}>
+          {data.description}
+        </div>
       </NavigationMenuLink>
     </li>
   );
