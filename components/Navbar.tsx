@@ -1,12 +1,9 @@
 "use client";
 
 import Link from "next/link";
-
-import { Button } from "@/components/ui/button";
-import { HoverLink } from "@/components/HoverLink";
 import { Logo } from "@/components/Logo";
 
-import { Clock, ShoppingCart } from "lucide-react";
+import { Clock } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -14,6 +11,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
 function Navbar() {
@@ -24,56 +22,20 @@ function Navbar() {
         <NavigationMenu className="max-md:hidden">
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Corsi</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <div className="flex flex-col w-80 gap-4">
-                  <NavigationMenuLink asChild>
-                    <Link href="/" className="cursor-not-allowed">
-                      <div className="font-medium flex items-center justify-between text-muted-foreground">
-                        <div className="font-bold">Javascript</div>
-                        <div className="flex items-center italic gap-1">
-                          <Clock className="size-3.5" />
-                          In arrivo
-                        </div>
-                      </div>
-                      <div className="text-muted-foreground">
-                        Impara lo sviluppo moderno con Javascript
-                      </div>
-                    </Link>
-                  </NavigationMenuLink>
-                  <NavigationMenuLink asChild>
-                    <Link href="/" className="cursor-not-allowed">
-                      <div className="font-medium flex items-center justify-between text-muted-foreground">
-                        <div>React</div>
-                        <div className="flex items-center italic gap-1">
-                          <Clock className="size-3.5" />
-                          In arrivo
-                        </div>
-                      </div>
-                      <div className="text-muted-foreground">
-                        Costruisci UIs con il framework piú popolare
-                      </div>
-                    </Link>
-                  </NavigationMenuLink>
-                  <NavigationMenuLink asChild>
-                    <Link href="/" className="cursor-not-allowed">
-                      <div className="font-medium flex items-center justify-between text-muted-foreground">
-                        <div>Next.js</div>
-                        <div className="flex items-center italic gap-1">
-                          <Clock className="size-3.5" />
-                          In arrivo
-                        </div>
-                      </div>
-                      <div className="text-muted-foreground">
-                        Full-stack development basato su React
-                      </div>
-                    </Link>
-                  </NavigationMenuLink>
-                </div>
-              </NavigationMenuContent>
+              <NavigationMenuLink
+                href="/corsi"
+                className={navigationMenuTriggerStyle()}
+              >
+                Corsi
+              </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Bundle</NavigationMenuTrigger>
+              <NavigationMenuLink
+                href="/"
+                className={navigationMenuTriggerStyle()}
+              >
+                Bundles
+              </NavigationMenuLink>
               <NavigationMenuContent>
                 <ul className="grid w-80 gap-4">
                   <li>
@@ -118,12 +80,7 @@ function Navbar() {
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
-        <div className="justify-self-end flex items-center gap-4">
-          <HoverLink href="/" className="cursor-not-allowed">
-            <ShoppingCart />
-          </HoverLink>
-          <Button className="cursor-not-allowed">Accedi</Button>
-        </div>
+        <div className="justify-self-end flex items-center gap-4"></div>
       </div>
     </header>
   );
