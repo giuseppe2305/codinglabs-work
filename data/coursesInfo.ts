@@ -2,9 +2,9 @@ import { CourseInfo } from "@/types/CourseInfo";
 
 export const coursesInfo: CourseInfo[] = [
   {
-    title: "Javascript 2026",
+    title: "Corso JavaScript 2026",
     description:
-      "Corso di Javascript aggiornato alla sua versione piú recente del 2026.",
+      "Corso di JavaScript pensato per imparare JavaScript moderno, aggiornato agli standard attuali e alle best practice utilizzate nel mondo reale.",
     length: 12,
     link: "/",
     price: 40,
@@ -14,9 +14,9 @@ export const coursesInfo: CourseInfo[] = [
     disabled: true,
   },
   {
-    title: "CSS 2026",
+    title: "Corso HTML & CSS 2026",
     description:
-      "Corso di Javascript aggiornato alla sua versione piú recente del 2026.",
+      "Corso di HTML5 e CSS3 con l'obiettivo di costruire interfacce solide, responsive e manutenibili, come si fa oggi nello sviluppo frontend professionale.",
     length: 12,
     link: "/",
     price: 40,
