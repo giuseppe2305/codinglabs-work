@@ -10,7 +10,7 @@ interface Props {
 
 function DocsStackSection({ list, label }: Props) {
   return (
-    <Section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-20 max-md:justify-items-center">
+    <Section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-20 max-md:justify-items-center last:border-none">
       <Section.H3 className="col-span-full">{label}</Section.H3>
       {list.map((lan) => (
         <DocsStackCard
