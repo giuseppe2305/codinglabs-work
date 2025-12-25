@@ -9,4 +9,5 @@ export interface CourseInfo {
   tags: string[];
   id: number;
   disabled: boolean;
+  image: string;
 }
