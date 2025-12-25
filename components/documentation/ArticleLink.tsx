@@ -13,11 +13,18 @@ function ArticleLink({ topic, article }: Props) {
   const isActive = pathname.includes(`documentazione/${topic}/${article}`);
 
   return (
-    <li className={`p-2 rounded-md ${isActive ? "bg-accent text-accent-foreground " : null}`} key={article}>
-      <Link className="capitalize block" href={`/documentazione/${topic}/${article}`}>
-        {article}
-      </Link>
-    </li>
+    <Link
+      className={`p-2 rounded-md capitalize duration-150 hover:translate-x-0.5
+        ${
+          isActive
+            ? "bg-primary/5 text-primary font-semibold"
+            : "hover:bg-accent hover:text-accent-foreground"
+        }
+      `}
+      href={`/documentazione/${topic}/${article}`}
+    >
+      {article}
+    </Link>
   );
 }
 
