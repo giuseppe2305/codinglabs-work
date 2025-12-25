@@ -19,7 +19,7 @@ export default function page() {
       </Section>
       <Section className="grid grid-cols-[repeat(auto-fit,minmax(340px,1fr))] gap-6">
         <Section.Title className="col-span-full">I nostri corsi</Section.Title>
-        <CourseCard />
+        <CourseCard disabled />
         <CourseCard />
         <CourseCard />
       </Section>
