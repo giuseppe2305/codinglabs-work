@@ -27,6 +27,7 @@ export default function page() {
           </div>
         </div>
       </Section>
+
       <DocsStackSection label="Linguaggi" list={languages} />
       <DocsStackSection label="Frameworks" list={frameworks} />
       <DocsStackSection label="Meta Frameworks" list={metaFrameworks} />
