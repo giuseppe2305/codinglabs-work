@@ -1,6 +1,6 @@
 import type { ChildrenNode } from "@/types/ChildrenNode";
 
-import { AsideNavigation } from "@/components/AsideNavigation";
+import { AsideNavigation } from "@/components/documentation/AsideNavigation";
 import { Section } from "@/components/Section/Section";
 
 interface Props extends ChildrenNode {

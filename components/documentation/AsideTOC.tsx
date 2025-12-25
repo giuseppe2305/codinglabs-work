@@ -1,4 +1,4 @@
-import { AsideSubtitle } from "@/components/AsideSubtitle";
+import { AsideSubtitle } from "@/components/documentation/AsideSubtitle";
 import { TOCItem } from "@/lib/generateTOC";
 import { AsideList } from "./AsideList";
 import Link from "next/link";
