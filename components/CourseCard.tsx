@@ -20,7 +20,13 @@ interface Props {
 
 function CourseCard({ disabled, courseInfo: info }: Props) {
   return (
-    <Card className="pt-0 pb-4 gap-0 overflow-hidden rounded-md w-full max-w-120 mx-auto shadow-xl hover:shadow-primary/10 duration-150 hover:scale-101 cursor-pointer">
+    <Card
+      className={`pt-0 pb-4 gap-0 overflow-hidden rounded-md w-full max-w-120 mx-auto shadow-xl duration-150 hover:scale-101 ${
+        disabled
+          ? "hover:shadow-destructive/10 cursor-not-allowed"
+          : "hover:shadow-primary/10 cursor-pointer"
+      }`}
+    >
       <div className="aspect-2/1 bg-linear-to-b from-sky-400 to-sky-700 w-full flex items-center justify-center text-2xl">
         {info.title}
       </div>
