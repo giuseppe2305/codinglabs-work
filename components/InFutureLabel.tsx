@@ -1,11 +1,14 @@
+import type { ClassName } from "@/types/ClassName";
+
+import { Badge } from "./ui/badge";
 import { Clock } from "lucide-react";
 
-function InFutureLabel() {
+function InFutureLabel({ className }: ClassName) {
   return (
-    <div className="flex items-center italic gap-1">
-      <Clock className="size-3.5" />
+    <Badge variant="secondary" className={`italic ${className}`}>
+      <Clock />
       In arrivo
-    </div>
+    </Badge>
   );
 }
 
