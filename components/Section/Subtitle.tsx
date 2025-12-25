@@ -1,8 +1,13 @@
 import type { ChildrenString } from "@/types/ChildrenString";
+import type { ClassName } from "@/types/ClassName";
 
-function Subtitle({ children }: ChildrenString) {
+type Props = ChildrenString & ClassName;
+
+function Subtitle({ children, className }: Props) {
   return (
-    <p className="md:text-lg max-md:max-w-120 mx-auto mt-2 font-light">
+    <p
+      className={`md:text-lg max-md:max-w-120 max-w-180 mx-auto mt-2 font-light ${className}`}
+    >
       {children}
     </p>
   );

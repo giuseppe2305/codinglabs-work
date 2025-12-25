@@ -5,6 +5,7 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import Link from "next/link";
+import { InFutureLabel } from "./InFutureLabel";
 
 interface Props {
   title: string;
@@ -28,19 +29,24 @@ function DocsStackCard({ title, description, disabled = false }: Props) {
       >
         <CardContent className="px-4">
           <CardTitle
-            className={`text-lg flex items-center gap-3 ${
-              disabled ? "text-muted-foreground" : ""
-            }`}
+            className={
+              disabled
+                ? "text-muted-foreground flex items-center justify-between"
+                : ""
+            }
           >
-            <div
-              className={` size-1 rounded-full ${
-                disabled ? "bg-destructive" : "bg-primary"
-              }`}
-            ></div>
-            {title}
+            <span className="text-lg flex items-center gap-3">
+              <div
+                className={`size-1 rounded-full ${
+                  disabled ? "bg-destructive" : "bg-primary"
+                }`}
+              ></div>
+              {title}
+            </span>
+            {disabled && <InFutureLabel />}
           </CardTitle>
           <CardDescription
-            className={`mt-3 ${disabled ? "text-muted-foreground/50" : ""}`}
+            className={`mt-1.5 ${disabled ? "text-muted-foreground" : ""}`}
           >
             {description}
           </CardDescription>
