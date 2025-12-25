@@ -12,6 +12,8 @@ import { AlertCircle, Clock, Info, ShoppingCart } from "lucide-react";
 
 import { Alert, AlertTitle } from "./ui/alert";
 import type { CourseInfo } from "@/types/CourseInfo";
+import { CourseImagePlaceholder } from "./CourseImagePlaceholder";
+import Image from "next/image";
 
 interface Props {
   disabled?: boolean;
@@ -27,9 +29,13 @@ function CourseCard({ disabled, courseInfo: info }: Props) {
           : "hover:shadow-primary/10 cursor-pointer"
       }`}
     >
-      <div className="aspect-2/1 bg-linear-to-tr from-neutral-800 to-neutral-900 w-full flex items-center justify-center text-foreground">
-        In arrivo...
-      </div>
+      {disabled ? (
+        <CourseImagePlaceholder />
+      ) : (
+        <div className="w-full aspect-2/1 relative">
+          <Image src={`/courses/${info.image}`} alt="Course Picture" fill />
+        </div>
+      )}
       <CardHeader className="mt-4 px-4">
         <div className="flex items-center justify-between">
           {info.tags.map((tag) => (
