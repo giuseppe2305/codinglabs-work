@@ -13,6 +13,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { NavigationListItem } from "./NavigationListItem";
 
 function Navbar() {
   return (
@@ -62,19 +63,15 @@ function Navbar() {
               <NavigationMenuTrigger>Risorse</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid w-80 gap-4">
-                  <li>
-                    <NavigationMenuLink asChild>
-                      <Link href="/documentazione">
-                        <div className="font-medium text-white">
-                          Documentazione
-                        </div>
-                        <div className="text-muted-foreground">
-                          Tutte le documentazioni necessarie per il tuo
-                          apprendimento
-                        </div>
-                      </Link>
-                    </NavigationMenuLink>
-                  </li>
+                  <NavigationListItem
+                    data={{
+                      link: "/documentazione",
+                      label: "Documentazione",
+                      description:
+                        "Tutte le documentazioni necessarie per il tuo apprendimento",
+                    }}
+                    disabled
+                  />
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
