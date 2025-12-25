@@ -14,7 +14,6 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
 function Navbar() {
@@ -24,14 +23,6 @@ function Navbar() {
         <Logo />
         <NavigationMenu className="max-md:hidden">
           <NavigationMenuList>
-            <NavigationMenuItem>
-              <NavigationMenuLink
-                asChild
-                className={navigationMenuTriggerStyle()}
-              >
-                <Link href="/">Home</Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
             <NavigationMenuItem>
               <NavigationMenuTrigger>Corsi</NavigationMenuTrigger>
               <NavigationMenuContent>
