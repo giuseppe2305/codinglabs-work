@@ -6,7 +6,7 @@ function ProfileCard() {
   return (
     <div className="flex items-center gap-2 pb-5">
       <Avatar>
-        <AvatarImage />
+        <AvatarImage src="/profile-picture.jpg" />
         <AvatarFallback>GC</AvatarFallback>
       </Avatar>
       <span>Giuseppe Crescitelli</span>
