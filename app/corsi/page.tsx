@@ -1,6 +1,7 @@
 import { CourseCard } from "@/components/CourseCard";
 import { Highlight } from "@/components/Highlight";
 import { Section } from "@/components/Section/Section";
+import { coursesInfo } from "@/data/coursesInfo";
 
 export default function page() {
   return (
@@ -19,9 +20,13 @@ export default function page() {
       </Section>
       <Section className="grid grid-cols-[repeat(auto-fit,minmax(340px,1fr))] gap-6">
         <Section.Title className="col-span-full">I nostri corsi</Section.Title>
-        <CourseCard disabled />
-        <CourseCard />
-        <CourseCard />
+        {coursesInfo.map((course) => (
+          <CourseCard
+            key={course.id}
+            courseInfo={course}
+            disabled={course.disabled}
+          />
+        ))}
       </Section>
     </>
   );
