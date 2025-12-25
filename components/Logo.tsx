@@ -3,8 +3,8 @@ import Link from "next/link";
 
 function Logo() {
   return (
-    <Link href="/" className="size-9 relative">
-      <Image fill src="/logo-light.svg" alt="logo" sizes="48px" />
+    <Link href="/" className="size-8 relative">
+      <Image fill src="/logo/logo-light.svg" alt="logo" sizes="48px" />
     </Link>
   );
 }

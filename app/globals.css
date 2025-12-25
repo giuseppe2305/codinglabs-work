@@ -80,17 +80,17 @@
 
 .dark {
   --background: #18181b;
-  --foreground: #a1a1aa;
+  --foreground: #a3a3a4;
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: #e8e8e8;
   --primary: #20c997;
   --primary-foreground: #18181b;
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
+  --secondary: #242426;
+  --secondary-foreground: #939394;
   --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
+  --muted-foreground: #5d5d5f;
   --accent: oklch(0.269 0 0);
   --accent-foreground: #fff;
   --destructive: oklch(0.704 0.191 22.216);

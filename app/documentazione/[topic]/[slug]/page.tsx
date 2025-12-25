@@ -1,5 +1,5 @@
-import { AsideTOC } from "@/components/AsideTOC";
-import { ContentSource } from "@/components/ContentSource";
+import { AsideTOC } from "@/components/documentation/AsideTOC";
+import { ContentSource } from "@/components/documentation/ContentSource";
 import { getDoc } from "@/lib/docs";
 import { generateTOC } from "@/lib/generateTOC";
 
