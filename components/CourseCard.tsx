@@ -11,36 +11,40 @@ import {
 import { AlertCircle, Clock, Info, ShoppingCart } from "lucide-react";
 
 import { Alert, AlertTitle } from "./ui/alert";
+import type { CourseInfo } from "@/types/CourseInfo";
 
 interface Props {
   disabled?: boolean;
+  courseInfo: CourseInfo;
 }
 
-function CourseCard({ disabled }: Props) {
+function CourseCard({ disabled, courseInfo: info }: Props) {
   return (
     <Card className="pt-0 pb-4 gap-0 overflow-hidden rounded-md w-full max-w-120 mx-auto shadow-xl hover:shadow-primary/10 duration-150 hover:scale-101 cursor-pointer">
       <div className="aspect-2/1 bg-linear-to-b from-sky-400 to-sky-700 w-full flex items-center justify-center text-2xl">
-        Corso di CSS Moderno
+        {info.title}
       </div>
       <CardHeader className="mt-4 px-4">
         <div className="flex items-center justify-between">
-          <Badge className="text-primary bg-primary/5">
-            Frontend Development
-          </Badge>
+          {info.tags.map((tag) => (
+            <Badge key={tag} className="text-primary bg-primary/5">
+              {tag}
+            </Badge>
+          ))}
         </div>
       </CardHeader>
       <CardContent className="mt-1 mb-5">
-        <CardTitle className="text-lg">CSS Moderno</CardTitle>
+        <CardTitle className="text-lg">{info.title}</CardTitle>
         <CardDescription className="line-clamp-2">
-          Corso di CSS moderno pensato per chi vuole portare ad un livello
-          superiore le proprie competenze in CSS
+          {info.description}
         </CardDescription>
         {!disabled && (
           <div className="flex items-center justify-between mt-5">
             <Badge variant="secondary">
-              <Clock />8 ore
+              <Clock />
+              {info.length} ore
             </Badge>
-            <span className="text-xl font-bold">$29.99</span>
+            <span className="text-xl font-bold">€{info.price.toFixed(2)}</span>
           </div>
         )}
       </CardContent>
