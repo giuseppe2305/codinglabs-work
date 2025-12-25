@@ -1,5 +1,7 @@
 import { AsideSubtitle } from "@/components/AsideSubtitle";
 import { TOCItem } from "@/lib/generateTOC";
+import { AsideList } from "./AsideList";
+import Link from "next/link";
 
 interface Props {
   headings: TOCItem[];
@@ -7,17 +9,19 @@ interface Props {
 
 function AsideTOC({ headings }: Props) {
   return (
-    <aside className="text-sm flex flex-col gap-2">
+    <aside className="text-sm">
       <AsideSubtitle>Tabella dei Contenuti</AsideSubtitle>
-      {headings.map((h) => (
-        <a
-          className="py-1 px-2 duration-150 hover:bg-accent rounded-md hover:text-white"
-          key={h.url}
-          href={h.url}
-        >
-          {h.title}
-        </a>
-      ))}
+      <AsideList>
+        {headings.map((h) => (
+          <Link
+            className="p-2 hover:bg-accent rounded-md hover:text-accent-foreground duration-150"
+            href={h.url}
+            key={h.url}
+          >
+            {h.title}
+          </Link>
+        ))}
+      </AsideList>
     </aside>
   );
 }
