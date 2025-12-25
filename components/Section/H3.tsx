@@ -1,8 +1,11 @@
-import { ChildrenString } from "@/types/ChildrenString";
+import type { ChildrenString } from "@/types/ChildrenString";
+import type { ClassName } from "@/types/ClassName";
 
-function H3({ children }: ChildrenString) {
+type Props = ChildrenString & ClassName;
+
+function H3({ children, className }: Props) {
   return (
-    <h3 className="text-xl font-medium text-accent-foreground md:col-span-2 lg:col-span-3">
+    <h3 className={`text-xl font-medium text-accent-foreground ${className}`}>
       {children}
     </h3>
   );
