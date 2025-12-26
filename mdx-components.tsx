@@ -6,7 +6,7 @@ const components: MDXComponents = {
     <>
       <h1
         id={children.toLowerCase().replaceAll(" ", "-")}
-        className="text-accent-foreground text-3xl font-bold pb-3"
+        className="text-accent-foreground text-3xl font-bold pb-2"
       >
         {children}
       </h1>
@@ -17,7 +17,7 @@ const components: MDXComponents = {
   h2: ({ children }) => (
     <h2
       id={children.toLowerCase().replaceAll(" ", "-")}
-      className="text-accent-foreground text-xl font-bold pt-8 pb-3"
+      className="text-accent-foreground text-xl font-bold pt-8"
     >
       {children}
     </h2>
@@ -26,7 +26,7 @@ const components: MDXComponents = {
   h3: ({ children }) => (
     <h3
       id={children.toLowerCase().replaceAll(" ", "-")}
-      className="text-accent-foreground text-xl font-bold pt-4 pb-3"
+      className="text-accent-foreground text-xl font-bold pt-4"
     >
       {children}
     </h3>
@@ -35,7 +35,7 @@ const components: MDXComponents = {
   ul: ({ children }) => <ul className="my-2">{children}</ul>,
   li: ({ children }) => <li className="list-disc list-inside">{children}</li>,
 
-  p: ({ children }) => <p>{children}</p>,
+  p: ({ children }) => <p className="my-4">{children}</p>,
   pre: ({ children }) => (
     <pre className="bg-muted px-4 py-2 my-2 rounded-md">{children}</pre>
   ),
