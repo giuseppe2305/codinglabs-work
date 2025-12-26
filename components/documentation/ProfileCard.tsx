@@ -5,7 +5,7 @@ import { Verified } from "lucide-react";
 
 function ProfileCard({ className }: ClassName) {
   return (
-    <div className={`flex items-center gap-2 pb-5 ${className}`}>
+    <div className={`flex items-center gap-2 ${className}`}>
       <Avatar>
         <AvatarImage src="/profile-picture.jpg" />
         <AvatarFallback>GC</AvatarFallback>
