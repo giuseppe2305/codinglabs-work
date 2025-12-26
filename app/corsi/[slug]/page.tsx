@@ -59,7 +59,7 @@ export default async function page({ params }: Props) {
       <Section className="grid grid-cols-[1fr_300px] gap-x-12">
         <Section.H3 className="col-span-full">Descrizione del Corso</Section.H3>
         <ContentSource source={getCourseContent(slug)} />
-        <Card className="p-5 gap-0 row-span-2 self-start">
+        <Card className="p-5 gap-0 row-span-2 self-start sticky top-24">
           <CardHeader className="p-0">
             <CardTitle>Requisiti per il corso</CardTitle>
           </CardHeader>
@@ -83,7 +83,7 @@ export default async function page({ params }: Props) {
             </IconLabel>
           </CardContent>
         </Card>
-        <Section.H3 className="col-span-full mt-24">
+        <Section.H3 className="col-span-full mt-12">
           Contenuto del Corso
         </Section.H3>
         <CourseContentSection content={course.content} />
