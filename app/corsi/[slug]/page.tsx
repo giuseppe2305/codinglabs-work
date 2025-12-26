@@ -1,15 +1,11 @@
+import { CourseContentSection } from "@/components/CourseContentSection";
 import { ContentSource } from "@/components/documentation/ContentSource";
 import { ProfileCard } from "@/components/documentation/ProfileCard";
 import { IconLabel } from "@/components/IconLabel";
 import { Section } from "@/components/Section/Section";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { coursesInfo } from "@/data/coursesInfo";
 import { getCourseContent } from "@/lib/getCourseContent";
 import {
   Book,
@@ -17,25 +13,28 @@ import {
   CircleAlert,
   Clock,
   Library,
-  Play,
   ShoppingCart,
 } from "lucide-react";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
-export default function page() {
+interface Props {
+  params: Promise<{ slug: string }>;
+}
+
+export default async function page({ params }: Props) {
+  const { slug } = await params;
+  const course = coursesInfo.find((el) => el.link.includes(slug));
+
+  if (!course) notFound();
+
   return (
     <>
       <Section className="grid grid-cols-2 gap-x-16">
         <div className="flex flex-col gap-1">
-          <Section.Title>Corso TailwindCSS v4</Section.Title>
+          <Section.Title>{course.title}</Section.Title>
           <ProfileCard className="mt-2 text-accent-foreground" />
-          <Section.Subtitle>
-            Questo corso di Tailwind CSS è basato sull&apos;uso moderno e
-            corretto di TailwindCSS alla versione 4, la sua piú recente,
-            seguendo le best practice attuali. Imparerai a costruire interfacce
-            rapide, coerenti e manutenibili senza CSS inutili o soluzioni
-            improvvisate.
-          </Section.Subtitle>
+          <Section.Subtitle>{course.description}</Section.Subtitle>
 
           <div className="flex items-center mt-6 justify-between">
             <div className="flex items-center gap-8">
@@ -45,7 +44,7 @@ export default function page() {
             </div>
 
             <span className="text-4xl font-bold text-accent-foreground">
-              €9.99
+              €{course.price}
             </span>
           </div>
           <Button size="lg" className="mt-8">
@@ -59,7 +58,7 @@ export default function page() {
       </Section>
       <Section className="grid grid-cols-[1fr_300px] gap-x-12">
         <Section.H3 className="col-span-full">Descrizione del Corso</Section.H3>
-        <ContentSource source={getCourseContent("tailwindcss")} />
+        <ContentSource source={getCourseContent(slug)} />
         <Card className="p-5 gap-0 row-span-2 self-start">
           <CardHeader className="p-0">
             <CardTitle>Requisiti per il corso</CardTitle>
@@ -87,17 +86,7 @@ export default function page() {
         <Section.H3 className="col-span-full mt-24">
           Contenuto del Corso
         </Section.H3>
-        <Accordion type="multiple" className="mt-4 flex flex-col gap-4">
-          <AccordionItem value="item-1">
-            <AccordionTrigger>Introduzione</AccordionTrigger>
-            <AccordionContent>
-              <IconLabel icon={Play}>Introduzione al corso</IconLabel>
-              <IconLabel icon={Play}>Cosé TalwindCSS?</IconLabel>
-              <IconLabel icon={Play}>Introduzione al corso</IconLabel>
-              <IconLabel icon={Play}>Introduzione al corso</IconLabel>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
+        <CourseContentSection content={course.content} />
       </Section>
     </>
   );
