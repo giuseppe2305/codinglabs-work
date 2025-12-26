@@ -38,11 +38,17 @@ export default async function page({ params }: Props) {
             {course.description}
           </Section.Subtitle>
 
-          <div className="flex flex-wrap gap-4 items-center mt-6 justify-between">
-            <div className="flex items-center gap-8">
-              <IconLabel icon={Clock}>4 ore</IconLabel>
-              <IconLabel icon={Library}>9 capitoli</IconLabel>
-              <IconLabel icon={Book}>28 lezioni</IconLabel>
+          <div className="flex flex-wrap max-sm:flex-col gap-4 items-center mt-6 justify-between">
+            <div className="grid grid-cols-3 sm:grid-cols-[auto_auto_auto] text-center gap-8">
+              <IconLabel className="max-sm:flex-col" icon={Clock}>
+                4 ore
+              </IconLabel>
+              <IconLabel className="max-sm:flex-col" icon={Library}>
+                9 capitoli
+              </IconLabel>
+              <IconLabel className="max-sm:flex-col" icon={Book}>
+                28 lezioni
+              </IconLabel>
             </div>
 
             <span className="text-4xl font-bold text-accent-foreground">
