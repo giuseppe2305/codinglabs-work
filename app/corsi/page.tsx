@@ -12,7 +12,7 @@ export default function page() {
           <br />
           Acquisisci <Highlight>competenze di qualitá</Highlight>
         </h1>
-        <Section.Subtitle className="py-6">
+        <Section.Subtitle className="py-6 mx-auto">
           Investi su te stesso oggi e acquisisci competenze di qualità con i
           nostri corsi: scopri percorsi diversi che ti guideranno passo passo
           verso risultati concreti e duraturi.

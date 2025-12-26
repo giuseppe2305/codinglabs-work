@@ -7,6 +7,7 @@ import type { ChildrenNode } from "@/types/ChildrenNode";
 import { Analytics } from "@vercel/analytics/next";
 import { Navbar } from "@/components/Navbar";
 import { PageAlert } from "@/components/PageAlert";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,11 +33,12 @@ export default function RootLayout({ children }: ChildrenNode) {
   return (
     <html lang="en" data-scroll-behavior="smooth">
       <body
-        className={`${inter.className} bg-background min-h-screen text-foreground dark flex flex-col max-w-screen`}
+        className={`${inter.className} bg-background text-foreground dark flex flex-col max-w-screen`}
       >
         <PageAlert />
         <Navbar />
-        {children}
+        <div className="min-h-screen flex flex-col">{children}</div>
+        <Footer />
         <Analytics />
       </body>
     </html>
