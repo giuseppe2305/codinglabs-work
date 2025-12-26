@@ -4,7 +4,7 @@ export const coursesInfo: CourseInfo[] = [
   {
     title: "Corso su TailwindCSS v4",
     description:
-      "Questo corso di Tailwind CSS è basato sull'uso moderno e corretto del framework, seguendo le best practice attuali. Imparerai a costruire interfacce rapide, coerenti e manutenibili senza CSS inutili o soluzioni improvvisate. L'obiettivo è usare Tailwind in modo professionale, capendo quando sfruttarlo al massimo e quando evitarne gli abusi.",
+      "Questo corso di Tailwind CSS è basato sull'uso moderno e corretto del framework, seguendo le best practice attuali. Imparerai a costruire interfacce rapide, coerenti e manutenibili senza CSS inutili o soluzioni improvvisate.",
     length: 2.5,
     link: "/tailwindcss",
     price: 9.99,
