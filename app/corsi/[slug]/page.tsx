@@ -1,3 +1,43 @@
+import { ProfileCard } from "@/components/documentation/ProfileCard";
+import { Section } from "@/components/Section/Section";
+import { Book, Clock, Library } from "lucide-react";
+import Image from "next/image";
+
 export default function page() {
-  return <div>Corso</div>;
+  return (
+    <>
+      <Section className="grid grid-cols-2 gap-10">
+        <div className="flex flex-col gap-1">
+          <Section.Title>Corso TailwindCSS v4</Section.Title>
+          <ProfileCard className="mt-2 pb-0!" />
+          <Section.Subtitle>
+            Questo corso di Tailwind CSS è basato sull&apos;uso moderno e
+            corretto di TailwindCSS alla versione 4, la sua piú recente,
+            seguendo le best practice attuali. Imparerai a costruire interfacce
+            rapide, coerenti e manutenibili senza CSS inutili o soluzioni
+            improvvisate.
+          </Section.Subtitle>
+          <div className="flex items-center mt-6 gap-8">
+            <span className="flex items-center gap-1">
+              <Clock className="text-primary bg-primary/5 p-2 rounded-full size-9" />
+              8 ore
+            </span>
+
+            <span className="flex items-center gap-1">
+              <Library className="text-primary bg-primary/5 p-2 rounded-full size-9" />
+              8 capitoli
+            </span>
+
+            <span className="flex items-center gap-1">
+              <Book className="text-primary bg-primary/5 p-2 rounded-full size-9" />
+              28 lezioni
+            </span>
+          </div>
+        </div>
+        <div className="relative aspect-2/1 row-span-3 rounded-md overflow-hidden">
+          <Image src="/courses/tailwindcss.png" alt="Course Image" fill />
+        </div>
+      </Section>
+    </>
+  );
 }
