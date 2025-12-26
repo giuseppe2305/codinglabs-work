@@ -13,6 +13,23 @@ export const coursesInfo: CourseInfo[] = [
     id: 1,
     disabled: false,
     image: "tailwindcss.png",
+
+    content: [
+      {
+        title: "Introduzione",
+        lessons: ["Introduzione", "Cos'é TailwindCSS?", "Installazione"],
+      },
+
+      {
+        title: "Stili e classi",
+        lessons: ["Introduzione", "Cos'é TailwindCSS?", "Installazione"],
+      },
+
+      {
+        title: "Progetto",
+        lessons: ["Introduzione", "Cos'é TailwindCSS?", "Installazione"],
+      },
+    ],
   },
   {
     title: "Corso JavaScript 2026",
@@ -26,6 +43,7 @@ export const coursesInfo: CourseInfo[] = [
     id: 2,
     disabled: true,
     image: "/",
+    content: [],
   },
   {
     title: "Corso HTML & CSS 2026",
@@ -39,5 +57,6 @@ export const coursesInfo: CourseInfo[] = [
     id: 3,
     disabled: true,
     image: "/",
+    content: [],
   },
 ];
