@@ -36,7 +36,7 @@ export default function page() {
             Acquista Ora
           </Button>
         </div>
-        <div className="relative aspect-2/1 row-span-3 rounded-md overflow-hidden">
+        <div className="relative aspect-2/1 row-span-3 rounded-md overflow-hidden shadow-2xl border-2 hover:shadow-black/50 hover:scale-101 duration-150">
           <Image src="/courses/tailwindcss.png" alt="Course Image" fill />
         </div>
       </Section>
