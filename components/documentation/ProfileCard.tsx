@@ -1,10 +1,11 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import { ClassName } from "@/types/ClassName";
 import { Verified } from "lucide-react";
 
-function ProfileCard() {
+function ProfileCard({ className }: ClassName) {
   return (
-    <div className="flex items-center gap-2 pb-5">
+    <div className={`flex items-center gap-2 ${className}`}>
       <Avatar>
         <AvatarImage src="/profile-picture.jpg" />
         <AvatarFallback>GC</AvatarFallback>

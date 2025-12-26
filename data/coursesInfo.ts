@@ -4,7 +4,7 @@ export const coursesInfo: CourseInfo[] = [
   {
     title: "Corso su TailwindCSS v4",
     description:
-      "Questo corso di Tailwind CSS è basato sull'uso moderno e corretto del framework, seguendo le best practice attuali. Imparerai a costruire interfacce rapide, coerenti e manutenibili senza CSS inutili o soluzioni improvvisate. L'obiettivo è usare Tailwind in modo professionale, capendo quando sfruttarlo al massimo e quando evitarne gli abusi.",
+      "Questo corso di Tailwind CSS è basato sull'uso moderno e corretto del framework, seguendo le best practice attuali. Imparerai a costruire interfacce rapide, coerenti e manutenibili senza CSS inutili o soluzioni improvvisate.",
     length: 2.5,
     link: "/tailwindcss",
     price: 9.99,
@@ -13,6 +13,23 @@ export const coursesInfo: CourseInfo[] = [
     id: 1,
     disabled: false,
     image: "tailwindcss.png",
+
+    content: [
+      {
+        title: "Introduzione",
+        lessons: ["Introduzione", "Cos'é TailwindCSS?", "Installazione"],
+      },
+
+      {
+        title: "Stili e classi",
+        lessons: ["Introduzione", "Cos'é TailwindCSS?", "Installazione"],
+      },
+
+      {
+        title: "Progetto",
+        lessons: ["Introduzione", "Cos'é TailwindCSS?", "Installazione"],
+      },
+    ],
   },
   {
     title: "Corso JavaScript 2026",
@@ -26,6 +43,7 @@ export const coursesInfo: CourseInfo[] = [
     id: 2,
     disabled: true,
     image: "/",
+    content: [],
   },
   {
     title: "Corso HTML & CSS 2026",
@@ -39,5 +57,6 @@ export const coursesInfo: CourseInfo[] = [
     id: 3,
     disabled: true,
     image: "/",
+    content: [],
   },
 ];
