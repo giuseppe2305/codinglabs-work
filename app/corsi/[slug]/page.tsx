@@ -30,13 +30,15 @@ export default async function page({ params }: Props) {
 
   return (
     <>
-      <Section className="grid grid-cols-2 gap-x-16">
+      <Section className="grid grid-cols-1 lg:grid-cols-2 gap-x-16">
         <div className="flex flex-col gap-1">
           <Section.Title>{course.title}</Section.Title>
-          <ProfileCard className="mt-2 text-accent-foreground" />
-          <Section.Subtitle>{course.description}</Section.Subtitle>
+          <ProfileCard className="max-md:mx-auto mt-2 text-accent-foreground" />
+          <Section.Subtitle className="max-md:text-center max-md:mt-4">
+            {course.description}
+          </Section.Subtitle>
 
-          <div className="flex items-center mt-6 justify-between">
+          <div className="flex flex-wrap gap-4 items-center mt-6 justify-between">
             <div className="flex items-center gap-8">
               <IconLabel icon={Clock}>4 ore</IconLabel>
               <IconLabel icon={Library}>9 capitoli</IconLabel>
@@ -52,14 +54,14 @@ export default async function page({ params }: Props) {
             Acquista Ora
           </Button>
         </div>
-        <div className="relative aspect-2/1 row-span-3 rounded-md overflow-hidden shadow-2xl border-2 hover:shadow-black/50 hover:scale-101 duration-150">
+        <div className="relative max-lg:mt-12 mx-auto w-full max-w-120 aspect-2/1 row-span-3 rounded-md overflow-hidden shadow-2xl border-2 hover:shadow-black/50 hover:scale-101 duration-150">
           <Image src="/courses/tailwindcss.png" alt="Course Image" fill />
         </div>
       </Section>
-      <Section className="grid grid-cols-[1fr_300px] gap-x-12">
+      <Section className="grid grid-cols-1 md:grid-cols-[1fr_300px] gap-x-12">
         <Section.H3 className="col-span-full">Descrizione del Corso</Section.H3>
         <ContentSource source={getCourseContent(slug)} />
-        <Card className="p-5 gap-0 row-span-2 self-start sticky top-24">
+        <Card className="p-5 gap-0 max-w-100 max-md:mt-8 w-full mx-auto row-span-2 self-start md:sticky top-24">
           <CardHeader className="p-0">
             <CardTitle>Requisiti per il corso</CardTitle>
           </CardHeader>
