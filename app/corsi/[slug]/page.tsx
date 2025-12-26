@@ -64,7 +64,7 @@ export default async function page({ params }: Props) {
           <Image src="/courses/tailwindcss.png" alt="Course Image" fill />
         </div>
       </Section>
-      <Section className="grid grid-cols-1 md:grid-cols-[1fr_300px] gap-x-12">
+      <Section className="grid grid-cols-1 md:grid-cols-[1fr_300px] gap-x-12 border-b-0">
         <Section.H3 className="col-span-full">Descrizione del Corso</Section.H3>
         <ContentSource source={getCourseContent(slug)} />
         <Card className="p-5 gap-0 max-w-100 max-md:mt-8 w-full mx-auto row-span-2 self-start md:sticky top-24">
