@@ -2,6 +2,12 @@ import { ContentSource } from "@/components/documentation/ContentSource";
 import { ProfileCard } from "@/components/documentation/ProfileCard";
 import { IconLabel } from "@/components/IconLabel";
 import { Section } from "@/components/Section/Section";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getCourseContent } from "@/lib/getCourseContent";
@@ -11,6 +17,7 @@ import {
   CircleAlert,
   Clock,
   Library,
+  Play,
   ShoppingCart,
 } from "lucide-react";
 import Image from "next/image";
@@ -53,7 +60,7 @@ export default function page() {
       <Section className="grid grid-cols-[1fr_300px] gap-x-12">
         <Section.H3 className="col-span-full">Descrizione del Corso</Section.H3>
         <ContentSource source={getCourseContent("tailwindcss")} />
-        <Card className="p-5 gap-0">
+        <Card className="p-5 gap-0 row-span-2 self-start">
           <CardHeader className="p-0">
             <CardTitle>Requisiti per il corso</CardTitle>
           </CardHeader>
@@ -77,6 +84,20 @@ export default function page() {
             </IconLabel>
           </CardContent>
         </Card>
+        <Section.H3 className="col-span-full mt-24">
+          Contenuto del Corso
+        </Section.H3>
+        <Accordion type="multiple" className="mt-4 flex flex-col gap-4">
+          <AccordionItem value="item-1">
+            <AccordionTrigger>Introduzione</AccordionTrigger>
+            <AccordionContent>
+              <IconLabel icon={Play}>Introduzione al corso</IconLabel>
+              <IconLabel icon={Play}>Cosé TalwindCSS?</IconLabel>
+              <IconLabel icon={Play}>Introduzione al corso</IconLabel>
+              <IconLabel icon={Play}>Introduzione al corso</IconLabel>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
       </Section>
     </>
   );
