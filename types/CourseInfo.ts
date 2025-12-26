@@ -1,3 +1,8 @@
+export type CourseContent = {
+  title: string;
+  lessons: string[];
+};
+
 export interface CourseInfo {
   title: string;
   description: string;
@@ -10,4 +15,6 @@ export interface CourseInfo {
   id: number;
   disabled: boolean;
   image: string;
+
+  content: CourseContent[];
 }
