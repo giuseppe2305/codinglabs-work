@@ -3,8 +3,16 @@ import { ProfileCard } from "@/components/documentation/ProfileCard";
 import { IconLabel } from "@/components/IconLabel";
 import { Section } from "@/components/Section/Section";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getCourseContent } from "@/lib/getCourseContent";
-import { Book, Clock, Library, ShoppingCart } from "lucide-react";
+import {
+  Book,
+  Check,
+  CircleAlert,
+  Clock,
+  Library,
+  ShoppingCart,
+} from "lucide-react";
 import Image from "next/image";
 
 export default function page() {
@@ -45,7 +53,30 @@ export default function page() {
       <Section className="grid grid-cols-[1fr_300px] gap-x-12">
         <Section.H3 className="col-span-full">Descrizione del Corso</Section.H3>
         <ContentSource source={getCourseContent("tailwindcss")} />
-        <div className="aspect-square bg-accent"></div>
+        <Card className="p-5 gap-0">
+          <CardHeader className="p-0">
+            <CardTitle>Requisiti per il corso</CardTitle>
+          </CardHeader>
+          <CardContent className="mt-4 p-0 flex flex-col gap-3">
+            <h4 className="text-foreground">Obbligatori</h4>
+            <IconLabel icon={Check}>HTML5</IconLabel>
+            <IconLabel icon={Check}>CSS3</IconLabel>
+
+            <h4 className="text-foreground">Consigliati</h4>
+            <IconLabel
+              color="text-yellow-400 bg-yellow-400/5"
+              icon={CircleAlert}
+            >
+              Javascript
+            </IconLabel>
+            <IconLabel
+              color="text-yellow-400 bg-yellow-400/5"
+              icon={CircleAlert}
+            >
+              Node.js
+            </IconLabel>
+          </CardContent>
+        </Card>
       </Section>
     </>
   );
