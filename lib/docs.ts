@@ -39,7 +39,7 @@ export function getDocsList(topic: string) {
   return result;
 }
 
-function getFile(topic: string, slug: string) {
+export function getFile(topic: string, slug: string) {
   const directory = path.join(CONTENT_PATH, topic);
   const file = findFileRecursively(directory, slug);
 
