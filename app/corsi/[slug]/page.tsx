@@ -1,17 +1,19 @@
+import { ContentSource } from "@/components/documentation/ContentSource";
 import { ProfileCard } from "@/components/documentation/ProfileCard";
 import { IconLabel } from "@/components/IconLabel";
 import { Section } from "@/components/Section/Section";
 import { Button } from "@/components/ui/button";
+import { getCourseContent } from "@/lib/getCourseContent";
 import { Book, Clock, Library, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 
 export default function page() {
   return (
     <>
-      <Section className="grid grid-cols-2 gap-16">
+      <Section className="grid grid-cols-2 gap-x-16">
         <div className="flex flex-col gap-1">
           <Section.Title>Corso TailwindCSS v4</Section.Title>
-          <ProfileCard className="mt-2 pb-0! text-accent-foreground" />
+          <ProfileCard className="mt-2 text-accent-foreground" />
           <Section.Subtitle>
             Questo corso di Tailwind CSS è basato sull&apos;uso moderno e
             corretto di TailwindCSS alla versione 4, la sua piú recente,
@@ -39,6 +41,11 @@ export default function page() {
         <div className="relative aspect-2/1 row-span-3 rounded-md overflow-hidden shadow-2xl border-2 hover:shadow-black/50 hover:scale-101 duration-150">
           <Image src="/courses/tailwindcss.png" alt="Course Image" fill />
         </div>
+      </Section>
+      <Section className="grid grid-cols-[1fr_300px] gap-x-12">
+        <Section.H3 className="col-span-full">Descrizione del Corso</Section.H3>
+        <ContentSource source={getCourseContent("tailwindcss")} />
+        <div className="aspect-square bg-accent"></div>
       </Section>
     </>
   );
