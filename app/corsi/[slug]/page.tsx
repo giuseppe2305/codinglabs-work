@@ -29,6 +29,9 @@ export default async function page({ params }: Props) {
   if (!course) notFound();
 
   const chaptersCount = course.content.length;
+  const lessonsCount = course.content.flatMap(
+    (chapter) => chapter.lessons
+  ).length;
 
   return (
     <>
@@ -49,9 +52,7 @@ export default async function page({ params }: Props) {
                 {`${chaptersCount} courses`}
               </IconLabel>
               <IconLabel className="max-sm:flex-col" icon={Book}>
-                {`${
-                  course.content.flatMap((chap) => chap.lessons).length
-                } lessons`}
+                {`${lessonsCount} lessons`}
               </IconLabel>
             </div>
 
