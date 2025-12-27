@@ -47,7 +47,9 @@ export default async function page({ params }: Props) {
                 {`${course.content.length} courses`}
               </IconLabel>
               <IconLabel className="max-sm:flex-col" icon={Book}>
-                28 lezioni
+                {`${
+                  course.content.flatMap((chap) => chap.lessons).length
+                } lessons`}
               </IconLabel>
             </div>
 
