@@ -28,6 +28,8 @@ export default async function page({ params }: Props) {
 
   if (!course) notFound();
 
+  const chaptersCount = course.content.length;
+
   return (
     <>
       <Section className="grid grid-cols-1 lg:grid-cols-2 gap-x-16">
@@ -44,7 +46,7 @@ export default async function page({ params }: Props) {
                 4 ore
               </IconLabel>
               <IconLabel className="max-sm:flex-col" icon={Library}>
-                {`${course.content.length} courses`}
+                {`${chaptersCount} courses`}
               </IconLabel>
               <IconLabel className="max-sm:flex-col" icon={Book}>
                 {`${
