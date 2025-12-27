@@ -56,7 +56,7 @@ export default async function page({ params }: Props) {
 
             <div className="relative">
               <span className="text-sm font-bold line-through absolute right-0 -top-4 text-destructive">
-                €{course.price * 2}
+                €{course.price * 3}
               </span>
               <span className="text-4xl font-bold text-accent-foreground">
                 €{course.price}
