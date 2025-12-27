@@ -29,9 +29,7 @@ export default async function page({ params }: Props) {
   if (!course) notFound();
 
   const chaptersCount = course.content.length;
-  const lessonsCount = course.content.flatMap(
-    (chapter) => chapter.lessons
-  ).length;
+  const lessonsCount = course.content.flatMap((chap) => chap.lessons).length;
 
   return (
     <>
