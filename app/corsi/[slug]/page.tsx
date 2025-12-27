@@ -54,9 +54,14 @@ export default async function page({ params }: Props) {
               </IconLabel>
             </div>
 
-            <span className="text-4xl font-bold text-accent-foreground">
-              €{course.price}
-            </span>
+            <div className="relative">
+              <span className="text-sm font-bold line-through absolute right-0 -top-4 text-destructive">
+                €{course.price * 2}
+              </span>
+              <span className="text-4xl font-bold text-accent-foreground">
+                €{course.price}
+              </span>
+            </div>
           </div>
           <Button size="lg" className="mt-8">
             <ShoppingCart />
