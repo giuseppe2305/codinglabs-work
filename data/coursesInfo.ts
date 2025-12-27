@@ -7,6 +7,7 @@ export const coursesInfo: CourseInfo[] = [
       "Questo corso di Tailwind CSS è basato sull'uso moderno e corretto del framework, seguendo le best practice attuali. Imparerai a costruire interfacce rapide, coerenti e manutenibili senza CSS inutili o soluzioni improvvisate.",
     length: 2.5,
     link: "/tailwindcss",
+    buyLink: "/",
     price: 9.99,
     tags: ["Frontend Development", "Intermedio"],
 
@@ -132,6 +133,7 @@ export const coursesInfo: CourseInfo[] = [
     disabled: true,
     image: "/",
     content: [],
+    buyLink: "/",
   },
   {
     title: "Corso HTML & CSS 2026",
@@ -146,5 +148,6 @@ export const coursesInfo: CourseInfo[] = [
     disabled: true,
     image: "/",
     content: [],
+    buyLink: "/",
   },
 ];
