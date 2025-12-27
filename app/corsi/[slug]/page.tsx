@@ -16,6 +16,7 @@ import {
   ShoppingCart,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 interface Props {
@@ -63,9 +64,11 @@ export default async function page({ params }: Props) {
               </span>
             </div>
           </div>
-          <Button size="lg" className="mt-8">
-            <ShoppingCart />
-            Acquista Ora
+          <Button size="lg" className="mt-8" asChild>
+            <Link href={course.buyLink}>
+              <ShoppingCart />
+              Acquista Ora
+            </Link>
           </Button>
         </div>
         <div className="relative max-lg:mt-12 mx-auto w-full max-w-120 aspect-2/1 row-span-3 rounded-md overflow-hidden shadow-2xl border-2 hover:shadow-black/50 hover:scale-101 duration-150">
