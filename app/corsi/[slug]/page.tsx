@@ -44,7 +44,7 @@ export default async function page({ params }: Props) {
                 4 ore
               </IconLabel>
               <IconLabel className="max-sm:flex-col" icon={Library}>
-                9 capitoli
+                {`${course.content.length} courses`}
               </IconLabel>
               <IconLabel className="max-sm:flex-col" icon={Book}>
                 28 lezioni
