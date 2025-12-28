@@ -7,7 +7,8 @@ export const coursesInfo: CourseInfo[] = [
       "Questo corso di Tailwind CSS è basato sull'uso moderno e corretto del framework, seguendo le best practice attuali. Imparerai a costruire interfacce rapide, coerenti e manutenibili senza CSS inutili o soluzioni improvvisate.",
     length: 2.5,
     link: "/tailwindcss",
-    buyLink: "/",
+    buyLink:
+      "https://www.udemy.com/course/tailwindcss-v4-corso-completo-in-italiano-2026/?referralCode=DF81FFB9178E81E75C2C",
     price: 9.99,
     tags: ["Frontend Development", "Intermedio"],
 
