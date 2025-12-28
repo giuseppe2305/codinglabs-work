@@ -72,9 +72,11 @@ function CourseCard({ disabled, courseInfo: info }: Props) {
             </Alert>
           ) : (
             <>
-              <Button>
-                <ShoppingCart />
-                Acquista ora
+              <Button asChild>
+                <Link href={info.buyLink} target="_blank">
+                  <ShoppingCart />
+                  Acquista ora
+                </Link>
               </Button>
               <Button variant="secondary" className="text-foreground">
                 <Info />
