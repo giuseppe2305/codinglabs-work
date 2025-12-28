@@ -10,6 +10,7 @@ export interface CourseInfo {
   length: number;
   price: number;
   link: string;
+  buyLink: string;
 
   tags: string[];
   id: number;

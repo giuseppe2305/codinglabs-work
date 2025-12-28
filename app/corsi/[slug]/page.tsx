@@ -16,6 +16,7 @@ import {
   ShoppingCart,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 interface Props {
@@ -28,6 +29,9 @@ export default async function page({ params }: Props) {
 
   if (!course) notFound();
 
+  const chaptersCount = course.content.length;
+  const lessonsCount = course.content.flatMap((chap) => chap.lessons).length;
+
   return (
     <>
       <Section className="grid grid-cols-1 lg:grid-cols-2 gap-x-16">
@@ -38,26 +42,33 @@ export default async function page({ params }: Props) {
             {course.description}
           </Section.Subtitle>
 
-          <div className="flex flex-wrap max-sm:flex-col gap-4 items-center mt-6 justify-between">
+          <div className="flex flex-wrap max-sm:flex-col gap-8 items-center mt-6 justify-between">
             <div className="grid grid-cols-3 sm:grid-cols-[auto_auto_auto] text-center gap-8">
               <IconLabel className="max-sm:flex-col" icon={Clock}>
                 4 ore
               </IconLabel>
               <IconLabel className="max-sm:flex-col" icon={Library}>
-                9 capitoli
+                {`${chaptersCount} capitoli`}
               </IconLabel>
               <IconLabel className="max-sm:flex-col" icon={Book}>
-                28 lezioni
+                {`${lessonsCount} lezioni`}
               </IconLabel>
             </div>
 
-            <span className="text-4xl font-bold text-accent-foreground">
-              €{course.price}
-            </span>
+            <div className="relative">
+              <span className="text-sm font-bold line-through absolute right-0 -top-4 text-destructive">
+                €{course.price * 3}
+              </span>
+              <span className="text-4xl font-bold text-accent-foreground">
+                €{course.price}
+              </span>
+            </div>
           </div>
-          <Button size="lg" className="mt-8">
-            <ShoppingCart />
-            Acquista Ora
+          <Button size="lg" className="mt-8" asChild>
+            <Link target="_blank" href={course.buyLink}>
+              <ShoppingCart />
+              Acquista Ora
+            </Link>
           </Button>
         </div>
         <div className="relative max-lg:mt-12 mx-auto w-full max-w-120 aspect-2/1 row-span-3 rounded-md overflow-hidden shadow-2xl border-2 hover:shadow-black/50 hover:scale-101 duration-150">

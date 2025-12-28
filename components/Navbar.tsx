@@ -18,10 +18,10 @@ import { NavigationListItem } from "./NavigationListItem";
 function Navbar() {
   return (
     <header className="sticky top-0 h-15 flex w-full items-center z-1 backdrop-blur-3xl bg-background/50 border-b">
-      <nav className="w-full grid grid-cols-[1fr_auto_1fr] items-center mx-auto px-2 sm:px-4">
+      <nav className="w-full grid grid-cols-3 items-center mx-auto px-2 sm:px-4">
         <Logo />
-        <NavigationMenu>
-          <NavigationMenuList>
+        <NavigationMenu className="justify-self-center">
+          <NavigationMenuList className="grid grid-cols-3 w-auto! justify-items-center gap-2">
             <NavigationMenuItem>
               <NavigationMenuLink
                 href="/corsi"
