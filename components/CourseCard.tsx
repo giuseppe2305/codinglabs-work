@@ -33,9 +33,11 @@ function CourseCard({ disabled, courseInfo: info }: Props) {
       {disabled ? (
         <CourseImagePlaceholder />
       ) : (
-        <div className="w-full aspect-2/1 relative">
-          <Image src={`/courses/${info.image}`} alt="Course Picture" fill />
-        </div>
+        <Link href={`/corsi/${info.link}`}>
+          <div className="w-full aspect-2/1 relative">
+            <Image src={`/courses/${info.image}`} alt="Course Picture" fill />
+          </div>
+        </Link>
       )}
       <CardHeader className="mt-4 px-4">
         <div className="flex items-center justify-between">
