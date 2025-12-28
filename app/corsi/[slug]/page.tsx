@@ -48,10 +48,10 @@ export default async function page({ params }: Props) {
                 4 ore
               </IconLabel>
               <IconLabel className="max-sm:flex-col" icon={Library}>
-                {`${chaptersCount} courses`}
+                {`${chaptersCount} capitoli`}
               </IconLabel>
               <IconLabel className="max-sm:flex-col" icon={Book}>
-                {`${lessonsCount} lessons`}
+                {`${lessonsCount} lezioni`}
               </IconLabel>
             </div>
 
