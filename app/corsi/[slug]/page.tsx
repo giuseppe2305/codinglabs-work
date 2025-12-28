@@ -65,7 +65,7 @@ export default async function page({ params }: Props) {
             </div>
           </div>
           <Button size="lg" className="mt-8" asChild>
-            <Link href={course.buyLink}>
+            <Link target="_blank" href={course.buyLink}>
               <ShoppingCart />
               Acquista Ora
             </Link>
