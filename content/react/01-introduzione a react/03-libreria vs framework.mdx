@@ -1,0 +1,133 @@
+# Differenza tra Libreria e Framework
+
+Per comprendere correttamente cosa sia **React**, è fondamentale chiarire una distinzione chiave nello sviluppo software: la differenza tra **libreria** e **framework**. Questa distinzione influenza profondamente il modo in cui si struttura un progetto, si scrive il codice e si prendono decisioni architetturali.
+
+---
+
+## Cos’è una Libreria
+
+Una **libreria** è un insieme di funzioni, strumenti o componenti riutilizzabili che lo sviluppatore può **richiamare quando ne ha bisogno**.
+
+### Caratteristiche principali di una libreria
+
+- Lo **sviluppatore controlla il flusso dell’applicazione**
+- Il codice dell’applicazione **chiama la libreria**
+- Può essere integrata solo dove serve
+- È generalmente più flessibile e meno vincolante
+
+### Esempi di librerie comuni
+
+- React
+- Lodash
+- Axios
+- Date-fns
+
+> **Con una libreria, sei tu a decidere quando e come usarla.**
+
+---
+
+## Cos’è un Framework
+
+Un **framework** fornisce una struttura completa e opinata per lo sviluppo di un’applicazione. Stabilisce regole, convenzioni e flussi ben definiti.
+
+### Caratteristiche principali di un framework
+
+- Il **framework controlla il flusso dell’applicazione**
+- È il framework che **chiama il tuo codice**
+- Impone una struttura precisa
+- Riduce la libertà architetturale, ma aumenta la coerenza
+
+### Esempi di framework comuni
+
+- Angular
+- Vue (in gran parte)
+- Laravel
+- Django
+- Ruby on Rails
+
+### Concetto chiave
+
+> **Con un framework, è il framework a decidere quando il tuo codice viene eseguito.**
+
+---
+
+## Inversion of Control (IoC)
+
+La differenza principale tra libreria e framework si basa sul concetto di **Inversion of Control**.
+
+| Tipo      | Chi controlla il flusso |
+| --------- | ----------------------- |
+| Libreria  | Lo sviluppatore         |
+| Framework | Il framework            |
+
+- **Libreria** → tu chiami il codice della libreria
+- **Framework** → il framework chiama il tuo codice
+
+---
+
+## React: Libreria o Framework?
+
+**React è una libreria**, non un framework.
+
+### Perché React è una libreria
+
+- Si occupa **solo della UI**
+- Non gestisce routing, stato globale, HTTP, o struttura del progetto
+- Può essere inserito gradualmente in un’app esistente
+- Lascia allo sviluppatore la libertà di scegliere:
+  - Routing (React Router)
+  - State management (Redux, Zustand, Jotai, ecc.)
+  - Data fetching (fetch, Axios, React Query, ecc.)
+
+### Cosa fa React
+
+- Definisce componenti
+- Gestisce lo stato locale
+- Aggiorna il DOM in modo efficiente
+- Si concentra sulla **renderizzazione dichiarativa**
+
+---
+
+## Ecosistema React
+
+Anche se React è una libreria, esistono **framework basati su React**.
+
+### Framework costruiti su React
+
+- **Next.js** – routing, rendering server-side, static generation
+- **Remix** – focus su web standards e data loading
+- **Gatsby** – static site generation
+
+In questi casi:
+
+- React rimane la libreria UI
+- Il framework fornisce struttura, routing e convenzioni
+
+---
+
+## Quando scegliere una Libreria o un Framework
+
+### Scegli una libreria se:
+
+- Vuoi massima flessibilità
+- Hai esigenze architetturali specifiche
+- Stai integrando solo una parte UI
+- Preferisci costruire la tua stack
+
+### Scegli un framework se:
+
+- Vuoi una struttura pronta
+- Preferisci convenzioni chiare
+- Vuoi ridurre decisioni tecniche iniziali
+- Stai costruendo un’app completa end-to-end
+
+---
+
+## Riepilogo
+
+- Una **libreria** è uno strumento che usi quando vuoi
+- Un **framework** è una struttura che guida l’intera applicazione
+- React è una **libreria UI**
+- Framework come Next.js aggiungono struttura sopra React
+
+Comprendere questa differenza è essenziale per usare React in modo consapevole e per scegliere gli strumenti giusti nei tuoi progetti.
