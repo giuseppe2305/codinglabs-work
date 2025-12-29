@@ -1,0 +1,115 @@
+# Componenti riutilizzabili
+
+Uno dei principi cardine di React è la creazione di **componenti riutilizzabili**. Questo approccio consente di costruire interfacce complesse partendo da piccoli blocchi indipendenti, migliorando la qualità del codice, la manutenzione e la scalabilità delle applicazioni.
+
+---
+
+## Il concetto di componente in React
+
+Un componente React è una funzione (o classe, nei casi legacy) che riceve dei dati in ingresso e restituisce una descrizione dell’interfaccia da visualizzare. Ogni componente rappresenta una parte autonoma dell’UI.
+
+Questa astrazione permette di:
+
+- Suddividere l’interfaccia in parti logiche
+- Isolare comportamento e presentazione
+- Ragionare sull’applicazione come un insieme di blocchi composabili
+
+---
+
+## Perché puntare sulla riusabilità
+
+La riusabilità è un obiettivo centrale nello sviluppo software. In React, creare componenti riutilizzabili significa:
+
+- Evitare duplicazione di codice
+- Ridurre errori e incoerenze visive
+- Facilitare modifiche e refactor
+- Accelerare lo sviluppo di nuove funzionalità
+
+Un componente ben progettato può essere utilizzato in contesti diversi senza modifiche.
+
+---
+
+## Props come meccanismo di configurazione
+
+Le **props** sono il principale strumento per rendere un componente riutilizzabile. Consentono di personalizzare il comportamento e l’aspetto del componente dall’esterno.
+
+Grazie alle props:
+
+- Lo stesso componente può adattarsi a scenari differenti
+- La logica rimane centralizzata
+- L’interfaccia resta flessibile e dichiarativa
+
+Un componente ideale non dipende da dati globali, ma riceve tutto ciò di cui ha bisogno tramite props.
+
+---
+
+## Composizione dei componenti
+
+React favorisce la **composizione** rispetto all’ereditarietà. I componenti possono contenere altri componenti, creando strutture complesse a partire da elementi semplici.
+
+Questo modello consente di:
+
+- Costruire UI stratificate e modulari
+- Riutilizzare componenti in combinazioni diverse
+- Migliorare la leggibilità dell’albero dei componenti
+
+La composizione è uno dei motivi principali per cui React scala bene su progetti di grandi dimensioni.
+
+---
+
+## Separazione tra logica e presentazione
+
+Un componente riutilizzabile tende a concentrarsi su una singola responsabilità. Spesso è utile distinguere tra:
+
+- Componenti orientati alla presentazione
+- Componenti orientati alla logica
+
+Questa separazione migliora:
+
+- La testabilità
+- La chiarezza del codice
+- La possibilità di riutilizzo in contesti differenti
+
+---
+
+## Gestione dello stato locale
+
+Non tutti i componenti devono gestire lo stato. I componenti più riutilizzabili sono spesso quelli che:
+
+- Ricevono dati dall’esterno
+- Notificano eventi verso l’alto
+- Non contengono logica applicativa complessa
+
+Limitare lo stato locale rende i componenti più prevedibili e più facili da integrare.
+
+---
+
+## Convenzioni di progettazione efficaci
+
+Per favorire la riusabilità, è importante seguire alcune buone pratiche:
+
+- Nomi chiari e coerenti
+- API del componente semplici
+- Dipendenze minime dal contesto esterno
+- Struttura interna facilmente estendibile
+
+Un buon componente comunica chiaramente come deve essere usato.
+
+---
+
+## Benefici a lungo termine
+
+L’adozione sistematica di componenti riutilizzabili porta vantaggi nel tempo:
+
+- Codice più pulito e consistente
+- Maggiore velocità di sviluppo
+- Facilità di onboarding per nuovi sviluppatori
+- Migliore evoluzione dell’applicazione
+
+Nei progetti React maturi, la qualità dei componenti è spesso il fattore determinante del successo.
+
+---
+
+## Conclusione
+
+I componenti riutilizzabili sono il cuore dell’architettura React. Progettandoli in modo corretto, è possibile costruire applicazioni robuste, scalabili e facili da mantenere, riducendo la complessità e aumentando l’efficienza dello sviluppo.
