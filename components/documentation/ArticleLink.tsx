@@ -10,7 +10,9 @@ interface Props {
 
 function ArticleLink({ topic, article }: Props) {
   const pathname = usePathname();
-  const isActive = pathname.includes(`documentazione/${topic}/${article}`);
+  const isActive = pathname.includes(
+    `documentazione/${topic}/${article.replaceAll(" ", "%20")}`
+  );
 
   return (
     <Link

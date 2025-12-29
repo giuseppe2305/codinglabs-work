@@ -9,7 +9,10 @@ interface Props {
 
 export default async function page({ params }: Props) {
   const paramsData = await params;
-  const source = getDoc(paramsData.topic, paramsData.slug);
+  const source = getDoc(
+    paramsData.topic,
+    paramsData.slug.replaceAll("%20", " ")
+  );
   const toc = generateTOC(source);
 
   return (
