@@ -1,0 +1,83 @@
+# Versioni principali ed aggiornamenti
+
+React ha subito un'evoluzione significativa dalla sua prima release pubblica. Mentre le prime versioni si concentravano sulla definizione del paradigma dichiarativo e del Virtual DOM, le versioni moderne (dalla 18 in poi) hanno spostato il focus sulla concorrenza, sulle performance automatiche e sull'integrazione tra server e client.
+
+Questo articolo esplora le pietre miliari recenti che definiscono il "Modern React" che utilizziamo oggi, con un'attenzione particolare alle rivoluzioni introdotte da React 19.
+
+## L'eredità di React 18: La Concorrenza
+
+Prima di tuffarci nelle funzionalità attuali, è fondamentale comprendere la base su cui sono costruite. React 18 ha introdotto il concetto di **Rendering Concorrente** (Concurrent Rendering), un cambiamento architetturale che ha permesso a React di preparare più versioni della UI contemporaneamente.
+
+- **Automatic Batching:** Raggruppamento automatico di più aggiornamenti di stato in un singolo re-render per migliorare le performance.
+- **Transizioni:** API come `useTransition` per distinguere tra aggiornamenti urgenti (come digitare in un input) e non urgenti (come filtrare una lista).
+- **Suspense:** Supporto migliorato per il caricamento asincrono dei componenti.
+
+## React 19: L'Era della Compilazione e delle Server Actions
+
+React 19 rappresenta il più grande cambiamento nel paradigma di sviluppo degli ultimi anni. L'obiettivo di questa versione è ridurre drasticamente il codice boilerplate necessario per gestire stati comuni (come il caricamento dei dati o gli errori nei form) e ottimizzare le performance senza intervento manuale.
+
+### React Compiler
+
+Storicamente, gli sviluppatori dovevano ottimizzare manualmente i re-render utilizzando `useMemo`, `useCallback` e `memo`. React 19 introduce il **React Compiler** (in precedenza noto come React Forget), uno strumento che analizza il codice e memoizza automaticamente componenti e valori.
+
+> **Nota:** Con il Compiler, non è più necessario "insegnare" a React come ottimizzare il codice; il framework gestisce autonomamente la reattività fine-grained.
+
+### Server Components (RSC)
+
+Sebbene introdotti in via sperimentale in precedenza, in React 19 i **Server Components** diventano stabili e parte integrante del core.
+
+- **Esecuzione sul Server:** I componenti vengono renderizzati sul server, inviando al client solo l'HTML e riducendo drasticamente il bundle JavaScript scaricato dall'utente.
+- **Accesso diretto al Backend:** È possibile leggere file o interrogare database direttamente all'interno del componente, senza bisogno di API intermedie o `useEffect`.
+
+### Actions e Gestione dei Form
+
+La gestione dei form è stata completamente ripensata con l'introduzione delle **Actions**. Invece di gestire manualmente `onSubmit`, stati di caricamento ed errori, ora è possibile passare una funzione (anche asincrona) direttamente alla prop `action` di un form.
+
+Nuovi hook di supporto per le Actions:
+
+- `useActionState`: Gestisce automaticamente lo stato pendente, gli errori e il risultato di un'azione.
+- `useFormStatus`: Permette ai componenti figli di accedere allo stato di invio del form genitore (utile per disabilitare bottoni o mostrare spinner) senza passare props.
+- `useOptimistic`: Facilita l'aggiornamento ottimistico della UI (mostrare il risultato prima che il server risponda).
+
+### Nuova API use
+
+React 19 introduce una nuova API flessibile chiamata `use`. A differenza degli hook tradizionali, `use` può essere chiamata all'interno di cicli e condizioni.
+
+- **Lettura di Context:** Sostituisce `useContext` in contesti condizionali.
+- **Lettura di Promise:** Può sospendere un componente finché una Promise non viene risolta, integrandosi nativamente con Suspense.
+
+### Miglioramenti alla Quality of Life
+
+Diverse limitazioni storiche sono state rimosse per semplificare la sintassi:
+
+- **Ref come Prop:** Non è più necessario usare `forwardRef`. Ora `ref` viene passato come una normale prop ai componenti funzionali.
+- **Supporto nativo ai metadati:** Tag come `<title>`, `<meta>` e `<link>` possono essere renderizzati ovunque nell'albero dei componenti e React li sposterà automaticamente nell'`<head>` del documento (hoisting).
+- **Migliore gestione dell'idratazione:** Gli errori di idratazione ora mostrano un diff chiaro tra ciò che il server ha inviato e ciò che il client ha renderizzato.
+
+## Aggiornamenti Recenti (React 19.x)
+
+Lo sviluppo non si ferma e le versioni minori continuano a introdurre funzionalità avanzate per casi d'uso specifici.
+
+### Componente Activity
+
+Introdotto nelle versioni successive alla 19.0, il componente `<Activity>` permette di controllare la visibilità di una sezione dell'app mantenendone lo stato "vivo" ma inattivo.
+
+- **Mode "hidden":** Il componente non è visibile, ma il suo stato interno viene preservato e gli aggiornamenti vengono differiti per risparmiare risorse.
+- **Mode "visible":** Il componente riappare istantaneamente con lo stato precedente intatto.
+
+Questo è ideale per tab, modali o liste virtualizzate dove smontare e rimontare i componenti sarebbe costoso in termini di performance.
+
+### useEffectEvent hook
+
+Un nuovo hook che risolve un problema comune con `useEffect`: come usare valori reattivi (props/state) dentro un effetto senza doverli aggiungere all'array delle dipendenze e causare ri-esecuzioni indesiderate. `useEffectEvent` crea una funzione stabile che può leggere sempre i valori più recenti senza invalidare l'effetto.
+
+## Tabella Riassuntiva: React 18 vs React 19
+
+| Caratteristica     | React 18                             | React 19                         |
+| :----------------- | :----------------------------------- | :------------------------------- |
+| **Ottimizzazione** | Manuale (`useMemo`, `useCallback`)   | Automatica (React Compiler)      |
+| **Rendering**      | Client-heavy (concorrenza opzionale) | Server-first (RSC stabili)       |
+| **Data Fetching**  | `useEffect` + librerie esterne       | Server Components + `use` API    |
+| **Form**           | `useState` per ogni campo/stato      | `action` prop + `useActionState` |
+| **Refs**           | Richiede `forwardRef`                | Semplice prop `ref`              |
+| **Document Head**  | Richiede librerie (es. react-helmet) | Supporto nativo                  |

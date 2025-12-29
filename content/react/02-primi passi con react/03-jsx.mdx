@@ -1,0 +1,73 @@
+# JSX
+
+JSX è un'estensione sintattica per JavaScript che permette di descrivere l'interfaccia utente in modo visivo e dichiarativo. Sebbene ricordi l'HTML, JSX è in realtà una potente astrazione che permette di scrivere markup direttamente all'interno della logica JavaScript, venendo poi trasformato in chiamate di funzione `React.createElement`.
+
+## Sintassi base
+
+La sintassi di JSX permette di definire elementi React utilizzando i tag. Un'espressione JSX può essere assegnata a una variabile, passata come argomento a una funzione o restituita da un componente.
+
+Esempio:
+
+```javascript
+const saluto = <h1 className="titolo">Benvenuti in React</h1>;
+```
+
+### Regole fondamentali
+
+1. **Tag Radice**: Un'espressione JSX deve avere un unico elemento genitore. Se devi restituire più elementi, avvolgili in un `<div>` o in un Fragment (`<> ... </>`).
+2. **Chiusura obbligatoria**: Tutti i tag devono essere chiusi, inclusi quelli che in HTML sono "autochiudenti", come `<img />` o `<br />`.
+3. **Parentesi tonde**: Se il markup occupa più righe, è consigliato avvolgerlo tra parentesi tonde `( )` per evitare errori di interpretazione del motore JavaScript dovuti all'Automatic Semicolon Insertion (ASI).
+
+---
+
+## Differenze con HTML
+
+JSX non è HTML. Poiché viene compilato in JavaScript, segue le convenzioni di denominazione di quest'ultimo (camelCase) invece di quelle standard del DOM.
+
+### Attributi nominati diversamente
+
+- **className**: in HTML si usa `class`, ma in JavaScript `class` è una parola riservata per definire le classi.
+- **htmlFor**: sostituisce l'attributo `for` utilizzato nelle etichette (`<label>`).
+- **Eventi**: Gli eventi seguono il camelCase (es. `onClick`, `onChange`, `onSubmit`).
+
+### Stili in linea
+
+In HTML, lo stile è una stringa. In JSX, l'attributo `style` accetta un **oggetto JavaScript** con proprietà in camelCase.
+
+```javascript
+<div style={{ color: "blue", fontSize: "14px" }}>Testo</div>
+```
+
+---
+
+## Inserire espressioni JavaScript
+
+Una delle caratteristiche più potenti di JSX è la possibilità di inserire logica JavaScript direttamente nel markup utilizzando le parentesi graffe `{ }`.
+
+### Variabili e Proprietà
+
+Puoi visualizzare il contenuto di una variabile o il risultato di una funzione semplicemente inserendola tra le graffe:
+
+```javascript
+const nome = "Luca";
+return <h2>Ciao, {nome}!</h2>;
+```
+
+### Logica e Condizionali
+
+Poiché JSX è JavaScript, puoi usare operatori logici per il rendering condizionale direttamente dentro il markup:
+
+- **Operatore Ternario**: `{isOnline ? 'Disponibile' : 'Non in linea'}`
+- **Operatore AND (&&)**: `{messaggi.length > 0 && <IconaNotifica />}`
+
+### Mappatura di Liste
+
+Per generare elementi ripetuti, si usa comunemente il metodo `.map()` degli array:
+
+```javascript
+<ul>
+  {prodotti.map((p) => (
+    <li key={p.id}>{p.nome}</li>
+  ))}
+</ul>
+```
