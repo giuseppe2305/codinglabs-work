@@ -1,5 +1,138 @@
-# React
+# Introduzione
 
-## React Framework
+React è una **libreria JavaScript per la costruzione di interfacce utente** moderne, interattive e scalabili. È sviluppata e mantenuta da Meta (Facebook) ed è oggi uno degli strumenti più utilizzati nel mondo dello sviluppo frontend.
 
-React is UI library built with Javascript.
+React si concentra esclusivamente sulla **UI (User Interface)** e sul modo in cui essa cambia nel tempo in risposta alle interazioni dell’utente o ai dati dell’applicazione.
+
+---
+
+## Cos’è React (e cosa non è)
+
+### Cos’è
+
+- Una **libreria**, non un framework completo
+- Basata su **JavaScript** (e spesso **TypeScript**)
+- Utilizzata per creare **Single Page Applications (SPA)**
+- Orientata alla **composizione di componenti**
+- Dichiarativa: descrivi _cosa_ vuoi vedere, non _come_ ottenerlo
+
+### Cosa non è
+
+- Non gestisce routing, stato globale o chiamate HTTP di default
+- Non è un sostituto di HTML o CSS
+- Non impone una struttura rigida di progetto
+
+---
+
+## Perché usare React
+
+React è diventato uno standard de facto per diversi motivi:
+
+- **Component-based**: l’interfaccia è divisa in componenti riutilizzabili
+- **Aggiornamenti efficienti** grazie al Virtual DOM
+- **Ottima developer experience**
+- **Ecosistema enorme** (librerie, tool, community)
+- **Manutenibilità e scalabilità** nel lungo periodo
+- Utilizzato in **produzione su larga scala** (Facebook, Instagram, Netflix, Airbnb)
+
+---
+
+## Il concetto chiave: i Componenti
+
+Un componente React è una **funzione (o classe)** che:
+
+- Riceve dati in input (props)
+- Restituisce un’interfaccia descritta tramite JSX
+
+Ogni applicazione React è una **gerarchia di componenti** che collaborano tra loro.
+
+Esempio concettuale:
+
+- App
+  - Header
+  - Sidebar
+  - Content
+    - Article
+    - Comments
+  - Footer
+
+---
+
+## JSX: JavaScript + UI
+
+React utilizza **JSX**, una sintassi che permette di scrivere markup simile a HTML direttamente in JavaScript.
+
+Caratteristiche principali:
+
+- Non è HTML, ma **JavaScript**
+- Permette di inserire espressioni JS
+- Migliora leggibilità e coesione tra logica e UI
+
+JSX viene poi trasformato in JavaScript puro tramite tool come **Babel**.
+
+---
+
+## Dichiaratività
+
+Con React descrivi **lo stato finale dell’interfaccia**, non i passaggi intermedi.
+
+Invece di:
+
+- Selezionare elementi
+- Modificarli manualmente
+- Gestire aggiornamenti imperativi
+
+React si occupa di:
+
+- Capire cosa è cambiato
+- Aggiornare solo ciò che serve
+
+Questo riduce bug e complessità.
+
+---
+
+## React nel moderno sviluppo frontend
+
+React è spesso usato insieme a:
+
+- **Vite / Webpack** per il build
+- **TypeScript** per la tipizzazione
+- **Next.js** per SSR, SSG e routing avanzato
+- **TailwindCSS / CSS Modules / Styled Components**
+- Librerie di stato (Redux, Zustand, Jotai)
+
+---
+
+## Quando React è la scelta giusta
+
+React è ideale se:
+
+- L’interfaccia è **dinamica**
+- Lo stato dell’app cambia spesso
+- Serve **scalabilità**
+- Si lavora in team
+- Si vogliono componenti riutilizzabili
+
+Potrebbe non essere necessario per:
+
+- Siti statici molto semplici
+- Pagine con pochissima interazione
+
+---
+
+## Cosa imparerai in questa documentazione
+
+In questa documentazione approfondiremo:
+
+- Fondamenti di React
+- Componenti e JSX
+- Props e State
+- Hooks
+- Gestione degli eventi
+- Rendering e lifecycle
+- Best practice
+- Pattern comuni
+- Errori frequenti
+- Approccio moderno con React Hooks
+
+Questa guida è pensata per accompagnarti **dalle basi fino a un utilizzo consapevole e professionale di React**.
