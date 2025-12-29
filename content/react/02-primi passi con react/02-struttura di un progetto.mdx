@@ -1,0 +1,166 @@
+# Struttura di un progetto React
+
+Quando si crea un nuovo progetto React (ad esempio tramite **Create React App**, **Vite** o framework simili), ci si trova davanti a una struttura di cartelle e file ben definita. Comprendere il ruolo di ogni elemento è fondamentale per orientarsi nel progetto, mantenerlo ordinato e scalabile.
+
+Questo articolo analizza la struttura tipica di un progetto React, concentrandosi sulle cartelle e sui file più importanti.
+
+---
+
+## Panoramica generale del progetto
+
+Un progetto React è organizzato per separare chiaramente:
+
+- codice sorgente dell’applicazione
+- risorse statiche
+- configurazioni di build e sviluppo
+
+La maggior parte del lavoro quotidiano avviene all’interno della cartella `src`, mentre il resto dei file supporta il funzionamento dell’applicazione.
+
+---
+
+## La cartella src
+
+La cartella `src` (**source**) contiene tutto il codice JavaScript/TypeScript dell’applicazione React.  
+È il cuore del progetto.
+
+All’interno di `src` troviamo:
+
+- componenti React
+- logica dell’applicazione
+- stili
+- hook, context, utilities
+- file di avvio dell’app
+
+### Ruolo principale di src
+
+React carica ed esegue **solo** i file presenti in questa cartella.  
+Qualsiasi codice che non si trova in `src` non farà parte del bundle finale.
+
+---
+
+## Il file index.js
+
+Il file `index.js` (o `main.jsx` in Vite) è il **punto di ingresso** dell’applicazione React.
+
+Le sue responsabilità principali sono:
+
+- selezionare l’elemento HTML di root
+- inizializzare React
+- montare il componente principale dell’app
+
+Esempio tipico:
+
+```js
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);
+```
+
+### Concetto chiave
+
+`index.js` **non contiene logica di business**.  
+Il suo scopo è esclusivamente avviare l’applicazione.
+
+---
+
+## Il file App.js
+
+`App.js` è il **componente principale** dell’applicazione.
+
+Caratteristiche:
+
+- è un componente React
+- rappresenta la radice della UI
+- funge da contenitore per gli altri componenti
+
+Esempio semplificato:
+
+```js
+function App() {
+  return (
+    <div>
+      <h1>Hello React</h1>
+    </div>
+  );
+}
+
+export default App;
+```
+
+### Perché App è così importante
+
+Tutta l’interfaccia dell’app deriva, direttamente o indirettamente, da `App`.  
+Routing, layout principali e provider globali vengono solitamente definiti qui.
+
+---
+
+## La cartella public
+
+La cartella `public` contiene **file statici** che non vengono elaborati da React o dal bundler.
+
+Elementi comuni in `public`:
+
+- `index.html`
+- favicon
+- immagini statiche
+- file manifest
+- file SEO o meta statici
+
+---
+
+## Il file index.html
+
+`index.html` è l’unico file HTML dell’applicazione.
+
+Contiene:
+
+- la struttura base della pagina
+- il `<div id="root"></div>` dove React verrà montato
+
+Esempio:
+
+```html
+<div id="root"></div>
+```
+
+React non genera nuove pagine HTML:  
+tutta l’applicazione viene renderizzata **dinamicamente** dentro questo elemento.
+
+---
+
+## Relazione tra public e src
+
+- `public`: contenuto statico, non processato
+- `src`: codice React, processato e bundleizzato
+
+Le risorse in `public` sono accessibili direttamente dal browser, mentre quelle in `src` devono essere importate nel codice.
+
+---
+
+## Organizzazione consigliata del codice
+
+Con la crescita del progetto, è buona pratica organizzare `src` in sottocartelle, ad esempio:
+
+- `components/`
+- `pages/`
+- `hooks/`
+- `context/`
+- `services/`
+- `styles/`
+
+Questa struttura migliora la leggibilità e la manutenibilità del codice.
+
+---
+
+## Riepilogo concettuale
+
+- `src` contiene tutto il codice React
+- `index.js` avvia l’applicazione
+- `App.js` definisce la struttura principale della UI
+- `public` ospita file statici
+- `index.html` è il punto di montaggio di React
+
+Comprendere questa struttura è il primo passo per lavorare in modo efficace con React e costruire applicazioni solide e scalabili.
