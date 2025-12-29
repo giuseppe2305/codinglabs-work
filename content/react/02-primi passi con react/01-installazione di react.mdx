@@ -1,0 +1,106 @@
+# Installazione di React
+
+Per iniziare a sviluppare con React è necessario creare un ambiente di progetto configurato correttamente. Nel tempo sono emersi diversi strumenti per questo scopo; tra i più utilizzati troviamo **Create React App** e **Vite**. In questo articolo vediamo come funzionano, quando usarli e come installare React con entrambi.
+
+---
+
+## Prerequisiti fondamentali
+
+Prima di procedere è necessario avere:
+
+- Node.js installato (versione LTS consigliata)
+- Un package manager come npm, yarn o pnpm
+- Un editor di codice (ad esempio VS Code)
+
+Node.js include npm, quindi nella maggior parte dei casi è sufficiente installare Node.
+
+---
+
+## Create React App: panoramica
+
+Create React App (CRA) è stato per anni lo strumento ufficiale e consigliato per iniziare con React. Fornisce una configurazione pronta all’uso senza richiedere conoscenze avanzate di build tool.
+
+Le sue caratteristiche principali sono:
+
+- Configurazione zero
+- Setup automatico di Babel e Webpack
+- Ambiente di sviluppo immediato
+- Struttura del progetto standardizzata
+
+---
+
+## Installazione di React con Create React App
+
+```bash
+npx create-react-app nome-progetto
+```
+
+```bash
+cd nome-progetto
+npm start
+```
+
+---
+
+## Struttura del progetto con CRA
+
+Un progetto creato con Create React App include:
+
+- Cartella `src`
+- Cartella `public`
+- Script preconfigurati per sviluppo, build e test
+
+---
+
+## Limiti di Create React App
+
+- Build più lente
+- Configurazione rigida
+- Maggiore peso iniziale del progetto
+
+---
+
+## Vite: introduzione
+
+Vite è un build tool moderno che sfrutta le funzionalità native del browser per offrire tempi di avvio e aggiornamento estremamente rapidi.
+
+Vantaggi principali:
+
+- Avvio quasi istantaneo
+- Hot Module Replacement veloce
+- Configurazione minimale
+
+---
+
+## Installazione di React con Vite
+
+```bash
+npm create vite@latest nome-progetto
+```
+
+```bash
+cd nome-progetto
+npm install
+npm run dev
+```
+
+---
+
+## Organizzazione del progetto con Vite
+
+- Struttura più snella
+- Maggiore controllo sulla configurazione
+- Ottime prestazioni anche su progetti grandi
+
+---
+
+## Confronto tra CRA e Vite
+
+- CRA: semplice, ma meno moderno
+- Vite: veloce, flessibile, consigliato per nuovi progetti
+
+---
+
+## Conclusione
+
+Create React App ha avuto un ruolo fondamentale nella diffusione di React, ma oggi Vite rappresenta lo standard moderno per iniziare nuovi progetti React in modo efficiente.
