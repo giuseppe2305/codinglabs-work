@@ -1,0 +1,160 @@
+# Definizione e scopo
+
+React è una **libreria JavaScript open-source** progettata per la **creazione di interfacce utente (UI)**. Il suo obiettivo principale è semplificare lo sviluppo di applicazioni frontend complesse, rendendo la UI **prevedibile, modulare e facilmente manutenibile**.
+
+React nasce dall’esigenza di gestire interfacce che cambiano frequentemente nel tempo, in risposta a:
+
+- Interazioni dell’utente
+- Aggiornamenti dei dati
+- Cambiamenti di stato dell’applicazione
+
+---
+
+## Definizione formale di React
+
+React può essere definito come:
+
+> Una libreria dichiarativa e basata su componenti per costruire interfacce utente, che aggiorna in modo efficiente la UI quando i dati cambiano.
+
+Questa definizione racchiude tre concetti fondamentali:
+
+- **Dichiarativa**
+- **Component-based**
+- **Aggiornamenti efficienti**
+
+---
+
+## Lo scopo di React
+
+Lo scopo principale di React è **astrarre la complessità della gestione del DOM** e permettere allo sviluppatore di concentrarsi su:
+
+- Stato dell’applicazione
+- Logica di rendering
+- Composizione dell’interfaccia
+
+React si occupa di:
+
+- Sincronizzare UI e dati
+- Gestire gli aggiornamenti dell’interfaccia
+- Minimizzare le operazioni costose sul DOM
+
+---
+
+## Il problema che React risolve
+
+Prima di React, lo sviluppo frontend era spesso caratterizzato da:
+
+- Manipolazioni manuali del DOM
+- Codice imperativo difficile da mantenere
+- Accoppiamento stretto tra logica e presentazione
+- Bug causati da stati incoerenti
+
+Con l’aumentare della complessità delle applicazioni, questo approccio diventava rapidamente insostenibile.
+
+React introduce un **modello mentale più semplice**:
+
+> L’interfaccia è una funzione dello stato.
+
+---
+
+## UI come funzione dello stato
+
+In React la UI viene descritta come:
+
+UI = f(state)
+
+Questo significa che:
+
+- Lo stato è l’unica fonte di verità
+- Quando lo stato cambia, la UI viene ricalcolata
+- Non è necessario aggiornare manualmente il DOM
+
+Questo approccio rende l’interfaccia:
+
+- Più prevedibile
+- Più facile da debuggare
+- Più testabile
+
+---
+
+## Approccio dichiarativo vs Approccio imperativo
+
+React adotta un approccio **dichiarativo**, in contrapposizione a quello imperativo.
+
+### Approccio imperativo
+
+- Descrivi ogni singolo passaggio
+- Gestisci manualmente le modifiche
+- Maggiore rischio di errori
+
+### Approccio dichiarativo
+
+- Descrivi lo stato finale desiderato
+- React gestisce il “come”
+- Codice più chiaro e leggibile
+
+---
+
+## Componenti come unità fondamentali
+
+In React, l’interfaccia è suddivisa in **componenti**:
+
+- Piccole unità indipendenti
+- Riutilizzabili
+- Facili da testare
+- Componibili tra loro
+
+Ogni componente incapsula:
+
+- Logica
+- Struttura
+- Stato (quando necessario)
+
+---
+
+## Scopo pratico di React nelle applicazioni moderne
+
+React è pensato per:
+
+- Applicazioni web interattive
+- Single Page Applications (SPA)
+- Dashboard e pannelli di controllo
+- Applicazioni data-driven
+- Interfacce complesse e dinamiche
+
+Viene spesso utilizzato come **strato di presentazione**, integrandosi con:
+
+- API backend
+- Sistemi di autenticazione
+- Librerie di stato
+- Framework più completi come Next.js
+
+---
+
+## Limiti e responsabilità di React
+
+È importante chiarire anche cosa **non rientra nello scopo di React**:
+
+- Non gestisce routing di default
+- Non fornisce gestione globale dello stato
+- Non include un sistema di styling
+- Non gestisce il backend
+
+Questo design volutamente minimale rende React:
+
+- Flessibile
+- Estendibile
+- Adattabile a contesti diversi
+
+---
+
+## Obiettivo finale di React
+
+L’obiettivo di React è permettere agli sviluppatori di:
+
+- Costruire UI complesse in modo semplice
+- Ridurre bug legati allo stato
+- Scrivere codice leggibile e manutenibile
+- Scalare applicazioni nel tempo
+
+React non è solo uno strumento, ma un **paradigma di sviluppo** che ha influenzato profondamente il modo di costruire interfacce web moderne.
