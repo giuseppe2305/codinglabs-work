@@ -1,0 +1,101 @@
+# Componenti funzionali
+
+I componenti funzionali sono la forma più utilizzata per creare componenti in React moderno. Sono funzioni JavaScript che ricevono dei parametri in input e restituiscono JSX, cioè la descrizione dell’interfaccia utente da renderizzare.
+
+Un componente funzionale deve sempre iniziare con una lettera maiuscola. React utilizza questa convenzione per distinguere i componenti personalizzati dagli elementi HTML standard.
+
+Esempio di componente funzionale di base:
+
+```jsx
+function Welcome() {
+  return <h1>Ciao React</h1>;
+}
+```
+
+Questo componente può essere utilizzato all’interno di altri componenti come se fosse un normale tag HTML:
+
+```jsx
+<Welcome />
+```
+
+I componenti funzionali sono semplici, leggibili e favoriscono la composizione dell’interfaccia tramite piccoli blocchi riutilizzabili.
+
+## Sintassi con arrow function
+
+Una forma molto comune per definire componenti funzionali è l’uso delle arrow function. Questa sintassi è più compatta ed è diventata uno standard di fatto nello sviluppo React.
+
+Esempio di componente con arrow function:
+
+```jsx
+const Welcome = () => {
+  return <h1>Ciao React</h1>;
+};
+```
+
+Se il componente restituisce direttamente JSX su una sola riga, è possibile omettere le parentesi graffe e il return:
+
+```jsx
+const Welcome = () => <h1>Ciao React</h1>;
+```
+
+Questa sintassi è particolarmente utile per componenti semplici e migliora la leggibilità del codice.
+
+## Props
+
+Le props (properties) sono il meccanismo principale con cui React passa dati da un componente padre a un componente figlio. Le props sono in sola lettura e non devono mai essere modificate direttamente dal componente che le riceve.
+
+Esempio di componente che riceve props:
+
+```jsx
+const Welcome = (props) => {
+  return <h1>Ciao {props.name}</h1>;
+};
+```
+
+Utilizzo del componente con una prop:
+
+```jsx
+<Welcome name="Giuseppe" />
+```
+
+È molto comune destrutturare le props direttamente nei parametri della funzione per rendere il codice più pulito:
+
+```jsx
+const Welcome = ({ name }) => {
+  return <h1>Ciao {name}</h1>;
+};
+```
+
+Le props possono essere di qualsiasi tipo JavaScript: stringhe, numeri, booleani, array, oggetti o funzioni.
+
+## Default props
+
+I default props permettono di definire valori di default per le props nel caso in cui non vengano passate dal componente padre. Questo evita errori e rende i componenti più robusti.
+
+Esempio di default props:
+
+```jsx
+const Welcome = ({ name }) => {
+  return <h1>Ciao {name}</h1>;
+};
+
+Welcome.defaultProps = {
+  name: "Utente",
+};
+```
+
+Se il componente viene utilizzato senza passare la prop name:
+
+```jsx
+<Welcome />
+```
+
+Il valore utilizzato sarà quello di default.
+
+Nei componenti funzionali moderni, spesso i valori di default vengono assegnati direttamente tramite destrutturazione:
+
+```jsx
+const Welcome = ({ name = "Utente" }) => {
+  return <h1>Ciao {name}</h1>;
+};
+```
