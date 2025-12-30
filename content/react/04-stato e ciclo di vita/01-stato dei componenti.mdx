@@ -1,0 +1,144 @@
+# Stato dei componenti
+
+Lo stato rappresenta i dati interni di un componente React che possono cambiare nel tempo e causare una nuova renderizzazione dell’interfaccia. A differenza delle props, lo stato è gestito direttamente dal componente e riflette informazioni dinamiche come input dell’utente, toggle, dati caricati da un’API o valori temporanei dell’interfaccia.
+
+## Concetto di stato in React
+
+Ogni volta che lo stato cambia, React riesegue la funzione del componente (o il metodo render nelle classi) e aggiorna il DOM in modo efficiente. Lo stato deve essere considerato immutabile: non va mai modificato direttamente, ma sempre tramite gli strumenti forniti da React.
+
+## useState per componenti funzionali
+
+Nei componenti funzionali lo stato viene gestito tramite l’hook useState. Questo hook permette di dichiarare una variabile di stato e una funzione per aggiornarla.
+
+```js
+import { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <button onClick={() => setCount(count + 1)}>Conteggio: {count}</button>
+  );
+}
+```
+
+useState accetta un valore iniziale e restituisce un array con due elementi:
+
+- il valore corrente dello stato
+- la funzione per aggiornarlo
+
+## Aggiornamento dello stato con useState
+
+La funzione di aggiornamento non modifica lo stato immediatamente, ma pianifica un nuovo render. È possibile passare direttamente il nuovo valore o una funzione basata sul valore precedente.
+
+```js
+setCount(count + 1);
+
+setCount((prevCount) => prevCount + 1);
+```
+
+La seconda forma è preferibile quando il nuovo stato dipende da quello precedente, soprattutto in presenza di aggiornamenti multipli.
+
+## Stato con oggetti e array
+
+Quando lo stato contiene oggetti o array, è necessario crearne una nuova copia invece di modificarli direttamente.
+
+```js
+const [user, setUser] = useState({ name: "Mario", age: 30 });
+
+setUser({
+  ...user,
+  age: 31,
+});
+```
+
+Questo approccio consente a React di rilevare correttamente il cambiamento e aggiornare il componente.
+
+## Stato derivato e inizializzazione lazy
+
+useState può ricevere una funzione come valore iniziale, utile quando l’inizializzazione è costosa.
+
+```js
+const [value, setValue] = useState(() => {
+  return expensiveComputation();
+});
+```
+
+La funzione viene eseguita solo al primo render.
+
+## this.state per componenti a classi
+
+Nei componenti a classi lo stato è un oggetto accessibile tramite this.state e viene inizializzato nel costruttore.
+
+```js
+class Counter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0,
+    };
+  }
+
+  render() {
+    return <button>Conteggio: {this.state.count}</button>;
+  }
+}
+```
+
+Lo stato è sempre legato all’istanza del componente.
+
+## Aggiornamento dello stato nelle classi con setState
+
+Per aggiornare lo stato si utilizza this.setState. Anche in questo caso lo stato non va mai modificato direttamente.
+
+```js
+this.setState({ count: this.state.count + 1 });
+```
+
+È possibile usare la forma funzionale per evitare problemi con aggiornamenti asincroni.
+
+```js
+this.setState((prevState) => ({
+  count: prevState.count + 1,
+}));
+```
+
+## setState e merge dello stato
+
+A differenza di useState, setState effettua un merge superficiale dello stato.
+
+```js
+this.state = {
+  user: "Mario",
+  age: 30,
+};
+
+this.setState({ age: 31 });
+```
+
+Il campo user rimane invariato, mentre age viene aggiornato.
+
+## Confronto tra useState e this.state
+
+Nei componenti funzionali:
+
+- lo stato è dichiarato per singola variabile
+- non esiste merge automatico
+- si utilizza una funzione di aggiornamento dedicata
+
+Nei componenti a classi:
+
+- lo stato è un unico oggetto
+- setState unisce automaticamente le proprietà
+- l’accesso avviene tramite this.state
+
+## Quando usare stato locale
+
+Lo stato locale è adatto per:
+
+- valori temporanei dell’interfaccia
+- gestione di input e form
+- toggle, modali e dropdown
+- dati specifici di un singolo componente
+
+Per dati condivisi tra più componenti è preferibile sollevare lo stato o utilizzare strumenti dedicati come context o state management esterni.
