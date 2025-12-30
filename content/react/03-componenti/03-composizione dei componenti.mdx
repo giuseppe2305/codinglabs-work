@@ -1,0 +1,80 @@
+# Composizione dei componenti
+
+La composizione dei componenti è un principio fondamentale di React che permette di costruire interfacce complesse combinando componenti semplici e riutilizzabili. Invece di usare ereditarietà, React favorisce la composizione tramite props e children.
+
+## Children
+
+La prop speciale children consente a un componente di ricevere ed eseguire il rendering di contenuti annidati al suo interno. Questo meccanismo rende i componenti flessibili e riutilizzabili, permettendo di definire strutture generiche che delegano il contenuto al componente genitore.
+
+### Esempio di utilizzo di children
+
+```jsx
+function Card(props) {
+  return <div className="card">{props.children}</div>;
+}
+```
+
+### Utilizzo del componente con contenuto annidato
+
+```jsx
+<Card>
+  <h2>Titolo</h2>
+  <p>Contenuto della card</p>
+</Card>
+```
+
+Il contenuto incluso tra i tag di apertura e chiusura viene automaticamente passato come props.children.
+
+Children può essere qualsiasi tipo di valore renderizzabile: stringhe, elementi JSX, array di elementi o componenti.
+
+```jsx
+<Card>{"Testo semplice"}</Card>
+```
+
+```jsx
+<Card>{[<p key="1">A</p>, <p key="2">B</p>]}</Card>
+```
+
+## Componenti genitore-figlio
+
+Il rapporto genitore-figlio in React si basa sul passaggio di dati tramite props. Un componente genitore controlla lo stato e la logica, mentre i componenti figli ricevono dati e funzioni per la visualizzazione o l’interazione.
+
+Esempio di componente genitore che passa dati a un figlio
+
+```jsx
+function Parent() {
+  const userName = "Giuseppe";
+
+  return <Child name={userName} />;
+}
+```
+
+### Componente figlio che riceve le props
+
+```jsx
+function Child(props) {
+  return <p>Ciao {props.name}</p>;
+}
+```
+
+Il flusso dei dati è unidirezionale: dal genitore verso il figlio. Il figlio non può modificare direttamente lo stato del genitore.
+
+Per consentire a un figlio di influenzare il genitore, si passa una funzione come prop.
+
+```jsx
+function Parent() {
+  const handleClick = () => {
+    console.log("Evento gestito dal genitore");
+  };
+
+  return <Child onAction={handleClick} />;
+}
+```
+
+```jsx
+function Child(props) {
+  return <button onClick={props.onAction}>Clicca</button>;
+}
+```
+
+Questa struttura mantiene il controllo della logica nel componente genitore e garantisce una gestione prevedibile dello stato e delle interazioni.
