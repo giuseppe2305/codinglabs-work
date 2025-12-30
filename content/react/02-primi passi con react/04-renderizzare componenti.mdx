@@ -1,0 +1,89 @@
+# Renderizzare componenti in React
+
+In React, l’interfaccia utente viene costruita a partire da componenti. Un componente è una funzione (o classe, nei casi legacy) che restituisce una descrizione dell’interfaccia sotto forma di JSX. Renderizzare un componente significa chiedere a React di trasformare quella descrizione in elementi reali del DOM e inserirli nella pagina.
+
+## Definizione di un componente
+
+Un componente React semplice può essere definito come una funzione JavaScript:
+
+```jsx
+function App() {
+  return <h1>Ciao React</h1>;
+}
+```
+
+Questo codice, da solo, non produce alcun risultato visibile nel browser. Il componente deve essere montato all’interno del DOM tramite le API fornite da ReactDOM. Il processo di rendering iniziale stabilisce il punto di ingresso dell’applicazione React e collega il mondo React con il DOM reale del browser.
+
+In un’applicazione moderna, di solito esiste un unico punto di rendering principale, chiamato root, dal quale parte tutta la gerarchia dei componenti.
+
+## ReactDOM.createRoot
+
+A partire da React 18, il metodo consigliato per inizializzare un’applicazione React è ReactDOM.createRoot. Questo metodo abilita il nuovo sistema di rendering concorrente e sostituisce il vecchio ReactDOM.render.
+
+### Esempio di utilizzo
+
+```jsx
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+
+const container = document.getElementById("root");
+const root = ReactDOM.createRoot(container);
+
+root.render(<App />);
+```
+
+In questo esempio:
+
+- document.getElementById("root") recupera un elemento HTML presente nel file index.html
+- createRoot crea una radice React associata a quell’elemento
+- root.render avvia il rendering del componente principale App e di tutti i suoi componenti figli
+
+Il file HTML contiene solitamente una struttura minima simile alla seguente:
+
+```html
+<div id="root"></div>
+```
+
+Da questo punto in poi, React controlla completamente il contenuto di quell’elemento. Tutti gli aggiornamenti dell’interfaccia vengono gestiti internamente da React senza la necessità di manipolare manualmente il DOM.
+
+## Aggiornamento dinamico del DOM
+
+Uno dei concetti fondamentali di React è che il DOM viene aggiornato in modo dinamico e automatico in risposta ai cambiamenti di stato. Lo sviluppatore non scrive codice per modificare direttamente il DOM, ma descrive come l’interfaccia dovrebbe apparire in un determinato stato.
+
+### Esempio con stato
+
+```jsx
+import { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>Contatore: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Incrementa</button>
+    </div>
+  );
+}
+```
+
+Quando l’utente clicca sul pulsante:
+
+1. viene chiamata la funzione setCount
+2. lo stato del componente cambia
+3. React ricalcola il JSX del componente
+4. React aggiorna solo le parti del DOM che sono effettivamente cambiate
+
+Questo meccanismo è reso possibile dal Virtual DOM, una rappresentazione in memoria dell’interfaccia. React confronta la versione precedente dell’interfaccia con quella nuova e applica al DOM reale solo le modifiche minime necessarie.
+
+### Vantaggi principali
+
+- interfacce sempre coerenti con lo stato dell’applicazione
+- codice più semplice e dichiarativo
+- migliori prestazioni rispetto alla manipolazione manuale del DOM
+- maggiore prevedibilità del comportamento dell’interfaccia
+
+## Conclusione
+
+ReactDOM.createRoot definisce il punto di ingresso dell’applicazione, mentre il sistema di rendering e aggiornamento dinamico consente a React di mantenere il DOM sincronizzato con i dati, rendendo lo sviluppo di interfacce complesse più affidabile e scalabile.
