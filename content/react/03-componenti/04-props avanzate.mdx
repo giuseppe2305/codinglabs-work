@@ -1,0 +1,141 @@
+# Props avanzate
+
+Le props sono il principale meccanismo di comunicazione tra componenti in React. Oltre all’uso base, esistono pattern avanzati che permettono di scrivere componenti più flessibili, riutilizzabili e scalabili.
+
+## Props come contratto tra componenti
+
+Un componente React deve essere progettato come una funzione pura che riceve un insieme di input (props) e restituisce UI. Le props rappresentano un vero e proprio contratto tra il componente che fornisce i dati e quello che li consuma.
+
+Ogni componente dovrebbe:
+
+- Ricevere solo le props di cui ha realmente bisogno
+- Non modificare mai direttamente le props
+- Essere prevedibile rispetto ai valori ricevuti
+
+Questo approccio rende il componente più semplice da testare e riutilizzare.
+
+## Spread operator nelle props
+
+Lo spread operator permette di passare un insieme di props in modo compatto, evitando ripetizioni inutili.
+
+### Spread di oggetti props
+
+```jsx
+function Button(props) {
+  return <button {...props} />
+}
+
+const buttonProps = {
+  type: "button",
+  disabled: false,
+  className: "primary"
+}
+
+<Button {...buttonProps} />
+```
+
+In questo caso tutte le proprietà dell’oggetto vengono passate al componente. È una tecnica utile quando si lavora con componenti wrapper o componenti altamente configurabili.
+
+### Ordine di applicazione delle props
+
+Quando si combinano props esplicite e spread, l’ordine è fondamentale.
+
+```jsx
+<button {...props} disabled />
+```
+
+La prop `disabled` sovrascrive eventuali valori presenti in `props`.
+
+```jsx
+<button disabled {...props} />
+```
+
+In questo caso è `props.disabled` ad avere la precedenza.
+
+## Spread operator e children
+
+Lo spread operator non include automaticamente `children` se non è presente nell’oggetto.
+
+```jsx
+function Card(props) {
+  return <div className="card" {...props} />;
+}
+```
+
+Se `props` contiene `children`, verranno renderizzati correttamente. In caso contrario, il componente risulterà vuoto.
+
+## Funzioni come props
+
+Passare funzioni come props è uno dei pattern più importanti di React. Permette ai componenti figli di comunicare eventi o cambiamenti di stato al componente genitore.
+
+### Callback per la gestione degli eventi
+
+```jsx
+function Button({ onClick }) {
+  return <button onClick={onClick}>Clicca</button>;
+}
+
+function App() {
+  const handleClick = () => {
+    console.log("Click gestito dal genitore");
+  };
+
+  return <Button onClick={handleClick} />;
+}
+```
+
+Il componente figlio non conosce la logica dell’evento, ma si limita a invocare la funzione ricevuta.
+
+## Passaggio di parametri alle funzioni
+
+Quando è necessario passare dati alla funzione, si utilizza una funzione anonima.
+
+```jsx
+<button onClick={() => onSelect(id)}>Seleziona</button>
+```
+
+Questo consente di mantenere il controllo della logica nel componente genitore.
+
+## Funzioni come props e stato
+
+Le funzioni come props vengono spesso usate per modificare lo stato del componente genitore.
+
+```jsx
+function Counter({ increment }) {
+  return <button onClick={increment}>+</button>;
+}
+
+function App() {
+  const [count, setCount] = React.useState(0);
+
+  const increment = () => setCount(count + 1);
+
+  return <Counter increment={increment} />;
+}
+```
+
+Questo pattern mantiene lo stato centralizzato e migliora la prevedibilità dell’applicazione.
+
+## Funzioni come render props
+
+Una funzione può essere usata per definire cosa renderizzare, non solo per gestire eventi.
+
+```jsx
+function List({ items, renderItem }) {
+  return <ul>{items.map((item) => renderItem(item))}</ul>;
+}
+
+<List items={[1, 2, 3]} renderItem={(item) => <li key={item}>{item}</li>} />;
+```
+
+Questo approccio aumenta notevolmente la flessibilità del componente.
+
+## Best practice per props avanzate
+
+- Evitare di passare oggetti props non necessari
+- Usare lo spread operator solo quando migliora la leggibilità
+- Dare nomi chiari e coerenti alle funzioni passate come props
+- Mantenere la logica di stato nei componenti più alti possibile
+- Preferire componenti semplici e prevedibili
+
+Le props avanzate sono uno strumento fondamentale per costruire componenti React modulari, riutilizzabili e facilmente manutenibili.
