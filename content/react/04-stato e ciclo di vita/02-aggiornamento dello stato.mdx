@@ -1,0 +1,146 @@
+# Aggiornamento dello stato
+
+L’aggiornamento dello stato è uno degli aspetti più critici di React, perché influisce direttamente su rendering, performance e prevedibilità del comportamento dei componenti. Comprendere come React gestisce gli aggiornamenti, la differenza tra merge e replace e l’uso corretto delle funzioni updater è fondamentale per scrivere codice affidabile.
+
+## Come React aggiorna lo stato
+
+In React lo stato rappresenta un’istantanea dei dati in un determinato momento. Quando lo stato viene aggiornato, React non modifica direttamente il valore esistente, ma crea una nuova versione dello stato e pianifica un nuovo rendering del componente.
+
+Gli aggiornamenti di stato sono asincroni e possono essere batchati, cioè raggruppati, per ottimizzare le prestazioni. Questo significa che non è garantito che lo stato sia aggiornato immediatamente dopo una chiamata a setState o al setter di useState.
+
+## Merge vs replace nello stato
+
+Il comportamento dell’aggiornamento dello stato cambia in base al tipo di componente: classi o componenti funzionali.
+
+### Aggiornamento dello stato nelle classi: merge
+
+Nei componenti a classe, l’aggiornamento dello stato avviene tramite setState. Quando si passa un oggetto a setState, React esegue un merge superficiale tra il nuovo oggetto e lo stato esistente.
+
+Esempio:
+
+```js
+this.state = {
+  name: "Mario",
+  age: 30,
+};
+
+this.setState({
+  age: 31,
+});
+```
+
+Dopo l’aggiornamento, lo stato risultante sarà:
+
+```js
+{
+  name: "Mario",
+  age: 31
+}
+```
+
+Solo le proprietà specificate vengono aggiornate, le altre restano invariate. Il merge è superficiale, quindi per oggetti annidati è necessario gestire manualmente la copia dei livelli interni.
+
+### Aggiornamento dello stato nei componenti funzionali: replace
+
+Nei componenti funzionali, useState non esegue alcun merge automatico. Il valore passato al setter sostituisce completamente lo stato precedente.
+
+Esempio:
+
+```js
+const [user, setUser] = useState({
+  name: "Mario",
+  age: 30,
+});
+
+setUser({
+  age: 31,
+});
+```
+
+Il nuovo stato sarà:
+
+```js
+{
+  age: 31;
+}
+```
+
+La proprietà name viene persa perché lo stato viene rimpiazzato. Per mantenere le altre proprietà è necessario copiarle esplicitamente.
+
+Esempio corretto:
+
+```js
+setUser({
+  ...user,
+  age: 31,
+});
+```
+
+Questo approccio rende il comportamento più esplicito e coerente con i principi di immutabilità.
+
+## Implicazioni pratiche di merge e replace
+
+Il merge automatico nelle classi può sembrare più comodo, ma può nascondere errori, soprattutto con strutture di stato complesse. Il replace nei componenti funzionali obbliga a essere espliciti su cosa viene mantenuto e cosa viene modificato, riducendo ambiguità e bug.
+
+Per questo motivo, anche quando si lavora con classi, è buona pratica trattare lo stato come immutabile e aggiornare esplicitamente le strutture annidate.
+
+## Funzioni updater
+
+Le funzioni updater permettono di aggiornare lo stato basandosi sul valore precedente. Sono fondamentali quando il nuovo stato dipende dal vecchio, specialmente in presenza di aggiornamenti asincroni o batchati.
+
+### Problema degli aggiornamenti basati sullo stato corrente
+
+Esempio errato:
+
+```js
+setCount(count + 1);
+setCount(count + 1);
+```
+
+Il risultato finale potrebbe essere un incremento di 1 invece di 2, perché entrambe le chiamate usano lo stesso valore di count.
+
+### Uso corretto della funzione updater
+
+La funzione updater riceve lo stato precedente come argomento e restituisce il nuovo stato.
+
+```js
+setCount((prevCount) => prevCount + 1);
+setCount((prevCount) => prevCount + 1);
+```
+
+In questo caso il risultato sarà sempre corretto, perché ogni aggiornamento si basa sul valore più recente.
+
+### Funzioni updater con oggetti
+
+Le funzioni updater sono particolarmente utili con oggetti e array.
+
+```js
+setUser((prevUser) => ({
+  ...prevUser,
+  age: prevUser.age + 1,
+}));
+```
+
+Questo approccio garantisce che l’aggiornamento sia coerente anche se React raggruppa più setState.
+
+### Funzioni updater nei componenti a classe
+
+Anche setState nelle classi supporta una funzione updater.
+
+```js
+this.setState((prevState) => ({
+  counter: prevState.counter + 1,
+}));
+```
+
+L’uso della funzione updater è consigliato ogni volta che il nuovo stato dipende dal precedente, indipendentemente dal tipo di componente.
+
+## Linee guida per l’aggiornamento dello stato
+
+Aggiornare sempre lo stato in modo immutabile, evitando modifiche dirette.
+Usare il merge automatico delle classi con consapevolezza, soprattutto con oggetti annidati.
+Ricordare che useState sostituisce completamente lo stato.
+Utilizzare le funzioni updater quando il nuovo stato dipende da quello precedente.
+Evitare di leggere immediatamente lo stato dopo un aggiornamento, perché potrebbe non essere ancora sincronizzato.
+
+Una gestione corretta dell’aggiornamento dello stato rende i componenti più prevedibili, riduce bug difficili da tracciare e migliora la qualità complessiva dell’applicazione React.
