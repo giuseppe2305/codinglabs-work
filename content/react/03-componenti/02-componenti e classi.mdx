@@ -1,0 +1,121 @@
+# Componenti a classi
+
+I componenti a classi sono una delle due principali tipologie di componenti React. Si basano sulle classi JavaScript ES6 e permettono di gestire stato interno e ciclo di vita tramite metodi dedicati. Oggi sono meno utilizzati nei nuovi progetti, ma restano fondamentali per comprendere React e per lavorare su codebase legacy.
+
+Un componente a classi deve estendere `React.Component` e implementare obbligatoriamente il metodo `render`, che restituisce il JSX da visualizzare.
+
+## Esempio base di componente a classi
+
+```jsx
+import React from "react";
+
+class Welcome extends React.Component {
+  render() {
+    return <h1>Ciao {this.props.name}</h1>;
+  }
+}
+
+export default Welcome;
+```
+
+## Costruttore e this.state
+
+Il costruttore è un metodo speciale utilizzato per inizializzare lo stato del componente e fare il binding dei metodi. Viene eseguito una sola volta, al momento della creazione dell’istanza del componente.
+
+All’interno del costruttore è necessario chiamare `super(props)` per inizializzare correttamente `React.Component` e avere accesso a `this.props`.
+
+Lo stato interno di un componente a classi viene definito tramite `this.state`, che deve essere un oggetto.
+
+## Inizializzazione dello stato
+
+```jsx
+class Counter extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      count: 0,
+    };
+  }
+
+  render() {
+    return <p>Valore: {this.state.count}</p>;
+  }
+}
+```
+
+Lo stato non deve mai essere modificato direttamente. Per aggiornare lo stato si utilizza `this.setState`, che forza il re-render del componente.
+
+## Aggiornamento dello stato
+
+```jsx
+this.setState({
+  count: this.state.count + 1,
+});
+```
+
+Quando il nuovo stato dipende dal valore precedente, è consigliato usare la forma con funzione.
+
+```jsx
+this.setState((prevState) => ({
+  count: prevState.count + 1,
+}));
+```
+
+## Metodi di ciclo di vita
+
+I metodi di ciclo di vita permettono di eseguire codice in momenti specifici della vita di un componente: montaggio, aggiornamento e smontaggio. Sono disponibili esclusivamente nei componenti a classi.
+
+## Fase di montaggio
+
+I metodi di questa fase vengono eseguiti quando il componente viene inserito nel DOM.
+
+### constructor
+
+Utilizzato per inizializzare stato e binding. Non è consigliato eseguire side effects.
+
+### componentDidMount
+
+Viene chiamato subito dopo il primo render. È il metodo corretto per effettuare chiamate API, sottoscrizioni o operazioni sul DOM.
+
+```jsx
+componentDidMount() {
+  fetch("/api/data")
+    .then(res => res.json())
+    .then(data => {
+      this.setState({ data });
+    });
+}
+```
+
+## Fase di aggiornamento
+
+Questi metodi vengono eseguiti quando cambiano props o stato.
+
+### componentDidUpdate
+
+Viene chiamato dopo ogni aggiornamento. Permette di reagire ai cambiamenti confrontando valori precedenti e attuali.
+
+```jsx
+componentDidUpdate(prevProps, prevState) {
+  if (prevState.count !== this.state.count) {
+    console.log("Il contatore è cambiato");
+  }
+}
+```
+
+## Fase di smontaggio
+
+### componentWillUnmount
+
+Viene chiamato immediatamente prima che il componente venga rimosso dal DOM. È usato per cleanup come rimuovere event listener, timer o sottoscrizioni.
+
+```jsx
+componentWillUnmount() {
+  clearInterval(this.timer);
+}
+```
+
+## Considerazioni finali
+
+I componenti a classi forniscono un controllo esplicito sul ciclo di vita ma risultano più verbosi rispetto ai componenti funzionali con Hooks. Nelle applicazioni moderne si preferiscono i componenti funzionali, ma la conoscenza dei componenti a classi è essenziale per comprendere React e mantenere progetti legacy.
