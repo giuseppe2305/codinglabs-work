@@ -16,7 +16,7 @@ function ArticleLink({ topic, article }: Props) {
 
   return (
     <Link
-      className={`p-2 rounded-md capitalize duration-150 hover:translate-x-0.5
+      className={`p-2 rounded-md first-letter:uppercase duration-150 hover:translate-x-0.5
         ${
           isActive
             ? "bg-primary/5 text-primary font-semibold"
