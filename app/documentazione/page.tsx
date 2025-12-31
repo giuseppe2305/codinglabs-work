@@ -1,7 +1,12 @@
 import { DocsStackSection } from "@/components/DocsStackSection";
 import { Section } from "@/components/Section/Section";
 import { Button } from "@/components/ui/button";
-import { jsFrameworks, languages, metaFrameworks } from "@/data/docsStackCard";
+import {
+  cssFrameworks,
+  jsFrameworks,
+  languages,
+  metaFrameworks,
+} from "@/data/docsStackCard";
 import { AlertCircle, Edit } from "lucide-react";
 
 export default function page() {
@@ -31,6 +36,7 @@ export default function page() {
       <DocsStackSection label="Linguaggi" list={languages} />
       <DocsStackSection label="JS Frameworks" list={jsFrameworks} />
       <DocsStackSection label="Meta Frameworks" list={metaFrameworks} />
+      <DocsStackSection label="CSS Frameworks" list={cssFrameworks} />
     </>
   );
 }
