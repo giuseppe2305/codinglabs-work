@@ -1,0 +1,91 @@
+# Node.js e npm
+
+## Cos'è Node.js
+
+Node.js è un runtime JavaScript che permette di eseguire codice JavaScript al di fuori del browser. È basato sul motore V8 di Chrome ed è progettato per essere veloce, efficiente e adatto allo sviluppo di strumenti di build, server e applicazioni moderne. Nel contesto di TailwindCSS, Node.js è fondamentale perché consente di utilizzare strumenti come il compilatore, i plugin e l’ecosistema di pacchetti necessari per il flusso di lavoro.
+
+## Perché Node.js è necessario per TailwindCSS
+
+TailwindCSS non è solo un file CSS statico, ma un framework che viene generato e ottimizzato tramite strumenti di build. Node.js consente di:
+
+- Installare TailwindCSS tramite npm
+- Utilizzare PostCSS per trasformare il CSS
+- Abilitare funzionalità come purge, minificazione e plugin
+- Integrare TailwindCSS in sistemi come Vite, Webpack o altri bundler
+
+## Cos'è npm
+
+npm è il gestore di pacchetti incluso con Node.js. Permette di installare, aggiornare e gestire librerie e strumenti JavaScript. Ogni progetto moderno che utilizza TailwindCSS fa affidamento su npm per mantenere le dipendenze organizzate e versionate correttamente.
+
+## Installazione di Node.js e npm
+
+Node.js e npm vengono installati insieme. Il metodo consigliato è scaricare il pacchetto dal sito ufficiale di Node.js e scegliere una versione LTS, che garantisce stabilità e supporto a lungo termine. Dopo l’installazione, entrambi gli strumenti sono disponibili dalla riga di comando.
+
+## Verifica dell'installazione
+
+Per verificare che Node.js e npm siano installati correttamente, è possibile utilizzare il terminale:
+
+- node -v restituisce la versione di Node.js
+- npm -v restituisce la versione di npm  
+  Se entrambi i comandi restituiscono un numero di versione, l’ambiente è pronto.
+
+## Versioni di Node.js e compatibilità
+
+TailwindCSS richiede una versione moderna di Node.js. Utilizzare versioni obsolete può causare errori durante l’installazione o l’esecuzione dei comandi. È buona pratica mantenere Node.js aggiornato, specialmente quando si lavora con tool di frontend.
+
+## Gestione delle dipendenze con npm
+
+npm gestisce le dipendenze tramite il file package.json. Questo file descrive:
+
+- Il nome del progetto
+- La versione
+- Le dipendenze necessarie
+- Gli script di automazione  
+  Quando TailwindCSS viene installato, viene registrato come dipendenza, garantendo che chiunque cloni il progetto possa ricreare lo stesso ambiente.
+
+## Installazione locale e globale dei pacchetti
+
+npm consente di installare pacchetti:
+
+- Localmente, all’interno del progetto, per essere usati solo in quel contesto
+- Globalmente, per strumenti da riga di comando disponibili ovunque  
+  TailwindCSS viene normalmente installato localmente per mantenere il progetto isolato e riproducibile.
+
+## Utilizzo di npx
+
+npx è uno strumento incluso in npm che permette di eseguire pacchetti senza installarli globalmente. È spesso utilizzato per inizializzare configurazioni o lanciare comandi una tantum, riducendo la necessità di installazioni globali e mantenendo l’ambiente pulito.
+
+## Script npm e automazione
+
+Gli script npm permettono di definire comandi personalizzati nel file package.json. Questi script sono utilizzati per:
+
+- Avviare il processo di build
+- Compilare TailwindCSS
+- Avviare server di sviluppo  
+  L’uso degli script rende il flusso di lavoro coerente e facilmente condivisibile.
+
+## Aggiornamento di Node.js e npm
+
+Mantenere aggiornati Node.js e npm è importante per motivi di sicurezza e compatibilità. Gli aggiornamenti risolvono bug, migliorano le prestazioni e assicurano il supporto alle ultime funzionalità degli strumenti frontend.
+
+## Problemi comuni e risoluzione
+
+Durante l’uso di Node.js e npm possono verificarsi errori come:
+
+- Conflitti di versione
+- Cache corrotta di npm
+- Permessi insufficienti  
+  La maggior parte di questi problemi può essere risolta aggiornando le versioni, pulendo la cache di npm o reinstallando le dipendenze.
+
+## Sicurezza e buone pratiche
+
+Utilizzare npm in modo corretto significa:
+
+- Installare solo pacchetti affidabili
+- Tenere le dipendenze aggiornate
+- Evitare installazioni globali non necessarie  
+  Queste pratiche riducono il rischio di vulnerabilità e garantiscono un ambiente di sviluppo stabile.
+
+## Ruolo di Node.js e npm nel flusso di lavoro TailwindCSS
+
+Node.js e npm costituiscono la base tecnica su cui si appoggia TailwindCSS. Senza di essi non sarebbe possibile sfruttare la personalizzazione, l’ottimizzazione e l’integrazione avanzata del framework, rendendoli prerequisiti fondamentali per qualsiasi progetto professionale.
