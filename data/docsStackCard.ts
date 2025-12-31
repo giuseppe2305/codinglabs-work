@@ -104,6 +104,6 @@ export const cssFrameworks = [
     title: "TailwindCSS",
     description:
       "Framework CSS utility-first progettato per costruire interfacce moderne, responsive e veloci.",
-    disabled: true,
+    disabled: false,
   },
 ];
