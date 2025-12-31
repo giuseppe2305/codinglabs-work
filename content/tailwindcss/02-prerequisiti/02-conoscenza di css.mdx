@@ -1,0 +1,90 @@
+# Conoscenze CSS di base
+
+Prima di utilizzare TailwindCSS in modo efficace è fondamentale possedere una solida comprensione dei concetti base dei CSS. Tailwind non sostituisce la conoscenza dei CSS, ma la rende più esplicita e operativa attraverso classi di utilità. In questa sezione vengono approfondite tutte le conoscenze CSS necessarie per comprendere, leggere e scrivere interfacce con TailwindCSS in modo consapevole.
+
+## Cos'è il CSS e come funziona
+
+Il CSS è il linguaggio utilizzato per descrivere l’aspetto grafico degli elementi HTML. Funziona tramite regole che associano uno o più selettori a un insieme di dichiarazioni di stile. Ogni dichiarazione è composta da una proprietà e da un valore. Quando più regole si applicano allo stesso elemento, il browser decide quale usare in base a specifiche regole di priorità.
+
+Con TailwindCSS queste regole non vengono scritte manualmente, ma sono già definite e accessibili tramite classi. Tuttavia è essenziale sapere cosa fa ogni proprietà CSS per capire l’effetto delle classi Tailwind.
+
+## Selettori CSS
+
+I selettori permettono di indicare quali elementi HTML devono ricevere uno stile. I principali selettori da conoscere sono:
+
+Selettore di tipo, che agisce su tutti gli elementi di un certo tipo come div o p  
+Selettore di classe, che applica lo stile agli elementi con una specifica classe  
+Selettore di id, che agisce su un elemento con un identificatore unico  
+Selettori combinati, che permettono di stilizzare elementi in base alla loro posizione nel DOM
+
+Tailwind utilizza esclusivamente classi, quindi è importante comprendere il concetto di classe CSS e come viene applicata agli elementi HTML.
+
+## Box model
+
+Il box model è uno dei concetti più importanti dei CSS. Ogni elemento HTML è rappresentato come una scatola composta da quattro parti: contenuto, padding, bordo e margine.
+
+Il contenuto è l’area interna dove risiede il testo o altri elementi  
+Il padding è lo spazio tra il contenuto e il bordo  
+Il bordo circonda padding e contenuto  
+Il margine è lo spazio esterno che separa l’elemento dagli altri
+
+Tailwind fornisce classi specifiche per controllare padding, margin e border. Senza comprendere il box model risulta difficile prevedere il layout finale di una pagina.
+
+## Display e comportamento degli elementi
+
+La proprietà display determina come un elemento viene visualizzato e come interagisce con gli altri. I valori principali sono block, inline, inline-block, flex e grid.
+
+Gli elementi block occupano tutta la larghezza disponibile  
+Gli elementi inline occupano solo lo spazio del contenuto  
+Inline-block combina le caratteristiche di entrambi  
+Flex e grid permettono layout complessi
+
+Tailwind fa un uso intensivo di flexbox e grid, quindi è essenziale comprendere come funzionano questi valori prima di utilizzarli tramite classi di utilità.
+
+## Posizionamento degli elementi
+
+Il posizionamento controlla come un elemento viene collocato nella pagina. I valori principali sono static, relative, absolute, fixed e sticky.
+
+Static è il comportamento predefinito  
+Relative permette di spostare l’elemento rispetto alla sua posizione originale  
+Absolute posiziona l’elemento rispetto al contenitore posizionato più vicino  
+Fixed blocca l’elemento rispetto alla finestra del browser  
+Sticky combina comportamento relativo e fisso
+
+Tailwind espone queste funzionalità tramite classi dirette, ma senza comprenderne il funzionamento i risultati possono sembrare imprevedibili.
+
+## Colori e unità di misura
+
+I CSS permettono di definire colori in vari formati come nomi, valori esadecimali, RGB e HSL. Tailwind utilizza una palette di colori predefinita, ma il concetto di colore CSS rimane invariato.
+
+Le unità di misura più comuni includono pixel, percentuali, em, rem e viewport units. Tailwind utilizza principalmente rem e valori scalari coerenti, quindi è importante comprendere la differenza tra unità relative e assolute.
+
+## Tipografia
+
+La tipografia riguarda la gestione del testo attraverso proprietà come font-family, font-size, font-weight, line-height e text-align.
+
+Con Tailwind queste proprietà sono mappate su classi specifiche, ma il significato resta quello dei CSS standard. Comprendere come il testo viene reso, allineato e spaziato è fondamentale per creare interfacce leggibili e coerenti.
+
+## Pseudo-classi e stati
+
+Le pseudo-classi permettono di applicare stili in base allo stato di un elemento, come hover, focus, active e disabled.
+
+Tailwind utilizza prefissi per gestire questi stati, ma è essenziale sapere cosa rappresentano e quando vengono attivati per evitare comportamenti inaspettati nell’interfaccia.
+
+## Responsive design
+
+Il responsive design consente di adattare il layout a diverse dimensioni di schermo. Nei CSS tradizionali questo avviene tramite media query.
+
+Tailwind semplifica questo concetto con breakpoint predefiniti, ma è necessario comprendere il principio di base: stili diversi vengono applicati in base alla larghezza dello schermo per migliorare l’esperienza utente su dispositivi differenti.
+
+## Cascata e specificità
+
+La cascata determina quale regola CSS viene applicata quando più regole entrano in conflitto. La specificità stabilisce la priorità in base al tipo di selettore.
+
+Tailwind riduce i problemi di specificità grazie all’uso di classi singole, ma il concetto rimane fondamentale per comprendere come e perché uno stile viene applicato o sovrascritto.
+
+## Perché i CSS sono fondamentali per TailwindCSS
+
+TailwindCSS non nasconde i CSS, li rende più accessibili. Ogni classe rappresenta una proprietà CSS precisa. Senza una conoscenza di base dei CSS si rischia di usare Tailwind in modo meccanico, senza comprendere il risultato finale.
+
+Una buona padronanza dei CSS consente di leggere il codice Tailwind come una descrizione chiara dello stile applicato, migliorando manutenzione, collaborazione e qualità del progetto.

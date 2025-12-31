@@ -43,7 +43,7 @@ export const languages = [
   },
 ];
 
-export const frameworks = [
+export const jsFrameworks = [
   {
     id: 0,
     title: "React",
@@ -95,5 +95,15 @@ export const metaFrameworks = [
     description:
       "Framework moderno per siti web veloci che invia il minimo JavaScript necessario",
     disabled: true,
+  },
+];
+
+export const cssFrameworks = [
+  {
+    id: 0,
+    title: "TailwindCSS",
+    description:
+      "Framework CSS utility-first progettato per costruire interfacce moderne, responsive e veloci.",
+    disabled: false,
   },
 ];
