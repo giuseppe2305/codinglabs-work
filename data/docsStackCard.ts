@@ -43,7 +43,7 @@ export const languages = [
   },
 ];
 
-export const frameworks = [
+export const jsFrameworks = [
   {
     id: 0,
     title: "React",
