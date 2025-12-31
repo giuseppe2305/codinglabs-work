@@ -1,0 +1,67 @@
+# Confronto con framework CSS tradizionali
+
+## Introduzione
+
+Nel panorama dello sviluppo frontend, i framework CSS tradizionali come Bootstrap, Foundation e Bulma hanno a lungo rappresentato lo standard per la creazione rapida di interfacce coerenti. TailwindCSS propone un approccio radicalmente diverso, basato su utility class a basso livello. Questo confronto analizza differenze concettuali, operative e strategiche tra i due modelli.
+
+## Approccio architetturale
+
+I framework CSS tradizionali adottano un approccio component-first. Forniscono componenti predefiniti come bottoni, navbar, card e modali, già stilizzati e pronti all’uso. Lo sviluppatore assembla l’interfaccia combinando questi componenti.
+
+TailwindCSS segue un approccio utility-first. Non offre componenti predefiniti, ma classi atomiche che rappresentano singole regole CSS. L’interfaccia viene costruita direttamente nel markup HTML, combinando utility per ottenere il design desiderato.
+
+## Separazione tra HTML e CSS
+
+Nei framework tradizionali, HTML e CSS restano concettualmente separati. Le classi rappresentano componenti o ruoli semantici e lo stile è definito in file CSS centralizzati.
+
+Con TailwindCSS, lo stile vive principalmente nel markup. Le classi descrivono direttamente il comportamento visivo dell’elemento. Questo riduce la necessità di file CSS personalizzati, ma aumenta la densità di classi nell’HTML.
+
+## Curva di apprendimento
+
+I framework CSS tradizionali sono generalmente più semplici da apprendere per chi ha poca esperienza. È sufficiente conoscere i componenti disponibili e le loro varianti.
+
+TailwindCSS richiede una buona conoscenza di CSS. Le utility riflettono proprietà CSS reali come margin, padding, flexbox, grid e responsive design. L’investimento iniziale è maggiore, ma porta a un controllo più fine dell’interfaccia.
+
+## Flessibilità e personalizzazione
+
+Nei framework tradizionali, la personalizzazione profonda dei componenti può risultare complessa. Spesso è necessario sovrascrivere stili esistenti, aumentando la specificità e il rischio di conflitti.
+
+TailwindCSS è progettato per essere altamente personalizzabile. Il file di configurazione consente di definire colori, spaziature, tipografia e breakpoint coerenti con il design system del progetto, senza dover combattere contro stili preesistenti.
+
+## Manutenibilità del codice
+
+Con i framework tradizionali, la manutenibilità dipende fortemente dalla disciplina del team nella gestione delle classi e delle sovrascritture CSS. Nel tempo, i file CSS possono crescere e diventare difficili da mantenere.
+
+TailwindCSS favorisce la manutenibilità grazie alla standardizzazione delle utility. Le modifiche sono localizzate nel markup e la rimozione di un componente elimina automaticamente anche il relativo stile, riducendo CSS inutilizzato.
+
+## Prestazioni e dimensione del bundle
+
+I framework CSS tradizionali includono spesso grandi quantità di CSS non utilizzato, soprattutto se si usano solo alcuni componenti.
+
+TailwindCSS utilizza un sistema di purge che rimuove automaticamente le classi non usate in produzione. Il risultato è un file CSS finale molto più leggero e ottimizzato per le prestazioni.
+
+## Coerenza del design
+
+I framework tradizionali impongono uno stile visivo riconoscibile. Questo garantisce coerenza immediata, ma rende più difficile differenziarsi visivamente.
+
+TailwindCSS non impone uno stile. La coerenza viene ottenuta tramite configurazione e convenzioni condivise nel team, permettendo design unici senza perdere uniformità.
+
+## Produttività del team
+
+Con i framework tradizionali, la produttività iniziale è elevata grazie ai componenti pronti. Tuttavia, adattare il framework a esigenze specifiche può rallentare lo sviluppo.
+
+TailwindCSS accelera lo sviluppo nel medio-lungo periodo. Una volta interiorizzate le utility, è possibile costruire e modificare interfacce rapidamente senza cambiare contesto tra HTML e CSS.
+
+## Integrazione con ecosistemi moderni
+
+I framework tradizionali sono spesso pensati per un uso generico e indipendente dal framework JavaScript.
+
+TailwindCSS si integra in modo naturale con ecosistemi moderni come React, Vue e Svelte, dove la composizione di componenti e la co-localizzazione di markup e stile sono pratiche comuni.
+
+## Quando scegliere un framework CSS tradizionale
+
+Un framework CSS tradizionale è adatto a progetti semplici, prototipi rapidi o team con competenze CSS limitate. È utile quando si desidera un’interfaccia standard senza particolari esigenze di personalizzazione.
+
+## Quando scegliere TailwindCSS
+
+TailwindCSS è ideale per progetti complessi, prodotti su larga scala e team orientati al design system. Offre controllo totale, migliori prestazioni e una maggiore scalabilità nel tempo, a fronte di una curva di apprendimento iniziale più ripida.

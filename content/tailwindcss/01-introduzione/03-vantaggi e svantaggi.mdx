@@ -1,0 +1,65 @@
+# Vantaggi e svantaggi
+
+## Introduzione
+
+Tailwind CSS è un framework CSS utility-first che permette di costruire interfacce direttamente nel markup HTML attraverso classi predefinite. A differenza dei framework tradizionali basati su componenti pronti, Tailwind fornisce strumenti a basso livello che consentono un controllo molto fine dello stile. Questo approccio cambia radicalmente il modo di scrivere CSS, influenzando produttività, organizzazione del codice e manutenzione dei progetti web.
+
+## Vantaggi
+
+### Elevata produttività nello sviluppo
+
+L’uso di classi utility consente di stilizzare gli elementi senza uscire dall’HTML, riducendo il continuo passaggio tra file HTML e CSS. Questo accelera notevolmente lo sviluppo, soprattutto nelle fasi di prototipazione e iterazione rapida dell’interfaccia.
+
+### Controllo totale sul design
+
+Tailwind non impone uno stile visivo predefinito. Ogni dettaglio, come spaziature, colori, tipografia e layout, è sotto il controllo dello sviluppatore. Questo rende il framework ideale per design personalizzati e sistemi di design su misura.
+
+### Coerenza visiva garantita
+
+L’uso di una configurazione centralizzata permette di definire scale coerenti per colori, font, spaziature e breakpoint. Tutta l’interfaccia segue regole uniformi, riducendo incongruenze visive e decisioni arbitrarie.
+
+### Riduzione del CSS personalizzato
+
+La maggior parte delle esigenze stilistiche è coperta dalle classi utility. Questo riduce drasticamente la quantità di CSS scritto a mano, limitando problemi di specificità, override non intenzionali e codice inutilizzato.
+
+### Migliore manutenibilità nel lungo periodo
+
+Poiché lo stile è direttamente associato al markup, è più semplice capire come un elemento è costruito e modificarlo senza cercare regole CSS sparse nel progetto. Eliminare un componente significa eliminare anche il suo stile, senza lasciare codice morto.
+
+### Ottime prestazioni in produzione
+
+Grazie al processo di build con purge, Tailwind rimuove tutte le classi non utilizzate, generando file CSS molto leggeri. Questo migliora i tempi di caricamento e le prestazioni complessive del sito.
+
+### Ecosistema e integrazione moderna
+
+Tailwind si integra perfettamente con framework JavaScript moderni come React, Vue, Svelte e con strumenti di build come Vite e Webpack. L’ecosistema offre plugin ufficiali e della community per form, tipografia e componenti avanzati.
+
+## Svantaggi
+
+### HTML più verboso
+
+L’uso intensivo di classi utility rende il markup più lungo e meno leggibile, soprattutto per chi è abituato a separare nettamente struttura e stile. Questo può inizialmente creare confusione e rendere il codice meno pulito agli occhi di alcuni sviluppatori.
+
+### Curva di apprendimento iniziale
+
+Memorizzare le numerose classi utility e comprenderne la logica richiede tempo. Chi proviene da CSS tradizionale o da framework component-based potrebbe trovare l’approccio poco intuitivo all’inizio.
+
+### Dipendenza dalla configurazione
+
+Per ottenere il massimo da Tailwind è spesso necessario personalizzare il file di configurazione. Una configurazione mal progettata può complicare il progetto e rendere più difficile la collaborazione tra sviluppatori.
+
+### Riuso del codice meno immediato
+
+Senza una buona organizzazione dei componenti, il riuso di combinazioni di classi può diventare complesso. È spesso necessario ricorrere a componenti, partial o direttive come @apply, che se abusate possono ridurre la chiarezza del codice.
+
+### Difficoltà di lettura per team misti
+
+Designer o sviluppatori meno esperti di Tailwind possono avere difficoltà a interpretare rapidamente il significato delle classi. Questo può rallentare il lavoro in team eterogenei o in contesti aziendali strutturati.
+
+### Non ideale per tutti i progetti
+
+Per piccoli siti statici o progetti molto semplici, Tailwind può risultare eccessivo rispetto a una soluzione CSS minimale. In questi casi, il tempo investito per configurarlo potrebbe non essere giustificato.
+
+### Forte legame con il framework
+
+Adottare Tailwind significa legare profondamente il markup al framework stesso. Una futura migrazione verso un approccio diverso può richiedere una riscrittura significativa delle classi presenti nell’HTML.
