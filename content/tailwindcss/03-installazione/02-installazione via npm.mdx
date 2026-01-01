@@ -1,0 +1,148 @@
+# Installazione con npm (Tailwind v3)
+
+L’installazione di TailwindCSS tramite npm è il metodo consigliato per progetti moderni basati su tool di build come Vite, Webpack, Parcel o framework come React, Vue e Svelte. Questo approccio consente pieno controllo sulla configurazione, ottimizzazione della build e utilizzo avanzato del framework.
+
+## Requisiti preliminari
+
+Per procedere è necessario avere installato:
+
+- Node.js (versione LTS consigliata)
+- npm oppure un package manager compatibile come yarn o pnpm
+- Un progetto frontend già inizializzato oppure la possibilità di crearne uno nuovo
+
+Verifica l’installazione di Node.js e npm:
+
+```bash
+node -v
+npm -v
+```
+
+## Inizializzazione del progetto
+
+Se non esiste ancora un progetto, inizializzalo:
+
+```bash
+npm init -y
+```
+
+Questo comando crea un file package.json che gestirà le dipendenze del progetto.
+
+## Installazione delle dipendenze TailwindCSS
+
+Installa TailwindCSS e i pacchetti necessari come dipendenze di sviluppo:
+
+```bash
+npm install -D tailwindcss postcss autoprefixer
+```
+
+Questi strumenti svolgono ruoli specifici:
+
+- tailwindcss: framework utility-first
+- postcss: processore CSS
+- autoprefixer: aggiunge automaticamente i prefissi CSS per la compatibilità browser
+
+## Creazione dei file di configurazione
+
+Genera i file di configurazione di TailwindCSS e PostCSS:
+
+```bash
+npx tailwindcss init -p
+```
+
+Verranno creati:
+
+- tailwind.config.js
+- postcss.config.js
+
+## Configurazione del file tailwind.config.js
+
+Nel file tailwind.config.js è necessario indicare a Tailwind quali file analizzare per generare le classi CSS:
+
+```js
+module.exports = {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+```
+
+Il campo content è fondamentale per il funzionamento della purge automatica delle classi inutilizzate.
+
+## Creazione del file CSS principale
+
+Crea un file CSS (ad esempio src/index.css o src/main.css) e inserisci le direttive di Tailwind:
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+Queste direttive importano rispettivamente:
+
+- Reset e stili base
+- Componenti riutilizzabili
+- Classi utility
+
+## Importazione del CSS nel progetto
+
+Assicurati che il file CSS venga importato nel punto di ingresso dell’applicazione.
+
+Esempio con JavaScript:
+
+```js
+import "./index.css";
+```
+
+Esempio con HTML:
+
+```html
+<link rel="stylesheet" href="/src/index.css" />
+```
+
+## Configurazione dello script di build
+
+Nel file package.json configura uno script per avviare il progetto o compilare il CSS, a seconda del tool utilizzato.
+
+Esempio generico:
+
+```json
+{
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  }
+}
+```
+
+Con strumenti come Vite, Tailwind viene processato automaticamente tramite PostCSS.
+
+## Avvio del progetto
+
+Avvia il server di sviluppo:
+
+```bash
+npm run dev
+```
+
+A questo punto TailwindCSS è attivo e pronto all’uso nel progetto.
+
+## Verifica dell’installazione
+
+Per verificare il corretto funzionamento, aggiungi una classe Tailwind a un elemento HTML:
+
+```html
+<h1 class="text-3xl font-bold text-blue-500">
+  TailwindCSS installato correttamente
+</h1>
+```
+
+Se lo stile viene applicato, l’installazione è completata con successo.
+
+## Considerazioni sull’ambiente di produzione
+
+In ambiente di produzione, Tailwind genera automaticamente un file CSS ottimizzato contenente solo le classi effettivamente utilizzate. Questo comportamento riduce drasticamente le dimensioni del bundle finale senza configurazioni aggiuntive.
+
+L’installazione con npm rappresenta la base per sfruttare tutte le funzionalità avanzate di TailwindCSS, inclusi plugin, temi personalizzati e configurazioni scalabili.
