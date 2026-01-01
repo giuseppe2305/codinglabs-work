@@ -1,0 +1,153 @@
+# Struttura base del progetto
+
+## Obiettivo della struttura
+
+La struttura base di un progetto con Tailwind CSS ha lo scopo di separare chiaramente:
+
+- codice sorgente
+- file di configurazione
+- asset statici
+- file generati automaticamente
+
+Questa organizzazione facilita manutenzione, scalabilità e collaborazione.
+
+## Struttura minima di un progetto Tailwind CSS
+
+Una struttura essenziale per un progetto moderno con Tailwind CSS può essere la seguente:
+
+project-root/
+
+- node_modules/
+- src/
+  - css/
+    - input.css
+  - js/
+  - index.html
+- tailwind.config.js
+- postcss.config.js
+- package.json
+- package-lock.json
+
+## Ruolo della cartella node_modules
+
+La cartella node_modules contiene tutte le dipendenze installate tramite npm, inclusi:
+
+- tailwindcss
+- postcss
+- autoprefixer
+- eventuali plugin aggiuntivi
+
+Questa cartella non deve mai essere modificata manualmente e non va versionata nei sistemi di controllo versione.
+
+## Cartella src
+
+La cartella src contiene il codice sorgente del progetto ed è il punto centrale dello sviluppo.
+
+### Cartella css
+
+La cartella css contiene i file di stile sorgenti.
+
+Il file input.css è il file principale da cui Tailwind genera il CSS finale. Contiene tipicamente (in caso di Tailwind v3):
+
+- direttiva @tailwind base
+- direttiva @tailwind components
+- direttiva @tailwind utilities
+- eventuali stili personalizzati
+
+### Cartella js
+
+La cartella js è opzionale ma consigliata per organizzare:
+
+- script JavaScript
+- logica interattiva
+- integrazione con framework o librerie
+
+## File index.html
+
+Il file index.html rappresenta il punto di ingresso dell’applicazione.
+
+In questo file:
+
+- viene collegato il CSS generato da Tailwind
+- vengono utilizzate le classi utility
+- viene definita la struttura HTML dell’interfaccia
+
+Il file deve trovarsi all’interno dei percorsi analizzati dalla configurazione di Tailwind per consentire il corretto tree-shaking.
+
+## File tailwind.config.js
+
+Il file tailwind.config.js è il cuore della personalizzazione di Tailwind CSS.
+
+Serve per:
+
+- definire i percorsi dei file da analizzare
+- estendere o sovrascrivere il tema
+- configurare breakpoint, colori, font e spaziature
+- registrare plugin
+
+Questo file consente di adattare Tailwind alle esigenze specifiche del progetto.
+
+## File postcss.config.js
+
+Il file postcss.config.js configura la pipeline di trasformazione del CSS.
+
+Normalmente include:
+
+- tailwindcss come plugin principale
+- autoprefixer per la compatibilità cross-browser
+
+PostCSS elabora il file input.css e produce il CSS finale pronto per il browser.
+
+## File package.json
+
+Il file package.json descrive il progetto e le sue dipendenze.
+
+Contiene:
+
+- nome e versione del progetto
+- script npm per build e sviluppo
+- elenco delle dipendenze e devDependencies
+
+È fondamentale per garantire riproducibilità dell’ambiente di sviluppo.
+
+## File CSS generato
+
+Il CSS finale non viene scritto manualmente.
+
+Viene generato:
+
+- a partire da input.css
+- in base alle classi effettivamente utilizzate nei file sorgenti
+- tramite il comando di build o watch
+
+Questo approccio garantisce file CSS ottimizzati e leggeri.
+
+## Separazione tra sorgenti e output
+
+Una buona pratica è mantenere separati:
+
+- file sorgenti modificabili manualmente
+- file generati automaticamente dal build
+
+Questo riduce error reminding e rende chiaro cosa può essere modificato in sicurezza.
+
+## Scalabilità della struttura
+
+La struttura descritta è pensata per:
+
+- piccoli progetti statici
+- progetti medi con JavaScript
+- integrazione futura con framework come React, Vue o Svelte
+
+La semplicità iniziale consente di estendere il progetto senza riorganizzazioni drastiche.
+
+## Convenzioni consigliate
+
+È consigliato:
+
+- mantenere nomi di cartelle coerenti
+- evitare CSS personalizzato non necessario
+- centralizzare la configurazione nel file di config
+- usare classi utility invece di file CSS multipli
+
+Queste convenzioni massimizzano i benefici di Tailwind CSS.
