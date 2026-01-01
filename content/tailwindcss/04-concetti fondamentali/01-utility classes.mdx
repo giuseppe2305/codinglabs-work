@@ -1,0 +1,87 @@
+# Utility classes
+
+Le utility classes sono il concetto centrale di Tailwind CSS. Ogni classe rappresenta una singola regola CSS con uno scopo preciso e limitato. Invece di creare classi semantiche personalizzate come .card, .button o .container, si costruisce l’interfaccia combinando direttamente utility classes nel markup HTML o JSX.
+
+## Cosa sono le utility classes
+
+Una utility class è una classe CSS atomica che applica una singola proprietà o una piccola combinazione coerente di proprietà. Esempi tipici includono classi per colore, spaziatura, tipografia, layout, flexbox, grid e responsive design.
+
+Ogni classe segue una convenzione di naming prevedibile, che permette di capire immediatamente quale stile verrà applicato senza dover consultare un file CSS separato.
+
+## Filosofia utility-first
+
+L’approccio utility-first si basa sull’idea che lo stile appartenga al componente, non a un foglio di stile globale. Questo elimina la necessità di inventare nomi di classi astratti e riduce il tempo speso a passare tra HTML e CSS.
+
+I vantaggi principali includono maggiore coerenza visiva, eliminazione di CSS inutilizzato, refactoring più sicuro e una curva di apprendimento che premia la familiarità con il sistema.
+
+## Composizione delle utility
+
+Le utility classes vengono combinate direttamente sugli elementi per ottenere lo stile desiderato. Ogni classe contribuisce a una parte specifica dell’aspetto finale, come margini, padding, colore del testo o comportamento del layout.
+
+La composizione è esplicita e leggibile: osservando l’attributo class è possibile comprendere esattamente come un elemento viene stilizzato, senza dipendere dal contesto o dalla cascata CSS.
+
+## Atomicità e prevedibilità
+
+Ogni utility è atomica e non ha effetti collaterali su altre proprietà. Questo rende il comportamento delle classi estremamente prevedibile e riduce problemi legati a specificità, override involontari e conflitti tra stili.
+
+L’assenza di cascata complessa è uno dei motivi principali per cui Tailwind scala bene in progetti grandi e team numerosi.
+
+## Naming delle utility classes
+
+I nomi delle utility sono strutturati in modo sistematico. Generalmente seguono il formato proprietà-valore, dove la proprietà è abbreviata e il valore è standardizzato secondo la scala di Tailwind.
+
+Questa coerenza consente di memorizzare rapidamente le classi più comuni e di intuire quelle meno usate senza doverle cercare continuamente nella documentazione.
+
+## Gestione della specificità
+
+Tailwind utilizza una specificità molto bassa per tutte le utility classes. In caso di conflitti, l’ordine delle classi nel CSS generato e l’uso di varianti controllano quale stile viene applicato.
+
+Quando necessario, è possibile forzare una regola tramite il modificatore !, mantenendo comunque il controllo esplicito sullo stile applicato.
+
+## Varianti e stati
+
+Le utility classes possono essere estese tramite varianti che rappresentano stati o contesti specifici, come hover, focus, active, disabled o breakpoints responsive.
+
+Le varianti permettono di definire comportamenti complessi senza scrivere CSS personalizzato, mantenendo tutto nello stesso paradigma utility-first.
+
+## Responsive design con utility classes
+
+Il responsive design in Tailwind è gestito tramite prefissi che rappresentano breakpoint. Questo consente di applicare stili diversi in base alla dimensione dello schermo direttamente nelle classi.
+
+L’approccio mobile-first garantisce che gli stili di base siano ottimizzati per dispositivi piccoli e progressivamente migliorati per schermi più grandi.
+
+## Dark mode e contesti globali
+
+Le utility classes supportano contesti globali come la dark mode tramite varianti dedicate. Questo permette di definire stili alternativi senza duplicare markup o logica.
+
+Il cambio di contesto avviene tramite una classe o una media query, mantenendo il controllo centralizzato e coerente.
+
+## Riutilizzo e coerenza
+
+Sebbene le utility classes siano pensate per essere usate direttamente nel markup, la coerenza visiva emerge naturalmente dall’uso di una scala di valori condivisa per colori, spaziature e tipografia.
+
+Quando necessario, pattern ricorrenti possono essere astratti tramite componenti o classi personalizzate costruite a partire dalle utility.
+
+## Manutenibilità nel lungo periodo
+
+L’uso intensivo di utility classes riduce drasticamente il debito tecnico legato al CSS. Rimuovere un componente rimuove automaticamente anche i suoi stili, senza lasciare codice inutilizzato.
+
+La manutenibilità migliora perché ogni modifica è locale, esplicita e non influisce su parti non correlate dell’interfaccia.
+
+## Confronto con CSS tradizionale
+
+Rispetto al CSS tradizionale basato su classi semantiche e fogli di stile globali, le utility classes offrono maggiore velocità di sviluppo e minore complessità cognitiva.
+
+Il trade-off principale è un markup più verboso, compensato però da una maggiore chiarezza e da una riduzione significativa della complessità del CSS.
+
+## Quando usare utility classes
+
+Le utility classes sono ideali per la maggior parte delle interfacce moderne, specialmente in applicazioni component-based come React, Vue e Svelte.
+
+In casi specifici, come librerie di componenti o pattern estremamente ripetuti, possono essere affiancate da astrazioni personalizzate senza abbandonare il paradigma utility-first.
+
+## Ruolo delle utility nel design system
+
+In un design system basato su Tailwind, le utility classes rappresentano il livello più basso e fondamentale. Tutti i componenti e i pattern visivi sono costruiti sopra questo strato atomico.
+
+Questo approccio garantisce coerenza, scalabilità e una base solida su cui evolvere il sistema nel tempo.
