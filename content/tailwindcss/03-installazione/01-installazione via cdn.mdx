@@ -1,0 +1,127 @@
+# Installazione via CDN
+
+## Cos’è l’installazione via CDN
+
+L’installazione via CDN consente di utilizzare TailwindCSS direttamente nel browser senza build process, Node.js o strumenti di compilazione. È pensata per prototipi rapidi, demo, piccoli progetti o ambienti di test.
+
+## Quando usare il CDN
+
+L’uso del CDN è consigliato quando:
+
+- Si vuole testare TailwindCSS rapidamente
+- Si sta creando un prototipo o una proof of concept
+- Non è necessario ottimizzare il CSS finale
+- Non si utilizza un sistema di build
+
+Non è consigliato per applicazioni in produzione complesse.
+
+## Inclusione del CDN in HTML
+
+Per utilizzare TailwindCSS via CDN è sufficiente includere lo script ufficiale all’interno del tag head del documento HTML.
+
+```html
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailwind CDN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body></body>
+</html>
+```
+
+Dopo l’inclusione, tutte le utility di TailwindCSS sono immediatamente disponibili.
+
+## Utilizzo delle utility class
+
+Le classi di Tailwind possono essere utilizzate direttamente sugli elementi HTML.
+
+```html
+<h1 class="text-3xl font-bold text-blue-600">Hello Tailwind</h1>
+```
+
+Non è necessario alcun file CSS aggiuntivo.
+
+## Configurazione tramite script
+
+Il CDN permette una configurazione base direttamente in JavaScript, prima del caricamento dello script.
+
+```html
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          primary: "#1e40af",
+        },
+      },
+    },
+  };
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+```
+
+Questa configurazione consente di:
+
+- Estendere il tema
+- Aggiungere colori personalizzati
+- Modificare font e spacing
+
+## Supporto ai plugin
+
+Con il CDN è possibile utilizzare solo alcuni plugin ufficiali, specificandoli nella configurazione.
+
+```html
+<script>
+  tailwind.config = {
+    plugins: [tailwindcss.forms],
+  };
+</script>
+```
+
+I plugin personalizzati non sono supportati.
+
+## Modalità JIT nel CDN
+
+Il CDN utilizza una versione semplificata del motore JIT. Le classi vengono generate dinamicamente in base a quelle presenti nel markup.
+
+Limitazioni principali:
+
+- Nessuna scansione di file esterni
+- Nessuna purge avanzata
+- CSS finale non ottimizzato
+
+## Limitazioni dell’installazione via CDN
+
+L’installazione via CDN presenta diverse limitazioni:
+
+- Nessuna rimozione del CSS inutilizzato
+- Dimensione del CSS maggiore
+- Configurazione limitata
+- Prestazioni inferiori rispetto alla build locale
+- Non adatta a progetti enterprise
+
+## Compatibilità browser
+
+Il CDN di TailwindCSS è compatibile con tutti i browser moderni che supportano:
+
+- CSS variables
+- Flexbox
+- Grid
+
+Browser obsoleti potrebbero non essere supportati.
+
+## Migrazione da CDN a build locale
+
+Quando il progetto cresce è consigliato passare a un’installazione con build tool. La migrazione consiste in:
+
+- Installazione di Tailwind via npm
+- Creazione del file tailwind.config.js
+- Configurazione del processo di build
+- Rimozione del CDN
+
+## Riepilogo
+
+L’installazione via CDN è una soluzione rapida e immediata per iniziare con TailwindCSS, ideale per apprendimento e prototipazione, ma non indicata per ambienti di produzione complessi.
