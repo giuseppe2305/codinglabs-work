@@ -88,7 +88,7 @@ function Navbar() {
                       link: "/",
                       label: "Software e Tools",
                       description:
-                        "Esplora i softwares e tools utilizzati nello sviluppo moderno",
+                        "Esplora i software e tools utilizzati nello sviluppo moderno",
                     }}
                   />
                 </ul>
