@@ -1,0 +1,112 @@
+# Installazione con CLI (Tailwind v4)
+
+Questa guida descrive l’installazione di Tailwind CSS v4 utilizzando npm e il Tailwind CLI, che rappresenta il metodo più semplice, veloce e consigliato per iniziare un progetto da zero senza configurazioni complesse o tool di build aggiuntivi.
+
+## Requisiti preliminari
+
+Per utilizzare il Tailwind CLI tramite npm è necessario:
+
+- Node.js installato
+- npm come package manager
+- Una struttura di progetto base con file HTML e CSS
+
+Non sono richiesti PostCSS, Autoprefixer o file di configurazione iniziali.
+
+## Installazione di Tailwind CSS e CLI
+
+Installa Tailwind CSS e il CLI ufficiale come dipendenze del progetto:
+
+```bash
+npm install tailwindcss @tailwindcss/cli
+```
+
+Il pacchetto:
+
+- tailwindcss contiene il motore del framework
+- @tailwindcss/cli fornisce lo strumento di build per generare il CSS finale
+
+## Creazione del file CSS di input
+
+Crea un file CSS che fungerà da punto di ingresso per Tailwind, ad esempio:
+
+- src/input.css
+
+All’interno del file importa Tailwind CSS:
+
+```css
+@import "tailwindcss";
+```
+
+Questa singola direttiva sostituisce completamente le direttive base, components e utilities delle versioni precedenti.
+
+## Avvio del processo di build con Tailwind CLI
+
+Esegui il CLI per analizzare i file sorgente e generare il CSS compilato:
+
+```bash
+npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch
+```
+
+Significato delle opzioni:
+
+- -i specifica il file CSS di input
+- -o indica il file CSS di output compilato
+- --watch mantiene il processo attivo e rigenera il CSS ad ogni modifica
+
+Il CLI esegue automaticamente la scansione dei file HTML e JavaScript presenti nel progetto per individuare le classi utilizzate.
+
+## Utilizzo del CSS compilato in HTML
+
+Collega il file CSS generato all’interno del documento HTML:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1 class="text-3xl font-bold underline">Hello world!</h1>
+  </body>
+</html>
+```
+
+Una volta collegato il file, tutte le utility di Tailwind sono immediatamente disponibili.
+
+## Verifica dell’installazione
+
+Per confermare il corretto funzionamento:
+
+- Avvia il comando CLI in modalità watch
+- Aggiungi o modifica classi Tailwind nell’HTML
+- Verifica che lo stile venga applicato senza errori
+
+Se le modifiche sono riflesse correttamente nel browser, l’installazione è avvenuta con successo.
+
+## Struttura minima del progetto
+
+Una struttura tipica può essere:
+
+- src/input.css
+- src/output.css
+- src/index.html
+- node_modules
+- package.json
+
+Non sono necessari file di configurazione aggiuntivi per l’utilizzo base.
+
+## Ottimizzazione automatica del CSS
+
+Tailwind CSS v4 genera automaticamente un file CSS ottimizzato includendo solo le classi effettivamente utilizzate nel progetto. Questo comportamento è integrato nel CLI e non richiede configurazioni manuali.
+
+## Estendibilità e configurazioni avanzate
+
+L’installazione con npm e CLI rappresenta la base per:
+
+- Aggiungere un file di configurazione tailwind.config.js se necessario
+- Integrare Tailwind in framework frontend
+- Personalizzare tema, colori, font e plugin
+
+Questi aspetti possono essere introdotti successivamente senza modificare il flusso di installazione iniziale.

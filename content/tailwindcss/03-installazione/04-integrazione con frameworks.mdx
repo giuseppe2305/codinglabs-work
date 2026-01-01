@@ -1,0 +1,145 @@
+# Integrazione con framework frontend
+
+L’integrazione di Tailwind CSS con i framework frontend moderni segue principi comuni, ma presenta differenze operative legate al sistema di build, al rendering e alla gestione degli stili. Tailwind CSS v4 è progettato per funzionare in modo ottimale con ambienti basati su JavaScript moderno, bundler e framework component-based.
+
+## Concetti generali di integrazione
+
+Tailwind CSS non dipende dal framework utilizzato. Viene integrato a livello di build tramite PostCSS o tramite Tailwind CLI, e successivamente utilizzato direttamente nelle classi HTML o JSX.
+
+I concetti fondamentali sono:
+
+- configurazione del sistema di build
+- importazione del file CSS principale
+- scansione dei file sorgente per il tree-shaking delle classi
+- utilizzo delle utility class nei componenti
+
+## Integrazione con React
+
+In un progetto React, Tailwind viene utilizzato all’interno di JSX. L’integrazione è completamente trasparente e non richiede librerie aggiuntive.
+
+Passaggi principali:
+
+- installazione di Tailwind e del tool di build
+- configurazione dei percorsi dei file React
+- importazione del file CSS globale
+- utilizzo delle classi Tailwind negli attributi className
+
+Esempio di utilizzo in un componente:
+
+- le classi Tailwind vengono applicate direttamente agli elementi JSX
+- lo stile è locale al componente ma definito tramite classi globali
+
+Tailwind si integra perfettamente con:
+
+- componenti funzionali
+- hooks
+- conditional rendering
+- composizione di componenti
+
+## Integrazione con Next.js
+
+Next.js utilizza rendering lato server e static generation. Tailwind è compatibile con entrambe le modalità.
+
+Aspetti specifici:
+
+- il file CSS globale viene importato in un layout o nel file di ingresso principale
+- la scansione dei file include pagine, layout e componenti
+- il tree-shaking funziona sia in build statica che dinamica
+
+Vantaggi principali:
+
+- nessun conflitto con il rendering SSR
+- ottime performance grazie alla rimozione delle classi inutilizzate
+- integrazione naturale con il sistema di routing di Next.js
+
+## Integrazione con Vue
+
+In Vue, Tailwind viene utilizzato all’interno dei template dei componenti single-file.
+
+Caratteristiche principali:
+
+- le classi Tailwind si applicano agli elementi HTML nei template
+- compatibilità con v-bind e classi dinamiche
+- funzionamento corretto con scoped e non-scoped styles
+
+Tailwind si integra con:
+
+- componenti Vue
+- computed properties
+- rendering condizionale
+- slot e componenti riutilizzabili
+
+## Integrazione con Nuxt
+
+Nuxt estende Vue con funzionalità di rendering avanzate. Tailwind si integra a livello di build.
+
+Aspetti rilevanti:
+
+- il CSS globale viene caricato tramite configurazione centralizzata
+- supporto completo per SSR e static generation
+- utilizzo delle utility nei layout, nelle pagine e nei componenti
+
+L’esperienza di sviluppo rimane identica a Vue, con il vantaggio di una struttura più organizzata.
+
+## Integrazione con Angular
+
+Angular utilizza un sistema di build più strutturato. Tailwind viene integrato tramite PostCSS o CLI.
+
+Caratteristiche principali:
+
+- utilizzo delle classi Tailwind nei template HTML
+- compatibilità con binding e direttive Angular
+- funzionamento corretto con ViewEncapsulation
+
+È possibile:
+
+- utilizzare Tailwind come stile globale
+- combinare Tailwind con stili specifici per componente
+- evitare conflitti grazie alle utility atomiche
+
+## Integrazione con Svelte e SvelteKit
+
+Svelte compila i componenti a build-time. Tailwind funziona come layer di stile esterno.
+
+Punti chiave:
+
+- le classi Tailwind sono applicate nei file .svelte
+- supporto per classi dinamiche e reattive
+- compatibilità completa con SvelteKit e il rendering SSR
+
+L’approccio utility-first si sposa bene con la sintassi concisa di Svelte.
+
+## Integrazione con Vite
+
+Vite è spesso il punto di partenza per molti framework moderni. Tailwind è ottimizzato per lavorare con Vite.
+
+Vantaggi:
+
+- avvio del dev server estremamente rapido
+- hot reload efficiente
+- build finale ottimizzata
+
+Tailwind CLI o PostCSS funzionano senza configurazioni complesse.
+
+## Gestione dei file di stile
+
+Indipendentemente dal framework:
+
+- Tailwind viene caricato una sola volta come CSS globale
+- le utility vengono applicate localmente ai componenti
+- non è necessario creare file CSS per ogni componente
+
+Questo approccio riduce la complessità e migliora la manutenibilità.
+
+## Best practice comuni
+
+Per tutti i framework:
+
+- mantenere i percorsi di scansione aggiornati
+- evitare classi generate dinamicamente non rilevabili dal build
+- estrarre componenti UI riutilizzabili
+- utilizzare le varianti di stato e responsive di Tailwind invece di CSS personalizzato
+
+## Considerazioni finali
+
+Tailwind CSS si integra in modo uniforme con tutti i principali framework frontend. Il framework scelto influisce solo sulla configurazione iniziale, non sul modo in cui Tailwind viene utilizzato nei componenti. Questo rende Tailwind una soluzione consistente, scalabile e adatta a qualsiasi stack frontend moderno.
