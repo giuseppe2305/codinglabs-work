@@ -1,0 +1,89 @@
+
+# Flexbox
+
+## Allineamento secondario
+
+In TailwindCSS, l'allineamento secondario si riferisce alla gestione dell'allineamento degli elementi lungo l'asse trasversale (perpendicolare all'asse principale) all'interno di un contenitore flex. Per comprendere meglio, bisogna prima capire che un contenitore flex ha due assi: l'asse principale e l'asse trasversale.
+
+### Proprietà dell'asse trasversale
+
+L'asse trasversale dipende dalla direzione del flex container:
+- Quando il `flex-direction` è impostato su `row` (impostazione predefinita), l'asse principale è orizzontale e l'asse trasversale è verticale.
+- Quando il `flex-direction` è impostato su `column`, l'asse principale è verticale e l'asse trasversale è orizzontale.
+
+### Comandi per l'allineamento secondario
+
+In TailwindCSS, le classi per l'allineamento secondario sono fornite da due proprietà principali: `align-items` e `align-content`.
+
+#### `items-{alignment}`
+
+La classe `items-{alignment}` gestisce l'allineamento degli elementi lungo l'asse trasversale per il singolo elemento dentro un contenitore flex.
+
+- `items-start`: Allinea gli elementi all'inizio dell'asse trasversale.
+- `items-center`: Allinea gli elementi al centro dell'asse trasversale.
+- `items-end`: Allinea gli elementi alla fine dell'asse trasversale.
+- `items-baseline`: Allinea gli elementi lungo la loro linea di base.
+- `items-stretch`: Gli elementi si espandono per riempire l'asse trasversale (comportamento predefinito).
+
+Esempio:
+```html
+<div class="flex items-center">
+  <div>Elemento 1</div>
+  <div>Elemento 2</div>
+</div>
+```
+
+Questo codice allinea i due elementi al centro dell'asse trasversale, che in questo caso è l'asse verticale.
+
+#### `content-{alignment}`
+
+La classe `content-{alignment}` è utilizzata per allineare lo spazio tra le righe di un contenitore flex quando c'è più di una riga di contenuti (quando il wrapping è attivo, cioè con `flex-wrap`).
+
+* `content-start`: Allinea le righe all'inizio dell'asse trasversale.
+* `content-center`: Allinea le righe al centro dell'asse trasversale.
+* `content-end`: Allinea le righe alla fine dell'asse trasversale.
+* `content-between`: Distribuisce le righe in modo che ci sia spazio uguale tra di esse.
+* `content-around`: Distribuisce le righe con spazio uguale prima della prima e dopo l'ultima.
+* `content-evenly`: Distribuisce le righe con spazio uguale tra ogni riga.
+
+Esempio:
+
+```html
+<div class="flex flex-wrap content-center">
+  <div>Elemento 1</div>
+  <div>Elemento 2</div>
+  <div>Elemento 3</div>
+</div>
+```
+
+Questo codice allinea al centro le righe di contenuto quando esse vengono "wrappate" su più righe.
+
+### Differenze tra `items-*` e `content-*`
+
+La principale differenza tra `items-{alignment}` e `content-{alignment}` è che:
+
+* `items-{alignment}` si applica agli elementi individuali all'interno di una singola riga, allineandoli lungo l'asse trasversale.
+* `content-{alignment}` si applica quando c'è più di una riga di contenuti, determinando l'allineamento delle righe di contenuto stesso lungo l'asse trasversale.
+
+### Uso combinato
+
+È possibile utilizzare le proprietà `items-*` e `content-*` insieme per ottenere un allineamento preciso sia degli elementi all'interno di ciascuna riga che dell'intero contenitore flex con più righe.
+
+Esempio:
+
+```html
+<div class="flex flex-wrap items-center content-between">
+  <div>Elemento 1</div>
+  <div>Elemento 2</div>
+  <div>Elemento 3</div>
+</div>
+```
+
+In questo esempio, gli elementi saranno allineati al centro all'interno delle righe, e le righe stesse saranno distribuite in modo uniforme lungo l'asse trasversale.
+
+### Conclusione
+
+In sintesi, l'allineamento secondario in TailwindCSS offre un controllo potente e preciso sulla disposizione degli elementi in un contenitore flex, consentendo di ottenere layout complessi con facilità. Utilizzando le classi `items-*` e `content-*`, puoi gestire facilmente come gli elementi e le righe si allineano lungo l'asse trasversale, migliorando la presentazione e la responsività del tuo design.
+
+
+
