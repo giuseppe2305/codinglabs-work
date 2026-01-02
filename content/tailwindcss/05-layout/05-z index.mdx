@@ -1,0 +1,105 @@
+# Z Index in Tailwind CSS
+
+## Cos'è il Z Index?
+
+Il `z-index` è una proprietà CSS che definisce l'ordine di sovrapposizione degli elementi sulla pagina web. In altre parole, stabilisce quale elemento appare sopra o sotto un altro quando gli elementi si sovrappongono. Un valore maggiore di `z-index` fa sì che un elemento venga visualizzato sopra uno con un valore minore. Tailwind CSS fornisce classi per gestire facilmente il `z-index` degli elementi.
+
+## Come funziona il Z Index?
+
+Per poter applicare il `z-index` a un elemento, questo deve essere posizionato. Ciò significa che l'elemento deve avere una proprietà di posizione diversa da `static` (valore di default). Le opzioni di posizione disponibili sono:
+
+- `relative`
+- `absolute`
+- `fixed`
+- `sticky`
+
+Quando si imposta un valore di `z-index`, è necessario che l'elemento sia posizionato, altrimenti il `z-index` non avrà alcun effetto.
+
+## Classi Z Index in Tailwind CSS
+
+Tailwind CSS semplifica l'uso del `z-index` attraverso le sue utility class. Le classi per il `z-index` seguono il formato `z-{value}`, dove `{value}` è un numero che rappresenta il livello di sovrapposizione. 
+
+### Valori di default
+
+Tailwind fornisce un set di valori predefiniti per il `z-index`:
+
+- `z-0`: Imposta il `z-index` a 0.
+- `z-10`: Imposta il `z-index` a 10.
+- `z-20`: Imposta il `z-index` a 20.
+- `z-30`: Imposta il `z-index` a 30.
+- `z-40`: Imposta il `z-index` a 40.
+- `z-50`: Imposta il `z-index` a 50.
+- `z-auto`: Imposta il `z-index` a `auto`, il valore predefinito in CSS che si basa sull'ordine di apparizione nel DOM.
+
+Questi valori sono utili per gestire la sovrapposizione di elementi in modo ordinato.
+
+### Personalizzare i valori
+
+Se i valori predefiniti non sono sufficienti, è possibile personalizzare il `z-index` nel file di configurazione di Tailwind (`tailwind.config.js`). Ecco un esempio di come estendere i valori del `z-index`:
+
+```js
+module.exports = {
+  theme: {
+    extend: {
+      zIndex: {
+        '100': '100',
+        '200': '200',
+      }
+    }
+  }
+}
+```
+
+Questo aggiunge due nuovi livelli di `z-index`: `z-100` e `z-200`.
+
+## Uso pratico del Z Index
+
+### Esempio di Z Index con Sovrapposizione
+
+Immagina di voler creare due box che si sovrappongono. Puoi usare il `z-index` per gestire quale box si trova sopra l'altro:
+
+```html
+<div class="relative z-10">
+  Box 1
+</div>
+<div class="relative z-20">
+  Box 2
+</div>
+```
+
+In questo caso, `Box 2` avrà un `z-index` più alto e quindi apparirà sopra `Box 1`.
+
+### Esempio con Posizione Sticky
+
+Puoi usare il `z-index` anche con un elemento `sticky` per assicurarti che rimanga visibile sopra gli altri contenuti durante lo scroll:
+
+```html
+<div class="sticky top-0 z-50">
+  Navbar
+</div>
+```
+
+In questo caso, la navbar rimarrà in alto durante lo scroll della pagina e sarà visibile sopra gli altri contenuti grazie al `z-index` di `50`.
+
+## Z Index e Layer
+
+È importante notare che il `z-index` funziona all'interno del contesto del "stacking context". Ogni elemento con un `z-index` non `auto` crea un nuovo stacking context, il che significa che il `z-index` di un elemento all'interno di un altro stacking context non può influenzare gli elementi all'esterno di quel contesto.
+
+### Esempio di Stacking Context
+
+```html
+<div class="relative z-10">
+  <div class="relative z-20">
+    Elemento 1
+  </div>
+</div>
+<div class="relative z-5">
+  Elemento 2
+</div>
+```
+
+In questo caso, anche se `Elemento 1` ha un `z-index` più alto di `Elemento 2`, il fatto che sia all'interno di un nuovo stacking context lo rende "isolato" rispetto al `z-index` dell'elemento esterno.
+
+## Conclusioni
+
+Il `z-index` è una proprietà fondamentale per gestire la sovrapposizione degli elementi nella progettazione web. In Tailwind CSS, l'utilizzo delle classi di utilità semplifica notevolmente il controllo di questa proprietà, permettendo di evitare scritture manuali di CSS complessi. Ricorda di configurare correttamente il contesto di posizionamento e di tener conto degli stacking context per evitare comportamenti imprevisti.
