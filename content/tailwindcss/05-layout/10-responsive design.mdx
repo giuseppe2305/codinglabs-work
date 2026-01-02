@@ -29,7 +29,9 @@ TailwindCSS adotta una sintassi mobile-first, il che significa che le regole CSS
 La sintassi per applicare le classi responsive in TailwindCSS è la seguente:
 
 ```html
-<div class="classi-base sm:classi-su-schermi-piccoli md:classi-su-schermi-medi lg:classi-su-schermi-grandi xl:classi-su-schermi-extra-grandi">
+<div
+  class="classi-base sm:classi-schermi-piccoli md:classi-su-schermi-medi lg:classi-su-schermi-grandi"
+>
   <!-- Contenuto -->
 </div>
 ```
@@ -39,18 +41,20 @@ Ogni breakpoint è preceduto da un prefisso come `sm:`, `md:`, `lg:` o `xl:`. Le
 ### Esempio di utilizzo
 
 ```html
-<div class="bg-red-500 p-4 sm:bg-green-500 md:bg-blue-500 lg:bg-yellow-500 xl:bg-purple-500">
+<div
+  class="bg-red-500 p-4 sm:bg-green-500 md:bg-blue-500 lg:bg-yellow-500 xl:bg-purple-500"
+>
   Questo div cambia colore a seconda della larghezza dello schermo.
 </div>
 ```
 
 In questo esempio:
 
-* Su dispositivi con schermo piccolo (default) il div avrà uno sfondo rosso (`bg-red-500`).
-* Su schermi più grandi di 640px (sm) il div avrà uno sfondo verde (`bg-green-500`).
-* Su schermi più grandi di 768px (md) il div avrà uno sfondo blu (`bg-blue-500`).
-* Su schermi più grandi di 1024px (lg) il div avrà uno sfondo giallo (`bg-yellow-500`).
-* Su schermi più grandi di 1280px (xl) il div avrà uno sfondo viola (`bg-purple-500`).
+- Su dispositivi con schermo piccolo (default) il div avrà uno sfondo rosso (`bg-red-500`).
+- Su schermi più grandi di 640px (sm) il div avrà uno sfondo verde (`bg-green-500`).
+- Su schermi più grandi di 768px (md) il div avrà uno sfondo blu (`bg-blue-500`).
+- Su schermi più grandi di 1024px (lg) il div avrà uno sfondo giallo (`bg-yellow-500`).
+- Su schermi più grandi di 1280px (xl) il div avrà uno sfondo viola (`bg-purple-500`).
 
 ## Personalizzazione dei breakpoints
 
@@ -61,11 +65,11 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        'xxl': '1920px',
+        xxl: "1920px",
       },
     },
   },
-}
+};
 ```
 
 In questo caso, abbiamo aggiunto un breakpoint personalizzato `xxl` con una larghezza minima di 1920px. Dopo aver aggiornato il file di configurazione, puoi usare il nuovo breakpoint come segue:
@@ -83,7 +87,9 @@ TailwindCSS ti permette di creare layout completamente responsivi utilizzando le
 ### Esempio di layout a griglia
 
 ```html
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+<div
+  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
+>
   <div class="p-4 bg-blue-500">Elemento 1</div>
   <div class="p-4 bg-green-500">Elemento 2</div>
   <div class="p-4 bg-red-500">Elemento 3</div>
@@ -94,11 +100,11 @@ TailwindCSS ti permette di creare layout completamente responsivi utilizzando le
 
 In questo esempio, il layout cambia il numero di colonne in base alla larghezza dello schermo:
 
-* Su schermi piccoli (default) viene utilizzata una sola colonna.
-* Su schermi più grandi di 640px (sm) vengono utilizzate due colonne.
-* Su schermi più grandi di 768px (md) vengono utilizzate tre colonne.
-* Su schermi più grandi di 1024px (lg) vengono utilizzate quattro colonne.
-* Su schermi più grandi di 1280px (xl) vengono utilizzate cinque colonne.
+- Su schermi piccoli (default) viene utilizzata una sola colonna.
+- Su schermi più grandi di 640px (sm) vengono utilizzate due colonne.
+- Su schermi più grandi di 768px (md) vengono utilizzate tre colonne.
+- Su schermi più grandi di 1024px (lg) vengono utilizzate quattro colonne.
+- Su schermi più grandi di 1280px (xl) vengono utilizzate cinque colonne.
 
 ## Breakpoints per visibilità
 
@@ -114,11 +120,11 @@ In aggiunta alle modifiche del layout, puoi utilizzare i breakpoints anche per c
 
 In questo caso:
 
-* L'elemento è nascosto per i dispositivi più piccoli (default).
-* Diventa visibile su dispositivi con schermi più grandi di 640px (sm).
-* Torna nascosto su schermi più grandi di 768px (md).
-* Diventa visibile nuovamente su schermi più grandi di 1024px (lg).
-* Viene nascosto su schermi più grandi di 1280px (xl).
+- L'elemento è nascosto per i dispositivi più piccoli (default).
+- Diventa visibile su dispositivi con schermi più grandi di 640px (sm).
+- Torna nascosto su schermi più grandi di 768px (md).
+- Diventa visibile nuovamente su schermi più grandi di 1024px (lg).
+- Viene nascosto su schermi più grandi di 1280px (xl).
 
 ## Conclusioni
 
