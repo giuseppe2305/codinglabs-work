@@ -1,0 +1,193 @@
+# Display
+
+Il sistema di display in TailwindCSS è uno degli strumenti più potenti e flessibili per la gestione della visibilità e della disposizione degli elementi nel layout di una pagina. In questa sezione esploreremo i vari valori della proprietà CSS `display` che possono essere utilizzati con le classi di TailwindCSS.
+
+## Classi Display
+
+### block
+La classe `block` rende un elemento un blocco, che occupa tutta la larghezza disponibile. Gli elementi con questa classe iniziano sempre su una nuova riga e prendono tutta la larghezza del loro contenitore.
+
+```html
+<div class="block">
+  <!-- Contenuto qui -->
+</div>
+```
+
+### inline
+
+La classe `inline` rende un elemento inline, il che significa che si dispone in linea con altri elementi, senza forzare il salto di riga. La larghezza di un elemento inline è determinata dal suo contenuto.
+
+```html
+<span class="inline">
+  <!-- Contenuto qui -->
+</span>
+```
+
+### inline-block
+
+La classe `inline-block` combina il comportamento di `inline` e `block`. Un elemento con questa classe è posizionato in linea con gli altri elementi, ma può avere una larghezza e un'altezza esplicitamente definite.
+
+```html
+<div class="inline-block">
+  <!-- Contenuto qui -->
+</div>
+```
+
+### flex
+
+La classe `flex` applica il modello di layout Flexbox all'elemento, consentendo un controllo avanzato sulla disposizione degli elementi figli, la direzione, l'allineamento e la distribuzione dello spazio.
+
+```html
+<div class="flex">
+  <!-- Elementi figli qui -->
+</div>
+```
+
+### inline-flex
+
+La classe `inline-flex` applica il modello Flexbox a un elemento inline. Questo significa che l'elemento si comporterà come un inline element ma i suoi figli seguiranno le regole di Flexbox.
+
+```html
+<div class="inline-flex">
+  <!-- Elementi figli qui -->
+</div>
+```
+
+### grid
+
+La classe `grid` applica il modello di layout CSS Grid all'elemento, permettendo di disporre gli elementi figli in righe e colonne in modo molto più preciso rispetto a Flexbox.
+
+```html
+<div class="grid">
+  <!-- Elementi figli qui -->
+</div>
+```
+
+### inline-grid
+
+Simile alla classe `grid`, ma con il comportamento inline, quindi l'elemento si dispone in linea con gli altri elementi.
+
+```html
+<div class="inline-grid">
+  <!-- Elementi figli qui -->
+</div>
+```
+
+### hidden
+
+La classe `hidden` rende un elemento completamente invisibile e non occupa spazio nel layout. È utile per nascondere temporaneamente degli elementi senza eliminarli dal DOM.
+
+```html
+<div class="hidden">
+  <!-- Contenuto nascosto -->
+</div>
+```
+
+### contents
+
+La classe `contents` rende un elemento invisibile, ma lascia che il suo contenuto sia visibile e si comporti come se fosse parte del suo elemento genitore. È utile quando si vuole rimuovere un elemento dal layout ma mantenere la struttura interna.
+
+```html
+<div class="contents">
+  <!-- Contenuto visibile ma senza il contenitore -->
+</div>
+```
+
+## Breakpoint Specifici
+
+TailwindCSS offre una gestione completa per il responsive design tramite l'utilizzo di breakpoint. È possibile combinare le classi di `display` con i breakpoint per cambiare il layout in modo dinamico in base alla larghezza dello schermo.
+
+### sm: (Minimo 640px)
+
+Le classi prefissate con `sm:` vengono applicate quando la larghezza della finestra è superiore a 640px.
+
+```html
+<div class="sm:block">
+  <!-- Viene visualizzato come block sopra 640px -->
+</div>
+```
+
+### md: (Minimo 768px)
+
+Le classi prefissate con `md:` vengono applicate quando la larghezza della finestra è superiore a 768px.
+
+```html
+<div class="md:flex">
+  <!-- Viene visualizzato come flex sopra 768px -->
+</div>
+```
+
+### lg: (Minimo 1024px)
+
+Le classi prefissate con `lg:` vengono applicate quando la larghezza della finestra è superiore a 1024px.
+
+```html
+<div class="lg:grid">
+  <!-- Viene visualizzato come grid sopra 1024px -->
+</div>
+```
+
+### xl: (Minimo 1280px)
+
+Le classi prefissate con `xl:` vengono applicate quando la larghezza della finestra è superiore a 1280px.
+
+```html
+<div class="xl:inline-flex">
+  <!-- Viene visualizzato come inline-flex sopra 1280px -->
+</div>
+```
+
+### 2xl: (Minimo 1536px)
+
+Le classi prefissate con `2xl:` vengono applicate quando la larghezza della finestra è superiore a 1536px.
+
+```html
+<div class="2xl:hidden">
+  <!-- Viene nascosto sopra 1536px -->
+</div>
+```
+
+## Esempi di utilizzo
+
+### Layout di base con Flexbox
+
+```html
+<div class="flex space-x-4">
+  <div class="flex-1">
+    <!-- Contenuto qui -->
+  </div>
+  <div class="flex-1">
+    <!-- Contenuto qui -->
+  </div>
+</div>
+```
+
+### Layout di base con Grid
+
+```html
+<div class="grid grid-cols-3 gap-4">
+  <div class="col-span-1">
+    <!-- Contenuto qui -->
+  </div>
+  <div class="col-span-2">
+    <!-- Contenuto qui -->
+  </div>
+</div>
+```
+
+### Responsive layout con Flexbox
+
+```html
+<div class="flex flex-col sm:flex-row">
+  <div class="flex-1">
+    <!-- Contenuto qui -->
+  </div>
+  <div class="flex-1">
+    <!-- Contenuto qui -->
+  </div>
+</div>
+```
+
+## Conclusioni
+
+Le classi di display di TailwindCSS forniscono una grande flessibilità nel progettare layout reattivi e dinamici. Grazie a un sistema intuitivo e altamente configurabile, puoi facilmente passare da un layout a blocchi, a uno in flex o grid, o persino gestire la visibilità degli elementi in base a vari breakpoint. Comprendere come utilizzare questi strumenti ti permette di costruire interfacce utente moderne e performanti.
