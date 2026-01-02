@@ -37,7 +37,9 @@ TailwindCSS also provides utilities that allow you to control visibility based o
 To hide or show an element only on small screens, use the `sm:`, `md:`, `lg:`, and `xl:` prefixes to apply visibility changes based on screen size.
 
 ```html
-<div class="sm:invisible md:visible lg:visible xl:invisible">Content for different screen sizes</div>
+<div class="sm:invisible md:visible lg:visible xl:invisible">
+  Content for different screen sizes
+</div>
 ```
 
 ### Visibility on Medium Screens
@@ -48,7 +50,7 @@ To apply visibility on medium-sized screens, use `md:`, followed by `visible` or
 <div class="md:invisible">This is invisible on medium screens and up</div>
 ```
 
-## Handling Visibility with `group` Class
+## Handling Visibility with group Class
 
 In combination with the `group` class, visibility utilities can be applied when hovering or focusing on a parent element.
 
@@ -56,8 +58,12 @@ In combination with the `group` class, visibility utilities can be applied when 
 
 ```html
 <div class="group">
-  <div class="group-hover:invisible">This content is invisible when the parent is hovered</div>
-  <button class="group-hover:visible">Hover over me to reveal the content</button>
+  <div class="group-hover:invisible">
+    This content is invisible when the parent is hovered
+  </div>
+  <button class="group-hover:visible">
+    Hover over me to reveal the content
+  </button>
 </div>
 ```
 
@@ -65,11 +71,11 @@ This method allows for advanced interactions, where you can hide or show element
 
 ## Best Practices
 
-* **Accessibility Considerations**: Keep in mind that visibility changes can affect accessibility. For example, an invisible element still occupies space and might create a poor user experience if it is not considered properly.
+- **Accessibility Considerations**: Keep in mind that visibility changes can affect accessibility. For example, an invisible element still occupies space and might create a poor user experience if it is not considered properly.
 
-* **Performance**: Removing elements using `display: none` or `visibility: hidden` can improve performance in certain scenarios where elements do not need to be rendered at all.
+- **Performance**: Removing elements using `display: none` or `visibility: hidden` can improve performance in certain scenarios where elements do not need to be rendered at all.
 
-* **Conditional Rendering**: Use visibility in combination with other Tailwind utilities such as `hidden` to create responsive designs that adapt to various screen sizes or interactions.
+- **Conditional Rendering**: Use visibility in combination with other Tailwind utilities such as `hidden` to create responsive designs that adapt to various screen sizes or interactions.
 
 ## Conclusion
 

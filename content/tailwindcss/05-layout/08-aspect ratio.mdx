@@ -1,6 +1,7 @@
 # Aspect Ratio in TailwindCSS
 
 ## Introduction
+
 The aspect ratio utility in TailwindCSS helps you maintain the proportions of an element, ensuring it scales correctly within a container. This utility allows you to specify a fixed aspect ratio, which can be especially useful when dealing with images, videos, or any content where the aspect ratio should be preserved as the element resizes.
 
 ## Syntax
@@ -10,9 +11,7 @@ Tailwind provides a set of predefined aspect ratio classes that can be applied t
 The basic syntax is as follows:
 
 ```
-
 aspect-ratio-{ratio}
-
 ```
 
 Where `{ratio}` represents the desired aspect ratio. The most common aspect ratios are 16:9, 4:3, and 1:1, but you can also create custom ratios using Tailwind’s responsive approach.
@@ -28,11 +27,12 @@ Tailwind comes with a set of predefined aspect ratios that you can use right awa
 ### Example Usage
 
 #### 16:9 Aspect Ratio
+
 To maintain a 16:9 aspect ratio, use the following class:
 
 ```html
 <div class="aspect-ratio-16/9 bg-gray-200">
-    <img src="video-thumbnail.jpg" alt="Video Thumbnail" class="object-cover">
+  <img src="video-thumbnail.jpg" alt="Video Thumbnail" class="object-cover" />
 </div>
 ```
 
@@ -42,7 +42,7 @@ For a 4:3 aspect ratio, use:
 
 ```html
 <div class="aspect-ratio-4/3 bg-blue-200">
-    <img src="image.jpg" alt="Image" class="object-cover">
+  <img src="image.jpg" alt="Image" class="object-cover" />
 </div>
 ```
 
@@ -52,7 +52,7 @@ For a 1:1 (square) aspect ratio:
 
 ```html
 <div class="aspect-ratio-1/1 bg-green-200">
-    <img src="profile.jpg" alt="Profile Picture" class="object-cover">
+  <img src="profile.jpg" alt="Profile Picture" class="object-cover" />
 </div>
 ```
 
@@ -64,7 +64,7 @@ For example, if you need a 3:2 aspect ratio, you can write:
 
 ```html
 <div class="aspect-ratio-[3/2] bg-red-200">
-    <img src="custom-image.jpg" alt="Custom Image" class="object-cover">
+  <img src="custom-image.jpg" alt="Custom Image" class="object-cover" />
 </div>
 ```
 
@@ -72,7 +72,7 @@ For example, if you need a 3:2 aspect ratio, you can write:
 
 ```html
 <div class="aspect-ratio-[3/2] bg-yellow-200">
-    <img src="custom-image.jpg" alt="Custom Image" class="object-cover">
+  <img src="custom-image.jpg" alt="Custom Image" class="object-cover" />
 </div>
 ```
 
@@ -85,16 +85,18 @@ Tailwind allows you to make aspect ratios responsive. This means you can define 
 You can apply different aspect ratios based on screen size like this:
 
 ```html
-<div class="aspect-ratio-16/9 sm:aspect-ratio-4/3 md:aspect-ratio-1/1 bg-purple-200">
-    <img src="responsive-image.jpg" alt="Responsive Image" class="object-cover">
+<div
+  class="aspect-ratio-16/9 sm:aspect-ratio-4/3 md:aspect-ratio-1/1 bg-purple-200"
+>
+  <img src="responsive-image.jpg" alt="Responsive Image" class="object-cover" />
 </div>
 ```
 
 In this example:
 
-* The default aspect ratio is 16:9.
-* For small screens (`sm`), it switches to a 4:3 aspect ratio.
-* For medium screens (`md`), it becomes a 1:1 (square) aspect ratio.
+- The default aspect ratio is 16:9.
+- For small screens (`sm`), it switches to a 4:3 aspect ratio.
+- For medium screens (`md`), it becomes a 1:1 (square) aspect ratio.
 
 ## Aspect Ratio with Object Fit
 
@@ -102,15 +104,15 @@ When applying an aspect ratio, it is common to also control how the content with
 
 Tailwind provides utility classes for object fitting, such as `object-cover`, `object-contain`, and `object-fill`.
 
-* `object-cover`: The content will cover the container, potentially cropping it.
-* `object-contain`: The content will be scaled to fit within the container while maintaining its aspect ratio.
-* `object-fill`: The content will fill the container, potentially distorting it.
+- `object-cover`: The content will cover the container, potentially cropping it.
+- `object-contain`: The content will be scaled to fit within the container while maintaining its aspect ratio.
+- `object-fill`: The content will fill the container, potentially distorting it.
 
-### Example with `object-cover`
+### Example with object-cover
 
 ```html
 <div class="aspect-ratio-16/9 bg-gray-300">
-    <img src="cover-image.jpg" alt="Cover Image" class="object-cover">
+  <img src="cover-image.jpg" alt="Cover Image" class="object-cover" />
 </div>
 ```
 
