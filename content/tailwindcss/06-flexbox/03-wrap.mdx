@@ -1,13 +1,12 @@
-
 # Wrap
 
 Flexbox è un potente layout system di CSS che permette di creare layout complessi in modo semplice. Una delle funzionalità principali di Flexbox è la gestione del wrapping degli elementi all'interno di un contenitore. La proprietà `flex-wrap` è utilizzata per decidere come gli elementi flex devono comportarsi quando lo spazio disponibile nel contenitore non è sufficiente per contenerli tutti in una sola riga o colonna.
 
-## Cos'è `flex-wrap`?
+## Cos'è flex-wrap?
 
 La proprietà `flex-wrap` determina se gli elementi flex devono andare a capo (wrap) o rimanere tutti su una singola riga/colonna (nowrap). Può essere utilizzata per controllare il comportamento del contenitore quando lo spazio disponibile non è sufficiente per ospitare tutti gli elementi flex.
 
-### Valori di `flex-wrap`
+### Valori di flex-wrap
 
 - `nowrap`: Impedisce agli elementi flex di andare a capo. Gli elementi verranno disposti su una sola riga o colonna, e se non c'è abbastanza spazio, il contenitore potrebbe traboccare.
 - `wrap`: Gli elementi flex vanno a capo e si spostano su righe o colonne multiple quando non c'è abbastanza spazio disponibile.
@@ -36,7 +35,7 @@ TailwindCSS offre una sintassi semplice per applicare la proprietà `flex-wrap` 
 
 In questo esempio, quando lo spazio nel contenitore non è sufficiente per allineare tutti gli elementi sulla stessa riga, gli elementi andranno a capo, creando nuove righe per contenerli.
 
-### Esempio con `flex-nowrap`
+### Esempio con flex-nowrap
 
 ```html
 <div class="flex flex-nowrap">
@@ -49,7 +48,7 @@ In questo esempio, quando lo spazio nel contenitore non è sufficiente per allin
 
 In questo caso, gli elementi non andranno a capo, ma si disporranno tutti sulla stessa riga. Se non c'è abbastanza spazio, potrebbero traboccare dal contenitore.
 
-### Esempio con `flex-wrap-reverse`
+### Esempio con flex-wrap-reverse
 
 ```html
 <div class="flex flex-wrap-reverse">
@@ -66,7 +65,7 @@ Qui, gli elementi andranno a capo, ma l'ordine di visualizzazione sarà invertit
 
 La gestione del wrapping può anche essere personalizzata in base alla larghezza dello schermo, utilizzando le classi responsivi di TailwindCSS.
 
-### Esempio responsivo con `flex-wrap`
+### Esempio responsivo con flex-wrap
 
 ```html
 <div class="flex flex-wrap sm:flex-nowrap md:flex-wrap lg:flex-wrap-reverse">
@@ -79,11 +78,10 @@ La gestione del wrapping può anche essere personalizzata in base alla larghezza
 
 In questo caso:
 
-* Su schermi molto piccoli (sotto i `sm`), gli elementi non vanno a capo.
-* Su schermi medi (a partire da `md`), gli elementi vanno a capo normalmente.
-* Su schermi grandi (a partire da `lg`), gli elementi andranno a capo, ma con ordine inverso.
+- Su schermi molto piccoli (sotto i `sm`), gli elementi non vanno a capo.
+- Su schermi medi (a partire da `md`), gli elementi vanno a capo normalmente.
+- Su schermi grandi (a partire da `lg`), gli elementi andranno a capo, ma con ordine inverso.
 
 ## Conclusioni
 
 La proprietà `flex-wrap` di Flexbox è estremamente utile per controllare come gli elementi all'interno di un contenitore flex si comportano quando lo spazio è limitato. Con le utility di TailwindCSS, è semplice gestire il wrapping degli elementi, anche su diverse dimensioni di schermo, grazie alle classi responsivi. Utilizzando `flex-wrap`, `flex-nowrap` e `flex-wrap-reverse`, puoi ottenere layout reattivi e flessibili che si adattano facilmente a qualsiasi tipo di dispositivo.
-
