@@ -1,13 +1,12 @@
-
 # Direzione - Flexbox
 
 Flexbox è un potente sistema di layout di CSS che permette di allineare e distribuire gli elementi in modo più flessibile all'interno di un contenitore. La proprietà `flex-direction` è una delle principali per definire la direzione dei flex items all'interno di un contenitore flex.
 
-## Cos'è `flex-direction`?
+## Cos'è flex-direction?
 
 La proprietà `flex-direction` definisce la direzione in cui gli elementi flessibili (flex items) vengono disposti all'interno del contenitore. Essa influisce sull'orientamento principale e sul comportamento dell'asse principale rispetto all'asse trasversale.
 
-## Valori di `flex-direction`
+## Valori di flex-direction
 
 La proprietà `flex-direction` accetta i seguenti valori:
 
@@ -63,8 +62,8 @@ Con `column-reverse`, gli elementi vengono disposti verticalmente ma in ordine i
 
 La direzione degli elementi cambia l'orientamento principale e quello trasversale. Ad esempio:
 
-* Con `flex-row`, l'asse principale è orizzontale (dal lato sinistro al lato destro).
-* Con `flex-col`, l'asse principale è verticale (dall'alto al basso).
+- Con `flex-row`, l'asse principale è orizzontale (dal lato sinistro al lato destro).
+- Con `flex-col`, l'asse principale è verticale (dall'alto al basso).
 
 Questa differenza influisce sulle proprietà come `justify-content` e `align-items`, che vengono applicate rispettivamente all'asse principale e all'asse trasversale.
 
@@ -74,9 +73,9 @@ Questa differenza influisce sulle proprietà come `justify-content` e `align-ite
 
 La proprietà `justify-content` allinea gli elementi lungo l'asse principale (l'asse definito da `flex-direction`). Ad esempio:
 
-* `justify-start`: allinea gli elementi all'inizio dell'asse principale.
-* `justify-center`: allinea gli elementi al centro dell'asse principale.
-* `justify-end`: allinea gli elementi alla fine dell'asse principale.
+- `justify-start`: allinea gli elementi all'inizio dell'asse principale.
+- `justify-center`: allinea gli elementi al centro dell'asse principale.
+- `justify-end`: allinea gli elementi alla fine dell'asse principale.
 
 Esempio con `flex-row` e `justify-center`:
 
@@ -92,9 +91,9 @@ Esempio con `flex-row` e `justify-center`:
 
 La proprietà `align-items` allinea gli elementi lungo l'asse trasversale, che dipende dalla direzione definita con `flex-direction`. Ad esempio:
 
-* `align-start`: allinea gli elementi all'inizio dell'asse trasversale.
-* `align-center`: allinea gli elementi al centro dell'asse trasversale.
-* `align-end`: allinea gli elementi alla fine dell'asse trasversale.
+- `align-start`: allinea gli elementi all'inizio dell'asse trasversale.
+- `align-center`: allinea gli elementi al centro dell'asse trasversale.
+- `align-end`: allinea gli elementi alla fine dell'asse trasversale.
 
 Esempio con `flex-col` e `align-center`:
 
@@ -109,4 +108,3 @@ Esempio con `flex-col` e `align-center`:
 ## Conclusione
 
 La proprietà `flex-direction` di Flexbox è fondamentale per determinare l'orientamento principale dei flex items. Con i valori `row`, `row-reverse`, `column`, e `column-reverse`, è possibile controllare il layout e il flusso degli elementi, consentendo una gestione flessibile del design delle pagine web. Combinata con altre proprietà come `justify-content` e `align-items`, `flex-direction` offre un controllo completo sugli spazi e gli allineamenti all'interno di un contenitore flex.
-
