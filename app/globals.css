@@ -17,6 +17,7 @@
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
+  --color-primary-light: var(--primary-light);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
@@ -52,6 +53,7 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.205 0 0);
+  --primary-light: white;
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
@@ -86,6 +88,7 @@
   --popover: oklch(0.205 0 0);
   --popover-foreground: #e8e8e8;
   --primary: #4263eb;
+  --primary-light: #91a7ff;
   --primary-foreground: #18181b;
   --secondary: #242426;
   --secondary-foreground: #939394;
@@ -126,7 +129,7 @@
   }
 
   *::selection {
-    @apply bg-primary/70 text-primary-foreground;
+    @apply bg-primary-light/60 text-primary-foreground;
   }
 
   *::-webkit-scrollbar {
