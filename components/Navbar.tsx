@@ -21,11 +21,11 @@ function Navbar() {
       <nav className="w-full grid grid-cols-3 items-center mx-auto px-2 sm:px-4">
         <Logo />
         <NavigationMenu className="justify-self-center">
-          <NavigationMenuList className="grid grid-cols-3 w-auto! justify-items-center gap-2">
+          <NavigationMenuList className="grid grid-cols-3 gap-6">
             <NavigationMenuItem>
               <NavigationMenuLink
                 href="/corsi"
-                className={navigationMenuTriggerStyle()}
+                className={`${navigationMenuTriggerStyle()} w-full`}
               >
                 Corsi
               </NavigationMenuLink>
@@ -33,7 +33,7 @@ function Navbar() {
             <NavigationMenuItem>
               <NavigationMenuLink
                 href="/"
-                className={navigationMenuTriggerStyle()}
+                className={`${navigationMenuTriggerStyle()} w-full`}
               >
                 Bundles
               </NavigationMenuLink>
@@ -59,7 +59,7 @@ function Navbar() {
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
-            <NavigationMenuItem>
+            <NavigationMenuItem className="w-full">
               <NavigationMenuTrigger>Risorse</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid w-80 gap-4">
