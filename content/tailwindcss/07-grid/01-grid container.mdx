@@ -1,0 +1,192 @@
+# Grid container
+
+## Introduzione al layout Grid
+
+CSS Grid è un sistema di layout bidimensionale che permette di gestire righe e colonne in modo strutturato. TailwindCSS fornisce utility class dedicate per trasformare un elemento in un contenitore grid e controllarne il comportamento in modo dichiarativo e prevedibile.
+
+## Attivare il Grid container
+
+Per definire un grid container è sufficiente applicare la classe `grid` a un elemento. Tutti i figli diretti diventeranno automaticamente grid items.
+
+```html
+<div class="grid">...</div>
+```
+
+## Grid inline
+
+In alcuni casi può essere utile creare una griglia inline, che si comporta come un elemento inline-level. Tailwind fornisce la classe `inline-grid`.
+
+```html
+<div class="inline-grid">...</div>
+```
+
+## Definizione delle colonne
+
+Le colonne vengono definite tramite la classe `grid-cols-*`. Tailwind genera automaticamente layout basati su `repeat()`.
+
+Valori comuni:
+
+- `grid-cols-1`
+- `grid-cols-2`
+- `grid-cols-3`
+- `grid-cols-4`
+- fino a `grid-cols-12`
+
+```html
+<div class="grid grid-cols-3">...</div>
+```
+
+## Colonne personalizzate
+
+Per layout più avanzati è possibile usare valori arbitrari con la sintassi tra parentesi quadre.
+
+```html
+<div class="grid grid-cols-[200px_1fr_2fr]">...</div>
+```
+
+Questo approccio consente il controllo totale delle dimensioni delle colonne.
+
+## Definizione delle righe
+
+Le righe si controllano tramite la classe `grid-rows-*`.
+
+Valori comuni:
+
+- `grid-rows-1`
+- `grid-rows-2`
+- `grid-rows-3`
+- fino a `grid-rows-6`
+
+```html
+<div class="grid grid-rows-2">...</div>
+```
+
+## Righe personalizzate
+
+Anche per le righe è possibile usare valori arbitrari.
+
+```html
+<div class="grid grid-rows-[auto_1fr_100px]">...</div>
+```
+
+## Flusso automatico degli elementi
+
+Il posizionamento automatico degli elementi è gestito tramite `grid-auto-flow`.
+
+Classi disponibili:
+
+- `grid-flow-row`
+- `grid-flow-col`
+- `grid-flow-dense`
+
+```html
+<div class="grid grid-cols-3 grid-flow-row">...</div>
+```
+
+`grid-flow-dense` permette di riempire eventuali spazi vuoti ottimizzando il layout.
+
+## Dimensione automatica delle colonne
+
+Le colonne generate automaticamente possono essere controllate con `auto-cols-*`.
+
+Valori comuni:
+
+- `auto-cols-auto`
+- `auto-cols-min`
+- `auto-cols-max`
+- `auto-cols-fr`
+
+```html
+<div class="grid grid-flow-col auto-cols-fr">...</div>
+```
+
+## Dimensione automatica delle righe
+
+Le righe generate automaticamente sono controllate con `auto-rows-*`.
+
+Valori comuni:
+
+- `auto-rows-auto`
+- `auto-rows-min`
+- `auto-rows-max`
+- `auto-rows-fr`
+
+```html
+<div class="grid auto-rows-fr">...</div>
+```
+
+## Gap tra righe e colonne
+
+Lo spazio tra gli elementi della griglia è controllato con le classi `gap-*`.
+
+Opzioni principali:
+
+- `gap-0`
+- `gap-2`
+- `gap-4`
+- `gap-6`
+
+È possibile separare righe e colonne:
+
+- `gap-x-*`
+- `gap-y-*`
+
+```html
+<div class="grid grid-cols-3 gap-x-6 gap-y-4">...</div>
+```
+
+## Allineamento del contenuto del grid
+
+L’allineamento dell’intero contenuto del grid avviene tramite `place-content`, `justify-content` e `content`.
+
+Classi principali:
+
+- `place-content-start`
+- `place-content-center`
+- `place-content-between`
+- `place-content-stretch`
+
+```html
+<div class="grid place-content-center">...</div>
+```
+
+## Allineamento degli elementi nel grid
+
+Per controllare l’allineamento dei singoli elementi all’interno delle celle si usano `place-items`, `items-*` e `justify-items`.
+
+Classi principali:
+
+- `place-items-start`
+- `place-items-center`
+- `place-items-end`
+- `place-items-stretch`
+
+```html
+<div class="grid place-items-center">...</div>
+```
+
+## Grid container responsive
+
+Tutte le utility del grid supportano i breakpoint responsive di Tailwind.
+
+```html
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">...</div>
+```
+
+In questo caso il numero di colonne cambia in base alla dimensione dello schermo.
+
+## Combinazione con altre utility
+
+Il grid container funziona perfettamente insieme a utility di spacing, sizing e background.
+
+```html
+<div class="grid grid-cols-3 gap-4 p-6 bg-gray-100">...</div>
+```
+
+Questa combinazione rende il layout modulare e facilmente manutenibile.
+
+## Quando usare Grid invece di Flexbox
+
+Il grid container è ideale per layout bidimensionali complessi, dashboard, gallerie e strutture a matrice. Flexbox rimane più adatto a layout monodimensionali come righe o colonne singole.
+
+La scelta corretta migliora leggibilità del codice e prevedibilità del layout.
