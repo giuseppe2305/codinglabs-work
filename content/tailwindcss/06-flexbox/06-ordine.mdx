@@ -1,0 +1,155 @@
+# Ordine
+
+## Concetto di ordine nel Flexbox
+
+Nel Flexbox l’ordine visivo degli elementi può essere modificato indipendentemente dall’ordine nel DOM. TailwindCSS espone questa funzionalità tramite le utility `order-*`, che mappano direttamente la proprietà CSS `order`.
+
+L’ordine influisce solo sul layout visivo e non modifica:
+
+- l’ordine reale degli elementi nel DOM
+- la navigazione tramite tastiera
+- la lettura da parte degli screen reader
+
+Per questo motivo va usato con attenzione.
+
+## Valore di default
+
+Tutti gli elementi flex hanno `order: 0` di default.
+
+In TailwindCSS:
+
+- `order-0` → order: 0
+
+Se nessuna utility `order-*` è applicata, l’ordine visivo segue quello del markup HTML.
+
+## Utility order positive e negative
+
+TailwindCSS fornisce una scala di valori predefiniti.
+
+Utility disponibili:
+
+- `order-1` → order: 1
+- `order-2` → order: 2
+- `order-3` → order: 3
+- `order-4` → order: 4
+- `order-5` → order: 5
+- `order-6` → order: 6
+- `order-7` → order: 7
+- `order-8` → order: 8
+- `order-9` → order: 9
+- `order-10` → order: 10
+- `order-11` → order: 11
+- `order-12` → order: 12
+
+Valori negativi:
+
+- `-order-1` → order: -1
+- `-order-2` → order: -2
+- `-order-3` → order: -3
+- `-order-4` → order: -4
+- `-order-5` → order: -5
+- `-order-6` → order: -6
+- `-order-7` → order: -7
+- `-order-8` → order: -8
+- `-order-9` → order: -9
+- `-order-10` → order: -10
+- `-order-11` → order: -11
+- `-order-12` → order: -12
+
+Gli elementi con valore più basso vengono visualizzati prima.
+
+## Utility speciali
+
+Tailwind include utility dedicate a casi comuni.
+
+- `order-first` → order: -9999  
+  Forza l’elemento a comparire per primo
+
+- `order-last` → order: 9999  
+  Forza l’elemento a comparire per ultimo
+
+- `order-none` → order: 0  
+  Ripristina il comportamento di default
+
+## Funzionamento pratico dell’ordine
+
+Regole fondamentali:
+
+- Gli elementi sono ordinati in base al valore numerico di `order`
+- Valori più bassi vengono posizionati prima
+- Elementi con lo stesso valore mantengono l’ordine nel DOM
+
+Esempio concettuale:
+
+- Elemento A → order: 0
+- Elemento B → order: -1
+- Elemento C → order: 1
+
+Ordine visivo risultante:
+B → A → C
+
+## Uso con layout responsive
+
+Le utility `order-*` possono essere combinate con i breakpoint.
+
+Esempio:
+
+- `order-2 md:order-1`
+- `order-last lg:order-first`
+
+Questo permette di:
+
+- cambiare la disposizione degli elementi tra mobile e desktop
+- adattare la gerarchia visiva in base allo spazio disponibile
+- mantenere un DOM semanticamente corretto
+
+## Ordine e direzione del Flexbox
+
+L’ordine è indipendente da:
+
+- `flex-row`
+- `flex-row-reverse`
+- `flex-col`
+- `flex-col-reverse`
+
+Prima viene calcolato l’ordine degli elementi, poi viene applicata la direzione del flex container.
+
+Combinare `order-*` con `flex-row-reverse` o `flex-col-reverse` può rendere il layout difficile da comprendere e mantenere.
+
+## Ordine e accessibilità
+
+Aspetti critici:
+
+- L’ordine di tabulazione segue il DOM, non l’ordine visivo
+- Gli screen reader leggono in base al markup HTML
+- Cambiare radicalmente l’ordine visivo può confondere l’utente
+
+Best practice:
+
+- Usare `order-*` solo per piccoli aggiustamenti visivi
+- Non usare `order-*` per correggere una struttura HTML sbagliata
+- Mantenere una gerarchia logica coerente nel DOM
+
+## Casi d’uso comuni
+
+Esempi tipici:
+
+- Spostare un’immagine sotto il testo su mobile
+- Portare una call-to-action in alto su schermi piccoli
+- Riordinare colonne senza duplicare markup
+- Gestire layout complessi senza JavaScript
+
+## Quando evitare order
+
+Situazioni da evitare:
+
+- Navigazioni principali
+- Form complessi
+- Contenuti con forte dipendenza sequenziale
+- Layout in cui l’ordine ha valore semantico
+
+In questi casi è preferibile:
+
+- ristrutturare il markup
+- usare layout alternativi
+- duplicare il contenuto se necessario
