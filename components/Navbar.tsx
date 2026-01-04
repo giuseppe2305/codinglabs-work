@@ -22,7 +22,7 @@ function Navbar() {
       <nav className="w-full grid grid-cols-[auto_1fr_auto] items-center mx-auto px-2 sm:px-4">
         <Logo />
         <NavigationMenu className="justify-self-center">
-          <NavigationMenuList className="flex gap-10 items-center justify-center">
+          <NavigationMenuList className="flex gap-2 sm:gap-10 items-center justify-center">
             <NavigationMenuItem>
               <NavigationMenuLink
                 href="/corsi"
