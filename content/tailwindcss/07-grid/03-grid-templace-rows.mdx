@@ -1,0 +1,142 @@
+# Grid Template Rows
+
+## Introduzione alle template rows
+
+Le template rows definiscono quante righe ha una grid e come lo spazio verticale viene distribuito tra di esse. In TailwindCSS il controllo delle righe avviene tramite utility class basate sulla proprietà CSS grid-template-rows.
+
+## Classi grid-rows-\*
+
+Tailwind mette a disposizione classi predefinite per creare griglie con un numero fisso di righe di uguale altezza.
+
+### grid-rows-1
+
+Crea una griglia con una sola riga che occupa tutta l’altezza disponibile.
+
+### grid-rows-2
+
+Divide lo spazio verticale in due righe di uguale altezza.
+
+### grid-rows-3
+
+Divide lo spazio verticale in tre righe uguali.
+
+### grid-rows-4
+
+Divide lo spazio verticale in quattro righe uguali.
+
+### grid-rows-5
+
+Divide lo spazio verticale in cinque righe uguali.
+
+### grid-rows-6
+
+Divide lo spazio verticale in sei righe uguali.
+
+## Funzionamento interno delle grid rows
+
+Le classi grid-rows-\* utilizzano la funzione CSS repeat combinata con unità flessibili.
+
+Esempio concettuale:
+grid-rows-3 equivale a:
+grid-template-rows: repeat(3, minmax(0, 1fr))
+
+Ogni riga cresce o si riduce in base allo spazio verticale disponibile nel contenitore.
+
+## grid-rows-none
+
+Rimuove qualsiasi definizione esplicita delle righe.
+
+Utile quando:
+
+- si vogliono gestire solo le colonne
+- le righe devono adattarsi automaticamente al contenuto
+
+## grid-rows-subgrid
+
+Permette a una grid figlia di ereditare la struttura delle righe dalla grid genitore.
+
+Caratteristiche principali:
+
+- allineamento verticale coerente
+- dipendenza dal supporto CSS subgrid
+- utile per layout complessi e annidati
+
+## Righe personalizzate con valori arbitrari
+
+Tailwind consente di definire righe personalizzate usando valori arbitrari.
+
+Esempio:
+grid-rows-[100px_1fr_2fr]
+
+Risultato:
+
+- prima riga con altezza fissa di 100px
+- seconda riga flessibile
+- terza riga doppia rispetto alla seconda
+
+## Uso di minmax nelle righe
+
+La funzione minmax permette di impostare limiti minimi e massimi per l’altezza delle righe.
+
+Esempio:
+grid-rows-[minmax(80px,auto)_1fr]
+
+Questo garantisce che la prima riga non sia mai più bassa di 80px ma possa crescere con il contenuto.
+
+## Righe automatiche con auto
+
+È possibile combinare valori automatici e flessibili per adattare il layout al contenuto.
+
+Esempio:
+grid-rows-[auto_1fr_auto]
+
+Configurazione tipica per:
+
+- header
+- contenuto principale
+- footer
+
+## Layout verticali a piena altezza
+
+Le template rows sono fondamentali per creare layout che occupano l’intera altezza dello schermo.
+
+Approccio comune:
+
+- contenitore con altezza definita
+- righe flessibili con frazioni
+- una riga principale che cresce
+
+## Responsive design con template rows
+
+Le classi grid-rows-\* supportano i breakpoint responsive di Tailwind.
+
+Approccio tipico:
+
+- mobile: grid-rows-1
+- tablet: grid-rows-2
+- desktop: grid-rows-3
+
+Questo consente di riorganizzare verticalmente il layout senza media query personalizzate.
+
+## Override e priorità delle classi
+
+Quando più classi grid-rows sono applicate allo stesso elemento, prevale:
+
+- la classe con breakpoint più grande attivo
+- l’ultima classe valida nell’ordine di applicazione
+
+Il sistema è mobile-first.
+
+## Differenza tra righe e colonne
+
+Le righe controllano la distribuzione verticale.
+Le colonne controllano la distribuzione orizzontale.
+Entrambe lavorano insieme per definire la struttura completa della grid.
+
+## Best practice
+
+Usare grid-rows-\* per layout verticali prevedibili.
+Usare auto per righe basate sul contenuto.
+Preferire minmax per gestire variazioni di altezza.
+Limitare l’uso di valori arbitrari ai casi complessi.
+Combinare template rows e height del contenitore per layout stabili.
