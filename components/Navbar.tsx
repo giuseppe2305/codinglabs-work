@@ -17,7 +17,7 @@ import { NavigationListItem } from "./NavigationListItem";
 
 function Navbar() {
   return (
-    <header className="sticky top-0 h-15 flex w-full items-center z-1 backdrop-blur-3xl bg-background/50 border-b">
+    <header className="sticky top-0 h-15 flex w-full items-center z-1 backdrop-blur-3xl bg-background/75 border-b">
       <Blob />
       <nav className="w-full grid grid-cols-[auto_1fr_auto] items-center mx-auto px-2 sm:px-4">
         <Logo />
