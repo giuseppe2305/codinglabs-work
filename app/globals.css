@@ -90,8 +90,8 @@
   --primary: #4263eb;
   --primary-light: #91a7ff;
   --primary-foreground: black;
-  --secondary: #242426;
-  --secondary-foreground: #939394;
+  --secondary: #151515;
+  --secondary-foreground: #c0c0c0;
   --muted: oklch(0.269 0 0);
   --muted-foreground: #5d5d5f;
   --accent: oklch(0.269 0 0);
