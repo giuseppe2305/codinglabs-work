@@ -27,6 +27,15 @@ export const metadata: Metadata = {
       },
     ],
   },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  verification: {
+    google: "1quHgETRe6wnQdGZME0gv2OaIlkwTofowNqYimM9o4k",
+  },
 };
 
 export default function RootLayout({ children }: ChildrenNode) {
