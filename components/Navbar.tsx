@@ -107,8 +107,8 @@ function Blob() {
   return (
     <div className="w-full h-full overflow-hidden absolute top-0 left-0">
       <div
-        className="pointer-events-none h-10 w-60 blur-[80px]
-             rounded-full bg-primary absolute right-1/4"
+        className="pointer-events-none h-10 w-30 sm:w-60 blur-[80px]
+             rounded-full bg-primary absolute right-10 xl:right-1/5"
       ></div>
     </div>
   );
