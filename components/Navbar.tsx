@@ -18,12 +18,7 @@ import { NavigationListItem } from "./NavigationListItem";
 function Navbar() {
   return (
     <header className="sticky top-0 h-15 flex w-full items-center z-1 backdrop-blur-3xl bg-background/50 border-b">
-      <div className="w-full h-full overflow-hidden absolute top-0 left-0">
-        <div
-          className="pointer-events-none h-10 w-60 blur-[80px]
-             rounded-full bg-primary absolute right-1/4"
-        ></div>
-      </div>
+      <Blob />
       <nav className="w-full grid grid-cols-[auto_1fr_auto] items-center mx-auto px-2 sm:px-4">
         <Logo />
         <NavigationMenu className="justify-self-center">
@@ -105,6 +100,17 @@ function Navbar() {
         <div className="justify-self-end flex items-center gap-4"></div>
       </nav>
     </header>
+  );
+}
+
+function Blob() {
+  return (
+    <div className="w-full h-full overflow-hidden absolute top-0 left-0">
+      <div
+        className="pointer-events-none h-10 w-60 blur-[80px]
+             rounded-full bg-primary absolute right-1/4"
+      ></div>
+    </div>
   );
 }
 
