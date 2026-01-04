@@ -36,11 +36,11 @@ export default function RootLayout({ children }: ChildrenNode) {
         className={`${inter.className} bg-background relative text-foreground dark flex flex-col max-w-screen`}
       >
         <div
-          className="pointer-events-none fixed top-10 sm:top-0 left-0 sm:-left-20 md:-left-50 size-30 sm:size-70 md:size-100
+          className="-z-1 pointer-events-none fixed top-10 sm:top-0 left-0 sm:-left-20 md:-left-50 size-30 sm:size-70 md:size-100
            rounded-full bg-linear-to-r from-lime-500/25 to-blue-500/25 blur-2xl sm:blur-[100px] md:blur-[150px]"
         ></div>
         <div
-          className="pointer-events-none fixed bottom-0 aspect-2/3 xl:-right-32 w-30 sm:w-40 right-0 blur-3xl md:blur-[80px] xl:w-100
+          className="-z-1 pointer-events-none fixed bottom-0 aspect-2/3 xl:-right-32 w-30 sm:w-40 right-0 blur-3xl md:blur-[80px] xl:w-100
            rounded-full bg-linear-to-l from-rose-600/25 to-blue-500/25 xl:blur-[150px]"
         ></div>
         <PageAlert />
