@@ -17,7 +17,11 @@ import { NavigationListItem } from "./NavigationListItem";
 
 function Navbar() {
   return (
-    <header className="sticky top-0 h-15 flex w-full items-center z-1 backdrop-blur-3xl bg-background/50 border-b">
+    <header className="sticky top-0 h-15 flex w-full items-center z-1 backdrop-blur-3xl bg-background/50 border-b overflow-hidden">
+      <div
+        className="pointer-events-none fixed right-1/4 h-10 w-60 blur-[80px]
+           rounded-full bg-primary"
+      ></div>
       <nav className="w-full grid grid-cols-3 items-center mx-auto px-2 sm:px-4">
         <Logo />
         <NavigationMenu className="justify-self-center">
