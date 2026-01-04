@@ -37,11 +37,11 @@ export default function RootLayout({ children }: ChildrenNode) {
       >
         <div
           className="pointer-events-none fixed top-0 -left-50 size-100
-           rounded-full bg-linear-to-r from-lime-500/30 to-blue-500/30 blur-[160px]"
+           rounded-full bg-linear-to-r from-lime-500/25 to-blue-500/25 blur-[150px]"
         ></div>
         <div
           className="pointer-events-none fixed bottom-0 -right-32 h-150 w-100
-           rounded-full bg-linear-to-l from-rose-600/40 to-blue-500/40 blur-[160px]"
+           rounded-full bg-linear-to-l from-rose-600/25 to-blue-500/25 blur-[150px]"
         ></div>
         <PageAlert />
         <Navbar />
