@@ -27,7 +27,7 @@ function CourseCard({ disabled, courseInfo: info }: Props) {
       className={`pt-0 pb-4 gap-0 h-full overflow-hidden rounded-md w-full max-w-120 mx-auto shadow-xl duration-150 hover:scale-101 ${
         disabled
           ? "hover:shadow-black/25 cursor-not-allowed"
-          : "hover:shadow-primary/10 cursor-pointer"
+          : "hover:shadow-primary/10"
       }`}
     >
       {disabled ? (
