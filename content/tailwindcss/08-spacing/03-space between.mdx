@@ -1,0 +1,72 @@
+# Spacing – Space Between
+
+## Introduzione al concetto di space between
+
+La funzionalità space between in TailwindCSS permette di gestire lo spazio tra elementi fratelli all’interno di un contenitore. A differenza di margin e padding, che agiscono sul singolo elemento, space between lavora a livello di layout, applicando automaticamente margini solo tra gli elementi e mai ai bordi esterni del contenitore.
+
+## Principio di funzionamento delle utility space
+
+Le utility space-\* utilizzano i selettori CSS :not([hidden]) e :not([hidden]) ~ :not([hidden]) per applicare margini solo agli elementi successivi. Questo garantisce che lo spazio venga inserito esclusivamente tra gli elementi visibili, evitando problemi con elementi nascosti.
+
+## Differenza tra space-x e space-y
+
+space-x controlla lo spazio orizzontale tra elementi disposti in riga, tipicamente con display flex e flex-direction: row.  
+space-y controlla lo spazio verticale tra elementi disposti in colonna, tipicamente con flex-direction: column.  
+La scelta tra le due dipende dall’asse principale del layout.
+
+## Utilizzo di space-x per layout orizzontali
+
+Le classi space-x-\* aggiungono margine sinistro agli elementi successivi lungo l’asse orizzontale.  
+Esempio: space-x-4 inserisce uno spazio uniforme tra ogni elemento in una riga, mantenendo pulita la struttura HTML senza dover gestire manualmente i margini.
+
+## Utilizzo di space-y per layout verticali
+
+Le classi space-y-\* aggiungono margine superiore agli elementi successivi lungo l’asse verticale.  
+Sono ideali per liste, stack di componenti, form e layout a colonna dove la coerenza verticale è fondamentale.
+
+## Scala dei valori disponibili
+
+TailwindCSS utilizza una scala predefinita basata sul sistema di spacing globale.  
+I valori più comuni includono:  
+space-0, space-0.5, space-1, space-2, space-3, space-4, space-5, space-6, space-8, space-10, space-12, space-16, space-20, space-24  
+Ogni valore corrisponde a una misura in rem, garantendo coerenza tipografica e visiva.
+
+## Direzione inversa con space-reverse
+
+Le utility space-x-reverse e space-y-reverse invertono la direzione di applicazione dello spazio.  
+Sono utili quando si utilizzano layout con flex-row-reverse o flex-col-reverse, assicurando che lo spazio rimanga coerente anche con l’ordine invertito degli elementi.
+
+## Compatibilità con Flexbox
+
+Le utility space between funzionano esclusivamente con layout flexbox.  
+Non hanno effetto su layout basati su block o grid, poiché dipendono dalla disposizione sequenziale degli elementi fratelli in un contesto flex.
+
+## Confronto con gap
+
+gap è una proprietà nativa CSS che funziona sia con flex che con grid.  
+space between offre un controllo più granulare e una migliore gestione della compatibilità con browser meno recenti, ma gap è generalmente preferibile quando supportato, soprattutto per layout complessi.
+
+## Vantaggi rispetto ai margini manuali
+
+L’uso di space between evita problemi come margini doppi, necessità di rimuovere margini sull’ultimo elemento e codice HTML meno leggibile.  
+Migliora la manutenibilità del codice e rende i componenti più riutilizzabili.
+
+## Combinazione con responsive design
+
+Le utility space possono essere combinate con breakpoint responsive.  
+Esempio: space-y-4 md:space-y-6 permette di aumentare lo spazio verticale su schermi medi e grandi senza modificare la struttura del markup.
+
+## Limitazioni e casi da evitare
+
+Space between non è adatto quando è necessario uno spazio diverso per singoli elementi.  
+In questi casi è preferibile usare margin mirati o combinare space between con utility specifiche per elementi particolari.
+
+## Buone pratiche di utilizzo
+
+Usare space between per layout coerenti e ripetibili.  
+Preferire space-x e space-y nei componenti riutilizzabili.  
+Mantenere la scala di spacing consistente con il design system del progetto.
+
+## Integrazione in un design system
+
+Le utility space between si integrano perfettamente in un design system basato su TailwindCSS, favorendo coerenza visiva, semplicità di manutenzione e rapidità di sviluppo.
