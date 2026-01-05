@@ -24,11 +24,11 @@ Questa scala garantisce coerenza visiva e semplicità di manutenzione.
 
 Le classi di margin seguono una sintassi uniforme.
 
-- m-{valore} applica il margin su tutti i lati
-- mt-{valore} margin-top
-- mr-{valore} margin-right
-- mb-{valore} margin-bottom
-- ml-{valore} margin-left
+- m-{"valore"} applica il margin su tutti i lati
+- mt-{"valore"} margin-top
+- mr-{"valore"} margin-right
+- mb-{"valore"} margin-bottom
+- ml-{"valore"} margin-left
 
 ```html
 <div class="m-4">Margin su tutti i lati</div>
@@ -39,8 +39,8 @@ Le classi di margin seguono una sintassi uniforme.
 
 Per applicare il margin simultaneamente su due lati opposti si usano le utility sugli assi.
 
-- mx-{valore} applica margin-left e margin-right
-- my-{valore} applica margin-top e margin-bottom
+- mx-{"valore"} applica margin-left e margin-right
+- my-{"valore"} applica margin-top e margin-bottom
 
 ```html
 <div class="mx-6">Spazio orizzontale</div>
@@ -65,9 +65,9 @@ TailwindCSS consente l’uso di margin negativi per sovrapposizioni o layout ava
 
 Sintassi:
 
-- -m-{valore}
-- -mt-{valore}
-- -mx-{valore}
+- -m-{"valore"}
+- -mt-{"valore"}
+- -mx-{"valore"}
 
 ```html
 <div class="-mt-4">Elemento spostato verso l’alto</div>
@@ -79,8 +79,8 @@ I margin negativi sono particolarmente utili in card sovrapposte o layout editor
 
 Per layout internazionalizzati è possibile usare le proprietà logiche.
 
-- ms-{valore} margin-inline-start
-- me-{valore} margin-inline-end
+- ms-{"valore"} margin-inline-start
+- me-{"valore"} margin-inline-end
 
 Queste classi rispettano automaticamente la direzione del testo (LTR o RTL).
 
@@ -94,9 +94,9 @@ Quando la scala predefinita non è sufficiente, Tailwind consente valori persona
 
 Sintassi:
 
-- m-[valore]
-- mt-[valore]
-- mx-[valore]
+- m-["valore"]
+- mt-["valore"]
+- mx-["valore"]
 
 ```html
 <div class="mt-[3.75rem]">Margin personalizzato</div>
@@ -139,8 +139,8 @@ Questo approccio consente micro-interazioni senza CSS personalizzato.
 
 Per sovrascrivere altre utility è possibile usare il modificatore di importanza.
 
-- !m-{valore}
-- !mt-{valore}
+- !m-{"valore"}
+- !mt-{"valore"}
 
 ```html
 <div class="m-0!">Margin forzato a zero</div>
