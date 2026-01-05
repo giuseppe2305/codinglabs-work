@@ -1,0 +1,160 @@
+# Grid Template Columns
+
+## Introduzione alle template columns
+
+Le template columns definiscono quante colonne ha una grid e come lo spazio orizzontale viene distribuito tra di esse. In TailwindCSS questa configurazione avviene tramite utility class basate sulla proprietà CSS grid-template-columns.
+
+## Classi grid-cols-\*
+
+Tailwind fornisce una serie di classi predefinite per creare griglie con un numero fisso di colonne uguali.
+
+### grid-cols-1
+
+Crea una griglia con una sola colonna che occupa tutto lo spazio disponibile.
+
+### grid-cols-2
+
+Divide lo spazio in due colonne di uguale larghezza.
+
+### grid-cols-3
+
+Divide lo spazio in tre colonne uguali.
+
+### grid-cols-4
+
+Divide lo spazio in quattro colonne uguali.
+
+### grid-cols-5
+
+Divide lo spazio in cinque colonne uguali.
+
+### grid-cols-6
+
+Divide lo spazio in sei colonne uguali.
+
+### grid-cols-7
+
+Divide lo spazio in sette colonne uguali.
+
+### grid-cols-8
+
+Divide lo spazio in otto colonne uguali.
+
+### grid-cols-9
+
+Divide lo spazio in nove colonne uguali.
+
+### grid-cols-10
+
+Divide lo spazio in dieci colonne uguali.
+
+### grid-cols-11
+
+Divide lo spazio in undici colonne uguali.
+
+### grid-cols-12
+
+Divide lo spazio in dodici colonne uguali, configurazione molto comune nei layout complessi.
+
+## Come funzionano internamente
+
+Le classi grid-cols-\* utilizzano la funzione CSS repeat con frazioni flessibili.
+
+Esempio concettuale:
+grid-cols-3 equivale a:
+grid-template-columns: repeat(3, minmax(0, 1fr))
+
+Ogni colonna ha larghezza flessibile e si adatta allo spazio disponibile.
+
+## grid-cols-none
+
+Disabilita la definizione delle colonne. La griglia non ha una struttura di colonne esplicita.
+
+Utile quando si vuole controllare completamente il layout con altre proprietà o override responsive.
+
+## grid-cols-subgrid
+
+Permette a una grid figlia di ereditare la struttura delle colonne dalla grid genitore.
+
+Questa classe sfrutta la feature CSS subgrid, supportata solo nei browser moderni.
+
+Uso tipico:
+
+- Layout complessi annidati
+- Allineamento preciso tra grid padre e figlia
+
+## Colonne personalizzate con valori arbitrari
+
+Tailwind consente di definire template columns personalizzate usando valori arbitrari.
+
+Esempio:
+grid-cols-[200px_1fr_2fr]
+
+Questo crea tre colonne:
+
+- prima colonna fissa di 200px
+- seconda colonna flessibile
+- terza colonna doppia rispetto alla seconda
+
+## Uso di minmax
+
+È possibile usare minmax per controllare dimensioni minime e massime delle colonne.
+
+Esempio:
+grid-cols-[minmax(150px,1fr)_2fr]
+
+Questo garantisce che la prima colonna non scenda sotto i 150px.
+
+## Auto-fit e auto-fill
+
+Le template columns possono sfruttare auto-fit e auto-fill per layout responsivi avanzati.
+
+Esempio:
+grid-cols-[repeat(auto-fit,minmax(200px,1fr))]
+
+Questo crea:
+
+- colonne automatiche
+- larghezza minima di 200px
+- adattamento automatico allo spazio disponibile
+
+## Differenza tra auto-fit e auto-fill
+
+auto-fit:
+
+- le colonne vuote collassano
+- gli elementi occupano più spazio
+
+auto-fill:
+
+- le colonne vuote rimangono
+- lo spazio resta distribuito in modo costante
+
+## Responsive design con template columns
+
+Le classi grid-cols-\* possono essere combinate con breakpoint responsive.
+
+Esempio concettuale:
+
+- mobile: grid-cols-1
+- tablet: grid-cols-2
+- desktop: grid-cols-4
+
+Questo approccio permette layout progressivi senza media query manuali.
+
+## Override e ordine delle classi
+
+Quando più classi grid-cols sono presenti, vince l’ultima in ordine di specificità e breakpoint.
+
+Regola fondamentale:
+
+- mobile-first
+- i breakpoint più grandi sovrascrivono quelli più piccoli
+
+## Best practice
+
+Usare grid-cols-\* per layout semplici e regolari.
+Usare valori arbitrari solo quando necessario.
+Preferire auto-fit con minmax per griglie fluide e responsive.
+Limitare l’uso di subgrid a casi in cui l’allineamento è critico.
+Evitare un numero eccessivo di colonne su schermi piccoli.

@@ -1,0 +1,101 @@
+# Autoflow
+
+## Introduzione a grid-auto-flow
+
+La proprietà `grid-auto-flow` di TailwindCSS controlla il modo in cui gli elementi figli vengono inseriti automaticamente nella griglia quando non hanno una posizione esplicita. Serve a definire se gli elementi si dispongono in righe, colonne o in modalità densa.
+
+In Tailwind, le classi principali sono:
+
+- `grid-flow-row`
+- `grid-flow-col`
+- `grid-flow-row-dense`
+- `grid-flow-col-dense`
+
+## Grid-flow-row
+
+Questa è la modalità predefinita. Gli elementi vengono posizionati automaticamente in righe, riempiendo prima la riga corrente prima di passare a quella successiva.
+
+Esempio:
+
+```html
+<div class="grid grid-cols-3 grid-flow-row gap-4">
+  <div class="bg-blue-500 h-16"></div>
+  <div class="bg-red-500 h-16"></div>
+  <div class="bg-green-500 h-16"></div>
+  <div class="bg-yellow-500 h-16"></div>
+</div>
+```
+
+In questo caso, i primi tre elementi riempiono la prima riga, il quarto passa alla riga successiva.
+
+## Grid-flow-col
+
+Gli elementi vengono posizionati per colonne invece che per righe. Si riempie prima la colonna corrente prima di passare a quella successiva.
+
+Esempio:
+
+```html
+<div class="grid grid-rows-3 grid-flow-col gap-4">
+  <div class="bg-blue-500 h-16 w-16"></div>
+  <div class="bg-red-500 h-16 w-16"></div>
+  <div class="bg-green-500 h-16 w-16"></div>
+  <div class="bg-yellow-500 h-16 w-16"></div>
+</div>
+```
+
+Qui, i primi tre elementi riempiono la prima colonna, il quarto inizia la seconda colonna.
+
+## Dense vs Normal
+
+### Dense
+
+Le versioni dense (`grid-flow-row-dense` e `grid-flow-col-dense`) tentano di riempire eventuali spazi vuoti nella griglia, riempiendo buchi creati da elementi con dimensioni variabili.
+
+Esempio:
+
+```html
+<div class="grid grid-cols-4 grid-flow-row-dense gap-4">
+  <div class="bg-blue-500 h-16 col-span-2"></div>
+  <div class="bg-red-500 h-16"></div>
+  <div class="bg-green-500 h-16"></div>
+</div>
+```
+
+In modalità `dense`, Tailwind cerca di inserire elementi più piccoli negli spazi vuoti lasciati dagli elementi più grandi (`col-span-2`).
+
+### Normal
+
+Le versioni normali (`grid-flow-row`, `grid-flow-col`) non cercano di riempire i buchi: gli elementi vengono semplicemente posizionati nell’ordine in cui appaiono nel markup.
+
+## Quando usare grid-auto-flow
+
+- **Row (predefinito):** layout standard in righe, facile da leggere e prevedibile.
+- **Col:** layout verticale, utile per gallerie a colonne o layout side-by-side.
+- **Dense:** ottimo quando gli elementi hanno dimensioni variabili e si vuole sfruttare tutto lo spazio senza lasciare buchi.
+- **Normal:** preferibile quando l’ordine degli elementi è importante e non vuoi che il browser riempia automaticamente spazi vuoti.
+
+## Esempi pratici
+
+### Griglia a righe con spazi vuoti
+
+```html
+<div class="grid grid-cols-3 grid-flow-row-dense gap-4">
+  <div class="bg-blue-500 h-16 col-span-2"></div>
+  <div class="bg-red-500 h-16"></div>
+  <div class="bg-green-500 h-16"></div>
+</div>
+```
+
+### Griglia a colonne con elementi variabili
+
+```html
+<div class="grid grid-rows-3 grid-flow-col gap-4">
+  <div class="bg-blue-500 h-16 w-16 row-span-2"></div>
+  <div class="bg-red-500 h-16 w-16"></div>
+  <div class="bg-green-500 h-16 w-16"></div>
+</div>
+```
+
+## Conclusione
+
+`grid-auto-flow` in TailwindCSS è uno strumento potente per controllare come gli elementi vengono posizionati in una griglia. Conoscere la differenza tra row, col e dense permette di creare layout flessibili e ottimizzati, sfruttando appieno lo spazio disponibile.

@@ -1,0 +1,127 @@
+# Sizing: height in TailwindCSS
+
+## Concetto di altezza
+
+Le utility di height controllano l’altezza di un elemento CSS tramite la proprietà height. TailwindCSS fornisce classi predefinite, basate su una scala coerente, unità relative allo schermo e valori arbitrari per coprire ogni esigenza di layout.
+
+## Scala predefinita
+
+Tailwind utilizza una scala numerica condivisa con padding e margin. Le classi seguono il formato h-{"valore"}.
+
+Esempi comuni:
+
+- h-0 → height: 0px
+- h-1 → height: 0.25rem
+- h-2 → height: 0.5rem
+- h-4 → height: 1rem
+- h-8 → height: 2rem
+- h-16 → height: 4rem
+- h-64 → height: 16rem
+
+Questa scala garantisce coerenza visiva e facilità di manutenzione.
+
+## Altezza automatica
+
+La classe h-auto imposta height: auto.  
+È utile quando l’altezza deve adattarsi dinamicamente al contenuto, ad esempio per card o sezioni con testo variabile.
+
+## Pixel singoli
+
+La classe h-px imposta un’altezza di 1px.  
+È particolarmente indicata per divider, linee di separazione o elementi decorativi sottili.
+
+## Percentuali e contenitore
+
+La classe h-full imposta height: 100%.  
+Funziona solo se il contenitore padre ha un’altezza definita. È comune in layout flex o grid dove l’altezza del contenitore è controllata esplicitamente.
+
+## Altezza rispetto alla viewport
+
+Tailwind fornisce utility basate sull’altezza della finestra del browser.
+
+Classi principali:
+
+- h-screen → 100vh
+- h-svh → small viewport height
+- h-lvh → large viewport height
+- h-dvh → dynamic viewport height
+
+Le varianti svh, lvh e dvh sono pensate per una migliore gestione delle barre di sistema sui dispositivi mobili.
+
+## Altezza minima
+
+Le utility min-h-{"valore"} controllano la proprietà min-height.
+
+Esempi utili:
+
+- min-h-0 → utile in layout flex per evitare overflow inattesi
+- min-h-full → altezza minima pari al contenitore
+- min-h-screen → sezione sempre alta almeno quanto la viewport
+
+Sono fondamentali per layout flessibili e colonne con contenuto variabile.
+
+## Altezza massima
+
+Le utility max-h-{"valore"} impostano max-height.
+
+Esempi comuni:
+
+- max-h-0 → nasconde contenuti con overflow
+- max-h-screen → limita l’altezza alla viewport
+- max-h-full → non supera l’altezza del contenitore
+
+Spesso vengono usate insieme a overflow-auto o overflow-y-scroll.
+
+## Valori speciali
+
+Tailwind include classi per valori CSS chiave:
+
+- h-fit → height: fit-content
+- h-min → height: min-content
+- h-max → height: max-content
+
+Queste classi sono utili per layout avanzati e componenti che devono adattarsi precisamente al contenuto.
+
+## Valori arbitrari
+
+Quando la scala predefinita non è sufficiente, è possibile usare valori arbitrari.
+
+Esempi:
+
+- h-[72px]
+- h-[30vh]
+- h-[calc(100%-4rem)]
+
+Questa funzionalità permette di usare qualsiasi unità CSS mantenendo la sintassi di Tailwind.
+
+## Responsive design
+
+Le utility di height possono essere combinate con i breakpoint responsive.
+
+Esempio:
+
+- h-32 md:h-64 lg:h-screen
+
+In questo modo l’altezza cambia in base alla dimensione dello schermo, senza scrivere media query manuali.
+
+## Interazione con flex e grid
+
+In layout flex e grid, l’altezza spesso lavora insieme a:
+
+- flex-grow
+- items-stretch
+- place-items-stretch
+
+h-full e min-h-0 sono particolarmente importanti per evitare problemi di overflow nei layout verticali complessi.
+
+## Personalizzazione nel tema
+
+La scala delle altezze può essere estesa o modificata nel file tailwind.config.js, aggiungendo nuovi valori alla chiave theme.height, minHeight o maxHeight.
+
+Questo consente di mantenere uno stile coerente anche in progetti di grandi dimensioni.
+
+## Buone pratiche
+
+Definire height solo quando necessario, preferendo contenuti fluidi.  
+Usare min-height per garantire stabilità visiva.  
+Limitare l’uso di valori arbitrari ai casi in cui la scala standard non è sufficiente.

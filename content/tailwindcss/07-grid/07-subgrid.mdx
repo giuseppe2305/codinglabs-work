@@ -1,0 +1,98 @@
+# Subgrid
+
+## Cos'è il Subgrid
+
+Il subgrid è una funzionalità avanzata di CSS Grid che permette a un elemento figlio di ereditare la struttura della griglia del genitore. Questo significa che le righe e le colonne del subgrid si allineano automaticamente con quelle della griglia principale, senza dover ridefinire le dimensioni.
+
+In TailwindCSS, il supporto al subgrid è limitato perché dipende dalle specifiche CSS native, ma è possibile utilizzare classi personalizzate o estendere Tailwind per sfruttarlo.
+
+## Sintassi CSS base
+
+Per creare un subgrid in CSS puro:
+
+```css
+.grid-parent {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 1rem;
+}
+
+.grid-child {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
+}
+```
+
+- `grid-template-columns: subgrid;` allinea le colonne del figlio a quelle del genitore.
+- `grid-template-rows: subgrid;` allinea le righe del figlio a quelle del genitore.
+
+## Utilizzo con TailwindCSS
+
+TailwindCSS non include classi predefinite per `subgrid`, quindi bisogna usare `@layer` e `@apply` per creare classi personalizzate.
+
+Esempio:
+
+```css
+@layer utilities {
+  .grid-sub {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-template-rows: subgrid;
+  }
+}
+```
+
+Poi nell’HTML:
+
+```html
+<div class="grid grid-cols-3 gap-4">
+  <div class="grid-sub gap-2">
+    <div>Elemento 1</div>
+    <div>Elemento 2</div>
+  </div>
+  <div class="grid-sub gap-2">
+    <div>Elemento 3</div>
+    <div>Elemento 4</div>
+  </div>
+</div>
+```
+
+## Differenze tra grid e subgrid
+
+- Grid: definisce completamente le righe e le colonne di un contenitore.
+- Subgrid: eredita le righe e le colonne del genitore, utile per allineare elementi nested senza ridefinire la griglia.
+
+## Vantaggi del Subgrid
+
+- Maggiore coerenza nell’allineamento degli elementi nested.
+- Riduce la ridondanza di definizione delle colonne e righe.
+- Facilita layout complessi senza dover calcolare manualmente dimensioni e spaziature.
+
+## Limitazioni
+
+- Supporto ancora non universale su tutti i browser (ad esempio, Edge Legacy e alcune versioni di Safari).
+- TailwindCSS non fornisce classi native, quindi serve personalizzazione.
+- Il subgrid funziona solo con elementi figli diretti del contenitore grid che lo definisce.
+
+## Esempio pratico con layout complesso
+
+```html
+<div class="grid grid-cols-4 gap-4">
+  <div class="grid-sub gap-2">
+    <div class="bg-blue-200 p-2">A1</div>
+    <div class="bg-blue-300 p-2">A2</div>
+  </div>
+  <div class="grid-sub gap-2">
+    <div class="bg-green-200 p-2">B1</div>
+    <div class="bg-green-300 p-2">B2</div>
+  </div>
+</div>
+```
+
+In questo esempio, le due griglie interne (`grid-sub`) condividono la stessa struttura di colonne della griglia principale, mantenendo allineati gli elementi A e B.
+
+## Conclusione
+
+Il subgrid è uno strumento potente per layout nested complessi. Anche se TailwindCSS non lo supporta nativamente, è possibile estenderlo con classi personalizzate. È particolarmente utile per mantenere l’allineamento coerente e ridurre la complessità della definizione di griglie multiple.

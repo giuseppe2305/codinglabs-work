@@ -1,0 +1,119 @@
+# Gap
+
+## Cos'è il gap
+
+Il `gap` in TailwindCSS è la proprietà che definisce lo spazio tra le righe e le colonne all'interno di un container `grid` o `flex`.  
+Permette di separare gli elementi senza dover aggiungere margini manuali.
+
+## Sintassi base
+
+In Tailwind, il gap si applica usando le classi:
+
+- `gap-{size}` → imposta lo stesso valore sia per righe che per colonne.
+- `gap-x-{size}` → imposta solo lo spazio tra le colonne.
+- `gap-y-{size}` → imposta solo lo spazio tra le righe.
+
+Esempi di dimensioni comuni:
+
+- `gap-0` → 0px
+- `gap-1` → 0.25rem
+- `gap-2` → 0.5rem
+- `gap-4` → 1rem
+- `gap-8` → 2rem
+
+## Applicazione nella grid
+
+```html
+<div class="grid grid-cols-3 gap-4">
+  <div class="bg-blue-500 h-20"></div>
+  <div class="bg-red-500 h-20"></div>
+  <div class="bg-green-500 h-20"></div>
+</div>
+```
+
+- `grid-cols-3` crea 3 colonne.
+- `gap-4` aggiunge uno spazio di 1rem tra righe e colonne.
+
+## Gap solo in verticale o orizzontale
+
+### Spazio tra colonne
+
+```html
+<div class="grid grid-cols-3 gap-x-6">
+  <div class="bg-blue-500 h-20"></div>
+  <div class="bg-red-500 h-20"></div>
+  <div class="bg-green-500 h-20"></div>
+</div>
+```
+
+- `gap-x-6` applica uno spazio di 1.5rem solo tra le colonne.
+
+### Spazio tra righe
+
+```html
+<div class="grid grid-rows-3 gap-y-2">
+  <div class="bg-blue-500 h-20"></div>
+  <div class="bg-red-500 h-20"></div>
+  <div class="bg-green-500 h-20"></div>
+</div>
+```
+
+- `gap-y-2` applica uno spazio di 0.5rem solo tra le righe.
+
+## Combinare gap-x e gap-y
+
+È possibile combinare classi per avere valori diversi su righe e colonne:
+
+```html
+<div class="grid grid-cols-3 gap-x-4 gap-y-2">
+  <div class="bg-blue-500 h-20"></div>
+  <div class="bg-red-500 h-20"></div>
+  <div class="bg-green-500 h-20"></div>
+</div>
+```
+
+- 1rem tra le colonne
+- 0.5rem tra le righe
+
+## Responsive gap
+
+Le classi di gap supportano i breakpoint Tailwind, permettendo di cambiare lo spazio su diverse larghezze di schermo:
+
+```html
+<div class="grid grid-cols-3 gap-2 md:gap-4 lg:gap-8">
+  <div class="bg-blue-500 h-20"></div>
+  <div class="bg-red-500 h-20"></div>
+  <div class="bg-green-500 h-20"></div>
+</div>
+```
+
+- `gap-2` → default
+- `md:gap-4` → da medium screen in poi
+- `lg:gap-8` → da large screen in poi
+
+## Gap nelle flexbox
+
+Tailwind permette di usare `gap` anche in contenitori `flex`:
+
+```html
+<div class="flex gap-4">
+  <div class="bg-blue-500 h-20 w-20"></div>
+  <div class="bg-red-500 h-20 w-20"></div>
+  <div class="bg-green-500 h-20 w-20"></div>
+</div>
+```
+
+- Funziona come nella grid, separando gli elementi figli.
+
+## Eredità e limitazioni
+
+- Il `gap` si applica solo agli elementi figli diretti.
+- Non influisce su elementi annidati.
+- Supportato nativamente in modern browser, ma non su versioni molto vecchie di Internet Explorer.
+
+## Riepilogo delle classi principali
+
+- `gap-{size}` → spazio uniforme
+- `gap-x-{size}` → spazio tra colonne
+- `gap-y-{size}` → spazio tra righe
+- `sm:gap-{size}`, `md:gap-{size}`, `lg:gap-{size}` → gap responsive

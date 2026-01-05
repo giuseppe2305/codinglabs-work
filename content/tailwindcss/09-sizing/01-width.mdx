@@ -1,0 +1,167 @@
+# Sizing
+
+## Width
+
+La gestione della larghezza in TailwindCSS si basa su utility class predefinite, valori frazionari, unità fisse, unità relative al viewport e valori arbitrari. Questo approccio consente un controllo preciso e coerente del layout senza scrivere CSS personalizzato.
+
+### Concetto di base
+
+La larghezza di un elemento si controlla tramite classi che iniziano con w-. Ogni classe imposta la proprietà CSS width su un valore specifico.
+
+Esempio:
+
+```html
+<div class="w-64"></div>
+```
+
+### Valori fissi basati sulla scala
+
+Tailwind utilizza una scala coerente basata su rem. Questi valori sono ideali per layout prevedibili.
+
+Classi comuni:
+
+- w-0
+- w-px
+- w-0.5, w-1, w-1.5, w-2
+- w-4, w-8, w-16, w-32, w-64
+- w-96
+
+Esempio:
+
+```html
+<div class="w-32 bg-blue-500"></div>
+```
+
+### Larghezze percentuali e frazionarie
+
+Per layout fluidi, Tailwind fornisce frazioni predefinite basate su percentuali.
+
+Classi disponibili:
+
+- w-1/2
+- w-1/3, w-2/3
+- w-1/4, w-2/4, w-3/4
+- w-1/5 fino a w-4/5
+- w-1/6 fino a w-5/6
+
+Esempio:
+
+```html
+<div class="w-1/3"></div>
+```
+
+### Adattamento automatico al contenuto
+
+Queste classi permettono alla larghezza di adattarsi automaticamente.
+
+- w-auto: comportamento predefinito del browser
+- w-fit: larghezza minima necessaria per contenere il contenuto
+- w-max: larghezza massima del contenuto
+- w-min: larghezza minima possibile
+
+Esempio:
+
+```html
+<button class="w-fit px-4">Click</button>
+```
+
+### Larghezze relative al contenitore
+
+Queste utility sono utili per riempire lo spazio disponibile.
+
+- w-full: 100% del contenitore
+- w-screen: 100% della larghezza del viewport
+
+Esempio:
+
+```html
+<header class="w-full"></header>
+```
+
+### Unità di viewport moderne
+
+Tailwind supporta le nuove unità di viewport per una gestione più accurata su dispositivi mobili.
+
+- w-svw: small viewport width
+- w-lvw: large viewport width
+- w-dvw: dynamic viewport width
+
+Esempio:
+
+```html
+<div class="w-dvw"></div>
+```
+
+### Valori arbitrari
+
+Quando i valori predefiniti non sono sufficienti, è possibile usare valori personalizzati.
+
+Sintassi:
+
+- w-[value]
+
+Esempi:
+
+```html
+<div class="w-[42rem]"></div>
+<div class="w-[75%]"></div>
+<div class="w-[calc(100%-2rem)]"></div>
+```
+
+### Integrazione con il sistema responsive
+
+Tutte le utility di larghezza supportano i breakpoint responsive.
+
+Esempio:
+
+```html
+<div class="w-full md:w-1/2 lg:w-1/3"></div>
+```
+
+Breakpoint comuni:
+
+- sm
+- md
+- lg
+- xl
+- 2xl
+
+### Combinazione con layout flex e grid
+
+La larghezza interagisce direttamente con Flexbox e Grid.
+
+Esempio con Flexbox:
+
+```html
+<div class="flex">
+  <div class="w-1/4"></div>
+  <div class="w-3/4"></div>
+</div>
+```
+
+Esempio con Grid:
+
+```html
+<div class="grid grid-cols-3">
+  <div class="w-full"></div>
+</div>
+```
+
+### Relazione con min-width e max-width
+
+La larghezza può essere limitata o forzata combinandola con min-w-_ e max-w-_.
+
+Esempio:
+
+```html
+<div class="w-full max-w-screen-lg"></div>
+```
+
+### Casi d’uso comuni
+
+- Sidebar: w-64
+- Contenuto principale fluido: w-full
+- Card responsive: w-full md:w-1/2 lg:w-1/3
+- Pulsanti adattivi: w-fit
+
+La gestione della larghezza in TailwindCSS permette di costruire layout solidi, flessibili e facilmente manutenibili sfruttando un sistema coerente di utility.
