@@ -1,0 +1,136 @@
+# Spacing – Padding in Tailwind CSS
+
+## Introduzione al padding
+
+Il padding rappresenta lo spazio interno tra il contenuto di un elemento e il suo bordo. In Tailwind CSS il padding è gestito tramite utility class che permettono un controllo preciso, coerente e scalabile dello spazio interno, basato su una scala predefinita.
+
+## Scala di spaziatura
+
+Tailwind utilizza una scala di spaziatura basata su multipli di 0.25rem (4px di default). Questa scala è condivisa tra padding, margin, width, height e gap, garantendo coerenza visiva.
+
+Valori comuni:
+
+- 0 = 0px
+- 0.5 = 2px
+- 1 = 4px
+- 2 = 8px
+- 3 = 12px
+- 4 = 16px
+- 6 = 24px
+- 8 = 32px
+- 12 = 48px
+- 16 = 64px
+- 24 = 96px
+- 32 = 128px
+- 64 = 256px
+
+## Padding uniforme su tutti i lati
+
+Per applicare lo stesso padding su tutti i lati si utilizza la classe p-{valore}.
+
+Esempi:
+
+- p-0 → nessun padding
+- p-4 → padding di 1rem su tutti i lati
+- p-8 → padding di 2rem su tutti i lati
+
+Questa modalità è ideale per card, contenitori principali e componenti con layout semplice.
+
+## Padding verticale e orizzontale
+
+Per differenziare il padding tra asse verticale e orizzontale si utilizzano:
+
+- px-{valore} per sinistra e destra
+- py-{valore} per alto e basso
+
+Esempi:
+
+- px-4 → padding orizzontale
+- py-2 → padding verticale
+- px-6 py-4 → combinazione personalizzata
+
+È una soluzione molto comune per bottoni, navbar e input.
+
+## Padding per singolo lato
+
+Tailwind consente di applicare padding specifico a ogni lato dell’elemento:
+
+- pt-{valore} → top
+- pr-{valore} → right
+- pb-{valore} → bottom
+- pl-{valore} → left
+
+Esempi:
+
+- pt-4 → padding superiore
+- pl-6 → padding sinistro
+- pt-2 pr-4 pb-2 pl-4 → padding completamente personalizzato
+
+Queste utility sono fondamentali per micro-allineamenti e layout complessi.
+
+## Padding logico per direzione del testo
+
+Per supportare layout internazionali e scrittura RTL, Tailwind fornisce padding logico:
+
+- ps-{valore} → padding inline-start
+- pe-{valore} → padding inline-end
+
+Queste classi si adattano automaticamente alla direzione del testo, rendendole ideali per applicazioni multilingua.
+
+## Padding e responsive design
+
+Il padding può essere modificato in base alla dimensione dello schermo usando i breakpoint responsive.
+
+Esempio:
+
+- p-2 md:p-4 lg:p-8
+
+In questo caso il padding aumenta progressivamente su schermi medi e grandi, migliorando leggibilità e proporzioni.
+
+## Padding e stati interattivi
+
+Il padding può variare anche in base agli stati come hover, focus e active.
+
+Esempi:
+
+- hover:p-6
+- focus:px-4
+- active:py-1
+
+Questa tecnica è utile per creare feedback visivo su elementi interattivi come bottoni e link.
+
+## Padding con valori arbitrari
+
+Quando la scala predefinita non è sufficiente, è possibile usare valori arbitrari.
+
+Esempi:
+
+- p-[10px]
+- px-[3.5rem]
+- pt-[5%]
+
+Questa funzionalità offre massima flessibilità senza dover estendere la configurazione.
+
+## Padding negativo
+
+Il padding negativo non è supportato in CSS, quindi Tailwind non fornisce classi per padding negativo. In questi casi è necessario ripensare il layout o utilizzare margin negativo.
+
+## Padding e box sizing
+
+Tailwind utilizza box-sizing: border-box di default, quindi il padding è incluso nel calcolo di width e height. Questo comportamento semplifica la gestione delle dimensioni e previene overflow indesiderati.
+
+## Estensione della scala di padding
+
+È possibile personalizzare o estendere i valori di padding nel file tailwind.config.js, modificando la chiave theme.spacing.
+
+Questo approccio è consigliato quando il progetto richiede una scala di spaziatura specifica e riutilizzabile.
+
+## Buone pratiche
+
+- Utilizzare valori coerenti della scala per mantenere uniformità visiva
+- Preferire padding uniforme quando possibile
+- Usare padding logico per progetti multilingua
+- Evitare valori arbitrari se non strettamente necessari
+- Combinare padding e responsive breakpoint per layout adattivi
+
+Il padding in Tailwind CSS è uno strumento potente, flessibile e coerente che consente di costruire interfacce pulite, leggibili e facilmente manutenibili.
