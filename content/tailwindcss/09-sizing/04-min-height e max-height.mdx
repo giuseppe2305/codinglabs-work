@@ -1,0 +1,104 @@
+# Sizing
+
+## Min e Max Height in TailwindCSS
+
+Le utility di min-height e max-height in TailwindCSS permettono di controllare i limiti verticali degli elementi, garantendo layout più stabili, responsivi e prevedibili. Sono fondamentali quando si lavora con contenuti dinamici, viewport diverse o componenti che non devono superare o scendere sotto determinate dimensioni.
+
+### Concetto di Min Height
+
+La min-height definisce l’altezza minima che un elemento può assumere. Anche se il contenuto è ridotto o assente, l’elemento non scenderà mai sotto questo valore.
+
+In TailwindCSS, le classi min-h-\* mappano direttamente la proprietà CSS min-height.
+
+Esempi principali:
+
+- min-h-0 → min-height: 0
+- min-h-full → min-height: 100%
+- min-h-screen → min-height: 100vh
+- min-h-fit → min-height: fit-content
+- min-h-min → min-height: min-content
+- min-h-max → min-height: max-content
+
+Queste classi sono ideali per:
+
+- Sezioni che devono occupare almeno l’altezza dello schermo
+- Contenitori flessibili con contenuto variabile
+- Layout verticali basati su Flexbox o Grid
+
+### Concetto di Max Height
+
+La max-height imposta l’altezza massima consentita per un elemento. Se il contenuto supera questo valore, l’elemento non crescerà oltre il limite definito.
+
+Le utility max-h-\* controllano la proprietà CSS max-height.
+
+Esempi principali:
+
+- max-h-0 → max-height: 0
+- max-h-full → max-height: 100%
+- max-h-screen → max-height: 100vh
+- max-h-fit → max-height: fit-content
+- max-h-min → max-height: min-content
+- max-h-max → max-height: max-content
+
+Sono particolarmente utili per:
+
+- Menu a comparsa
+- Modali e dropdown
+- Aree scrollabili con overflow
+
+### Scale Predefinite e Valori Arbitrari
+
+Tailwind include una scala di valori predefiniti basata sul sistema di spacing. Tuttavia, è possibile usare valori arbitrari per esigenze più specifiche.
+
+Esempio di valore arbitrario:
+
+- min-h-[300px]
+- max-h-[75vh]
+- max-h-[calc(100vh-4rem)]
+
+Questa flessibilità consente di gestire casi complessi senza uscire dal paradigma utility-first.
+
+### Interazione con Overflow
+
+Min-height e max-height diventano particolarmente potenti se combinate con le utility di overflow.
+
+Esempio comune:
+
+- max-h-64 overflow-y-auto
+
+In questo scenario, l’elemento non supera un’altezza massima e diventa scrollabile verticalmente quando il contenuto eccede.
+
+### Utilizzo con Flexbox e Grid
+
+Nei layout Flexbox, min-h-0 è spesso essenziale per evitare problemi di overflow indesiderato nei figli flessibili.
+
+Caso tipico:
+
+- Un contenitore flex-col con figli che devono scrollare correttamente
+- Applicare min-h-0 al figlio per consentire la riduzione dell’altezza
+
+Con CSS Grid, min-height e max-height aiutano a controllare la distribuzione verticale delle righe e a prevenire espansioni non volute.
+
+### Comportamento Responsivo
+
+Le utility di min e max height possono essere combinate con i breakpoint responsive di Tailwind.
+
+Esempio:
+
+- min-h-screen md:min-h-full
+- max-h-screen lg:max-h-none
+
+Questo permette di adattare il comportamento verticale dell’interfaccia in base alla dimensione del dispositivo.
+
+### Casi d’Uso Comuni
+
+Applicazioni pratiche frequenti includono:
+
+- Hero section con altezza minima pari alla viewport
+- Sidebar con altezza massima e scroll interno
+- Card con altezza minima uniforme
+- Pannelli espandibili con limite massimo
+
+### Best Practice
+
+Usare min-height quando è necessario garantire una presenza visiva minima, indipendentemente dal contenuto. Usare max-height per contenere elementi potenzialmente troppo grandi e gestire l’overflow in modo controllato. Preferire le utility Tailwind rispetto a CSS personalizzato per mantenere coerenza e manutenibilità del codice.
