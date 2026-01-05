@@ -1,0 +1,148 @@
+# Spacing
+
+## Negative spacing
+
+Il negative spacing in TailwindCSS consente di applicare margini negativi agli elementi, permettendo di sovrapporli, avvicinarli oltre il normale flusso del layout o compensare spazi indesiderati. È una tecnica avanzata ma fondamentale per realizzare layout complessi, design editoriali, interfacce dense e componenti UI personalizzati.
+
+### Concetto di margine negativo
+
+Un margine negativo riduce lo spazio attorno a un elemento invece di aumentarlo. In CSS puro, questo comportamento si ottiene usando valori negativi per la proprietà margin. TailwindCSS espone questo meccanismo tramite classi utility dedicate, mantenendo coerenza con la scala di spacing standard del framework.
+
+Esempio CSS equivalente:
+margin-top: -1rem;
+
+In TailwindCSS:
+-mt-4
+
+### Sintassi delle utility di negative spacing
+
+Le classi di negative spacing seguono una sintassi coerente:
+
+-prefisso-direzione-valore
+
+Il trattino iniziale indica il valore negativo.
+
+Direzioni disponibili:
+
+- m: margine su tutti i lati
+- mx: margine orizzontale
+- my: margine verticale
+- mt: margine superiore
+- mr: margine destro
+- mb: margine inferiore
+- ml: margine sinistro
+
+Esempi:
+-m-4  
+-mt-2  
+-mx-8  
+-ml-1
+
+### Scala dei valori supportati
+
+I valori utilizzabili per il negative spacing derivano dalla spacing scale di TailwindCSS, configurabile nel file tailwind.config.js.
+
+Valori comuni:
+0, 0.5, 1, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 32, 40, 48, 56, 64
+
+Esempio:
+-mb-6 applica un margine inferiore negativo di 1.5rem.
+
+### Negative spacing e layout flow
+
+L’uso di margini negativi influenza il normale flusso del layout senza rimuovere l’elemento dal document flow. Questo significa che:
+
+- Gli elementi adiacenti possono sovrapporsi
+- Le dimensioni del contenitore padre non vengono automaticamente ridotte
+- Il comportamento è prevedibile ma richiede attenzione
+
+È particolarmente utile per:
+
+- Sovrapporre card
+- Avvicinare sezioni verticali
+- Compensare padding di container esterni
+
+### Differenza tra negative margin e position
+
+A differenza di position relative o absolute, il negative spacing:
+
+- Mantiene l’elemento nel flusso del documento
+- Non richiede coordinate top, left, right o bottom
+- È più semplice da gestire in layout responsivi
+
+Usare margini negativi è preferibile quando si vuole modificare la distanza visiva senza alterare il modello di posizionamento.
+
+### Uso con Flexbox e Grid
+
+Il negative spacing funziona perfettamente con layout flex e grid.
+
+Con Flexbox:
+-mx-2 può ridurre la distanza tra flex items oltre lo spazio definito da gap.
+
+Con Grid:
+-mt-4 può sovrapporre una riga alla precedente senza modificare la struttura della griglia.
+
+È importante verificare l’impatto visivo su diverse dimensioni di schermo.
+
+### Responsive negative spacing
+
+TailwindCSS consente di applicare margini negativi in modo responsive usando i breakpoint.
+
+Esempio:
+-md:-mt-8  
+-lg:-mx-12
+
+Questo permette di:
+
+- Aumentare la sovrapposizione su schermi grandi
+- Ridurre o eliminare il negative spacing su mobile
+- Migliorare la leggibilità su dispositivi piccoli
+
+### Negative spacing e z-index
+
+Quando si usano margini negativi per sovrapporre elementi, spesso è necessario controllare l’ordine di sovrapposizione tramite z-index.
+
+Esempio:
+-mt-8 z-10
+
+Questo garantisce che l’elemento rimanga visibile sopra altri componenti.
+
+### Best practice
+
+Utilizzare il negative spacing solo quando:
+
+- Il layout non può essere risolto con padding o gap
+- La sovrapposizione è intenzionale e controllata
+- Il comportamento è testato su più breakpoint
+
+Evitare:
+
+- Valori negativi eccessivi
+- Dipendenze fragili tra componenti
+- Uso non documentato in design system condivisi
+
+### Configurazione personalizzata
+
+È possibile estendere la spacing scale per supportare valori personalizzati di negative spacing.
+
+Esempio in tailwind.config.js:
+
+```js
+spacing: {
+'72': '18rem',
+'84': '21rem'
+}
+```
+
+Questo rende disponibili:
+-mt-72  
+-mb-84
+
+### Accessibilità e manutenzione
+
+Il negative spacing non influisce direttamente sull’accessibilità, ma può creare problemi se:
+
+- Gli elementi sovrapposti diventano difficili da leggere
+- I contenuti interattivi risultano coperti
+
+Documentare sempre l’uso di margini negativi aiuta la manutenzione del codice e la collaborazione tra sviluppatori e designer.
