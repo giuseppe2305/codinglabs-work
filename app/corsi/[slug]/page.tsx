@@ -45,7 +45,7 @@ export default async function page({ params }: Props) {
           <div className="flex flex-wrap max-sm:flex-col gap-8 items-center mt-6 justify-between">
             <div className="grid grid-cols-3 sm:grid-cols-[auto_auto_auto] text-center gap-8">
               <IconLabel className="max-sm:flex-col" icon={Clock}>
-                4 ore
+                {`${course.length} ore`}
               </IconLabel>
               <IconLabel className="max-sm:flex-col" icon={Library}>
                 {`${chaptersCount} capitoli`}
