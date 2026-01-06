@@ -1,0 +1,95 @@
+# Font weight
+
+## Concetto di font weight
+
+Il font weight definisce lo spessore dei caratteri di testo. In TailwindCSS il peso del font è controllato tramite utility class che mappano direttamente la proprietà CSS font-weight. Queste classi permettono di applicare rapidamente diversi livelli di spessore al testo senza scrivere CSS personalizzato.
+
+## Utility class disponibili
+
+TailwindCSS fornisce una serie di classi predefinite per il peso del font, ognuna associata a un valore numerico standard di font-weight.
+
+font-thin → font-weight: 100  
+font-extralight → font-weight: 200  
+font-light → font-weight: 300  
+font-normal → font-weight: 400  
+font-medium → font-weight: 500  
+font-semibold → font-weight: 600  
+font-bold → font-weight: 700  
+font-extrabold → font-weight: 800  
+font-black → font-weight: 900
+
+Queste classi coprono la maggior parte dei casi d’uso comuni nella tipografia web.
+
+## Utilizzo di base
+
+Per applicare un peso del font è sufficiente aggiungere la classe desiderata all’elemento HTML.
+
+Esempio concettuale:
+Un paragrafo con testo normale userà font-normal, mentre un titolo può usare font-bold o font-extrabold per maggiore enfasi visiva.
+
+## Relazione con i font caricati
+
+Le utility di font weight funzionano correttamente solo se il font utilizzato supporta il peso specificato. Se un font non include una determinata variante, il browser userà il peso più vicino disponibile.
+
+Esempio pratico:
+Se un font carica solo 400 e 700, l’uso di font-semibold o font-extrabold verrà approssimato automaticamente dal browser.
+
+## Font variabili
+
+Con i font variabili, un singolo file di font può supportare un intervallo continuo di pesi. In questo caso, le utility di TailwindCSS mappano comunque a valori numerici standard, ma il rendering risulterà più fluido e preciso.
+
+I font variabili sono particolarmente utili per:
+Ridurre il numero di file di font caricati  
+Migliorare la coerenza tipografica  
+Ottimizzare le prestazioni
+
+## Combinazione con breakpoint responsive
+
+Le classi di font weight possono essere combinate con i prefissi responsive per adattare il peso del testo in base alla dimensione dello schermo.
+
+Esempio concettuale:
+Un testo può essere font-normal su mobile e font-semibold o font-bold su desktop per migliorare la leggibilità e la gerarchia visiva.
+
+## Combinazione con stati interattivi
+
+È possibile modificare il peso del font in risposta a interazioni dell’utente usando i modificatori di stato.
+
+Stati comuni:
+hover: per cambiare peso al passaggio del mouse  
+focus: per elementi interattivi come input e link  
+active: per indicare pressione o selezione
+
+Questo approccio è utile per link, pulsanti e componenti UI interattivi.
+
+## Gerarchia tipografica
+
+Il font weight è uno strumento chiave per costruire una gerarchia tipografica chiara.
+
+Uso tipico:
+Titoli principali con font-bold o font-extrabold  
+Sottotitoli con font-semibold o font-medium  
+Testo principale con font-normal  
+Testo secondario o metadati con font-light
+
+Una gerarchia coerente migliora la leggibilità e l’esperienza utente.
+
+## Accessibilità e leggibilità
+
+Un peso del font troppo leggero può ridurre il contrasto e compromettere la leggibilità, specialmente su schermi piccoli o con luminosità ridotta. È consigliabile evitare font-thin e font-extralight per testi lunghi.
+
+Per il corpo del testo:
+Preferire font-normal o font-medium  
+Assicurare un contrasto adeguato con il colore di sfondo
+
+## Personalizzazione tramite configurazione
+
+TailwindCSS permette di personalizzare o estendere i font weight nel file di configurazione tailwind.config.js. È possibile ridefinire i valori predefiniti o aggiungere nuove utility se necessario.
+
+Questo approccio è utile quando si lavora con font personalizzati che espongono pesi non standard.
+
+## Buone pratiche
+
+Usare pochi livelli di font weight per mantenere coerenza visiva  
+Verificare sempre i pesi realmente disponibili nel font  
+Testare la resa su diversi dispositivi e browser  
+Combinare font weight con dimensione e line-height per una tipografia equilibrata
