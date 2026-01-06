@@ -1,0 +1,93 @@
+# Font size
+
+## Typography
+
+### Concetto di font-size in TailwindCSS
+
+In TailwindCSS la dimensione del testo è controllata tramite utility class predefinite che mappano valori coerenti e scalabili. Ogni classe font-size definisce sia la dimensione del carattere sia, di default, una line-height ottimizzata per la leggibilità.
+
+### Classi font-size disponibili
+
+Tailwind fornisce una scala tipografica predefinita basata su rem:
+
+- text-xs → 0.75rem
+- text-sm → 0.875rem
+- text-base → 1rem
+- text-lg → 1.125rem
+- text-xl → 1.25rem
+- text-2xl → 1.5rem
+- text-3xl → 1.875rem
+- text-4xl → 2.25rem
+- text-5xl → 3rem
+- text-6xl → 3.75rem
+- text-7xl → 4.5rem
+- text-8xl → 6rem
+- text-9xl → 8rem
+
+Ogni valore è progettato per funzionare correttamente in layout responsive e sistemi di design coerenti.
+
+### Relazione tra font-size e line-height
+
+Ogni classe text-\* include una line-height implicita. Questo evita la necessità di definire manualmente l’altezza della linea nella maggior parte dei casi.  
+Esempio concettuale:
+
+- text-base applica una line-height leggibile per paragrafi
+- text-4xl applica una line-height più compatta per titoli
+
+La line-height può comunque essere sovrascritta usando le utility leading-\*.
+
+### Utilizzo pratico
+
+Le classi font-size si applicano direttamente agli elementi HTML:
+
+- Titoli principali: text-3xl, text-4xl, text-5xl
+- Sottotitoli: text-xl, text-2xl
+- Testo base: text-base
+- Testo secondario o descrittivo: text-sm, text-xs
+
+### Font-size responsive
+
+Tailwind permette di cambiare la dimensione del testo in base ai breakpoint:
+
+- text-base md:text-lg lg:text-xl
+- text-xl sm:text-2xl xl:text-3xl
+
+Questo approccio consente di adattare la tipografia a dispositivi diversi senza media query personalizzate.
+
+### Personalizzazione della scala tipografica
+
+La scala dei font-size può essere personalizzata nel file tailwind.config.js tramite la chiave theme.fontSize.  
+È possibile:
+
+- Modificare i valori esistenti
+- Aggiungere nuove dimensioni
+- Definire manualmente font-size e line-height
+
+Ogni valore può essere una stringa singola o una coppia dimensione/line-height.
+
+### Uso combinato con altre utility tipografiche
+
+Le classi font-size funzionano insieme a:
+
+- font-weight per lo spessore del testo
+- tracking per la spaziatura delle lettere
+- text-color per il colore
+- leading per il controllo preciso della line-height
+
+Questo permette di costruire sistemi tipografici completi usando solo utility class.
+
+### Best practice
+
+- Usare text-base come riferimento per il corpo del testo
+- Limitare il numero di dimensioni usate per mantenere coerenza visiva
+- Preferire le classi responsive invece di valori arbitrari
+- Personalizzare la scala solo se necessario per il design system
+
+### Valori arbitrari
+
+Quando necessario, è possibile usare valori personalizzati:
+
+- text-[18px]
+- text-[1.35rem]
+
+Questa soluzione va usata con moderazione per non compromettere la coerenza tipografica globale.

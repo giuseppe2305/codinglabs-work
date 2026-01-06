@@ -1,0 +1,96 @@
+# Font family
+
+## Concetto di font family
+
+In TailwindCSS la font family definisce il tipo di carattere utilizzato per il testo. Le font family permettono di controllare l’aspetto tipografico globale o locale di un’interfaccia, influenzando leggibilità, personalità visiva e coerenza del design. Tailwind fornisce un set di classi utilitarie predefinite che mappano direttamente le famiglie di font configurate.
+
+## Font family predefinite
+
+TailwindCSS include tre font family principali pronte all’uso:
+
+- sans: font senza grazie, moderne e leggibili, ideali per interfacce web
+- serif: font con grazie, adatte a contenuti editoriali o testi lunghi
+- mono: font monospazio, usate per codice, dati tecnici o output strutturati
+
+Queste famiglie sono accessibili tramite le classi:
+
+- font-sans
+- font-serif
+- font-mono
+
+## Utilizzo delle classi font
+
+Le classi di font family si applicano direttamente agli elementi HTML. Possono essere usate su singoli elementi o su contenitori per influenzare tutti i figli. L’approccio utility-first consente di cambiare font senza scrivere CSS personalizzato.
+
+Esempio concettuale:
+
+- font-sans per layout principali
+- font-serif per articoli o blog post
+- font-mono per snippet di codice o numeri
+
+## Gerarchia e ereditarietà
+
+La font family segue le regole standard del CSS. Se applicata a un elemento padre, viene ereditata automaticamente dai figli, a meno che non venga sovrascritta. Questo consente di definire una font globale sul body o su un wrapper principale e personalizzare solo sezioni specifiche.
+
+## Configurazione personalizzata delle font
+
+Tailwind permette di definire font family personalizzate tramite il file tailwind.config.js. È possibile associare una o più font, includendo fallback, e assegnare un nome semantico alla configurazione.
+
+Concetto chiave:
+
+- si definisce una chiave
+- si assegna un array di font in ordine di priorità
+- la chiave diventa una nuova utility utilizzabile come classe
+
+## Fallback delle font
+
+Le font family in Tailwind supportano fallback multipli. Questo garantisce che, se una font non è disponibile, il browser utilizzi la successiva. I fallback sono fondamentali per compatibilità, performance e coerenza cross-platform.
+
+Esempio concettuale:
+
+- una font custom
+- una font di sistema
+- una famiglia generica come sans-serif
+
+## Font di sistema
+
+Tailwind utilizza per default stack di font di sistema ottimizzati per ogni piattaforma. Questo approccio migliora le prestazioni evitando il caricamento di font esterni e garantisce un aspetto nativo su ogni sistema operativo.
+
+Vantaggi principali:
+
+- caricamento più veloce
+- migliore resa su dispositivi diversi
+- riduzione delle dipendenze esterne
+
+## Integrazione con font esterni
+
+Tailwind non carica font automaticamente. Le font esterne, come Google Fonts o font self-hosted, devono essere importate manualmente nel progetto. Una volta disponibili, possono essere registrate nel file di configurazione e usate come normali utility.
+
+Flusso corretto:
+
+- importazione o inclusione del font
+- configurazione in tailwind.config.js
+- utilizzo tramite classi font personalizzate
+
+## Utilizzo combinato con altre utility tipografiche
+
+La font family lavora insieme ad altre utility tipografiche come font-size, font-weight, line-height e letter-spacing. Tailwind consente di combinare queste classi per creare sistemi tipografici coerenti e scalabili senza scrivere CSS tradizionale.
+
+## Best practice
+
+- definire una font principale per l’intero progetto
+- limitare il numero di font per mantenere coerenza
+- usare font-mono solo dove necessario
+- configurare sempre fallback appropriati
+- preferire font di sistema quando le performance sono critiche
+
+## Errori comuni
+
+- caricare font esterni senza configurarli in Tailwind
+- usare troppe font diverse nello stesso progetto
+- applicare font family a singoli elementi quando è più efficace usarle a livello di layout
+- dimenticare i fallback generici
+
+## Ruolo della font family nel design system
+
+Nel contesto di un design system, la font family è un token fondamentale. Tailwind facilita la standardizzazione tipografica permettendo di centralizzare la configurazione e applicarla in modo consistente tramite utility semantiche.
