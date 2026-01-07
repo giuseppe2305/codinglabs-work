@@ -1,0 +1,246 @@
+# Tipografia – Text decoration in TailwindCSS
+
+La decorazione del testo in TailwindCSS consente di controllare visivamente linee, stili e comportamenti applicati al testo, come sottolineature, barrature, spessori e colori delle linee decorative. Queste utility sono fondamentali per migliorare la leggibilità, l’accessibilità e l’enfasi semantica dei contenuti testuali.
+
+## Concetto di text decoration
+
+La text decoration è una proprietà CSS che permette di aggiungere linee decorative al testo. In TailwindCSS questa funzionalità è suddivisa in più utility atomiche, ognuna responsabile di un aspetto specifico: tipo di decorazione, colore, stile, spessore e offset.
+
+## Tipi di decorazione del testo
+
+TailwindCSS fornisce classi per definire rapidamente il tipo di decorazione applicata.
+
+### underline
+
+Applica una linea sotto il testo.
+
+Esempio:
+`<span class="underline">Testo sottolineato</span>`
+
+Utilizzo tipico:
+
+- Link
+- Evidenziazione semantica
+- Call to action testuali
+
+### overline
+
+Applica una linea sopra il testo.
+
+Esempio:
+`<span class="overline">Testo con linea superiore</span>`
+
+Utilizzo tipico:
+
+- Etichette
+- Indicatori visivi
+- Design sperimentali
+
+### line-through
+
+Applica una linea che attraversa il testo.
+
+Esempio:
+`<span class="line-through">Testo barrato</span>`
+
+Utilizzo tipico:
+
+- Prezzi scontati
+- Elementi completati
+- Stato disabilitato o obsoleto
+
+### no-underline
+
+Rimuove qualsiasi decorazione del testo.
+
+Esempio:
+`<a class="no-underline">Link senza sottolineatura</a>`
+
+Utilizzo tipico:
+
+- Reset di stili predefiniti
+- Personalizzazione dei link
+
+## Colore della decorazione del testo
+
+TailwindCSS permette di impostare il colore della linea decorativa separatamente dal colore del testo.
+
+### text-decoration-color
+
+La sintassi segue la palette colori di Tailwind.
+
+Esempio:
+`<span class="underline decoration-red-500">Testo con sottolineatura rossa</span>`
+
+Comportamento:
+
+- Il colore della decorazione è indipendente dal colore del testo
+- Supporta tutte le tonalità disponibili
+
+## Stile della decorazione
+
+È possibile controllare lo stile della linea decorativa.
+
+### decoration-solid
+
+Linea continua (valore predefinito).
+
+Esempio:
+`<span class="underline decoration-solid">Linea continua</span>`
+
+### decoration-double
+
+Linea doppia.
+
+Esempio:
+`<span class="underline decoration-double">Linea doppia</span>`
+
+### decoration-dotted
+
+Linea puntinata.
+
+Esempio:
+`<span class="underline decoration-dotted">Linea puntinata</span>`
+
+### decoration-dashed
+
+Linea tratteggiata.
+
+Esempio:
+`<span class="underline decoration-dashed">Linea tratteggiata</span>`
+
+### decoration-wavy
+
+Linea ondulata.
+
+Esempio:
+`<span class="underline decoration-wavy">Linea ondulata</span>`
+
+Utilizzo tipico:
+
+- Evidenziazione errori
+- Segnalazioni visive
+- Stili decorativi avanzati
+
+## Spessore della decorazione
+
+TailwindCSS consente di definire lo spessore della linea decorativa.
+
+### decoration-thickness
+
+Valori disponibili:
+
+- decoration-0
+- decoration-1
+- decoration-2
+- decoration-4
+- decoration-8
+
+Esempio:
+`<span class="underline decoration-4">Linea spessa</span>`
+
+Comportamento:
+
+- Migliora la visibilità su schermi ad alta risoluzione
+- Utile per titoli o testi enfatizzati
+
+## Offset della decorazione
+
+L’offset controlla la distanza tra il testo e la linea decorativa.
+
+### underline-offset
+
+Valori comuni:
+
+- underline-offset-0
+- underline-offset-1
+- underline-offset-2
+- underline-offset-4
+- underline-offset-8
+
+Esempio:
+`<span class="underline underline-offset-4">Sottolineatura distanziata</span>`
+
+Utilizzo tipico:
+
+- Migliorare la leggibilità
+- Evitare collisioni con discendenti delle lettere
+- Design tipografico raffinato
+
+## Combinazione di più utility
+
+Le utility di text decoration sono progettate per essere combinate liberamente.
+
+Esempio completo:
+`<span class="underline decoration-blue-600 decoration-wavy decoration-2 underline-offset-4">Testo decorato</span>`
+
+Risultato:
+
+- Sottolineatura
+- Colore blu
+- Linea ondulata
+- Spessore medio
+- Distanza personalizzata
+
+## Reset e override delle decorazioni
+
+È possibile sovrascrivere decorazioni applicate da componenti o stili globali.
+
+Esempio:
+`<a class="no-underline hover:underline">Link personalizzato</a>`
+
+Comportamento:
+
+- Nessuna decorazione di default
+- Decorazione applicata solo in hover
+
+## Supporto responsive e stati
+
+Le utility di text decoration supportano breakpoint e pseudo-classi.
+
+Esempio responsive:
+`<span class="no-underline md:underline">Sottolineato solo da md</span>`
+
+Esempio stato hover:
+`<span class="underline hover:no-underline">Toggle decorazione</span>`
+
+Stati supportati:
+
+- hover
+- focus
+- active
+- visited
+- group-hover
+- peer-focus
+
+## Accessibilità e buone pratiche
+
+Linee decorative migliorano la distinzione visiva, ma non devono essere l’unico mezzo per trasmettere informazioni.
+
+Raccomandazioni:
+
+- Non usare solo la sottolineatura per indicare link
+- Garantire contrasto sufficiente del colore della decorazione
+- Usare decoration-wavy per segnalazioni semantiche, non solo decorative
+
+## Compatibilità browser
+
+Le utility di text decoration di TailwindCSS si basano su proprietà CSS moderne.
+
+Supporto:
+
+- Browser moderni completamente supportati
+- decoration-wavy e decoration-thickness richiedono browser aggiornati
+- Degradazione progressiva in browser più vecchi
+
+## Estensione e personalizzazione
+
+È possibile estendere i valori di decorazione nel file tailwind.config.js.
+
+Esempio concettuale:
+
+- Nuovi colori
+- Spessori personalizzati
+- Offset specifici per il design system
+
+Questo approccio consente di mantenere coerenza tipografica e scalabilità nel progetto.
