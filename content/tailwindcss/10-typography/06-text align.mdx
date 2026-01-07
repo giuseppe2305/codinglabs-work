@@ -1,0 +1,155 @@
+# Allineamento del testo con TailwindCSS
+
+L’allineamento del testo è un aspetto fondamentale della tipografia sul web. TailwindCSS fornisce una serie di utility class semplici, coerenti e altamente leggibili per controllare l’allineamento orizzontale del testo in modo preciso e responsivo, senza scrivere CSS personalizzato.
+
+## Concetto di allineamento del testo
+
+L’allineamento del testo definisce come il contenuto testuale viene distribuito orizzontalmente all’interno del suo contenitore. In HTML e CSS questo comportamento è controllato dalla proprietà `text-align`. TailwindCSS espone questa proprietà attraverso classi utility dedicate, mantenendo una sintassi prevedibile e uniforme.
+
+## Classi principali per l’allineamento del testo
+
+TailwindCSS include quattro classi principali per l’allineamento del testo:
+
+### text-left
+
+Allinea il testo a sinistra. È il comportamento predefinito nella maggior parte delle lingue occidentali.
+
+```html
+<p class="text-left">Questo testo è allineato a sinistra.</p>
+```
+
+### text-center
+
+Centra orizzontalmente il testo all’interno del contenitore.
+
+```html
+<p class="text-center">Questo testo è centrato.</p>
+```
+
+### text-right
+
+Allinea il testo a destra.
+
+```html
+<p class="text-right">Questo testo è allineato a destra.</p>
+```
+
+### text-justify
+
+Giustifica il testo distribuendo uniformemente le parole su ogni riga.
+
+```html
+<p class="text-justify">
+  Questo testo è giustificato e occupa l'intera larghezza disponibile.
+</p>
+```
+
+## Comportamento rispetto alla direzione del testo
+
+Le classi di allineamento di TailwindCSS rispettano la direzione del testo impostata tramite `dir="ltr"` o `dir="rtl"`.
+
+In contesti con lingue da destra a sinistra, `text-left` e `text-right` continuano a rappresentare allineamenti fisici, non logici.
+
+```html
+<div dir="rtl" class="text-left">
+  Testo con direzione RTL ma allineamento fisico a sinistra.
+</div>
+```
+
+## Allineamento del testo e layout
+
+L’allineamento del testo non influisce sulla posizione dell’elemento nel layout, ma solo sulla disposizione del contenuto testuale interno. Non va confuso con utility come `flex`, `justify-*` o `items-*`, che agiscono sulla disposizione degli elementi.
+
+```html
+<div class="w-64 border">
+  <p class="text-center">
+    L’elemento resta nella stessa posizione, cambia solo l’allineamento del
+    testo.
+  </p>
+</div>
+```
+
+## Utilizzo con elementi inline e block
+
+Le classi `text-*` funzionano correttamente sia su elementi block che inline, purché l’elemento abbia una larghezza definita o implicita.
+
+```html
+<span class="block text-right">
+  Testo inline reso block e allineato a destra.
+</span>
+```
+
+## Allineamento del testo in componenti comuni
+
+### Titoli
+
+```html
+<h1 class="text-center">Titolo centrato</h1>
+```
+
+### Paragrafi lunghi
+
+```html
+<p class="text-justify">
+  Paragrafo lungo ideale per layout editoriali o articoli.
+</p>
+```
+
+### Navigazione e menu
+
+```html
+<nav class="text-center">
+  <a href="#">Home</a>
+  <a href="#">Contatti</a>
+</nav>
+```
+
+## Allineamento responsivo
+
+TailwindCSS permette di modificare l’allineamento del testo in base alle dimensioni dello schermo usando i breakpoint.
+
+```html
+<p class="text-left md:text-center lg:text-right">
+  Allineamento che cambia in base alla dimensione dello schermo.
+</p>
+```
+
+Breakpoint comuni:
+
+- `sm:` piccoli schermi
+- `md:` tablet
+- `lg:` desktop
+- `xl:` schermi grandi
+- `2xl:` schermi extra-large
+
+## Combinazione con altre utility tipografiche
+
+L’allineamento del testo può essere combinato liberamente con altre classi tipografiche come dimensione, peso e colore.
+
+```html
+<p class="text-center text-lg font-semibold text-gray-700">
+  Testo centrato con stile avanzato.
+</p>
+```
+
+## Limitazioni e considerazioni
+
+- `text-justify` può avere risultati visivi diversi a seconda del browser
+- L’allineamento del testo non sostituisce sistemi di layout come Flexbox o Grid
+- Un uso eccessivo di `text-center` può ridurre la leggibilità su testi lunghi
+
+## Best practice
+
+- Usare `text-left` per contenuti lunghi e leggibili
+- Riservare `text-center` a titoli, call to action o elementi brevi
+- Applicare l’allineamento responsivo per migliorare l’esperienza su mobile
+- Mantenere coerenza tipografica all’interno della stessa sezione
+
+## Riepilogo delle classi disponibili
+
+- `text-left`
+- `text-center`
+- `text-right`
+- `text-justify`
+
+Queste utility coprono la totalità dei casi d’uso comuni per l’allineamento del testo in TailwindCSS, mantenendo il codice pulito, leggibile e facilmente manutenibile.
