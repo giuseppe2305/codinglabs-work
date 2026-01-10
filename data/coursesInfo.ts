@@ -205,7 +205,7 @@ export const coursesInfo: CourseInfo[] = [
 
     id: 3,
     disabled: true,
-    image: "",
+    image: "htmlcss.png",
     content: [],
     buyLink: "/",
   },
