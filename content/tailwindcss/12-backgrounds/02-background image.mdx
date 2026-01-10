@@ -1,0 +1,228 @@
+# Background image
+
+Le utility per background image in TailwindCSS permettono di applicare immagini di sfondo, gradienti e controllarne il comportamento in modo dichiarativo tramite classi. Questa sezione copre tutte le opzioni disponibili, i casi d’uso comuni e le personalizzazioni avanzate.
+
+## Applicare un’immagine di sfondo
+
+Per impostare un’immagine di sfondo si utilizza la classe `bg-[url(...)]`, che sfrutta la sintassi arbitrary values.
+
+Esempio base:
+
+```html
+<div class="bg-[url('/images/bg.jpg')] h-64 w-full"></div>
+```
+
+L’elemento deve avere dimensioni esplicite (altezza e/o larghezza), altrimenti l’immagine non sarà visibile.
+
+## Background image predefinite
+
+Tailwind include alcune utility predefinite per gradienti e immagini comuni.
+
+Classi disponibili:
+
+- bg-none
+- bg-gradient-to-t
+- bg-gradient-to-tr
+- bg-gradient-to-r
+- bg-gradient-to-br
+- bg-gradient-to-b
+- bg-gradient-to-bl
+- bg-gradient-to-l
+- bg-gradient-to-tl
+
+Esempio con gradiente:
+
+```html
+<div class="bg-gradient-to-r from-indigo-500 to-purple-500 h-64"></div>
+```
+
+## Combinare immagini e gradienti
+
+È possibile combinare un’immagine con un overlay usando pseudo-elementi o layer multipli tramite arbitrary values.
+
+Esempio con overlay:
+
+```html
+<div class="relative h-64 bg-[url('/images/bg.jpg')] bg-cover bg-center">
+  <div class="absolute inset-0 bg-black/50"></div>
+</div>
+```
+
+Oppure usando più background:
+
+```html
+<div
+  class="bg-[linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('/images/bg.jpg')] h-64"
+></div>
+```
+
+## Dimensione dell’immagine di sfondo
+
+Le utility per il controllo della dimensione sono:
+
+- bg-auto
+- bg-cover
+- bg-contain
+
+Esempio:
+
+```html
+<div class="bg-[url('/images/bg.jpg')] bg-cover h-64"></div>
+```
+
+`bg-cover` riempie l’elemento mantenendo le proporzioni, `bg-contain` mostra l’immagine completa senza tagli.
+
+## Posizione dell’immagine di sfondo
+
+Tailwind fornisce utility per il posizionamento:
+
+- bg-center
+- bg-top
+- bg-bottom
+- bg-left
+- bg-right
+- bg-left-top
+- bg-right-bottom
+
+Esempio:
+
+```html
+<div class="bg-[url('/images/bg.jpg')] bg-top bg-cover h-64"></div>
+```
+
+## Ripetizione dell’immagine
+
+Per controllare la ripetizione:
+
+- bg-repeat
+- bg-no-repeat
+- bg-repeat-x
+- bg-repeat-y
+- bg-repeat-round
+- bg-repeat-space
+
+Esempio:
+
+```html
+<div class="bg-[url('/images/pattern.png')] bg-repeat h-64"></div>
+```
+
+## Background attachment
+
+Consente di definire il comportamento dell’immagine durante lo scroll:
+
+- bg-fixed
+- bg-local
+- bg-scroll
+
+Esempio:
+
+```html
+<div class="bg-[url('/images/bg.jpg')] bg-fixed bg-cover h-screen"></div>
+```
+
+`bg-fixed` crea l’effetto parallax classico.
+
+## Background origin
+
+Definisce l’area di riferimento per il background:
+
+- bg-origin-border
+- bg-origin-padding
+- bg-origin-content
+
+Esempio:
+
+```html
+<div class="border-4 p-6 bg-[url('/images/bg.jpg')] bg-origin-content"></div>
+```
+
+## Background clip
+
+Controlla fino a dove viene disegnato il background:
+
+- bg-clip-border
+- bg-clip-padding
+- bg-clip-content
+- bg-clip-text
+
+Esempio con testo:
+
+```html
+<h1
+  class="text-6xl font-bold bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent"
+>
+  TailwindCSS
+</h1>
+```
+
+## Background image responsive
+
+Le classi per background image possono essere combinate con breakpoint responsive.
+
+Esempio:
+
+```html
+<div
+  class="bg-[url('/images/mobile.jpg')] md:bg-[url('/images/desktop.jpg')] h-64"
+></div>
+```
+
+L’immagine cambia in base alla dimensione dello schermo.
+
+## Background image e stato
+
+È possibile variare il background in base agli stati.
+
+Esempio hover:
+
+```html
+<div
+  class="bg-[url('/images/normal.jpg')] hover:bg-[url('/images/hover.jpg')] h-64 transition"
+></div>
+```
+
+Esempio con dark mode:
+
+```html
+<div
+  class="bg-[url('/images/light.jpg')] dark:bg-[url('/images/dark.jpg')] h-64"
+></div>
+```
+
+## Personalizzazione nel file di configurazione
+
+È possibile definire background image riutilizzabili in `tailwind.config.js`.
+
+Esempio:
+
+```js
+theme: {
+  extend: {
+    backgroundImage: {
+      'hero-pattern': "url('/images/hero.png')",
+      'footer-texture': "url('/images/footer.png')",
+    }
+  }
+}
+```
+
+Utilizzo:
+
+```html
+<div class="bg-hero-pattern h-64"></div>
+```
+
+## Best practice
+
+- Usare `bg-cover` e `bg-center` per sezioni hero.
+- Preferire overlay con opacità per migliorare la leggibilità del testo.
+- Definire immagini responsive per performance migliori.
+- Centralizzare immagini comuni nel file di configurazione.
+- Evitare immagini troppo pesanti come background su mobile.
+
+Queste utility rendono la gestione delle immagini di sfondo flessibile, performante e completamente integrata nel flusso di lavoro TailwindCSS.
+
+```
+
+```
