@@ -1,0 +1,148 @@
+# Background color
+
+## Introduzione ai colori di sfondo in TailwindCSS
+
+In TailwindCSS i colori di sfondo si gestiscono tramite utility class dedicate che permettono di applicare rapidamente un colore a qualsiasi elemento HTML. Le classi sono pensate per essere coerenti, scalabili e facilmente personalizzabili tramite il file di configurazione.
+
+## Sintassi di base
+
+La sintassi base utilizza il prefisso bg- seguito dal nome del colore e dal suo livello di intensità.
+
+Esempio:
+bg-blue-500  
+bg-red-300  
+bg-gray-900
+
+Queste classi impostano la proprietà CSS background-color sull’elemento.
+
+## Palette di colori predefinita
+
+TailwindCSS fornisce una palette completa di colori predefiniti, organizzati per famiglie cromatiche e livelli numerici.
+
+Famiglie comuni:
+
+- slate
+- gray
+- zinc
+- neutral
+- stone
+- red
+- orange
+- amber
+- yellow
+- lime
+- green
+- emerald
+- teal
+- cyan
+- sky
+- blue
+- indigo
+- violet
+- purple
+- fuchsia
+- pink
+- rose
+
+Livelli disponibili:
+50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950
+
+Valori più bassi indicano colori più chiari, valori più alti colori più scuri.
+
+## Utilizzo pratico
+
+Le classi di background color possono essere applicate a qualsiasi elemento HTML.
+
+Esempio:
+Un div con sfondo blu medio  
+bg-blue-500
+
+Un bottone con sfondo verde scuro  
+bg-green-700
+
+Una sezione con sfondo neutro  
+bg-neutral-100
+
+## Background trasparente
+
+Per rimuovere il colore di sfondo o renderlo completamente trasparente si utilizza la classe:
+
+bg-transparent
+
+Questa utility imposta background-color: transparent.
+
+## Background current
+
+La classe bg-current imposta il colore di sfondo uguale al valore corrente di color (text color).
+
+È utile quando si vuole mantenere coerenza cromatica tra testo e sfondo in componenti dinamici.
+
+## Opacità del colore di sfondo
+
+TailwindCSS permette di controllare l’opacità del colore di sfondo usando la sintassi con slash.
+
+Esempio:
+bg-blue-500/50  
+bg-black/80
+
+Il valore dopo lo slash rappresenta la percentuale di opacità.
+
+## Background color e stati interattivi
+
+Le utility di background color possono essere combinate con pseudo-classi per gestire stati come hover, focus e active.
+
+Esempio:
+hover:bg-indigo-600  
+focus:bg-indigo-700  
+active:bg-indigo-800
+
+Questo approccio è molto comune per pulsanti e link interattivi.
+
+## Background color e modalità dark
+
+TailwindCSS supporta la modalità dark tramite il prefisso dark:.
+
+Esempio:
+bg-white dark:bg-gray-900
+
+In questo caso lo sfondo sarà chiaro in modalità normale e scuro in modalità dark.
+
+## Background color responsive
+
+È possibile applicare colori di sfondo diversi in base alla dimensione dello schermo usando i breakpoint.
+
+Esempio:
+bg-red-200 md:bg-yellow-200 lg:bg-green-200
+
+Il colore cambierà in base alla larghezza del viewport.
+
+## Personalizzazione dei colori
+
+I colori di sfondo possono essere estesi o modificati nel file tailwind.config.js.
+
+Esempio concettuale:
+Aggiungere un colore brand personalizzato consente di usare classi come:
+bg-brand-primary  
+bg-brand-secondary
+
+Questo garantisce coerenza visiva e facilita la manutenzione del design system.
+
+## Best practices
+
+Usare livelli coerenti per mantenere gerarchia visiva  
+Preferire colori neutri per grandi superfici  
+Riservare colori saturi a elementi di attenzione  
+Combinare background color con text color adeguati per garantire accessibilità
+
+## Accessibilità e contrasto
+
+Quando si applica un colore di sfondo è fondamentale assicurarsi che il testo sovrapposto abbia un contrasto sufficiente.
+
+TailwindCSS facilita la sperimentazione rapida, ma la verifica del contrasto resta una responsabilità dello sviluppatore.
+
+## Riepilogo
+
+Le utility bg-\* permettono di gestire i colori di sfondo in modo rapido e consistente  
+La palette predefinita copre la maggior parte dei casi d’uso  
+Opacità, stati, dark mode e responsive rendono il sistema estremamente flessibile  
+La personalizzazione consente di adattare TailwindCSS a qualsiasi progetto

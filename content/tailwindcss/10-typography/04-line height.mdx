@@ -1,0 +1,161 @@
+# Tipografia: Line height in Tailwind CSS
+
+La line height (interlinea) controlla la distanza verticale tra le righe di testo. In tipografia è uno degli aspetti più importanti per la leggibilità, l’accessibilità e l’equilibrio visivo di un layout. Tailwind CSS fornisce un sistema chiaro, coerente e altamente personalizzabile per gestire la line height tramite utility class.
+
+## Cos’è la line height e perché è fondamentale
+
+La line height definisce lo spazio tra le baseline delle righe di testo. Un’interlinea troppo stretta rende il testo difficile da leggere, mentre una troppo ampia spezza il flusso visivo. Una corretta line height migliora:
+
+- leggibilità di testi lunghi
+- scansione visiva dei contenuti
+- gerarchia tipografica
+- esperienza utente su diversi dispositivi
+
+Tailwind permette di controllare la line height in modo esplicito e prevedibile, evitando valori arbitrari e favorendo coerenza nel design system.
+
+## Le utility di base per la line height
+
+Tailwind utilizza la famiglia di classi leading-\* per impostare la line height. Queste classi agiscono direttamente sulla proprietà CSS line-height.
+
+Le utility principali sono:
+
+- leading-none → line-height: 1
+- leading-tight → line-height: 1.25
+- leading-snug → line-height: 1.375
+- leading-normal → line-height: 1.5
+- leading-relaxed → line-height: 1.625
+- leading-loose → line-height: 2
+
+Questi valori sono moltiplicatori rispetto alla dimensione del font, non valori assoluti in pixel.
+
+## Uso pratico delle utility leading
+
+Applicare una line height in Tailwind è immediato. Basta aggiungere la classe desiderata all’elemento testuale.
+
+Esempi concettuali:
+
+- Titoli compatti: leading-tight o leading-snug
+- Paragrafi standard: leading-normal
+- Testi lunghi o contenuti editoriali: leading-relaxed
+- Testi molto ariosi o didattici: leading-loose
+
+La scelta va sempre fatta in relazione al font utilizzato, alla dimensione del testo e al contesto visivo.
+
+## Line height e dimensione del font
+
+In Tailwind, la line height è indipendente dalla dimensione del font, ma le due proprietà lavorano insieme. Un testo piccolo con una line height troppo ampia appare dispersivo, mentre un testo grande con line height ridotta risulta soffocato.
+
+Combinazioni comuni:
+
+- text-sm + leading-normal
+- text-base + leading-relaxed
+- text-lg + leading-snug
+- text-2xl + leading-tight
+
+Tailwind incoraggia queste combinazioni tramite preset sensati e coerenti.
+
+## Line height nei titoli
+
+I titoli richiedono spesso una line height più compatta rispetto ai paragrafi, soprattutto quando sono su una o due righe.
+
+Linee guida pratiche:
+
+- Titoli brevi su una riga: leading-none o leading-tight
+- Titoli lunghi su più righe: leading-snug
+- Hero title molto grandi: leading-tight per evitare spazi eccessivi
+
+Ridurre la line height nei titoli migliora l’impatto visivo e la gerarchia.
+
+## Line height nei paragrafi e nei testi lunghi
+
+Per articoli, blog post e documentazione, la line height ha un impatto diretto sulla leggibilità.
+
+Best practice:
+
+- Usare almeno leading-normal per testi brevi
+- Preferire leading-relaxed per articoli lunghi
+- Aumentare l’interlinea su schermi grandi
+- Evitare leading-tight nei paragrafi
+
+Una buona line height riduce l’affaticamento visivo e migliora la comprensione del testo.
+
+## Line height e responsive design
+
+Tailwind consente di modificare la line height in base al breakpoint, migliorando la resa tipografica su diversi dispositivi.
+
+Esempio concettuale:
+
+- Mobile: leading-normal
+- Tablet: leading-relaxed
+- Desktop: leading-loose
+
+Questo approccio è utile per testi lunghi, dove lo spazio orizzontale aumenta e richiede più respiro verticale.
+
+## Line height personalizzata
+
+Oltre alle utility predefinite, Tailwind supporta valori personalizzati tramite:
+
+- classi arbitrarie
+- configurazione nel file tailwind.config.js
+
+Valori personalizzati sono utili quando:
+
+- si lavora con font non standard
+- si replica un design tipografico preciso
+- si costruisce un design system avanzato
+
+Esempio concettuale di valore arbitrario:
+
+- leading-[1.8]
+
+## Configurazione della line height nel design system
+
+Nel file di configurazione di Tailwind è possibile definire nuove scale di line height coerenti con il progetto.
+
+Vantaggi:
+
+- maggiore coerenza tipografica
+- riutilizzo delle utility
+- allineamento con il brand
+
+È consigliabile definire solo pochi valori ben studiati, evitando un’eccessiva frammentazione.
+
+## Line height e accessibilità
+
+Una line height adeguata è fondamentale per l’accessibilità. Le linee guida WCAG raccomandano che il testo possa essere letto comodamente anche aumentando l’interlinea.
+
+Buone pratiche:
+
+- non bloccare la line height con valori rigidi
+- usare moltiplicatori anziché pixel fissi
+- evitare leading-none nei contenuti principali
+- testare il testo con zoom e font più grandi
+
+Tailwind, grazie al suo approccio fluido, facilita il rispetto di queste linee guida.
+
+## Errori comuni da evitare
+
+Errori frequenti nell’uso della line height:
+
+- usare leading-none su paragrafi
+- non adattare la line height ai breakpoint
+- usare la stessa interlinea per titoli e body text
+- forzare valori arbitrari senza una logica tipografica
+
+Una tipografia efficace nasce da scelte consapevoli, non da valori casuali.
+
+## Line height come strumento di gerarchia visiva
+
+La line height contribuisce alla gerarchia tanto quanto font-size e font-weight. Ridurre l’interlinea rende un testo più denso e autorevole, aumentarla lo rende più leggibile e rilassato.
+
+Combinare correttamente:
+
+- font-size
+- font-weight
+- line height
+
+permette di creare layout chiari, ordinati e professionali.
+
+## Conclusione
+
+La gestione della line height in Tailwind CSS è semplice ma potente. Le utility leading-\* offrono un controllo preciso e coerente, ideale per costruire sistemi tipografici moderni, accessibili e scalabili. Comprendere come e quando usare ogni valore è essenziale per ottenere testi leggibili, equilibrati e visivamente efficaci.

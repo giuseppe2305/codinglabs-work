@@ -1,0 +1,159 @@
+# Gradienti in Tailwind CSS
+
+## Introduzione ai gradienti
+
+I gradienti in Tailwind CSS permettono di creare transizioni fluide tra due o più colori utilizzando classi di utilità. Tailwind supporta gradienti lineari tramite background-image e fornisce un sistema coerente e altamente configurabile basato su direzione, colori di partenza, intermedi e di fine.
+
+## Concetti fondamentali
+
+Un gradiente in Tailwind CSS è composto da tre elementi principali:
+
+- Direzione del gradiente
+- Colore iniziale
+- Colore finale
+  Opzionalmente è possibile inserire uno o più colori intermedi.
+
+Le classi dei gradienti iniziano tutte con bg-gradient-to-\* e utilizzano le stesse palette di colori definite per text, background e border.
+
+## Direzione del gradiente
+
+La direzione definisce il verso della transizione cromatica. Tailwind fornisce otto direzioni predefinite.
+
+Classi disponibili:
+
+- bg-gradient-to-t (verso l’alto)
+- bg-gradient-to-tr (verso l’alto a destra)
+- bg-gradient-to-r (verso destra)
+- bg-gradient-to-br (verso il basso a destra)
+- bg-gradient-to-b (verso il basso)
+- bg-gradient-to-bl (verso il basso a sinistra)
+- bg-gradient-to-l (verso sinistra)
+- bg-gradient-to-tl (verso l’alto a sinistra)
+
+La direzione è obbligatoria per rendere visibile il gradiente.
+
+## Colore di partenza
+
+Il colore di partenza del gradiente si definisce con la classe from-\*.
+
+Esempio concettuale:
+
+- from-blue-500
+- from-red-600
+- from-emerald-400
+
+Il colore di partenza rappresenta il primo colore applicato nella direzione scelta.
+
+## Colore di fine
+
+Il colore finale del gradiente si definisce con la classe to-\*.
+
+Esempi:
+
+- to-purple-600
+- to-yellow-400
+- to-pink-500
+
+Il colore finale completa la transizione cromatica iniziata dal colore di partenza.
+
+## Colori intermedi
+
+Per aggiungere uno o più colori intermedi si utilizza la classe via-\*.
+
+Esempio con colore intermedio:
+
+- from-indigo-500 via-purple-500 to-pink-500
+
+Il colore intermedio viene distribuito automaticamente al centro del gradiente, creando una transizione più ricca e complessa.
+
+## Controllo della trasparenza
+
+I gradienti supportano anche colori con opacità. È possibile usare colori con slash syntax o classi di opacity.
+
+Esempi:
+
+- from-black/50 to-black/0
+- from-blue-500/80 to-green-500/80
+
+Questo approccio è molto utile per overlay, hero section e immagini di sfondo.
+
+## Gradienti con colori personalizzati
+
+Se il progetto utilizza colori personalizzati definiti nel file tailwind.config.js, questi possono essere usati direttamente nei gradienti.
+
+Esempio concettuale:
+
+- from-brand-primary
+- via-brand-secondary
+- to-brand-accent
+
+I gradienti rispettano completamente il sistema di colori esteso o sovrascritto nella configurazione.
+
+## Utilizzo con dimensioni e layout
+
+I gradienti sono applicati come background-image, quindi funzionano correttamente solo se l’elemento ha dimensioni visibili.
+
+Classi spesso abbinate:
+
+- h-full, h-screen
+- w-full
+- p-_, py-_, px-\*
+
+Senza dimensioni o contenuto, il gradiente non sarà visibile.
+
+## Gradienti e responsive design
+
+Tutte le classi dei gradienti possono essere controllate tramite breakpoint responsive.
+
+Esempio concettuale:
+
+- bg-gradient-to-r su desktop
+- md:bg-gradient-to-b
+- lg:bg-gradient-to-tr
+
+Questo consente di adattare l’impatto visivo del gradiente in base alla dimensione dello schermo.
+
+## Gradienti e modalità dark
+
+I gradienti possono essere differenziati tra light mode e dark mode usando la variante dark.
+
+Esempio concettuale:
+
+- from-gray-200 to-white
+- dark:from-gray-800 dark:to-black
+
+Questo garantisce coerenza visiva e accessibilità in entrambe le modalità.
+
+## Animazione dei gradienti
+
+Tailwind non fornisce animazioni di gradienti pronte all’uso, ma è possibile combinarli con:
+
+- animate-\*
+- transition-\*
+- classi personalizzate tramite plugin o CSS esterno
+
+Un uso comune è animare la posizione del background o cambiare gradualmente i colori con hover o focus.
+
+## Gradienti su testo
+
+I gradienti possono essere applicati anche al testo usando background-clip.
+
+Classi necessarie:
+
+- bg-gradient-to-\*
+- from-_ via-_ to-\*
+- bg-clip-text
+- text-transparent
+
+Questo permette di ottenere titoli e call to action con effetti visivi avanzati.
+
+## Best practice
+
+- Limitare l’uso di troppi colori intermedi per evitare confusione visiva
+- Usare gradienti coerenti con la palette del brand
+- Verificare sempre il contrasto per l’accessibilità
+- Preferire gradienti semplici per elementi UI e più complessi per sezioni decorative
+
+## Riepilogo
+
+I gradienti in Tailwind CSS offrono un sistema potente, flessibile e coerente per creare sfondi dinamici e moderni. Grazie alle utility class, è possibile controllare direzione, colori, opacità, responsive behavior e modalità dark senza scrivere CSS personalizzato.

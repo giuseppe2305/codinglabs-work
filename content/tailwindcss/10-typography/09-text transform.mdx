@@ -1,0 +1,178 @@
+# Text transform
+
+La sezione Text transform di TailwindCSS controlla la trasformazione delle lettere di un testo, permettendo di modificare la capitalizzazione senza alterare il contenuto originale. Queste utility sono fondamentali per gestire coerenza tipografica, leggibilità, gerarchie visive e adattamento a contesti diversi come titoli, pulsanti, etichette o testi dinamici provenienti da database.
+
+## Concetto di trasformazione del testo
+
+La trasformazione del testo agisce esclusivamente sulla resa visiva delle lettere tramite CSS `text-transform`, senza modificare il valore reale della stringa. Questo significa che il testo rimane invariato a livello di HTML, JavaScript, SEO e accessibilità, ma viene visualizzato in modo differente.
+
+## Utility disponibili
+
+TailwindCSS fornisce un set completo di classi per coprire tutti i valori supportati dalla proprietà `text-transform`.
+
+### uppercase
+
+La classe `uppercase` converte tutte le lettere in maiuscolo.
+
+Utilizzo tipico:
+
+- Titoli
+- Pulsanti
+- Badge
+- Navigazione
+
+Esempio:
+
+```html
+<p class="uppercase">Testo in maiuscolo</p>
+```
+
+Risultato visivo: TESTO IN MAIUSCOLO
+
+### lowercase
+
+La classe `lowercase` converte tutte le lettere in minuscolo.
+
+Utilizzo tipico:
+
+- Email
+- Codici
+- Stringhe normalizzate
+- UI tecniche
+
+Esempio:
+
+```html
+<p class="lowercase">Testo In Minuscolo</p>
+```
+
+Risultato visivo: testo in minuscolo
+
+### capitalize
+
+La classe `capitalize` rende maiuscola la prima lettera di ogni parola.
+
+Utilizzo tipico:
+
+- Nomi propri
+- Titoli secondari
+- Liste
+- Etichette
+
+Esempio:
+
+```html
+<p class="capitalize">testo con iniziali maiuscole</p>
+```
+
+Risultato visivo: Testo Con Iniziali Maiuscole
+
+Nota importante: `capitalize` non segue regole grammaticali complesse e capitalizza ogni parola separata da spazio, inclusi articoli e preposizioni.
+
+### normal-case
+
+La classe `normal-case` rimuove qualsiasi trasformazione del testo, riportandolo al comportamento predefinito.
+
+Utilizzo tipico:
+
+- Reset di stili ereditati
+- Componenti riutilizzabili
+- Override di classi globali
+
+Esempio:
+
+```html
+<p class="normal-case">Testo Originale</p>
+```
+
+## Ordine di priorità e override
+
+Le classi di trasformazione del testo seguono le normali regole di specificità CSS. Se più classi sono applicate allo stesso elemento, l’ultima nel markup ha la precedenza.
+
+Esempio:
+
+```html
+<p class="uppercase lowercase">testo</p>
+```
+
+Risultato visivo: testo
+
+## Uso con varianti responsive
+
+Le utility di text transform possono essere combinate con breakpoint responsive per adattare la tipografia ai diversi dispositivi.
+
+Esempio:
+
+```html
+<p class="uppercase md:normal-case">testo responsive</p>
+```
+
+Comportamento:
+
+- Mobile: TESTO RESPONSIVE
+- Desktop: testo responsive
+
+## Uso con varianti di stato
+
+Le classi possono essere applicate a stati come hover, focus e active.
+
+Esempio:
+
+```html
+<button class="capitalize hover:uppercase">azione</button>
+```
+
+Comportamento:
+
+- Stato normale: Azione
+- Hover: AZIONE
+
+## Combinazione con altre utility tipografiche
+
+Text transform funziona perfettamente insieme a:
+
+- font-weight
+- letter-spacing
+- font-size
+- line-height
+- text-align
+
+Esempio:
+
+```html
+<h2 class="uppercase tracking-widest font-bold text-lg">titolo sezione</h2>
+```
+
+## Accessibilità e SEO
+
+Poiché la trasformazione è puramente visiva:
+
+- I lettori di schermo leggono il testo originale
+- I motori di ricerca indicizzano il contenuto non trasformato
+- Non influisce su copy, keyword o contenuto semantico
+
+Questo rende `text-transform` sicuro per titoli, pulsanti e contenuti indicizzati.
+
+## Buone pratiche
+
+- Usare uppercase con moderazione per evitare problemi di leggibilità
+- Preferire capitalize per etichette e liste brevi
+- Evitare trasformazioni forzate su testi lunghi
+- Usare normal-case per prevenire effetti indesiderati in componenti condivisi
+
+## Quando evitare text transform
+
+È consigliabile evitare la trasformazione del testo quando:
+
+- La capitalizzazione ha valore semantico
+- Il testo contiene sigle o acronimi misti
+- Si lavora con lingue sensibili alla capitalizzazione
+
+## Riepilogo delle classi
+
+- uppercase: tutte le lettere maiuscole
+- lowercase: tutte le lettere minuscole
+- capitalize: iniziale maiuscola per ogni parola
+- normal-case: nessuna trasformazione
+
+Le utility di Text transform in TailwindCSS offrono un controllo preciso, coerente e scalabile sulla capitalizzazione del testo, mantenendo separati contenuto e presentazione.
