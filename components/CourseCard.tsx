@@ -33,7 +33,7 @@ function CourseCard({ disabled, courseInfo: info }: Props) {
       {!info.image ? (
         <CourseImagePlaceholder />
       ) : (
-        <Link href={`/corsi/${info.link}`}>
+        <Link href={`/corsi/${info.link}`} scroll={false}>
           <div className="w-full aspect-2/1 relative">
             <Image src={`/courses/${info.image}`} alt="Course Picture" fill />
           </div>
