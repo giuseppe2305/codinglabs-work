@@ -1,0 +1,206 @@
+# Tipografia: prose
+
+## Introduzione al plugin Typography
+
+Il plugin Typography di TailwindCSS fornisce la classe prose, progettata per stilizzare automaticamente contenuti HTML generati da CMS, Markdown o editor WYSIWYG. L’obiettivo è offrire una tipografia leggibile, coerente e ben spaziata senza dover applicare classi utilitarie a ogni singolo elemento.
+
+## Installazione del plugin
+
+Per utilizzare prose è necessario installare il plugin ufficiale typography.
+
+```bash
+npm install -D @tailwindcss/typography
+```
+
+Successivamente va registrato nel file tailwind.config.js.
+
+```js
+module.exports = {
+  plugins: [require("@tailwindcss/typography")],
+};
+```
+
+## Concetto di base della classe prose
+
+La classe prose applica uno stile tipografico predefinito a tutti gli elementi discendenti come p, h1–h6, ul, ol, blockquote, pre, code, table e img. È pensata per contenitori di testo, non per layout generici.
+
+```html
+<article class="prose">
+  <h1>Titolo</h1>
+  <p>Paragrafo con testo leggibile e spaziatura ottimizzata.</p>
+</article>
+```
+
+## Dimensioni tipografiche disponibili
+
+Tailwind fornisce varianti di dimensione che modificano font-size, line-height e spaziature verticali.
+
+    prose-sm
+    prose-base
+    prose-lg
+    prose-xl
+    prose-2xl
+
+Esempio:
+
+```html
+<div class="prose prose-lg">
+  <p>Testo più grande e arioso.</p>
+</div>
+```
+
+## Larghezza massima del contenuto
+
+Di default prose imposta una max-width ottimizzata per la lettura. È possibile rimuoverla con max-w-none.
+
+```html
+<div class="prose max-w-none">
+  <p>Contenuto a larghezza completa.</p>
+</div>
+```
+
+## Supporto per la modalità scura
+
+Per ambienti dark è disponibile la variante prose-invert, che inverte colori di testo, link e codice.
+
+```html
+<article class="prose dark:prose-invert">
+  <p>Testo leggibile in modalità scura.</p>
+</article>
+```
+
+## Palette cromatiche tipografiche
+
+Sono disponibili varianti di colore che influenzano link, titoli e accenti tipografici.
+
+    prose-gray
+    prose-slate
+    prose-neutral
+    prose-zinc
+    prose-stone
+
+Esempio:
+
+```html
+<div class="prose prose-neutral">
+  <a href="#">Link con colore coerente</a>
+</div>
+```
+
+## Personalizzazione dei singoli elementi
+
+È possibile modificare lo stile di specifici elementi HTML usando modificatori dedicati.
+
+    prose-headings
+    prose-p
+    prose-a
+    prose-strong
+    prose-code
+    prose-pre
+    prose-blockquote
+    prose-ul
+    prose-ol
+    prose-li
+    prose-table
+    prose-img
+
+Esempio:
+
+```html
+<article class="prose prose-headings:text-blue-600 prose-a:underline">
+  <h2>Titolo personalizzato</h2>
+  <a href="#">Link sottolineato</a>
+</article>
+```
+
+## Gestione del codice inline e dei blocchi pre
+
+Il codice inline viene stilizzato automaticamente con font monospaziato. I blocchi pre includono padding, background e overflow orizzontale.
+
+```html
+<pre><code>console.log('Hello World')</code></pre>
+```
+
+È possibile personalizzarli:
+
+```html
+<div class="prose prose-pre:bg-gray-900 prose-pre:text-gray-100">
+  <pre><code>npm run build</code></pre>
+</div>
+```
+
+## Tabelle e contenuti strutturati
+
+Le tabelle ricevono uno stile coerente con bordi, spaziatura e allineamenti leggibili, ideali per documentazione tecnica.
+
+```html
+<table>
+  <thead>
+    <tr>
+      <th>Classe</th>
+      <th>Descrizione</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>prose</td>
+      <td>Stile base</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+## Immagini e media
+
+Le immagini vengono rese responsive con margin verticali automatici e border-radius opzionale tramite personalizzazione.
+
+```html
+<img src="image.jpg" alt="Esempio immagine" />
+```
+
+## Esclusione selettiva con not-prose
+
+Per evitare che alcuni elementi ereditino gli stili tipografici si utilizza la classe not-prose.
+
+```html
+<div class="prose">
+  <p>Testo stilizzato</p>
+  <div class="not-prose">
+    <button class="px-4 py-2 bg-blue-600 text-white">Pulsante</button>
+  </div>
+</div>
+```
+
+## Personalizzazione avanzata via configurazione
+
+Il plugin può essere esteso tramite theme.typography nel file di configurazione.
+
+```js
+module.exports = {
+  theme: {
+    extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            color: "#1f2937",
+            a: {
+              color: "#2563eb",
+              "&:hover": {
+                color: "#1d4ed8",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+```
+
+## Quando usare prose
+
+La classe prose è ideale per articoli, blog post, documentazione tecnica e contenuti editoriali. Non è pensata per componenti UI complessi o layout interattivi, dove è preferibile usare classi utilitarie standard.
+
+## Riepilogo concettuale
+
+prose fornisce una tipografia pronta all’uso, semanticamente corretta, facilmente personalizzabile e perfettamente integrata nel paradigma utility-first di TailwindCSS.

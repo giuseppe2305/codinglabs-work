@@ -1,0 +1,182 @@
+# Tipografia – Truncation in TailwindCSS
+
+La truncation del testo è una tecnica fondamentale per gestire contenuti troppo lunghi all’interno di layout limitati. TailwindCSS fornisce utility semplici e potenti per troncare il testo su una o più righe, mantenendo controllo totale su comportamento, responsività e accessibilità.
+
+## Concetto di truncation del testo
+
+La truncation consiste nel tagliare il testo che supera lo spazio disponibile e sostituirlo con un’ellissi visiva. In ambito UI è essenziale per titoli, card, tabelle, breadcrumb e liste, dove la lunghezza del testo non è prevedibile.
+
+## Utility truncate per una singola riga
+
+L’utility principale per la truncation su una sola riga è truncate.
+
+```html
+<p class="truncate">
+  Questo è un testo molto lungo che verrà troncato automaticamente
+</p>
+```
+
+La classe truncate è una scorciatoia che applica contemporaneamente:
+
+- overflow-hidden
+- text-ellipsis
+- whitespace-nowrap
+
+Questa combinazione forza il testo su una sola riga e mostra i tre puntini quando lo spazio non è sufficiente.
+
+## Requisiti di larghezza per il funzionamento
+
+La truncation funziona solo se l’elemento ha una larghezza limitata.
+
+```html
+<p class="w-48 truncate">Testo lungo con larghezza fissa</p>
+```
+
+Oppure all’interno di un contenitore con larghezza definita:
+
+```html
+<div class="max-w-sm">
+  <p class="truncate">Testo lungo</p>
+</div>
+```
+
+Senza un vincolo di larghezza, l’ellissi non verrà mai applicata.
+
+## Utility text-ellipsis e overflow-hidden
+
+Per un controllo più granulare è possibile usare le utility singole.
+
+```html
+<p class="overflow-hidden text-ellipsis whitespace-nowrap">
+  Testo troncato manualmente
+</p>
+```
+
+Questo approccio è utile quando si vogliono modificare solo alcune parti del comportamento predefinito di truncate.
+
+## Truncation multilinea con line-clamp
+
+Per troncare il testo su più righe si utilizza il plugin ufficiale line-clamp.
+
+```bash
+npm install @tailwindcss/line-clamp
+```
+
+Configurazione nel file tailwind.config.js:
+
+```js
+plugins: [require("@tailwindcss/line-clamp")];
+```
+
+Esempio di utilizzo:
+
+```html
+<p class="line-clamp-3">
+  Testo molto lungo che verrà limitato a tre righe con ellissi finale
+</p>
+```
+
+Le classi disponibili vanno da line-clamp-1 a line-clamp-6, oltre a valori arbitrari.
+
+## Rimozione del line clamp
+
+Per ripristinare il comportamento normale del testo:
+
+```html
+<p class="line-clamp-none">Testo senza limitazioni di righe</p>
+```
+
+Questo è utile in combinazione con stati hover o breakpoint responsivi.
+
+## Truncation responsiva
+
+Le utility di truncation supportano tutte le varianti responsive.
+
+```html
+<p class="truncate md:whitespace-normal md:overflow-visible md:text-clip">
+  Testo troncato su mobile, completo su desktop
+</p>
+```
+
+In questo modo il testo viene abbreviato su schermi piccoli e mostrato interamente su schermi più grandi.
+
+## Truncation in flexbox e grid
+
+Quando si lavora con flex o grid, è fondamentale permettere agli elementi di ridursi.
+
+```html
+<div class="flex">
+  <p class="min-w-0 truncate">Testo lungo in un layout flex</p>
+</div>
+```
+
+Senza min-w-0, l’elemento potrebbe non ridursi correttamente, impedendo la truncation.
+
+## Truncation all’interno di tabelle
+
+Nelle tabelle è consigliabile fissare la larghezza delle colonne.
+
+```html
+<td class="max-w-xs truncate">Contenuto molto lungo</td>
+```
+
+Questo migliora la leggibilità e mantiene la struttura della tabella stabile.
+
+## Valori arbitrari per casi avanzati
+
+È possibile usare valori arbitrari per line clamp.
+
+```html
+<p class="line-clamp-[8]">Testo limitato a otto righe</p>
+```
+
+Questo approccio è utile per design complessi o contenuti editoriali.
+
+## Accessibilità e usabilità
+
+La truncation è puramente visiva e non modifica il contenuto reale. Per migliorare l’accessibilità:
+
+- usare l’attributo title per mostrare il testo completo
+- fornire tooltip o modali di approfondimento
+- evitare la truncation su contenuti critici
+
+```html
+<p class="truncate" title="Testo completo visibile al focus">Testo troncato</p>
+```
+
+## Truncation e lingue RTL
+
+TailwindCSS gestisce correttamente l’ellissi anche in contesti RTL, purché la direzione del testo sia impostata correttamente con dir="rtl".
+
+```html
+<p dir="rtl" class="truncate">نص طويل سيتم اقتطاعه</p>
+```
+
+## Errori comuni da evitare
+
+- Usare truncate senza una larghezza definita
+- Dimenticare min-w-0 in layout flex
+- Troncare testi essenziali per la comprensione
+- Usare line clamp senza includere il plugin
+
+## Quando usare la truncation
+
+La truncation è ideale per:
+
+- titoli di card
+- anteprime di articoli
+- nomi file
+- celle di tabelle
+- liste compatte
+
+Non è consigliata per testi lunghi destinati alla lettura continua.
+
+## Riepilogo delle utility principali
+
+- truncate per una riga
+- overflow-hidden, text-ellipsis, whitespace-nowrap per controllo manuale
+- line-clamp-\* per truncation multilinea
+- min-w-0 per layout flex
+- max-w-_ e w-_ per vincolare la larghezza
+
+La truncation in TailwindCSS è semplice da applicare ma richiede attenzione al contesto di layout per ottenere risultati affidabili e accessibili.

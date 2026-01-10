@@ -1,0 +1,222 @@
+# Background Size
+
+La gestione della dimensione delle immagini di sfondo in TailwindCSS avviene tramite utility che mappano direttamente la proprietà CSS background-size. Queste classi permettono di controllare come un’immagine di sfondo viene ridimensionata rispetto al contenitore.
+
+## Concetto di background-size
+
+La proprietà background-size definisce come l’immagine di sfondo viene scalata:
+
+- adattata completamente al contenitore
+- coperta interamente anche a costo di ritagli
+- mantenuta alla dimensione originale
+- ridimensionata con valori personalizzati
+
+In TailwindCSS questo comportamento è gestito tramite classi predefinite, pensate per coprire la maggior parte dei casi d’uso comuni.
+
+## Utility principali per background-size
+
+TailwindCSS fornisce quattro utility fondamentali:
+
+### bg-auto
+
+Imposta background-size: auto.
+
+L’immagine mantiene le sue dimensioni originali e non viene forzata ad adattarsi al contenitore.
+
+```html
+<div
+  class="bg-auto bg-no-repeat bg-center"
+  style="background-image: url('/img/bg.png')"
+></div>
+```
+
+Uso tipico:
+
+- pattern piccoli
+- icone decorative
+- immagini che non devono essere scalate
+
+### bg-cover
+
+Imposta background-size: cover.
+
+L’immagine copre completamente il contenitore mantenendo le proporzioni originali. Parti dell’immagine possono essere ritagliate.
+
+```html
+<div
+  class="bg-cover bg-center"
+  style="background-image: url('/img/hero.jpg')"
+></div>
+```
+
+Uso tipico:
+
+- hero section
+- banner
+- background a schermo intero
+
+### bg-contain
+
+Imposta background-size: contain.
+
+L’immagine viene ridimensionata per stare interamente nel contenitore senza essere ritagliata. Possono rimanere spazi vuoti.
+
+```html
+<div
+  class="bg-contain bg-no-repeat bg-center"
+  style="background-image: url('/img/logo.png')"
+></div>
+```
+
+Uso tipico:
+
+- loghi
+- immagini che non devono perdere contenuto
+- preview grafiche
+
+### bg-[length]
+
+Permette di definire una dimensione personalizzata tramite valori arbitrari.
+
+```html
+<div
+  class="bg-[length:200px_100px]"
+  style="background-image: url('/img/bg.png')"
+></div>
+```
+
+Equivalente CSS:
+
+```css
+background-size: 200px 100px;
+```
+
+Uso tipico:
+
+- layout avanzati
+- design personalizzati
+- casi non coperti dalle utility standard
+
+## Combinazione con altre utility di background
+
+Background size viene quasi sempre usato insieme ad altre classi per ottenere un risultato coerente.
+
+### Background position
+
+Controlla il punto di ancoraggio dell’immagine.
+
+```html
+<div class="bg-cover bg-center"></div>
+<div class="bg-cover bg-top"></div>
+<div class="bg-cover bg-bottom"></div>
+```
+
+### Background repeat
+
+Definisce se l’immagine si ripete.
+
+```html
+<div class="bg-auto bg-repeat"></div>
+<div class="bg-contain bg-no-repeat"></div>
+```
+
+### Background attachment
+
+Gestisce lo scrolling dell’immagine.
+
+```html
+<div class="bg-cover bg-fixed"></div>
+<div class="bg-cover bg-scroll"></div>
+```
+
+## Responsive background size
+
+Le utility di TailwindCSS supportano i breakpoint responsive.
+
+```html
+<div
+  class="bg-contain md:bg-cover"
+  style="background-image: url('/img/bg.jpg')"
+></div>
+```
+
+Comportamento:
+
+- mobile: immagine interamente visibile
+- desktop: immagine che copre tutto il contenitore
+
+## Background size con hover e stati
+
+È possibile cambiare la dimensione del background in base allo stato.
+
+```html
+<div
+  class="bg-contain hover:bg-cover transition-all duration-300"
+  style="background-image: url('/img/bg.jpg')"
+></div>
+```
+
+Uso tipico:
+
+- effetti interattivi
+- card animate
+- call to action visive
+
+## Uso con gradienti e immagini multiple
+
+Background-size si applica anche a background multipli.
+
+```html
+<div
+  class="bg-cover"
+  style="background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url('/img/bg.jpg')"
+></div>
+```
+
+In questo caso:
+
+- il gradiente segue le stesse dimensioni del background
+- l’immagine sottostante viene scalata con cover
+
+## Estensione delle utility nel config Tailwind
+
+È possibile definire dimensioni personalizzate nel file tailwind.config.js.
+
+```js
+module.exports = {
+  theme: {
+    extend: {
+      backgroundSize: {
+        50: "50%",
+        75: "75%",
+        "full-width": "100% auto",
+      },
+    },
+  },
+};
+```
+
+Utilizzo:
+
+```html
+<div class="bg-50"></div>
+<div class="bg-full-width"></div>
+```
+
+## Best practice
+
+- usare bg-cover per sezioni principali e hero
+- usare bg-contain per contenuti che non devono essere tagliati
+- combinare sempre background-size con position e repeat
+- preferire utility standard rispetto a valori arbitrari quando possibile
+- testare il comportamento su più risoluzioni
+
+## Confronto diretto tra le utility
+
+| Classe     | Comportamento              | Ritaglio | Spazi vuoti |
+| ---------- | -------------------------- | -------- | ----------- |
+| bg-auto    | Dimensione originale       | No       | Possibili   |
+| bg-cover   | Copre tutto il contenitore | Sì       | No          |
+| bg-contain | Tutta l’immagine visibile  | No       | Sì          |
+
+Background size è una delle proprietà più importanti per ottenere layout visivi coerenti e professionali in TailwindCSS, soprattutto nella costruzione di interfacce moderne e responsive.

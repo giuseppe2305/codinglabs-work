@@ -1,0 +1,100 @@
+# Letter spacing in TailwindCSS
+
+La letter spacing, chiamata anche tracking, controlla la distanza orizzontale tra i caratteri di un testo. In TailwindCSS questa proprietà è gestita tramite utility class che permettono di applicare valori coerenti, scalabili e facilmente mantenibili in qualsiasi contesto tipografico.
+
+## Concetto di letter spacing
+
+Il letter spacing influisce sulla leggibilità, sul tono visivo e sulla gerarchia del testo. Un valore più stretto rende il testo compatto ed elegante, mentre un valore più ampio trasmette aria, enfasi o modernità. In CSS puro, questa proprietà è controllata tramite `letter-spacing`.
+
+TailwindCSS fornisce un set predefinito di valori basati su `em`, così da adattarsi automaticamente alla dimensione del font utilizzato.
+
+## Utility class disponibili
+
+Le classi di TailwindCSS per il letter spacing seguono la sintassi:
+
+tracking-{'valore'}
+
+Le utility standard incluse sono:
+
+tracking-tighter  
+Applica una spaziatura molto ridotta tra i caratteri, utile per titoli grandi o testi display.
+
+tracking-tight  
+Riduce leggermente la spaziatura, mantenendo una buona leggibilità.
+
+tracking-normal  
+Imposta il valore di default del browser, equivalente a `letter-spacing: 0`.
+
+tracking-wide  
+Aumenta leggermente la distanza tra i caratteri, spesso usata per testi piccoli o elementi secondari.
+
+tracking-wider  
+Incrementa ulteriormente lo spazio tra le lettere, ideale per etichette, badge o menu.
+
+tracking-widest  
+Applica una spaziatura molto ampia, usata per effetti grafici o titoli decorativi.
+
+## Valori CSS associati
+
+Ogni utility corrisponde a un valore specifico in `em`:
+
+tracking-tighter → -0.05em  
+tracking-tight → -0.025em  
+tracking-normal → 0em  
+tracking-wide → 0.025em  
+tracking-wider → 0.05em  
+tracking-widest → 0.1em
+
+L’uso di `em` garantisce che la spaziatura cresca o diminuisca in proporzione alla dimensione del font.
+
+## Esempi di utilizzo pratico
+
+Titoli principali spesso beneficiano di un tracking negativo:
+
+h1 con tracking-tight o tracking-tighter migliora la compattezza visiva.
+
+Testi in maiuscolo risultano più leggibili con tracking positivo:
+
+button, label o nav-item con tracking-wide o tracking-wider riducono l’effetto di “ammassamento” delle lettere.
+
+Testi piccoli, come didascalie o metadata, traggono vantaggio da una spaziatura leggermente aumentata.
+
+## Interazione con text-transform
+
+Il letter spacing è strettamente legato a `text-transform`. Quando si usa `uppercase`, è consigliato aumentare il tracking per compensare la forma più squadrata delle lettere maiuscole.
+
+Esempio concettuale:
+uppercase + tracking-wide → testo più leggibile e bilanciato  
+uppercase + tracking-normal → testo spesso troppo compatto
+
+## Responsività e breakpoints
+
+Le utility di letter spacing possono essere combinate con i breakpoint responsive di Tailwind:
+
+sm:tracking-normal  
+md:tracking-wide  
+lg:tracking-tight
+
+Questo permette di adattare la spaziatura dei caratteri in base alla dimensione dello schermo, migliorando la leggibilità su dispositivi diversi.
+
+## Personalizzazione nel file di configurazione
+
+È possibile definire valori personalizzati nel file `tailwind.config.js`:
+
+extend  
+letterSpacing  
+chiave personalizzata  
+valore in em o px
+
+Questo approccio è utile per rispettare linee guida di design system specifiche o per ottenere un controllo tipografico più preciso.
+
+## Best practice tipografiche
+
+Evitare tracking negativo su testi lunghi: riduce la leggibilità.  
+Usare tracking positivo per testi in maiuscolo o con font condensati.  
+Applicare il tracking con coerenza all’interno della stessa gerarchia tipografica.  
+Testare sempre il risultato visivo con diverse famiglie di font, poiché ogni font reagisce in modo diverso alla spaziatura.
+
+## Conclusione
+
+Il sistema di letter spacing di TailwindCSS offre un controllo tipografico semplice ma potente. Grazie alle utility class predefinite, alla responsività e alla possibilità di estensione, è possibile gestire la spaziatura dei caratteri in modo coerente, accessibile e perfettamente integrato in qualsiasi progetto web moderno.

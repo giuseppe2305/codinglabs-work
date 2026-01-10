@@ -1,0 +1,118 @@
+# Colore del testo in TailwindCSS
+
+## Introduzione al colore del testo
+
+In TailwindCSS il colore del testo viene gestito tramite utility class dedicate che permettono di applicare rapidamente colori coerenti con il sistema di design configurato. Le classi per il colore del testo iniziano tutte con il prefisso text- e fanno riferimento alla palette definita nel tema di Tailwind.
+
+## Sintassi di base delle classi text-color
+
+La sintassi generale per impostare il colore del testo è:
+text-{colore}-{intensità}
+
+Esempio:
+text-blue-500
+
+Questa classe applica al testo una tonalità media di blu presa dalla palette predefinita.
+
+## Palette di colori predefinita
+
+TailwindCSS include una palette di colori ampia e bilanciata. Ogni colore è suddiviso in livelli di intensità numerati solitamente da 50 a 950. Valori più bassi indicano colori più chiari, mentre valori più alti rappresentano tonalità più scure.
+
+Esempi comuni:
+text-red-500  
+text-gray-700  
+text-green-300  
+text-indigo-900
+
+## Colori neutrali e di supporto
+
+I colori neutrali sono utilizzati frequentemente per testi principali, secondari e di supporto. I più comuni includono:
+gray  
+slate  
+zinc  
+neutral  
+stone
+
+Questi colori sono ideali per testi lunghi, interfacce e contenuti leggibili.
+
+Esempio:
+text-slate-800
+
+## Utilizzo del colore corrente
+
+La classe text-current imposta il colore del testo uguale al valore della proprietà CSS color del contesto corrente. È particolarmente utile quando si lavora con SVG o componenti che devono ereditare il colore.
+
+Esempio:
+text-current
+
+## Colori trasparenti e speciali
+
+Tailwind fornisce classi dedicate per casi particolari:
+text-transparent rende il testo completamente trasparente  
+text-black e text-white applicano colori assoluti
+
+Esempio:
+text-transparent
+
+## Colori personalizzati tramite configurazione
+
+È possibile definire colori personalizzati nel file tailwind.config.js all’interno della sezione theme.colors. Una volta definiti, diventano disponibili come classi text-{nome}.
+
+Esempio di utilizzo:
+text-brand-primary
+
+Questo approccio consente di mantenere coerenza visiva e centralizzare la gestione dei colori.
+
+## Colore del testo con opacità
+
+Tailwind consente di controllare l’opacità del colore del testo tramite il modificatore /opacity.
+
+Esempio:
+text-blue-500/75
+
+Questo applica il colore blu con un’opacità del 75%, utile per testi secondari o disabilitati.
+
+## Colore del testo e stati interattivi
+
+Le utility per il colore del testo possono essere combinate con varianti di stato come hover, focus, active e disabled.
+
+Esempio:
+hover:text-red-600  
+focus:text-green-500
+
+Queste classi migliorano l’interazione visiva con link, bottoni e componenti cliccabili.
+
+## Colore del testo e responsive design
+
+Tailwind permette di modificare il colore del testo in base alla dimensione dello schermo usando prefissi responsive.
+
+Esempio:
+text-gray-700  
+md:text-gray-900
+
+Il colore cambia automaticamente quando viene raggiunto il breakpoint specificato.
+
+## Modalità dark e colore del testo
+
+Con il supporto alla dark mode, è possibile definire colori diversi per il testo in modalità chiara e scura.
+
+Esempio:
+text-gray-800  
+dark:text-gray-200
+
+Questo garantisce leggibilità e contrasto adeguato in entrambe le modalità.
+
+## Accessibilità e contrasto cromatico
+
+Quando si sceglie un colore per il testo è fondamentale assicurare un contrasto sufficiente rispetto allo sfondo. Tailwind facilita questo compito grazie a una palette progettata per mantenere buoni livelli di leggibilità, ma è responsabilità dello sviluppatore verificare il contrasto finale.
+
+## Best practice per il colore del testo
+
+Usare colori neutrali per testi lunghi  
+Riservare colori accesi per enfasi o azioni  
+Limitare il numero di colori utilizzati  
+Centralizzare i colori personalizzati nel file di configurazione
+
+## Riepilogo
+
+Il colore del testo in TailwindCSS è gestito tramite classi semplici, flessibili e altamente configurabili. Grazie alla palette integrata, alle varianti di stato, al supporto responsive e alla dark mode, è possibile controllare ogni aspetto cromatico del testo mantenendo codice pulito e coerente.

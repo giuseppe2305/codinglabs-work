@@ -1,0 +1,146 @@
+# Colori personalizzati in TailwindCSS
+
+## Introduzione ai colori personalizzati
+
+TailwindCSS fornisce una palette di colori predefinita molto ampia, ma nei progetti reali è spesso necessario definire colori personalizzati per rispettare una brand identity, un design system aziendale o specifiche di progetto. I colori personalizzati permettono di mantenere coerenza visiva, migliorare la manutenibilità del codice e ridurre l’uso di valori CSS hardcoded.
+
+## Dove vengono definiti i colori
+
+I colori personalizzati vengono definiti nel file di configurazione tailwind.config.js, all’interno della proprietà theme, più precisamente sotto la chiave extend o direttamente sotto colors.
+
+## Differenza tra colors ed extend.colors
+
+Definire i colori sotto theme.colors sostituisce completamente la palette predefinita di Tailwind. Utilizzare theme.extend.colors permette invece di aggiungere nuovi colori mantenendo quelli di default. Nella maggior parte dei casi è consigliato usare extend per evitare la perdita delle utility standard.
+
+## Definizione di un colore semplice
+
+Un colore personalizzato può essere definito come una singola chiave con un valore colore valido in formato HEX, RGB, HSL o CSS color function.
+
+Esempio:
+theme.extend.colors.primary: '#1e40af'
+
+Questo genera automaticamente utility come:
+text-primary  
+bg-primary  
+border-primary
+
+## Palette di colori con più tonalità
+
+Per sfruttare appieno la filosofia di Tailwind, è consigliato definire i colori come oggetti con più tonalità numeriche. Le tonalità seguono comunemente una scala da 50 a 900.
+
+Esempio:
+primary:  
+50, 100, 200, 300, 400, 500, 600, 700, 800, 900
+
+Questo consente di utilizzare utility come:
+bg-primary-500  
+text-primary-700  
+hover:bg-primary-600
+
+## Convenzioni per la denominazione
+
+I nomi dei colori dovrebbero essere semantici e non descrittivi. È preferibile usare nomi come primary, secondary, accent, success, warning invece di blue, red o green, così da disaccoppiare il design dal valore cromatico.
+
+## Utilizzo di colori brand
+
+Per i colori di brand è comune definire una palette dedicata che rappresenti il marchio.
+
+Esempio concettuale:
+brand.primary  
+brand.secondary  
+brand.accent
+
+Questo approccio migliora la leggibilità del codice e rende più semplice un eventuale rebranding.
+
+## Colori neutri personalizzati
+
+Oltre ai colori principali, è spesso utile definire una scala di grigi personalizzata per testi, sfondi e bordi.
+
+Esempio:
+neutral:  
+100 per sfondi chiari  
+300 per bordi  
+600 per testo secondario  
+900 per testo principale
+
+## Colori trasparenti e alpha
+
+Tailwind supporta colori con canale alpha tramite formati rgba, hsla o funzioni CSS moderne come rgb() con slash syntax.
+
+Esempio:
+rgba(30, 64, 175, 0.5)
+
+Le utility generate mantengono la trasparenza senza necessità di combinare opacity.
+
+## Uso di currentColor
+
+È possibile definire colori che sfruttano currentColor per rendere elementi come icone e bordi dipendenti dal colore del testo.
+
+Questo approccio è utile per componenti riutilizzabili che devono adattarsi al contesto cromatico.
+
+## Integrazione con utility opacity
+
+I colori personalizzati funzionano nativamente con utility come bg-opacity, text-opacity e border-opacity, a condizione che il colore sia definito in formato compatibile.
+
+## Colori CSS custom properties
+
+Tailwind consente l’uso di variabili CSS come valori colore. Questo è particolarmente utile per temi dinamici o modalità dark/light gestite via CSS.
+
+Esempio concettuale:
+primary: 'var(--color-primary)'
+
+Le utility Tailwind useranno il valore della variabile al runtime.
+
+## Gestione del tema scuro
+
+I colori personalizzati possono essere combinati con la modalità dark di Tailwind per definire palette diverse in base al tema.
+
+Approccio comune:
+Definire colori neutrali per light mode  
+Sovrascrivere i valori tramite variabili CSS in dark mode
+
+Questo evita la duplicazione delle utility.
+
+## Colori per stati e feedback
+
+È buona pratica definire colori specifici per stati come hover, active, focus, success, error e warning. Questo migliora l’accessibilità e l’esperienza utente.
+
+Esempi di utilizzo:
+bg-success-500  
+text-error-600  
+border-warning-400
+
+## Accessibilità e contrasto
+
+Quando si definiscono colori personalizzati è fondamentale rispettare i requisiti di contrasto WCAG. Testare il contrasto tra testo e sfondo garantisce leggibilità e conformità alle linee guida di accessibilità.
+
+## Utilizzo nei componenti
+
+I colori personalizzati diventano parte integrante dei componenti UI. L’uso coerente delle utility cromatiche semplifica la creazione di design system scalabili e coerenti.
+
+## Vantaggi dei colori personalizzati
+
+Centralizzazione delle scelte cromatiche  
+Maggiore coerenza visiva  
+Facilità di manutenzione  
+Supporto a temi e brand multipli  
+Riduzione di CSS personalizzato
+
+## Errori comuni da evitare
+
+Sovrascrivere accidentalmente la palette predefinita  
+Usare nomi non semantici  
+Definire troppe tonalità inutilizzate  
+Usare valori colore direttamente nelle classi
+
+## Best practice consigliate
+
+Usare extend.colors invece di colors  
+Definire palette coerenti e limitate  
+Adottare nomi semantici  
+Verificare sempre l’accessibilità  
+Integrare i colori nel design system
+
+## Conclusione
+
+I colori personalizzati in TailwindCSS sono uno strumento potente per creare interfacce coerenti, scalabili e manutenibili. Una corretta definizione e organizzazione delle palette consente di lavorare in modo più efficiente e professionale, adattando il framework alle reali esigenze del progetto.

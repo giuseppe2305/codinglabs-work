@@ -1,0 +1,153 @@
+# Palette di default di TailwindCSS
+
+## Panoramica della palette predefinita
+
+TailwindCSS fornisce una palette di colori pronta all’uso, pensata per coprire la maggior parte dei casi reali di interfacce moderne. La palette è organizzata in famiglie cromatiche coerenti, ciascuna suddivisa in più tonalità numeriche, così da consentire controllo fine su contrasto, gerarchia visiva e stati dell’interfaccia.
+
+## Struttura delle famiglie di colore
+
+Ogni colore è identificato da un nome e da una scala numerica. La struttura generale è:
+nome-colore-livello
+
+Esempi:
+text-blue-500  
+bg-gray-100  
+border-red-700
+
+Il nome indica la famiglia cromatica, mentre il livello rappresenta la luminosità o intensità.
+
+## Scala numerica delle tonalità
+
+La scala standard utilizzata da TailwindCSS è la seguente:
+50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950
+
+Indicazioni pratiche:
+50–100: tonalità molto chiare, ideali per sfondi  
+200–400: colori soft per elementi secondari  
+500: colore base della famiglia, il più bilanciato  
+600–700: colori principali per azioni e contenuti evidenziati  
+800–950: tonalità molto scure, adatte a testi su sfondi chiari o dark mode
+
+## Famiglie neutre disponibili
+
+Le famiglie neutre sono progettate per testi, sfondi e separatori. Differiscono per temperatura e carattere visivo.
+
+slate: neutro freddo con leggera dominante blu  
+gray: neutro bilanciato, il più generico  
+zinc: grigio moderno con contrasto deciso  
+neutral: scala puramente neutra, senza dominanti  
+stone: grigio caldo con sfumature terrose
+
+Questi colori sono particolarmente indicati per layout, tipografia e superfici.
+
+## Famiglie cromatiche calde
+
+I colori caldi sono spesso usati per stati di errore, avvisi o call to action energiche.
+
+red: errori, validazioni fallite  
+orange: avvisi e attenzione  
+amber: notifiche e stati intermedi  
+yellow: evidenziazioni e badge  
+lime: accenti vivaci e positivi
+
+## Famiglie cromatiche fredde
+
+I colori freddi trasmettono affidabilità, calma e struttura.
+
+green: successo e conferme  
+emerald: successo con tono più elegante  
+teal: equilibrio tra verde e blu  
+cyan: interfacce moderne e tecniche  
+sky: alternative più chiare al blu  
+blue: colore primario più comune  
+indigo: varianti profonde e professionali  
+violet: accenti creativi  
+purple: branding e creatività  
+fuchsia: evidenziazioni forti  
+pink: stati secondari e contenuti emozionali  
+rose: alternative più morbide al rosso
+
+## Utilizzo dei colori nelle utility
+
+La palette può essere applicata a tutte le principali utility di TailwindCSS.
+
+Testo:
+text-indigo-600
+
+Sfondi:
+bg-emerald-100
+
+Bordi:
+border-slate-300
+
+Anelli di focus:
+ring-blue-500
+
+SVG:
+fill-cyan-400  
+stroke-neutral-700
+
+## Gestione dell’opacità
+
+TailwindCSS consente di controllare l’opacità direttamente nella classe usando la sintassi con slash.
+
+Esempi:
+bg-blue-500/50  
+text-black/75  
+border-red-600/20
+
+Questo approccio evita la definizione manuale di colori RGBA.
+
+## Colori e gradienti
+
+I colori della palette sono utilizzabili anche nei gradienti.
+
+Esempio:
+bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500
+
+Ogni stop del gradiente può usare qualsiasi colore e tonalità della palette.
+
+## Stati interattivi e varianti
+
+Le tonalità più scure della stessa famiglia sono comunemente usate per hover, focus e active.
+
+Esempio:
+bg-blue-500 hover:bg-blue-600 active:bg-blue-700
+
+Questo garantisce coerenza visiva senza cambiare famiglia cromatica.
+
+## Supporto alla dark mode
+
+In modalità scura è consigliabile:
+usare tonalità alte (700–950) come sfondo  
+usare tonalità basse (50–200) per il testo
+
+Esempio:
+bg-slate-900 text-slate-100
+
+La palette di default è progettata per mantenere un buon contrasto anche in dark mode.
+
+## Accessibilità e contrasto
+
+Per garantire accessibilità:
+testo piccolo: contrasto elevato (es. 900 su 50)  
+testo grande: contrasto medio (es. 700 su 100)
+
+Le tonalità 500 non sono sempre sufficienti per testo su sfondo chiaro. È preferibile usare 700 o superiori.
+
+## Errori comuni nell’uso della palette
+
+Usare troppe famiglie cromatiche nello stesso layout  
+Usare la tonalità 500 per ogni contesto  
+Ignorare il contrasto tra testo e sfondo  
+Mescolare colori caldi e freddi senza gerarchia visiva
+
+## Riepilogo operativo
+
+La palette di default di TailwindCSS:
+è completa e pronta per produzione  
+segue una logica coerente di tonalità  
+supporta accessibilità e dark mode  
+riduce la necessità di colori personalizzati
+
+Una corretta comprensione della palette consente di costruire interfacce coerenti, leggibili e scalabili senza uscire dallo standard di TailwindCSS.
