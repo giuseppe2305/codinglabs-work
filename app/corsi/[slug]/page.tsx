@@ -27,7 +27,7 @@ export default async function page({ params }: Props) {
   const { slug } = await params;
   const course = coursesInfo.find((el) => el.link.includes(slug));
 
-  if (!course) notFound();
+  if (!course || course.disabled) notFound();
 
   const chaptersCount = course.content.length;
   const lessonsCount = course.content.flatMap((chap) => chap.lessons).length;
