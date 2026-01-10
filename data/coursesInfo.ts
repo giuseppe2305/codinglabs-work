@@ -199,7 +199,7 @@ export const coursesInfo: CourseInfo[] = [
     description:
       "Corso di HTML5 e CSS3 con l'obiettivo di costruire interfacce solide, responsive e manutenibili, come si fa oggi nello sviluppo frontend professionale.",
     length: 12,
-    link: "/",
+    link: "/htmlcss",
     price: 40,
     tags: ["Frontend Development"],
 
