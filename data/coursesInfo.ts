@@ -184,13 +184,13 @@ export const coursesInfo: CourseInfo[] = [
     description:
       "Corso di JavaScript pensato per imparare JavaScript moderno, aggiornato agli standard attuali e alle best practice utilizzate nel mondo reale.",
     length: 12,
-    link: "/",
+    link: "/javascript",
     price: 40,
     tags: ["Frontend Development"],
 
     id: 2,
     disabled: true,
-    image: "/",
+    image: "javascript.png",
     content: [],
     buyLink: "/",
   },
@@ -205,7 +205,7 @@ export const coursesInfo: CourseInfo[] = [
 
     id: 3,
     disabled: true,
-    image: "/",
+    image: "",
     content: [],
     buyLink: "/",
   },
