@@ -209,4 +209,19 @@ export const coursesInfo: CourseInfo[] = [
     content: [],
     buyLink: "/",
   },
+  {
+    title: "Corso React.js 19.2 2026",
+    description:
+      "Corso di React.js con l’obiettivo di costruire applicazioni frontend moderne, scalabili e manutenibili, basate su componenti riutilizzabili, gestione efficace dello stato e integrazione con API, seguendo le pratiche utilizzate oggi nello sviluppo frontend professionale.",
+    length: 12,
+    link: "/react",
+    price: 40,
+    tags: ["Frontend Development"],
+
+    id: 4,
+    disabled: true,
+    image: "react.png",
+    content: [],
+    buyLink: "/",
+  },
 ];
