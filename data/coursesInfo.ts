@@ -179,33 +179,64 @@ export const coursesInfo: CourseInfo[] = [
       },
     ],
   },
-  {
-    title: "Corso JavaScript 2026",
-    description:
-      "Corso di JavaScript pensato per imparare JavaScript moderno, aggiornato agli standard attuali e alle best practice utilizzate nel mondo reale.",
-    length: 12,
-    link: "/",
-    price: 40,
-    tags: ["Frontend Development"],
 
-    id: 2,
-    disabled: true,
-    image: "/",
-    content: [],
-    buyLink: "/",
-  },
   {
     title: "Corso HTML & CSS 2026",
     description:
       "Corso di HTML5 e CSS3 con l'obiettivo di costruire interfacce solide, responsive e manutenibili, come si fa oggi nello sviluppo frontend professionale.",
     length: 12,
-    link: "/",
+    link: "/htmlcss",
     price: 40,
     tags: ["Frontend Development"],
 
     id: 3,
     disabled: true,
-    image: "/",
+    image: "htmlcss.png",
+    content: [],
+    buyLink: "/",
+  },
+  {
+    title: "Corso JavaScript 2026",
+    description:
+      "Corso di JavaScript pensato per imparare JavaScript moderno, aggiornato agli standard attuali e alle best practice utilizzate nel mondo reale.",
+    length: 12,
+    link: "/javascript",
+    price: 40,
+    tags: ["Frontend Development"],
+
+    id: 2,
+    disabled: true,
+    image: "javascript.png",
+    content: [],
+    buyLink: "/",
+  },
+  {
+    title: "Corso React.js 19.2 2026",
+    description:
+      "Corso di React.js con l’obiettivo di costruire applicazioni frontend moderne, scalabili e manutenibili, basate su componenti riutilizzabili, gestione efficace dello stato e integrazione con API, seguendo le pratiche utilizzate oggi nello sviluppo frontend professionale.",
+    length: 12,
+    link: "/react",
+    price: 40,
+    tags: ["Frontend Development"],
+
+    id: 4,
+    disabled: true,
+    image: "react.png",
+    content: [],
+    buyLink: "/",
+  },
+  {
+    title: "Corso Next.js 16 2026",
+    description:
+      "Corso di Next.js con l’obiettivo di costruire applicazioni web moderne, performanti e SEO-friendly, sfruttando rendering ibrido, routing avanzato, data fetching e architetture scalabili, secondo le pratiche adottate oggi nello sviluppo frontend professionale.",
+    length: 12,
+    link: "/nextjs",
+    price: 40,
+    tags: ["Frontend Development"],
+
+    id: 5,
+    disabled: true,
+    image: "nextjs.png",
     content: [],
     buyLink: "/",
   },

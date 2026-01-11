@@ -30,10 +30,10 @@ function CourseCard({ disabled, courseInfo: info }: Props) {
           : "hover:shadow-primary/10"
       }`}
     >
-      {disabled ? (
+      {!info.image ? (
         <CourseImagePlaceholder />
       ) : (
-        <Link href={`/corsi/${info.link}`}>
+        <Link href={`/corsi/${info.link}`} scroll={false}>
           <div className="w-full aspect-2/1 relative">
             <Image src={`/courses/${info.image}`} alt="Course Picture" fill />
           </div>
@@ -65,10 +65,12 @@ function CourseCard({ disabled, courseInfo: info }: Props) {
       </CardContent>
       <CardFooter className="flex flex-col items-stretch gap-2 mt-auto">
         {disabled ? (
-          <Alert className="text-foreground">
-            <AlertCircle />
-            <AlertTitle>Attualmente non disponibile</AlertTitle>
-          </Alert>
+          <>
+            <Alert className="text-foreground">
+              <AlertCircle />
+              <AlertTitle>Attualmente non disponibile</AlertTitle>
+            </Alert>
+          </>
         ) : (
           <>
             <Button asChild>
