@@ -1,9 +1,4 @@
-import {
-  Card,
-  CardTitle,
-  CardContent,
-  CardDescription,
-} from "@/components/ui/card";
+import { Card, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
 import Link from "next/link";
 import { InFutureLabel } from "./InFutureLabel";
 
@@ -15,11 +10,7 @@ interface Props {
 
 function DocsStackCard({ title, description, disabled = false }: Props) {
   return (
-    <Link
-      href={
-        disabled ? "/" : `/documentazione/${title.toLowerCase()}/introduzione`
-      }
-    >
+    <Link href={disabled ? "/" : `/documentazione/${title.toLowerCase()}`}>
       <Card
         className={`w-full h-full py-3 max-w-100 duration-150 hover:scale-101 shadow-md hover:shadow-lg ${
           disabled
@@ -28,26 +19,14 @@ function DocsStackCard({ title, description, disabled = false }: Props) {
         }`}
       >
         <CardContent className="px-4">
-          <CardTitle
-            className={
-              disabled
-                ? "text-muted-foreground flex items-center justify-between"
-                : ""
-            }
-          >
+          <CardTitle className={disabled ? "text-muted-foreground flex items-center justify-between" : ""}>
             <span className="text-lg flex items-center gap-3">
-              <div
-                className={`size-1 rounded-full ${
-                  disabled ? "bg-destructive" : "bg-primary"
-                }`}
-              ></div>
+              <div className={`size-1 rounded-full ${disabled ? "bg-destructive" : "bg-primary"}`}></div>
               {title}
             </span>
             {disabled && <InFutureLabel />}
           </CardTitle>
-          <CardDescription
-            className={`mt-1.5 ${disabled ? "text-muted-foreground" : ""}`}
-          >
+          <CardDescription className={`mt-1.5 ${disabled ? "text-muted-foreground" : ""}`}>
             {description}
           </CardDescription>
         </CardContent>
