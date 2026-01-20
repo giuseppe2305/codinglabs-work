@@ -9,6 +9,8 @@ export default async function DocsLayout({ children }: ChildrenNode) {
 
   return (
     <Layout
+      editLink={null}
+      feedback={{ content: null }}
       pageMap={pageMap}
       // ... Your additional layout options
     >
