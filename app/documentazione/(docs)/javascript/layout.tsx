@@ -5,8 +5,7 @@ import "nextra-theme-docs/style.css";
 import type { ChildrenNode } from "@/types/ChildrenNode";
 
 export default async function DocsLayout({ children }: ChildrenNode) {
-  const pageMap = await getPageMap("/documentazione");
-  console.log(pageMap);
+  const pageMap = await getPageMap("/documentazione/javascript");
 
   return (
     <Layout
