@@ -2,6 +2,125 @@ import { CourseInfo } from "@/types/CourseInfo";
 
 export const coursesInfo: CourseInfo[] = [
   {
+    title: "Web Development Mastery",
+    description: "Diventa uno Sviluppatore Web nel 2026.",
+    length: 4,
+    link: "/webdevmastery",
+    buyLink: "https://www.skool.com/web-development-mastery-6843/about",
+    price: 49.99,
+    tags: ["Web Development", "Complete"],
+
+    id: 1,
+    disabled: false,
+    image: "webdevmastery.png",
+
+    requirements: {
+      needed: [],
+      suggested: [],
+    },
+
+    content: [
+      {
+        title: "Come diventare Sviluppatore Web nel 2026",
+        lessons: ["Come diventare Sviluppatore Web nel 2026"],
+      },
+      {
+        title: "Come prepararsi ai Colloqui di Lavoro in maniera EFFETTIVA",
+        lessons: ["Come prepararsi ai Colloqui di Lavoro in maniera EFFETTIVA"],
+      },
+      {
+        title:
+          "GUIDA COMPLETA: Come studiare Sviluppo Web EFFETTIVAMENTE in accordo con gli studi scientifici piú recenti",
+        lessons: [
+          "GUIDA COMPLETA: Come studiare Sviluppo Web EFFETTIVAMENTE in accordo con gli studi scientifici piú recenti",
+        ],
+      },
+      {
+        title:
+          "Checklist giornaliera + Habit tracker per monitorare i progressi e rimanere costanti e performanti",
+        lessons: [
+          "Checklist giornaliera + Habit tracker per monitorare i progressi e rimanere costanti e performanti",
+        ],
+      },
+    ],
+  },
+
+  {
+    title: "AI Generativa e ChatGPT nel 2026 - Impara TUTTO DA ZERO",
+    description:
+      "Guida pratica 2026 per imparare da zero a usare l’AI in modo efficace, produttivo e consapevole.",
+    length: 2,
+    link: "/generativeai",
+    buyLink:
+      "https://www.udemy.com/course/ai-generativa-nel-2026-impara-ad-utilizzarla-correttamente/?referralCode=4EA1AF2A4C0BC1720EA4",
+    price: 9.99,
+    tags: ["AI", "Principiante"],
+
+    id: 2,
+    disabled: false,
+    image: "generativeai.png",
+
+    requirements: {
+      needed: [],
+      suggested: [],
+    },
+
+    content: [
+      {
+        title: "Sezione 1: Introduzione al Corso",
+        lessons: ["Introduzione alla AI", "Introduzione al Corso"],
+      },
+      {
+        title: "Sezione 2: Introduzione alla AI",
+        lessons: [
+          "AI Generativa vs AI Tradizionale",
+          "Come Impara la AI",
+          "Cosa Sono gli LLM (Large Language Model)",
+          "Cos'è ChatGPT",
+          "Il Ruolo dell'Essere Umano",
+          "Perché la AI Generativa è Fondamentale Oggi",
+          "Informazioni sul Corso",
+        ],
+      },
+      {
+        title: "Sezione 3: Prompt Engineering",
+        lessons: [
+          "Introduzione al Prompt Engineering",
+          "Cos'è un Prompt",
+          "Esempi di Prompts",
+          "L'Importanza di un Prompt Corretto",
+          "Struttura di un Prompt Efficace",
+          "Esempio di un Prompt Strutturato",
+          "Introduzione ai Prompts Iterativi",
+          "Errori Comuni",
+        ],
+      },
+      {
+        title: "Sezione 4: Usare la AI per delle Ricerche",
+        lessons: [
+          "Introduzione alla AI per Ricerca e Sintesi",
+          "Il Problema della Ricerca Tradizionale",
+          "Il Ruolo della AI nella Ricerca",
+          "Ricerca con Google vs Ricerca con AI",
+          "Tipologie di Ricerche che Possiamo Effettuare",
+          "Come Effettuare una Ricerca in Modo Corretto",
+        ],
+      },
+      {
+        title: "Sezione 5: Usare la AI per delle Sintesi",
+        lessons: [
+          "Differenza tra Sintesi e Riassunto",
+          "Perché la AI è Potente nella Sintesi",
+          "Quando Usare la AI per la Sintesi",
+          "Tipologie di Sintesi che la AI può Fare",
+          "Prompts Corretti per la Sintesi",
+          "5 Esercizi per Effettuare una Sintesi con AI",
+        ],
+      },
+    ],
+  },
+
+  {
     title: "Corso completo di TailwindCSS",
     description:
       "Questo corso di Tailwind CSS è basato sull'uso moderno e corretto del framework, seguendo le best practice attuali. Imparerai a costruire interfacce rapide, coerenti e manutenibili senza CSS inutili o soluzioni improvvisate.",
@@ -11,8 +130,12 @@ export const coursesInfo: CourseInfo[] = [
       "https://www.udemy.com/course/tailwindcss-v4-corso-completo-in-italiano-2026/?referralCode=DF81FFB9178E81E75C2C",
     price: 9.99,
     tags: ["Frontend Development", "Intermedio"],
+    requirements: {
+      needed: ["HTML5", "CSS3"],
+      suggested: ["Javascript", "Node.js"],
+    },
 
-    id: 1,
+    id: 3,
     disabled: false,
     image: "tailwindcss.png",
 
@@ -188,8 +311,12 @@ export const coursesInfo: CourseInfo[] = [
     link: "/htmlcss",
     price: 40,
     tags: ["Frontend Development"],
+    requirements: {
+      needed: [],
+      suggested: [],
+    },
 
-    id: 3,
+    id: 10,
     disabled: true,
     image: "htmlcss.png",
     content: [],
@@ -203,8 +330,12 @@ export const coursesInfo: CourseInfo[] = [
     link: "/javascript",
     price: 40,
     tags: ["Frontend Development"],
+    requirements: {
+      needed: [],
+      suggested: [],
+    },
 
-    id: 2,
+    id: 11,
     disabled: true,
     image: "javascript.png",
     content: [],
@@ -218,8 +349,12 @@ export const coursesInfo: CourseInfo[] = [
     link: "/react",
     price: 40,
     tags: ["Frontend Development"],
+    requirements: {
+      needed: [],
+      suggested: [],
+    },
 
-    id: 4,
+    id: 12,
     disabled: true,
     image: "react.png",
     content: [],
@@ -233,8 +368,12 @@ export const coursesInfo: CourseInfo[] = [
     link: "/nextjs",
     price: 40,
     tags: ["Frontend Development"],
+    requirements: {
+      needed: [],
+      suggested: [],
+    },
 
-    id: 5,
+    id: 13,
     disabled: true,
     image: "nextjs.png",
     content: [],

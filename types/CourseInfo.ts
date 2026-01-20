@@ -11,6 +11,10 @@ export interface CourseInfo {
   price: number;
   link: string;
   buyLink: string;
+  requirements: {
+    needed: string[];
+    suggested: string[];
+  };
 
   tags: string[];
   id: number;

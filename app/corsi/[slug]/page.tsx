@@ -14,6 +14,7 @@ import {
   Clock,
   Library,
   ShoppingCart,
+  Smile,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -72,7 +73,7 @@ export default async function page({ params }: Props) {
           </Button>
         </div>
         <div className="relative max-lg:mt-12 mx-auto w-full max-w-120 aspect-2/1 row-span-3 rounded-md overflow-hidden shadow-2xl border-2 hover:shadow-black/50 hover:scale-101 duration-150">
-          <Image src="/courses/tailwindcss.png" alt="Course Image" fill />
+          <Image src={`/courses/${course.image}`} alt="Course Image" fill />
         </div>
       </Section>
       <Section className="grid grid-cols-1 md:grid-cols-[1fr_300px] gap-x-12 border-b-0">
@@ -83,23 +84,33 @@ export default async function page({ params }: Props) {
             <CardTitle>Requisiti per il corso</CardTitle>
           </CardHeader>
           <CardContent className="mt-4 p-0 flex flex-col gap-3">
-            <h4 className="text-foreground">Obbligatori</h4>
-            <IconLabel icon={Check}>HTML5</IconLabel>
-            <IconLabel icon={Check}>CSS3</IconLabel>
+            {course.requirements.needed.length > 0 && (
+              <h4 className="text-foreground">Obbligatori</h4>
+            )}
+            {course.requirements.needed.map((req) => (
+              <IconLabel icon={Check} key={req}>
+                {req}
+              </IconLabel>
+            ))}
 
-            <h4 className="text-foreground">Consigliati</h4>
-            <IconLabel
-              color="text-yellow-400 bg-yellow-400/5"
-              icon={CircleAlert}
-            >
-              Javascript
-            </IconLabel>
-            <IconLabel
-              color="text-yellow-400 bg-yellow-400/5"
-              icon={CircleAlert}
-            >
-              Node.js
-            </IconLabel>
+            {course.requirements.suggested.length > 0 && (
+              <h4 className="text-foreground">Consigliati</h4>
+            )}
+            {course.requirements.suggested.map((req) => (
+              <IconLabel
+                color="text-yellow-400 bg-yellow-400/5"
+                icon={CircleAlert}
+                key={req}
+              >
+                {req}
+              </IconLabel>
+            ))}
+            {course.requirements.needed.length === 0 &&
+              course.requirements.suggested.length === 0 && (
+                <IconLabel icon={Smile} color="text-green-400 bg-green-400/5">
+                  Nessun requisito!
+                </IconLabel>
+              )}
           </CardContent>
         </Card>
         <Section.H3 className="col-span-full mt-12">
