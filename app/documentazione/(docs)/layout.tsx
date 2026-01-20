@@ -5,10 +5,12 @@ import "nextra-theme-docs/style.css";
 import type { ChildrenNode } from "@/types/ChildrenNode";
 
 export default async function DocsLayout({ children }: ChildrenNode) {
+  const pageMap = await getPageMap("/documentazione");
+  console.log(pageMap);
+
   return (
     <Layout
-      pageMap={await getPageMap()}
-      docsRepositoryBase="https://github.com/shuding/nextra/tree/main/docs"
+      pageMap={pageMap}
       // ... Your additional layout options
     >
       {children}
