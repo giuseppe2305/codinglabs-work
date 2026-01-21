@@ -5,6 +5,7 @@ import { BackgroundBlobs } from "../BackgroundBlobs";
 import { Inter } from "next/font/google";
 import { LastUpdated, Navbar, Layout as NextraLayout } from "nextra-theme-docs";
 import type { PageMapItem } from "nextra";
+import { Banner } from "nextra/components";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,6 +14,13 @@ const navbar = (
     className="md:px-20! lg:px-40!"
     logo={<p className="text-accent-foreground font-bold">CodingLabs - Documentazioni</p>}
   />
+);
+
+const banner = (
+  <Banner>
+    Le documentazioni sono in costruzione, puoi utilizzare la navigazione sulla sinistra come roadmap per monitorare i
+    tuoi progressi. Grazie!
+  </Banner>
 );
 
 interface Props extends ChildrenNode {
@@ -32,6 +40,7 @@ function Layout({ children, pageMap }: Props) {
           feedback={{ content: null }}
           pageMap={pageMap}
           navbar={navbar}
+          banner={banner}
           // ... Your additional layout options
         >
           {children}
