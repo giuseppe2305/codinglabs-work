@@ -31,7 +31,7 @@
     "**/*.mts",
     "mdx-components.js",
     "app/documentazione/_meta.ts",
-    "app/documentazione/generateDocs.js"
+    "generateDocs.js"
   ],
   "exclude": ["node_modules"]
 }
