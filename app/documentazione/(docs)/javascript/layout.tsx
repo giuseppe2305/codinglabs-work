@@ -48,7 +48,6 @@ const navbar = (
 
 export default async function DocsLayout({ children }: ChildrenNode) {
   const pageMap = await getPageMap("/documentazione/javascript");
-  console.log(pageMap);
 
   return (
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
