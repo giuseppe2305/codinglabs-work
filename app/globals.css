@@ -82,6 +82,7 @@
 
 .dark {
   --x-color-primary-600: #fff;
+  --x-color-nextra-bg: var(--color-background);
 
   --background: black;
   --foreground: #b3b3b3;
