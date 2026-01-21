@@ -4,7 +4,12 @@ import { getPageMap } from "nextra/page-map";
 import "nextra-theme-docs/style.css";
 import type { ChildrenNode } from "@/types/ChildrenNode";
 
-const navbar = <Navbar logo={<p className="text-accent-foreground">CodingLabs - Documentazioni</p>} />;
+const navbar = (
+  <Navbar
+    className="md:px-20! lg:px-40!"
+    logo={<p className="text-accent-foreground">CodingLabs - Documentazioni</p>}
+  />
+);
 
 export default async function DocsLayout({ children }: ChildrenNode) {
   const pageMap = await getPageMap("/documentazione/javascript");
