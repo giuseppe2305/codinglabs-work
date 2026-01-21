@@ -81,6 +81,8 @@
 }
 
 .dark {
+  --x-color-primary-600: #fff;
+
   --background: black;
   --foreground: #b3b3b3;
   --card: #0a0a0a;
