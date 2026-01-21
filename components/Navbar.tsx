@@ -17,25 +17,19 @@ import { NavigationListItem } from "./NavigationListItem";
 
 function Navbar() {
   return (
-    <header className="sticky top-0 h-15 flex w-full items-center z-1 backdrop-blur-3xl bg-background/75 border-b">
+    <header className="sticky top-0 h-15 flex w-full items-center z-31 backdrop-blur-3xl bg-background/75 border-b border-border">
       <Blob />
       <nav className="w-full grid grid-cols-[auto_1fr_auto] items-center mx-auto px-2 sm:px-4">
         <Logo />
         <NavigationMenu className="justify-self-center">
           <NavigationMenuList className="flex gap-2 sm:gap-10 items-center justify-center">
             <NavigationMenuItem>
-              <NavigationMenuLink
-                href="/corsi"
-                className={`${navigationMenuTriggerStyle()} w-full`}
-              >
+              <NavigationMenuLink href="/corsi" className={`${navigationMenuTriggerStyle()} w-full`}>
                 Corsi
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink
-                href="/"
-                className={`${navigationMenuTriggerStyle()} w-full`}
-              >
+              <NavigationMenuLink href="/" className={`${navigationMenuTriggerStyle()} w-full`}>
                 Bundles
               </NavigationMenuLink>
               <NavigationMenuContent>
@@ -51,8 +45,7 @@ function Navbar() {
                           </div>
                         </div>
                         <div className="text-muted-foreground">
-                          Tutto quello che ti serve per diventare uno
-                          sviluppatore frontend nel 2026
+                          Tutto quello che ti serve per diventare uno sviluppatore frontend nel 2026
                         </div>
                       </Link>
                     </NavigationMenuLink>
@@ -68,8 +61,7 @@ function Navbar() {
                     data={{
                       link: "/documentazione",
                       label: "Documentazione",
-                      description:
-                        "Tutte le documentazioni necessarie per il tuo apprendimento",
+                      description: "Tutte le documentazioni necessarie per il tuo apprendimento",
                     }}
                   />
 
@@ -78,8 +70,7 @@ function Navbar() {
                     data={{
                       link: "/",
                       label: "Esercizi",
-                      description:
-                        "Centinaia di esercizi per migliorare le tue competenze",
+                      description: "Centinaia di esercizi per migliorare le tue competenze",
                     }}
                   />
 
@@ -88,8 +79,7 @@ function Navbar() {
                     data={{
                       link: "/",
                       label: "Software e Tools",
-                      description:
-                        "Esplora i software e tools utilizzati nello sviluppo moderno",
+                      description: "Esplora i software e tools utilizzati nello sviluppo moderno",
                     }}
                   />
                 </ul>
