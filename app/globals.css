@@ -152,6 +152,10 @@
     @apply min-w-80;
   }
 
+  .nextra-scrollbar {
+    scrollbar-width: unset !important;
+  }
+
   article {
     @apply min-w-200!;
   }
