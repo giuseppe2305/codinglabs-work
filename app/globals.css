@@ -159,6 +159,6 @@
   }
 
   article {
-    @apply md:min-w-130! lg:min-w-180! xl:min-w-200!;
+    @apply md:min-w-130! lg:min-w-180! xl:min-w-200! max-w-220!;
   }
 }

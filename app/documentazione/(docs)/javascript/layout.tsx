@@ -54,6 +54,7 @@ export default async function DocsLayout({ children }: ChildrenNode) {
       <body className={`${inter.className} bg-background relative text-foreground dark flex flex-col max-w-screen`}>
         <BackgroundBlobs />
         <Layout
+          toc={{ backToTop: "Torna all'inizio", title: "In questa pagina" }}
           lastUpdated={<LastUpdated locale="it">Aggiornato il</LastUpdated>}
           themeSwitch={{ dark: "Tema scuro", light: "Tema chiaro", system: "Tema di sistema" }}
           editLink={null}
