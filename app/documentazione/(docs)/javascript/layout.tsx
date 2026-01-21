@@ -1,7 +1,7 @@
 import "@/app/globals.css";
 import { Inter } from "next/font/google";
 
-import { Layout, Navbar } from "nextra-theme-docs";
+import { LastUpdated, Layout, Navbar } from "nextra-theme-docs";
 import { getPageMap } from "nextra/page-map";
 
 import "nextra-theme-docs/style.css";
@@ -54,6 +54,7 @@ export default async function DocsLayout({ children }: ChildrenNode) {
       <body className={`${inter.className} bg-background relative text-foreground dark flex flex-col max-w-screen`}>
         <BackgroundBlobs />
         <Layout
+          lastUpdated={<LastUpdated locale="it">Aggiornato il</LastUpdated>}
           editLink={null}
           feedback={{ content: null }}
           pageMap={pageMap}
