@@ -1,7 +1,6 @@
 import { Layout, Navbar } from "nextra-theme-docs";
 import { getPageMap } from "nextra/page-map";
 
-import "@/app/globals.css";
 import "nextra-theme-docs/style.css";
 import type { ChildrenNode } from "@/types/ChildrenNode";
 
