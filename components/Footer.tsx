@@ -1,6 +1,6 @@
 import { Logo } from "./Logo";
 
-export default function Footer() {
+function Footer() {
   return (
     <footer className="py-8 border-t bg-black/63 z-1 backdrop-blur-3xl">
       <div className="w-full max-w-400 mx-auto px-4 flex items-center max-sm:flex-col gap-8 justify-between">
@@ -15,3 +15,5 @@ export default function Footer() {
     </footer>
   );
 }
+
+export { Footer };

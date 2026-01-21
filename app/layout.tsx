@@ -7,7 +7,7 @@ import type { ChildrenNode } from "@/types/ChildrenNode";
 import { Analytics } from "@vercel/analytics/next";
 import { Navbar } from "@/components/Navbar";
 import { PageAlert } from "@/components/PageAlert";
-import Footer from "@/components/Footer";
+import { Footer } from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
