@@ -30,7 +30,8 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts",
     "mdx-components.js",
-    "app/documentazione/_meta.ts"
+    "app/documentazione/_meta.ts",
+    "app/documentazione/generateDocs.js"
   ],
   "exclude": ["node_modules"]
 }
