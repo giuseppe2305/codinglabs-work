@@ -148,7 +148,11 @@
     @apply bg-background;
   }
 
-  .nextra-content {
-    @apply w-full!;
+  .nextra-sidebar {
+    @apply min-w-80;
+  }
+
+  article {
+    @apply min-w-200!;
   }
 }
