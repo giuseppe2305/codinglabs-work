@@ -55,6 +55,7 @@ export default async function DocsLayout({ children }: ChildrenNode) {
         <BackgroundBlobs />
         <Layout
           lastUpdated={<LastUpdated locale="it">Aggiornato il</LastUpdated>}
+          themeSwitch={{ dark: "Tema scuro", light: "Tema chiaro", system: "Tema di sistema" }}
           editLink={null}
           feedback={{ content: null }}
           pageMap={pageMap}
