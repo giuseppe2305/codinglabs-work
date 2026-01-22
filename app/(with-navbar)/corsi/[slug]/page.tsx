@@ -1,6 +1,6 @@
 import { CourseContentSection } from "@/components/CourseContentSection";
-import { ContentSource } from "@/components/documentation/ContentSource";
-import { ProfileCard } from "@/components/documentation/ProfileCard";
+import { ContentSource } from "@/components/ContentSource";
+import { ProfileCard } from "@/components/ProfileCard";
 import { IconLabel } from "@/components/IconLabel";
 import { Section } from "@/components/Section/Section";
 import { Button } from "@/components/ui/button";
