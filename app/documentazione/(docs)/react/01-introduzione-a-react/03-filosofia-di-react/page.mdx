@@ -1,3 +1,150 @@
 # Filosofia di React
 
-In arrivo
+La **filosofia di React** non è legata solo a una tecnologia, ma a un modo di pensare lo sviluppo delle interfacce utente. React nasce con l’obiettivo di rendere la creazione di UI **semplice, prevedibile e scalabile**, anche in applicazioni complesse.
+
+Alla base di React ci sono alcuni principi fondamentali che guidano ogni scelta architetturale del framework.
+
+---
+
+## UI come funzione dello stato
+
+In React, l’interfaccia non viene aggiornata manualmente.
+La UI è vista come una **funzione dello stato**:
+
+> **UI = f(state)**
+
+Questo significa che:
+
+- l’interfaccia dipende solo dai dati (state e props)
+- quando i dati cambiano, React aggiorna automaticamente la UI
+
+Lo sviluppatore non deve più dire _come_ aggiornare il DOM, ma solo _cosa_ deve essere mostrato in base allo stato corrente.
+
+---
+
+## Dichiaratività
+
+React è **dichiarativo**.
+
+Invece di scrivere codice che dice:
+
+> “Se succede X, modifica questo elemento, poi quest’altro…”
+
+si descrive:
+
+> “Quando lo stato è così, la UI deve apparire in questo modo”.
+
+Questo rende il codice:
+
+- più leggibile
+- più prevedibile
+- più semplice da mantenere
+
+---
+
+## Composizione tramite componenti
+
+React è basato su una **component-based architecture**.
+
+Ogni parte dell’interfaccia è un componente riutilizzabile e indipendente:
+
+- un bottone
+- una card
+- una navbar
+- una pagina intera
+
+I componenti possono essere:
+
+- combinati
+- annidati
+- riutilizzati in più parti dell’app
+
+Questo favorisce:
+
+- modularità
+- riuso del codice
+- separazione delle responsabilità
+
+---
+
+## Unidirectional Data Flow
+
+React segue un flusso di dati **unidirezionale**:
+
+- i dati passano dall’alto verso il basso (parent → child)
+- i componenti figli non modificano direttamente i dati del genitore
+- le modifiche avvengono tramite funzioni controllate
+
+Questo approccio:
+
+- riduce gli effetti collaterali
+- rende il comportamento più prevedibile
+- semplifica il debug
+
+---
+
+## Stato immutabile
+
+In React, lo stato non viene modificato direttamente, ma **sostituito** con una nuova versione.
+
+Questo permette a React di:
+
+- capire rapidamente cosa è cambiato
+- aggiornare solo le parti necessarie della UI
+- ottimizzare le prestazioni
+
+L’immutabilità è uno dei pilastri per la gestione efficiente del rendering.
+
+---
+
+## Separazione tra logica e presentazione
+
+A differenza dei vecchi pattern MVC, React non separa per tipo di file (HTML, CSS, JS), ma per **responsabilità logica**.
+
+Ogni componente contiene:
+
+- struttura (JSX)
+- logica
+- stato
+- stile (se necessario)
+
+Questo crea unità autonome e coerenti.
+
+---
+
+## Pensare in componenti
+
+Uno sviluppatore React non pensa più in pagine, ma in **alberi di componenti**.
+
+Ogni UI viene scomposta in piccoli blocchi funzionali:
+
+- semplici
+- testabili
+- facilmente manutenibili
+
+Questa mentalità permette di scalare l’applicazione senza perdere controllo.
+
+---
+
+## Ottimizzazione tramite astrazione
+
+React nasconde la complessità della manipolazione del DOM dietro un sistema astratto (Virtual DOM e reconciler), permettendo allo sviluppatore di:
+
+- concentrarsi sulla logica
+- evitare micro-ottimizzazioni premature
+- mantenere codice pulito
+
+---
+
+## Conclusione
+
+La filosofia di React si basa su pochi concetti chiave:
+
+- UI come funzione dello stato
+- approccio dichiarativo
+- componenti riutilizzabili
+- flusso di dati unidirezionale
+- immutabilità
+- composizione
+
+Questi principi rendono React uno strumento potente per costruire interfacce moderne, robuste e facilmente manutenibili, adattandosi sia a piccoli progetti che a grandi applicazioni enterprise.

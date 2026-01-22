@@ -1,3 +1,104 @@
 # Introduzione a React
 
-In arrivo
+React è una libreria JavaScript open source creata da Facebook (oggi Meta) e oggi mantenuta da una grande community di sviluppatori. È pensata per costruire interfacce utente moderne, veloci e scalabili, ed è diventata uno degli strumenti più utilizzati nel web development per lo sviluppo di applicazioni single-page (SPA) e interfacce complesse.
+
+Più che un semplice framework, React è un modo di pensare lo sviluppo delle UI: invece di manipolare direttamente il DOM, si descrive _come dovrebbe apparire l’interfaccia_ in base allo stato dell’applicazione. Sarà React a occuparsi di aggiornare in modo efficiente solo le parti che cambiano.
+
+---
+
+## Perché React è così diffuso
+
+Il successo di React nasce da alcune idee chiave:
+
+- **Componenti riutilizzabili**: l’interfaccia è suddivisa in piccoli blocchi indipendenti.
+- **Virtual DOM**: React mantiene una rappresentazione virtuale del DOM per ottimizzare le performance.
+- **Flusso di dati unidirezionale**: i dati scorrono dall’alto verso il basso, rendendo il codice più prevedibile.
+- **Grande ecosistema**: librerie, strumenti, community e supporto continuo.
+
+React è usato da aziende come Meta, Netflix, Airbnb, Instagram, Spotify e molte altre.
+
+---
+
+## Il concetto di componente
+
+In React tutto è un **componente**. Un componente è una funzione (o una classe) che restituisce una porzione di interfaccia.
+
+Esempio minimale:
+
+```javascript
+function Hello() {
+  return <h1>Ciao React!</h1>;
+}
+```
+
+Questo codice descrive cosa deve essere mostrato, non _come_ aggiornare il DOM. Quando qualcosa cambia, React ricalcola l’interfaccia in modo efficiente.
+
+---
+
+## JSX: HTML dentro JavaScript
+
+React utilizza una sintassi chiamata **JSX**, che permette di scrivere markup simile all’HTML direttamente nel codice JavaScript:
+
+```javascript
+const element = <p>Benvenuto nel mondo di React</p>;
+```
+
+JSX non è HTML vero e proprio, ma viene trasformato in chiamate JavaScript che React interpreta per creare l’interfaccia.
+
+---
+
+## Stato e interattività
+
+Uno dei punti di forza di React è la gestione dello **stato**. Lo stato rappresenta i dati che cambiano nel tempo e influenzano l’interfaccia.
+
+Esempio semplice:
+
+```javascript
+import { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return <button onClick={() => setCount(count + 1)}>Hai cliccato {count} volte</button>;
+}
+```
+
+Qui l’interfaccia si aggiorna automaticamente ogni volta che cambia `count`.
+
+---
+
+## Come React aggiorna la UI
+
+React non modifica subito il DOM reale. Prima confronta il nuovo stato dell’interfaccia con quello precedente tramite il **Virtual DOM**. Solo le differenze vengono applicate al browser, rendendo gli aggiornamenti molto più rapidi rispetto alla manipolazione diretta del DOM.
+
+---
+
+## Un ecosistema, non solo una libreria
+
+React da solo si occupa della vista (la UI), ma viene spesso affiancato da altri strumenti:
+
+- **React Router** per la navigazione
+- **Redux / Zustand / Context** per la gestione dello stato globale
+- **Vite / Webpack** per il bundling
+- **Next.js** per il rendering lato server e applicazioni full-stack
+
+Questo lo rende adatto sia a piccoli progetti che a grandi applicazioni enterprise.
+
+---
+
+## Quando usare React
+
+React è ideale quando:
+
+- L’interfaccia è dinamica e complessa
+- Ci sono molte interazioni utente
+- I dati cambiano spesso
+- Serve una struttura scalabile nel tempo
+
+Non è sempre necessario per siti statici molto semplici, ma diventa estremamente potente in applicazioni moderne.
+
+---
+
+## Conclusione
+
+React ha cambiato il modo di sviluppare interfacce web. Il suo approccio basato sui componenti, la gestione efficiente degli aggiornamenti e la grande flessibilità lo rendono uno degli strumenti più importanti per ogni sviluppatore frontend. Che tu stia costruendo una piccola app o una piattaforma complessa, React offre una base solida, moderna e orientata al futuro.
