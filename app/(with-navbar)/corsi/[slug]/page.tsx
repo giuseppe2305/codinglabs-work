@@ -16,6 +16,10 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
+export async function generateStaticParams() {
+  return coursesInfo.map((info) => ({ slug: info.link.replace("/", "") }));
+}
+
 export default async function page({ params }: Props) {
   const { slug } = await params;
   const course = coursesInfo.find((el) => el.link.includes(slug));
