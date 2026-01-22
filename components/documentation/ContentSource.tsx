@@ -1,4 +1,4 @@
-import { useMDXComponents } from "@/mdx-components";
+import { useMDXRemoteComponents } from "@/mdx-components";
 import { MDXRemote } from "next-mdx-remote/rsc";
 
 interface Props {
@@ -6,7 +6,7 @@ interface Props {
 }
 
 function ContentSource({ source }: Props) {
-  const components = useMDXComponents();
+  const components = useMDXRemoteComponents();
 
   return (
     <article className="row-span-2">
