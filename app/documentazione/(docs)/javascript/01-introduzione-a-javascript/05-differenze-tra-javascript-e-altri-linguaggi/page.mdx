@@ -1,3 +1,176 @@
 # Differenze tra JavaScript e altri linguaggi
 
-In arrivo
+JavaScript è uno dei linguaggi di programmazione più diffusi al mondo, ma presenta caratteristiche molto diverse rispetto ad altri linguaggi come Java, Python, C#, PHP o C++. Capire queste differenze è fondamentale per usare JavaScript in modo corretto e consapevole, soprattutto nel contesto del web moderno.
+
+---
+
+## Linguaggio interpretato vs compilato
+
+JavaScript è **interpretato** (o più precisamente _just-in-time compiled_ dai motori moderni come V8), mentre molti altri linguaggi come C, C++ o Java sono **compilati** prima dell’esecuzione.
+
+| JavaScript                                | Linguaggi compilati             |
+| ----------------------------------------- | ------------------------------- |
+| Viene eseguito direttamente dal motore JS | Devono essere compilati prima   |
+| Feedback immediato                        | Processo di build necessario    |
+| Più flessibile                            | Più performante a basso livello |
+
+---
+
+## Tipizzazione dinamica vs statica
+
+JavaScript è **dinamicamente tipizzato**, mentre linguaggi come Java, C#, TypeScript e Go sono **staticamente tipizzati**.
+
+```js
+let valore = 10;
+valore = "test"; // valido in JavaScript
+```
+
+Nei linguaggi statici questo comportamento genera un errore.
+
+**Vantaggi:**
+
+- Maggiore flessibilità
+- Sviluppo rapido
+
+**Svantaggi:**
+
+- Più errori a runtime
+- Meno sicurezza nei refactoring
+
+---
+
+## Funzioni come cittadini di prima classe
+
+In JavaScript le funzioni sono **oggetti di prima classe**:
+
+```js
+function saluta() {}
+const f = saluta;
+```
+
+Molti linguaggi tradizionali (come C o Java pre-8) non permettono questa libertà in modo nativo.
+
+---
+
+## Programmazione asincrona nativa
+
+JavaScript nasce per gestire operazioni asincrone nel browser:
+
+```js
+fetch("/api")
+  .then((r) => r.json())
+  .then((d) => console.log(d));
+```
+
+Con `async/await`:
+
+```js
+const data = await fetch("/api");
+```
+
+In molti altri linguaggi l’asincronia è:
+
+- Più complessa
+- Basata su thread
+- Gestita tramite librerie esterne
+
+---
+
+## Single-threaded vs multi-threaded
+
+JavaScript è **single-threaded**, mentre linguaggi come Java, C# o Python supportano **multi-threading** nativo.
+
+| JavaScript               | Altri linguaggi                  |
+| ------------------------ | -------------------------------- |
+| Un solo thread           | Più thread                       |
+| Event loop               | Gestione concorrenza             |
+| Non blocca l’interfaccia | Più controllo ma più complessità |
+
+---
+
+## Orientamento agli oggetti diverso
+
+JavaScript usa **prototipi** invece delle classi tradizionali.
+
+```js
+function Persona(nome) {
+  this.nome = nome;
+}
+Persona.prototype.saluta = function () {};
+```
+
+Anche se oggi esistono le `class`, il sistema sottostante resta **prototipale**, diverso da Java o C#.
+
+---
+
+## Ambiente di esecuzione
+
+JavaScript può essere eseguito:
+
+- Nel **browser**
+- Su **server (Node.js)**
+- In ambienti embedded
+
+Altri linguaggi spesso sono nati per uno scopo specifico:
+
+- Java → enterprise
+- Python → scripting e data
+- C/C++ → sistemi e performance
+
+---
+
+## Gestione della memoria
+
+JavaScript usa **garbage collection automatica**.
+
+| JavaScript          | C / C++         |
+| ------------------- | --------------- |
+| Memoria gestita     | Memoria manuale |
+| Meno errori critici | Più controllo   |
+| Più overhead        | Più performance |
+
+---
+
+## Portabilità
+
+JavaScript funziona ovunque esista un motore JS:
+
+- Browser
+- Server
+- Desktop
+- Mobile
+
+Non richiede compilazione per piattaforme diverse.
+
+---
+
+## Ecosistema e librerie
+
+JavaScript ha uno degli ecosistemi più grandi al mondo (npm).
+
+| JavaScript            | Altri linguaggi            |
+| --------------------- | -------------------------- |
+| Milioni di pacchetti  | Ecosistemi più controllati |
+| Aggiornamenti rapidi  | Stabilità maggiore         |
+| Rischio di dipendenze | Meno frammentazione        |
+
+---
+
+## Sintesi delle differenze
+
+| Caratteristica | JavaScript       | Altri linguaggi  |
+| -------------- | ---------------- | ---------------- |
+| Tipizzazione   | Dinamica         | Statica          |
+| Thread         | Singolo          | Multiplo         |
+| Compilazione   | JIT              | AOT              |
+| Asincronia     | Nativa           | Complessa        |
+| OOP            | Prototipale      | Classica         |
+| Ambiente       | Browser + server | Spesso specifico |
+| Memoria        | Automatica       | Spesso manuale   |
+
+---
+
+## Conclusione
+
+JavaScript non è “meglio” o “peggio” degli altri linguaggi: è **diverso**. È stato progettato per il web, per essere veloce da scrivere, flessibile e reattivo.
+Capire queste differenze ti permette di scegliere lo strumento giusto per ogni progetto e di sfruttare al massimo i punti di forza di JavaScript.

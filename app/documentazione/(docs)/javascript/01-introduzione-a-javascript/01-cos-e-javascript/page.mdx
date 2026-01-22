@@ -1,3 +1,147 @@
-# Cos'è JavaScript
+# Cos’è JavaScript
 
-In arrivo
+JavaScript è un **linguaggio di programmazione** usato principalmente per rendere le pagine web **dinamiche, interattive e intelligenti**.
+
+Se HTML definisce la struttura di una pagina e CSS ne controlla lo stile, **JavaScript è il “cervello” del web**: permette di reagire alle azioni dell’utente, modificare i contenuti in tempo reale, comunicare con server, validare form, creare animazioni, applicazioni web complete e molto altro.
+
+Oggi JavaScript non vive solo nel browser: è diventato un linguaggio **full-stack**, utilizzato sia nel **frontend** che nel **backend**, su server, desktop, mobile, IoT e videogiochi.
+
+---
+
+## Perché JavaScript è così importante?
+
+JavaScript è uno dei tre pilastri del web:
+
+| Tecnologia     | Ruolo                             |
+| -------------- | --------------------------------- |
+| **HTML**       | Struttura (cosa c’è nella pagina) |
+| **CSS**        | Stile (come appare)               |
+| **JavaScript** | Comportamento (cosa fa)           |
+
+Senza JavaScript:
+
+- non potresti inviare form senza ricaricare la pagina
+- non potresti vedere notifiche live
+- non potresti usare mappe, chat, social network, dashboard
+- non esisterebbero SPA, web app moderne, giochi web
+
+Ogni browser moderno (Chrome, Firefox, Safari, Edge) include un **motore JavaScript** che esegue il codice direttamente sul computer dell’utente.
+
+---
+
+## Cosa può fare JavaScript?
+
+Con JavaScript puoi:
+
+- Manipolare l’HTML e il CSS in tempo reale
+- Rispondere agli eventi (click, scroll, input)
+- Validare dati lato client
+- Comunicare con API e server (AJAX, Fetch)
+- Creare animazioni
+- Salvare dati nel browser
+- Costruire applicazioni complete (con framework)
+- Sviluppare backend con Node.js
+- Creare app mobile e desktop
+
+---
+
+## Dove viene eseguito JavaScript?
+
+### 1. Nel browser (Client-side)
+
+Il codice gira sul computer dell’utente.
+
+```js
+document.querySelector("button").addEventListener("click", () => {
+  alert("Hai cliccato!");
+});
+```
+
+### 2. Sul server (Server-side)
+
+Con **Node.js**, JavaScript gira su server.
+
+```js
+const http = require("http");
+
+http
+  .createServer((req, res) => {
+    res.end("Hello World");
+  })
+  .listen(3000);
+```
+
+---
+
+## JavaScript è un linguaggio interpretato
+
+JavaScript è:
+
+- **Interpretato** (non compilato come C o Java)
+- **Dinamico** (non richiede tipi espliciti)
+- **Event-driven**
+- **Single-threaded** con event loop
+- **Basato su prototipi**
+
+---
+
+## Un po’ di storia
+
+- 1995 → Creato da **Brendan Eich** in 10 giorni
+- Inizialmente si chiamava **Mocha**, poi **LiveScript**
+- Venne rinominato **JavaScript** per motivi di marketing
+- Standard ufficiale: **ECMAScript**
+
+Oggi ogni versione introduce nuove funzionalità:
+
+- ES6 (2015) → classi, arrow function, moduli
+- ES2020+ → async/await, optional chaining, ecc.
+
+---
+
+## JavaScript è ovunque
+
+| Ambiente | Tecnologia                      |
+| -------- | ------------------------------- |
+| Browser  | Vanilla JS, React, Vue, Angular |
+| Server   | Node.js                         |
+| Mobile   | React Native                    |
+| Desktop  | Electron                        |
+| Giochi   | Phaser                          |
+| IoT      | Johnny-Five                     |
+
+---
+
+## Esempio semplice
+
+```html
+<button id="btn">Cliccami</button>
+
+<script>
+  const btn = document.getElementById("btn");
+
+  btn.addEventListener("click", () => {
+    btn.textContent = "Hai cliccato!";
+  });
+</script>
+```
+
+Questo codice:
+
+- seleziona un elemento
+- ascolta un evento
+- modifica il DOM
+
+---
+
+## In sintesi
+
+JavaScript è:
+
+- Il linguaggio che rende il web interattivo
+- Eseguito in ogni browser moderno
+- Usato sia lato client che lato server
+- Fondamentale per ogni web developer
+- Uno dei linguaggi più richiesti al mondo
+
+Se vuoi creare siti e applicazioni web moderne, **JavaScript è una competenza indispensabile**.

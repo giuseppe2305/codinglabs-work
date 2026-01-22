@@ -1,3 +1,129 @@
 # ECMAScript e standardizzazione
 
-In arrivo
+Quando si parla di JavaScript, spesso si sente nominare **ECMAScript**. Anche se vengono usati come sinonimi, in realtà non sono la stessa cosa.
+
+**ECMAScript** è lo _standard ufficiale_ che definisce come deve funzionare il linguaggio JavaScript: la sintassi, i tipi di dati, gli oggetti base, le regole del linguaggio e le sue API fondamentali.
+**JavaScript** è l’implementazione più famosa di questo standard.
+
+In pratica:
+
+> ECMAScript => le regole<br/>
+> JavaScript => una realizzazione concreta di quelle regole
+
+---
+
+## Perché esiste uno standard?
+
+Negli anni ’90 i browser implementavano versioni diverse di JavaScript. Questo creava enormi problemi di compatibilità: uno stesso script poteva funzionare su un browser e non su un altro.
+
+Per evitare il caos, nel 1997 il linguaggio venne standardizzato dall’organizzazione **ECMA International**, dando vita allo standard **ECMAScript**.
+
+Lo scopo dello standard è:
+
+- Garantire **coerenza tra browser e ambienti**
+- Rendere il linguaggio **prevedibile**
+- Consentire **evoluzione controllata**
+- Evitare frammentazioni
+
+---
+
+## Chi gestisce ECMAScript?
+
+Lo standard ECMAScript è mantenuto dal **TC39**, un comitato tecnico formato da:
+
+- Rappresentanti di browser (Google, Mozilla, Apple, Microsoft)
+- Aziende tecnologiche
+- Esperti indipendenti
+
+Il TC39 decide:
+
+- Quali funzionalità aggiungere
+- Come devono funzionare
+- Quando diventano ufficiali
+
+---
+
+## Il processo di evoluzione
+
+Ogni nuova funzionalità passa attraverso **5 fasi**:
+
+| Fase | Significato              |
+| ---- | ------------------------ |
+| 0    | Idea iniziale            |
+| 1    | Proposta formale         |
+| 2    | Bozza concreta           |
+| 3    | Candidata all’inclusione |
+| 4    | Approvata e standard     |
+
+Solo le proposte in **fase 4** entrano nella prossima versione ufficiale di ECMAScript.
+
+---
+
+## Le versioni di ECMAScript
+
+Dal 2015 lo standard viene aggiornato **ogni anno**.
+
+| Versione        | Nome comune          |
+| --------------- | -------------------- |
+| ES5 (2009)      | Vecchia base del web |
+| ES6 (2015)      | Rivoluzione moderna  |
+| ES2016 → ES2024 | Evoluzioni annuali   |
+
+Oggi si usa il termine **“JavaScript moderno”** per indicare il codice compatibile con ES6 e versioni successive.
+
+---
+
+## Cosa definisce ECMAScript?
+
+ECMAScript stabilisce:
+
+- Tipi di dati (`Number`, `String`, `Boolean`, `Object`, ecc.)
+- Sintassi (`if`, `for`, `function`, `class`)
+- Oggetti base (`Array`, `Promise`, `Map`, `Set`)
+- Scope, closures, prototipi
+- Moduli (`import`, `export`)
+
+Non include invece:
+
+- DOM
+- `fetch`
+- `setTimeout`
+- API di browser o Node.js
+
+Queste sono **Web API** o **API di ambiente**, non parte di ECMAScript.
+
+---
+
+## Perché è fondamentale per gli sviluppatori
+
+Conoscere ECMAScript significa:
+
+- Capire **cosa è standard e cosa no**
+- Scrivere codice **portabile**
+- Usare funzionalità moderne in modo sicuro
+- Comprendere i limiti tra linguaggio e ambiente
+
+Un senior developer ragiona sempre su ciò che è **specifica** e ciò che è **implementazione**.
+
+---
+
+## ECMAScript e compatibilità
+
+Non tutti i browser supportano subito le nuove versioni. Per questo si usano:
+
+- **Transpiler** (come Babel)
+- **Polyfill** per funzioni mancanti
+
+Questo permette di scrivere codice moderno senza rompere la compatibilità.
+
+---
+
+## In sintesi
+
+- ECMAScript è lo **standard** di JavaScript
+- È mantenuto dal **TC39**
+- Viene aggiornato **ogni anno**
+- Definisce solo il **linguaggio**, non le API del browser
+- È la base di tutto l’ecosistema JavaScript moderno
+
+Comprendere ECMAScript significa comprendere davvero JavaScript.

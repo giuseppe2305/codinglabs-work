@@ -1,3 +1,151 @@
 # Ambienti di esecuzione (Browser, Node.js, Deno, Bun)
 
-In arrivo
+JavaScript è nato per il browser, ma oggi può essere eseguito in molti ambienti diversi.
+Un **ambiente di esecuzione (runtime)** è il contesto in cui il codice JavaScript viene interpretato ed eseguito, e mette a disposizione:
+
+- il **motore JavaScript** (che interpreta il linguaggio),
+- le **API di sistema** (file, rete, timer, ecc.),
+- un **event loop** per gestire le operazioni asincrone.
+
+I principali ambienti di esecuzione moderni sono:
+
+- **Browser**
+- **Node.js**
+- **Deno**
+- **Bun**
+
+Ognuno ha obiettivi, caratteristiche e casi d’uso differenti.
+
+---
+
+## Browser
+
+Il **browser** è l’ambiente di esecuzione originale di JavaScript.
+Ogni browser integra un motore JS:
+
+- Chrome / Edge → **V8**
+- Firefox → **SpiderMonkey**
+- Safari → **JavaScriptCore**
+
+### Caratteristiche principali
+
+- Accesso al **DOM** (Document Object Model)
+- Gestione degli eventi utente (click, input, scroll)
+- API web: `fetch`, `localStorage`, `WebSocket`, `Canvas`, ecc.
+- Sicurezza tramite **sandbox** (niente accesso diretto al file system o al sistema operativo)
+
+### Casi d’uso
+
+- Interfacce utente interattive
+- Single Page Application (React, Vue, Angular)
+- Animazioni e giochi
+- Applicazioni web progressive (PWA)
+
+### Limitazioni
+
+- Accesso limitato al sistema
+- Dipendenza dalle politiche di sicurezza del browser
+- Differenze di supporto tra browser
+
+---
+
+## Node.js
+
+**Node.js** è un runtime JavaScript lato server basato sul motore **V8**.
+
+### Caratteristiche principali
+
+- Accesso completo al **file system**, rete e processi
+- Moduli nativi (`fs`, `http`, `path`, ecc.)
+- Sistema di pacchetti con **npm**
+- Event loop non bloccante
+
+### Casi d’uso
+
+- Backend API e server web
+- Script di automazione
+- Tool di build (Webpack, Vite, ESLint)
+- Microservizi
+
+### Limiti
+
+- Sicurezza affidata allo sviluppatore
+- Gestione delle dipendenze spesso complessa
+- Performance I/O buone, ma single-thread di default
+
+---
+
+## Deno
+
+**Deno** è un runtime moderno creato dallo stesso autore di Node.js.
+Nasce per correggere alcune scelte progettuali di Node.
+
+### Caratteristiche principali
+
+- Basato su **V8**
+- Supporto nativo a **TypeScript**
+- Sicurezza per permessi espliciti
+- Import da URL
+- API web standard (fetch, WebSocket, ecc.)
+
+### Casi d’uso
+
+- API server
+- Script sicuri
+- Progetti TypeScript
+- Applicazioni serverless
+
+### Limiti
+
+- Ecosistema più piccolo rispetto a Node
+- Meno librerie mature
+- Community più ridotta
+
+---
+
+## Bun
+
+**Bun** è un runtime recente focalizzato su **performance e semplicità**.
+
+### Caratteristiche principali
+
+- Motore basato su **JavaScriptCore**
+- Velocissimo nell’installazione e avvio
+- Supporto nativo a TypeScript
+- Package manager integrato
+- Compatibilità con Node.js
+
+### Casi d’uso
+
+- Backend ad alte prestazioni
+- Tool di sviluppo
+- Progetti full-stack moderni
+
+### Limiti
+
+- Progetto giovane
+- API in evoluzione
+- Meno stabilità rispetto a Node
+
+---
+
+## Confronto rapido
+
+| Ambiente | Motore | Sicurezza | File system       | Target     |
+| -------- | ------ | --------- | ----------------- | ---------- |
+| Browser  | Vari   | Alta      | ❌                | Frontend   |
+| Node.js  | V8     | Media     | ✅                | Backend    |
+| Deno     | V8     | Alta      | Solo con permessi | Backend    |
+| Bun      | JSC    | Media     | ✅                | Full-stack |
+
+---
+
+## Quale scegliere?
+
+- **Frontend web** → Browser
+- **Backend stabile e maturo** → Node.js
+- **Progetti moderni e sicuri** → Deno
+- **Performance e tool all-in-one** → Bun
+
+Ogni ambiente condivide il linguaggio JavaScript, ma cambia ciò che puoi fare con esso.
+Conoscere i runtime significa scegliere lo strumento giusto per ogni progetto.

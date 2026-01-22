@@ -1,3 +1,148 @@
 # Limitazioni e punti di forza
 
-In arrivo
+JavaScript è uno dei linguaggi più diffusi al mondo, ma come ogni tecnologia ha sia vantaggi che limiti. Conoscerli è fondamentale per usarlo in modo consapevole, scegliere gli strumenti giusti e progettare applicazioni robuste e scalabili.
+
+---
+
+## Punti di forza
+
+### 1. Linguaggio universale del web
+
+JavaScript è l’unico linguaggio eseguito nativamente dai browser.
+Questo lo rende **indispensabile per il frontend** e, grazie a Node.js, anche uno strumento completo per il backend.
+
+- Funziona su tutti i browser moderni
+- Può essere usato sia lato client che lato server
+- Permette di condividere logica tra frontend e backend
+
+---
+
+### 2. Grande ecosistema e community
+
+JavaScript ha uno degli ecosistemi più grandi al mondo.
+
+- Milioni di pacchetti disponibili tramite npm
+- Framework e librerie mature (React, Vue, Angular, Express, Next.js, ecc.)
+- Community attiva, tutorial, forum, tool e risorse ovunque
+
+Questo riduce i tempi di sviluppo e facilita la risoluzione dei problemi.
+
+---
+
+### 3. Linguaggio flessibile e dinamico
+
+JavaScript è:
+
+- Dinamico (i tipi non sono obbligatori)
+- Interpretato (non richiede compilazione)
+- Molto espressivo
+
+Questo permette di:
+
+- Prototipare velocemente
+- Scrivere meno codice
+- Adattarsi a molti stili di programmazione (funzionale, OOP, procedurale)
+
+---
+
+### 4. Asincronia potente
+
+JavaScript è progettato per gestire operazioni asincrone in modo efficiente:
+
+- `Promises`
+- `async/await`
+- Event loop
+
+È perfetto per:
+
+- Chiamate API
+- Operazioni di rete
+- I/O non bloccante
+
+---
+
+### 5. Multipiattaforma
+
+Con JavaScript puoi sviluppare:
+
+- Web app
+- Server
+- App desktop (Electron)
+- App mobile (React Native, Ionic)
+- Microservizi
+- CLI
+
+Un solo linguaggio per molti contesti.
+
+---
+
+## Limitazioni
+
+### 1. Tipizzazione debole
+
+JavaScript non impone il tipo delle variabili, il che può portare a errori difficili da individuare:
+
+```js
+"5" + 1; // "51"
+"5" - 1; // 4
+```
+
+Questo rende il codice:
+
+- Più fragile
+- Più difficile da mantenere su grandi progetti
+
+Per questo si usa spesso **TypeScript** come alternativa tipizzata.
+
+---
+
+### 2. Prestazioni inferiori rispetto a linguaggi compilati
+
+JavaScript è più lento rispetto a linguaggi come C++, Rust o Java:
+
+- Non è ideale per calcoli pesanti
+- Non è pensato per sistemi a basso livello
+- Può diventare inefficiente in operazioni complesse
+
+---
+
+### 3. Sicurezza lato client
+
+Il codice JavaScript nel browser è visibile e modificabile dall’utente:
+
+- Non si possono proteggere segreti nel frontend
+- È necessario validare sempre i dati lato server
+
+---
+
+### 4. Complessità dell’ecosistema
+
+L’enorme numero di librerie e tool può diventare un problema:
+
+- Aggiornamenti frequenti
+- Dipendenze fragili
+- Cambiamenti di standard rapidi
+
+Questo richiede attenzione nella gestione dei progetti.
+
+---
+
+### 5. Differenze tra ambienti
+
+Il comportamento di JavaScript può variare tra:
+
+- Browser
+- Node.js
+- Deno
+- Bun
+
+Non tutte le API sono disponibili ovunque, quindi serve conoscere bene l’ambiente di esecuzione.
+
+---
+
+## Conclusione
+
+JavaScript è un linguaggio estremamente potente, versatile e indispensabile nel web moderno.
+Le sue limitazioni non lo rendono debole, ma **richiedono consapevolezza**: strumenti giusti, buone pratiche e architetture solide.
+
+Capire i suoi punti di forza e i suoi limiti è il primo passo per diventare uno sviluppatore JavaScript maturo e professionale.
