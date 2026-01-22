@@ -1,232 +1,187 @@
 const data = [
   {
-    title: "Introduzione a JavaScript",
+    title: "Introduzione a TypeScript",
     articles: [
-      "Cos'è JavaScript",
-      "Storia ed evoluzione del linguaggio",
-      "JavaScript nel web moderno",
-      "ECMAScript e standardizzazione",
-      "Differenze tra JavaScript e altri linguaggi",
-      "Ambienti di esecuzione (Browser, Node.js, Deno, Bun)",
-      "Use case principali",
-      "Limitazioni e punti di forza",
+      "Cos'è TypeScript e perché usarlo",
+      "Differenze tra JavaScript e TypeScript",
+      "Come funziona il compilatore TypeScript",
+      "Vantaggi di TypeScript nel web development",
+      "Installazione e configurazione di TypeScript",
+      "Primi passi: scrivere il primo file .ts",
     ],
   },
   {
-    title: "Setup e ambiente di sviluppo",
+    title: "Tipi di Dati",
     articles: [
-      "Installazione di Node.js",
-      "Editor di codice (VS Code, WebStorm, ecc.)",
-      "Configurazione dell'ambiente",
-      "Gestione dei pacchetti (npm, yarn, pnpm)",
-      "Struttura di un progetto JavaScript",
-      "Script e comandi",
-      "Debugging di base",
-      "Console del browser",
+      "Tipi primitivi: number, string, boolean",
+      "Tipi speciali: any, unknown, void, never, null, undefined",
+      "Array e Tuple",
+      "Enum",
+      "Union e Intersection Types",
+      "Literal Types",
+      "Type Aliases",
+      "Tipizzazione con oggetti",
     ],
   },
   {
-    title: "Fondamenti del linguaggio",
+    title: "Funzioni e Tipi di Funzione",
     articles: [
-      "Sintassi di base",
-      "Commenti",
-      "Case sensitivity",
-      "Parole riservate",
-      "Tipizzazione dinamica",
-      "Valori primitivi",
-      "Oggetti",
-      "Mutabilità e immutabilità",
-    ],
-  },
-  {
-    title: "Variabili e costanti",
-    articles: [
-      "var, let e const",
-      "Scope delle variabili",
-      "Hoisting",
-      "Shadowing",
-      "Best practice",
-      "Naming convention",
-    ],
-  },
-  {
-    title: "Tipi di dato",
-    articles: [
-      "Number",
-      "BigInt",
-      "String",
-      "Boolean",
-      "Undefined",
-      "Null",
-      "Symbol",
-      "Object",
-      "typeof",
-      "Conversioni di tipo",
-      "Truthiness e Falsiness",
-    ],
-  },
-  {
-    title: "Operatori",
-    articles: [
-      "Operatori aritmetici",
-      "Operatori di assegnazione",
-      "Operatori di confronto",
-      "Operatori logici",
-      "Operatori bitwise",
-      "Operatori ternari",
-      "Operatori di coalescenza e optional chaining",
-      "Operatori di spread e rest",
-      "Precedenza degli operatori",
-    ],
-  },
-  {
-    title: "Strutture di controllo",
-    articles: ["if, else", "switch", "for", "while", "do while", "break e continue", "try, catch, finally", "throw"],
-  },
-  {
-    title: "Funzioni",
-    articles: [
-      "Dichiarazione di funzioni",
-      "Function expression",
-      "Arrow function",
-      "Parametri e valori di default",
+      "Dichiarazione di funzioni in TypeScript",
+      "Tipizzazione dei parametri e del ritorno",
+      "Parametri opzionali e default",
       "Rest parameters",
-      "Return",
-      "Scope e closure",
-      "IIFE",
-      "Callback",
-      "Funzioni pure",
+      "Funzioni anonime e arrow functions",
+      "Funzioni generiche (Generics)",
+      "Funzioni overloading",
     ],
   },
   {
-    title: "Oggetti",
+    title: "Oggetti e Interfacce",
     articles: [
-      "Creazione di oggetti",
+      "Creare oggetti tipizzati",
+      "Interfacce: definizione e utilizzo",
+      "Estendere interfacce",
+      "Tipi opzionali e readonly",
+      "Interfacce vs Type Aliases",
+      "Indice di tipi dinamici",
+      "Tipi mappati e conditional types",
+    ],
+  },
+  {
+    title: "Classi e Programmazione Orientata agli Oggetti",
+    articles: [
+      "Classi e istanze in TypeScript",
       "Proprietà e metodi",
-      "this",
-      "Destructuring",
-      "Computed properties",
-      "Getter e setter",
-      "Object methods",
-      "Clonazione di oggetti",
+      "Modificatori di accesso: public, private, protected",
+      "Readonly e static",
+      "Ereditarietà e extends",
+      "Implementare interfacce",
+      "Classi astratte",
+      "Getter e Setter",
+      "Metodi statici e proprietà statiche",
     ],
   },
   {
-    title: "Array",
+    title: "Tipi Avanzati",
     articles: [
-      "Creazione di array",
-      "Accesso agli elementi",
-      "Metodi principali",
-      "map, filter, reduce",
-      "forEach, find, some, every",
-      "Destructuring",
-      "Spread operator",
-      "Array multidimensionali",
+      "Tipi generici (Generics) avanzati",
+      "Conditional Types",
+      "Mapped Types",
+      "Infer e Type Guards",
+      "Utility Types (Partial, Required, Pick, Omit, Record, etc.)",
+      "Tipi ricorsivi",
+      "Branded Types",
+      "Discriminated Unions",
     ],
   },
   {
-    title: "Stringhe",
-    articles: ["Template literals", "Concatenazione", "Metodi principali", "Escape characters", "Regex con stringhe"],
-  },
-  {
-    title: "Date e Math",
-    articles: ["Oggetto Date", "Formattazione date", "Timestamp", "Oggetto Math", "Numeri casuali"],
-  },
-  {
-    title: "Programmazione asincrona",
+    title: "Tipi di Funzioni e Callbacks",
     articles: [
-      "Event loop",
-      "Callback",
-      "Promise",
-      "async/await",
-      "Gestione degli errori asincroni",
-      "Fetch API",
-      "AbortController",
+      "Tipizzazione dei callback",
+      "Tipi di funzione come tipi",
+      "Funzioni generiche",
+      "Overload di funzioni",
+      "Funzioni asíncrone e Promises",
     ],
   },
   {
-    title: "Moduli",
-    articles: ["Import e export", "Default export", "Named export", "Dynamic import", "CommonJS vs ES Modules"],
-  },
-  {
-    title: "DOM e Browser API",
+    title: "Moduli e Namespace",
     articles: [
-      "Cos'è il DOM",
-      "Selezione degli elementi",
-      "Manipolazione del DOM",
-      "Eventi",
-      "Event bubbling e capturing",
-      "LocalStorage e SessionStorage",
-      "Cookie",
-      "Navigator API",
-      "Geolocation",
-      "Canvas",
-      "Web Storage",
-      "Web Workers",
+      "Import e Export in TypeScript",
+      "Tipi di moduli: named e default",
+      "Namespace e moduli interni",
+      "Risoluzione dei moduli",
+      "Configurazione dei path con tsconfig.json",
     ],
   },
   {
-    title: "Classi e OOP",
+    title: "Decoratori",
     articles: [
-      "Costruttori",
-      "Prototipi",
-      "extends",
-      "super",
-      "Metodi statici",
-      "Incapsulamento",
-      "Polimorfismo",
-      "Ereditarietà",
+      "Introduzione ai decoratori",
+      "Decoratori di classi",
+      "Decoratori di proprietà",
+      "Decoratori di metodi e parametri",
+      "Uso dei decoratori in progetti reali",
+      "Limiti e considerazioni",
     ],
   },
   {
-    title: "Gestione degli errori",
-    articles: ["Error object", "try/catch", "Error custom", "Stack trace"],
-  },
-  {
-    title: "Performance e ottimizzazione",
-    articles: ["Debounce e throttle", "Memory leak", "Profiling", "Lazy loading", "Web performance API"],
-  },
-  {
-    title: "Testing",
-    articles: ["Unit testing", "Integration testing", "Jest", "Mocha", "Test coverage"],
-  },
-  {
-    title: "Sicurezza",
-    articles: ["XSS", "CSRF", "CORS", "Content Security Policy", "Sanitizzazione input"],
-  },
-  {
-    title: "Tooling ed ecosistema",
+    title: "Gestione degli Errori",
     articles: [
-      "Bundler (Webpack, Vite, Rollup)",
-      "Transpiler (Babel)",
-      "Linting (ESLint)",
-      "Formatter (Prettier)",
-      "Task runner",
-      "CI/CD",
+      "Tipi never e gestione degli errori",
+      "Try / Catch in TypeScript",
+      "Throw e errori personalizzati",
+      "Tipizzazione dei messaggi di errore",
     ],
   },
   {
-    title: "Framework e librerie",
-    articles: ["React", "Vue", "Angular", "Svelte", "Next.js", "Nuxt", "Express", "Fastify"],
-  },
-  {
-    title: "Node.js",
+    title: "TypeScript e JavaScript",
     articles: [
-      "Event-driven architecture",
-      "File system",
-      "HTTP module",
-      "Streams",
-      "Process",
-      "Environment variables",
+      "Interop con JavaScript",
+      "Type Assertion",
+      "Tipi any e unknown",
+      "Controllo dei tipi a runtime",
+      "Conversioni tra tipi",
     ],
   },
   {
-    title: "Best practice e pattern",
-    articles: ["Clean code", "Design pattern", "Modularizzazione", "Immutabilità", "Functional programming"],
+    title: "Configurazione del Progetto",
+    articles: [
+      "File tsconfig.json",
+      "Opzioni principali del compilatore",
+      "Target e Module",
+      "Strict Mode",
+      "Include, Exclude e Files",
+      "Source Maps",
+      "Compilazione incremental e watch mode",
+    ],
+  },
+  {
+    title: "Strumenti e Ecosistema",
+    articles: [
+      "TypeScript con Node.js",
+      "TypeScript con React",
+      "TypeScript con Vue e Angular",
+      "Linters e formattatori (ESLint, Prettier)",
+      "Tooling e editor support",
+      "Definizioni dei tipi: DefinitelyTyped e @types",
+    ],
+  },
+  {
+    title: "Pattern e Best Practices",
+    articles: [
+      "Tipizzazione sicura e robusta",
+      "Separazione delle interfacce",
+      "Evita any quando possibile",
+      "Uso corretto dei generics",
+      "Organizzazione dei moduli",
+      "Codice manutenibile e leggibile",
+    ],
+  },
+  {
+    title: "Progetti Avanzati e Tecniche",
+    articles: [
+      "Progetti multi-modulo",
+      "TypeScript in microfrontend",
+      "Testing con TypeScript (Jest, Mocha, etc.)",
+      "Integrazione con GraphQL",
+      "Creazione di librerie tipizzate",
+      "Metaprogrammazione avanzata",
+    ],
+  },
+  {
+    title: "Aggiornamenti e Novità",
+    articles: [
+      "Nuove funzionalità delle versioni recenti",
+      "Differenze principali tra versioni",
+      "Funzioni e tipi deprecati",
+      "Guida alla migrazione tra versioni",
+    ],
   },
 ];
-const fs = require("fs");
-const path = require("path");
+
+import { existsSync, mkdirSync, writeFileSync } from "fs";
+import { join } from "path";
 
 const slugify = (str) =>
   str
@@ -238,30 +193,30 @@ const slugify = (str) =>
 
 const pad = (n) => String(n).padStart(2, "0");
 
-const docsDir = path.join(process.cwd(), "docs");
+const docsDir = join(process.cwd(), "docs");
 
-if (!fs.existsSync(docsDir)) fs.mkdirSync(docsDir);
+if (!existsSync(docsDir)) mkdirSync(docsDir);
 
 data.forEach((chapter, cIndex) => {
   const chapterIndex = pad(cIndex + 1);
   const chapterSlug = slugify(chapter.title);
-  const chapterDir = path.join(docsDir, `${chapterIndex}-${chapterSlug}`);
+  const chapterDir = join(docsDir, `${chapterIndex}-${chapterSlug}`);
 
-  fs.mkdirSync(chapterDir, { recursive: true });
+  mkdirSync(chapterDir, { recursive: true });
 
   chapter.articles.forEach((article, aIndex) => {
     const articleIndex = pad(aIndex + 1);
     const articleSlug = slugify(article);
-    const articleDir = path.join(chapterDir, `${articleIndex}-${articleSlug}`);
+    const articleDir = join(chapterDir, `${articleIndex}-${articleSlug}`);
 
-    fs.mkdirSync(articleDir, { recursive: true });
+    mkdirSync(articleDir, { recursive: true });
 
     const mdxContent = `# ${article}
 
 In arrivo
 `;
 
-    fs.writeFileSync(path.join(articleDir, "page.mdx"), mdxContent, "utf8");
+    writeFileSync(join(articleDir, "page.mdx"), mdxContent, "utf8");
   });
 });
 
