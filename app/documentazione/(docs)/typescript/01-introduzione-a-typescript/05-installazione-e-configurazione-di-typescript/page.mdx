@@ -1,3 +1,216 @@
 # Installazione e configurazione di TypeScript
 
-In arrivo
+In questo articolo vedremo come installare e configurare TypeScript in modo corretto, sia per piccoli progetti che per applicazioni più complesse. L’obiettivo è creare un ambiente di sviluppo solido, chiaro e facilmente manutenibile.
+
+---
+
+## Prerequisiti
+
+Prima di installare TypeScript assicurati di avere:
+
+- **Node.js** (versione LTS consigliata)
+- **npm** o **yarn** (gestori di pacchetti)
+
+Per verificare:
+
+```bash
+node -v
+npm -v
+```
+
+Se non sono installati, puoi scaricarli da **[https://nodejs.org](https://nodejs.org)**.
+
+---
+
+## Installazione di TypeScript
+
+### Installazione globale
+
+Consente di usare il compilatore `tsc` da qualsiasi progetto:
+
+```bash
+npm install -g typescript
+```
+
+Verifica l’installazione:
+
+```bash
+tsc -v
+```
+
+---
+
+### Installazione locale (consigliata)
+
+Nei progetti reali è preferibile installare TypeScript come dipendenza di sviluppo:
+
+```bash
+npm install --save-dev typescript
+```
+
+In questo modo ogni progetto usa la propria versione di TypeScript.
+
+---
+
+## Inizializzare un progetto TypeScript
+
+Posizionati nella cartella del progetto e inizializza un file di configurazione:
+
+```bash
+npx tsc --init
+```
+
+Questo comando crea il file:
+
+```text
+tsconfig.json
+```
+
+È il cuore della configurazione TypeScript.
+
+---
+
+## Il file tsconfig.json
+
+Il file `tsconfig.json` definisce come TypeScript deve compilare il progetto.
+
+Esempio di configurazione di base:
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "ESNext",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  }
+}
+```
+
+### Spiegazione delle opzioni principali
+
+| Opzione            | Descrizione                                 |
+| ------------------ | ------------------------------------------- |
+| `target`           | Versione di JavaScript di output            |
+| `module`           | Sistema di moduli (ESNext, CommonJS, ecc.)  |
+| `rootDir`          | Cartella dei file TypeScript                |
+| `outDir`           | Cartella di output JavaScript               |
+| `strict`           | Attiva i controlli di tipo più severi       |
+| `moduleResolution` | Come vengono risolti i moduli               |
+| `esModuleInterop`  | Migliora la compatibilità con CommonJS      |
+| `skipLibCheck`     | Ignora il controllo dei tipi nelle librerie |
+
+---
+
+## Struttura consigliata del progetto
+
+```text
+project/
+│
+├─ src/
+│   └─ index.ts
+│
+├─ dist/
+│   └─ index.js
+│
+├─ tsconfig.json
+└─ package.json
+```
+
+- **src/** contiene i file `.ts`
+- **dist/** contiene i file compilati `.js`
+
+---
+
+## Compilare il progetto
+
+Per compilare:
+
+```bash
+npx tsc
+```
+
+Questo comando leggerà il `tsconfig.json` e genererà i file JavaScript nella cartella `dist`.
+
+---
+
+## Modalità Watch
+
+Per ricompilare automaticamente a ogni modifica:
+
+```bash
+npx tsc --watch
+```
+
+È molto utile durante lo sviluppo.
+
+---
+
+## Aggiungere uno script npm
+
+Nel file `package.json`:
+
+```json
+{
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch"
+  }
+}
+```
+
+Ora puoi eseguire:
+
+```bash
+npm run build
+npm run watch
+```
+
+---
+
+## Integrazione con editor
+
+### Visual Studio Code
+
+VS Code supporta TypeScript nativamente:
+
+- Autocompletamento
+- Segnalazione errori in tempo reale
+- Refactoring automatico
+
+Non è richiesta alcuna configurazione aggiuntiva.
+
+---
+
+## Verifica del funzionamento
+
+1. Crea `src/index.ts`
+2. Scrivi:
+
+```ts
+const message: string = "TypeScript è pronto!";
+console.log(message);
+```
+
+3. Compila:
+
+```bash
+npx tsc
+```
+
+4. Esegui:
+
+```bash
+node dist/index.js
+```
+
+Se vedi il messaggio, TypeScript è configurato correttamente.
+
+---
+
+Ora il tuo ambiente TypeScript è pronto per essere utilizzato in qualsiasi progetto web moderno.

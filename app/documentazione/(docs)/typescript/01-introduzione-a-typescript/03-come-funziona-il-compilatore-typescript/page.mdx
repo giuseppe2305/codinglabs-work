@@ -1,3 +1,203 @@
 # Come funziona il compilatore TypeScript
 
-In arrivo
+Il **compilatore TypeScript** (chiamato `tsc`) è lo strumento che trasforma il codice TypeScript (`.ts`) in **JavaScript standard** (`.js`), cioè il linguaggio che i browser e Node.js possono realmente eseguire.
+
+TypeScript **non viene eseguito direttamente**: prima deve essere compilato.
+Durante questa fase, il compilatore:
+
+1. Analizza il codice
+2. Controlla i tipi
+3. Segnala errori
+4. Converte il codice in JavaScript
+
+---
+
+## Cos’è il compilatore `tsc`
+
+`tsc` è un programma a riga di comando incluso nel pacchetto TypeScript.
+Il suo compito principale è:
+
+> Prendere file `.ts` → Verificarli → Generare file `.js` compatibili.
+
+Esempio:
+
+```bash
+tsc main.ts
+```
+
+Output:
+
+```
+main.js
+```
+
+---
+
+## Le fasi del processo di compilazione
+
+Il compilatore TypeScript lavora in **più fasi**, simili a quelle di un vero compilatore.
+
+### 1. Parsing (analisi sintattica)
+
+Il codice viene letto e trasformato in una **struttura interna** chiamata _AST_ (Abstract Syntax Tree).
+
+Serve per capire:
+
+- se la sintassi è valida
+- la struttura del programma
+
+Se il codice non è sintatticamente corretto, la compilazione si ferma.
+
+---
+
+### 2. Type Checking (controllo dei tipi)
+
+Qui avviene la parte più importante di TypeScript.
+
+Il compilatore verifica:
+
+- che le variabili rispettino i tipi dichiarati
+- che i parametri delle funzioni siano corretti
+- che i valori di ritorno siano compatibili
+- che non ci siano errori logici di tipo
+
+Esempio:
+
+```ts
+let age: number = "30";
+```
+
+Errore del compilatore:
+
+```
+Type 'string' is not assignable to type 'number'
+```
+
+Se sono presenti errori di tipo, **il compilatore li segnala**, ma può comunque generare il file JavaScript (dipende dalla configurazione).
+
+---
+
+### 3. Emissione (generazione del JavaScript)
+
+Una volta validato il codice, TypeScript lo **traspila** in JavaScript.
+
+```ts
+let message: string = "Ciao";
+```
+
+Diventa:
+
+```js
+var message = "Ciao";
+```
+
+Il codice finale:
+
+- non contiene più tipi
+- è compatibile con la versione JavaScript scelta
+
+---
+
+## Target JavaScript
+
+TypeScript permette di scegliere **per quale versione di JavaScript** generare il codice.
+
+Nel file `tsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES2017"
+  }
+}
+```
+
+Questo indica al compilatore come trasformare le funzionalità moderne in codice compatibile.
+
+---
+
+## File di configurazione: `tsconfig.json`
+
+Il comportamento del compilatore viene controllato tramite il file:
+
+```
+tsconfig.json
+```
+
+Esempio:
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "ESNext",
+    "strict": true,
+    "outDir": "dist"
+  }
+}
+```
+
+### Significato principale
+
+| Opzione  | Descrizione                      |
+| -------- | -------------------------------- |
+| `target` | Versione JavaScript di output    |
+| `module` | Sistema di moduli                |
+| `strict` | Attiva tutti i controlli di tipo |
+| `outDir` | Cartella dei file compilati      |
+
+---
+
+## Modalità di compilazione
+
+### Compilazione singola
+
+```bash
+tsc file.ts
+```
+
+### Compilazione di un progetto
+
+```bash
+tsc
+```
+
+(legge automaticamente `tsconfig.json`)
+
+---
+
+## Modalità watch
+
+Il compilatore può rimanere in ascolto:
+
+```bash
+tsc --watch
+```
+
+Ogni volta che modifichi un file `.ts`, viene ricompilato automaticamente.
+
+---
+
+## Errori e warning
+
+TypeScript **non blocca l’esecuzione**, ma segnala problemi prima che il codice venga eseguito.
+
+Questo permette di:
+
+- prevenire bug
+- rendere il codice più sicuro
+- migliorare la qualità del software
+
+---
+
+## Riassunto
+
+Il compilatore TypeScript:
+
+1. Legge i file `.ts`
+2. Analizza la sintassi
+3. Controlla i tipi
+4. Segnala errori
+5. Genera JavaScript compatibile
+
+È il cuore di TypeScript e il motivo per cui questo linguaggio rende lo sviluppo web **più sicuro, più prevedibile e più professionale**.

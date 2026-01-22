@@ -1,3 +1,156 @@
-# Primi passi: scrivere il primo file .ts
+# Primi passi: scrivere il primo file `.ts`
 
-In arrivo
+In questo articolo vedremo, passo dopo passo, come creare ed eseguire il tuo primo file **TypeScript**. L’obiettivo è capire il flusso completo: dalla scrittura del codice alla sua trasformazione in JavaScript ed esecuzione nel browser o in Node.js.
+
+---
+
+## 1. Creare il progetto
+
+Per iniziare, crea una nuova cartella per il tuo progetto e posizionati al suo interno:
+
+```bash
+mkdir primo-typescript
+cd primo-typescript
+```
+
+Inizializza un progetto Node.js:
+
+```bash
+npm init -y
+```
+
+Ora installa TypeScript come dipendenza di sviluppo:
+
+```bash
+npm install typescript --save-dev
+```
+
+---
+
+## 2. Generare il file di configurazione
+
+TypeScript usa un file chiamato **tsconfig.json** per sapere come compilare il codice.
+
+Generalo con:
+
+```bash
+npx tsc --init
+```
+
+Questo creerà un file `tsconfig.json` con molte opzioni. Per ora non è necessario modificarlo: useremo la configurazione di base.
+
+---
+
+## 3. Creare il primo file `.ts`
+
+All’interno della cartella del progetto, crea un file chiamato:
+
+```bash
+index.ts
+```
+
+Aprilo con il tuo editor e scrivi:
+
+```ts
+function saluta(nome: string): string {
+  return `Ciao, ${nome}!`;
+}
+
+const utente: string = "Marco";
+
+console.log(saluta(utente));
+```
+
+### Cosa sta succedendo
+
+- `nome: string` indica che la funzione accetta solo stringhe.
+- `: string` dopo le parentesi indica che la funzione restituisce una stringa.
+- `utente: string` forza la variabile a contenere solo stringhe.
+- Se provi a passare un numero o un valore sbagliato, TypeScript mostrerà un errore.
+
+---
+
+## 4. Compilare il file TypeScript
+
+Ora trasforma il file `.ts` in JavaScript:
+
+```bash
+npx tsc
+```
+
+TypeScript cercherà tutti i file `.ts` nel progetto e genererà i file `.js`.
+
+Dopo il comando, vedrai comparire:
+
+```bash
+index.js
+```
+
+Questo file è il codice JavaScript compilato che può essere eseguito da Node o dal browser.
+
+---
+
+## 5. Eseguire il file compilato
+
+Per eseguire il file JavaScript:
+
+```bash
+node index.js
+```
+
+Output:
+
+```bash
+Ciao, Marco!
+```
+
+---
+
+## 6. Provare un errore di tipo
+
+Modifica `index.ts` così:
+
+```ts
+const utente: string = 10;
+```
+
+Salva e prova a compilare:
+
+```bash
+npx tsc
+```
+
+Otterrai un errore simile a:
+
+```text
+Type 'number' is not assignable to type 'string'.
+```
+
+Questo dimostra come TypeScript intercetta gli errori **prima** dell’esecuzione.
+
+---
+
+## 7. Flusso di lavoro tipico
+
+1. Scrivi codice in `.ts`
+2. TypeScript controlla i tipi
+3. Compili con `tsc`
+4. Ottieni file `.js`
+5. Esegui il JavaScript
+
+---
+
+## 8. Struttura finale del progetto
+
+```text
+primo-typescript/
+├─ node_modules/
+├─ index.ts
+├─ index.js
+├─ tsconfig.json
+└─ package.json
+```
+
+---
+
+Ora hai scritto, compilato ed eseguito il tuo primo file TypeScript. Da questo momento puoi iniziare a usare TypeScript per creare applicazioni più sicure, leggibili e scalabili.

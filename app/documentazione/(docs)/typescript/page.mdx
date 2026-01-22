@@ -1,3 +1,117 @@
 # Introduzione a TypeScript
 
-In arrivo
+TypeScript è un linguaggio di programmazione open source creato da Microsoft che si basa su JavaScript, estendendolo con funzionalità pensate per rendere il codice più sicuro, leggibile e manutenibile. Non sostituisce JavaScript, ma lo arricchisce: ogni codice TypeScript viene infatti **compilato in JavaScript** prima di essere eseguito dal browser o da Node.js.
+
+Negli ultimi anni TypeScript è diventato uno standard di fatto nel web development moderno, soprattutto in progetti di media e grande dimensione, dove la complessità del codice richiede strumenti più solidi rispetto al JavaScript “puro”.
+
+---
+
+## Perché nasce TypeScript
+
+JavaScript è un linguaggio estremamente flessibile, ma questa flessibilità può diventare un problema nei progetti complessi. Errori come:
+
+- variabili con tipi non previsti
+- funzioni usate in modo scorretto
+- proprietà mancanti negli oggetti
+
+spesso emergono solo **a runtime**, cioè quando l’applicazione è già in esecuzione.
+
+TypeScript nasce per risolvere questo problema introducendo un **sistema di tipi statico**, che permette di individuare molti errori già in fase di sviluppo, prima ancora di eseguire il codice.
+
+---
+
+## TypeScript è un superset di JavaScript
+
+Un concetto fondamentale: **tutto il codice JavaScript valido è anche codice TypeScript valido**. Questo rende TypeScript perfettamente compatibile con l’ecosistema JS esistente.
+
+In pratica:
+
+- puoi iniziare a usare TypeScript in modo graduale
+- puoi convertire un progetto JavaScript esistente senza riscriverlo da zero
+- puoi mescolare file `.js` e `.ts` nello stesso progetto
+
+---
+
+## Il sistema di tipi
+
+Il cuore di TypeScript è il suo sistema di tipi. Puoi specificare che tipo di valore può assumere una variabile, che parametri accetta una funzione e cosa restituisce.
+
+```ts
+let username: string = "Mario";
+let age: number = 30;
+
+function greet(name: string): string {
+  return "Ciao " + name;
+}
+```
+
+Grazie a queste informazioni, l’editor e il compilatore possono segnalare errori prima che il codice venga eseguito.
+
+---
+
+## Tipizzazione graduale
+
+TypeScript non ti obbliga a tipizzare tutto. Puoi:
+
+- tipizzare solo le parti critiche
+- lasciare alcune variabili con tipo implicito
+- usare `any` quando serve flessibilità
+
+Questo approccio “graduale” permette di adottare TypeScript senza stravolgere il flusso di lavoro.
+
+---
+
+## Oggetti, interfacce e modelli di dati
+
+TypeScript è particolarmente potente nella descrizione della struttura dei dati tramite **interfacce** e **tipi**.
+
+```ts
+interface User {
+  id: number;
+  name: string;
+  email: string;
+}
+```
+
+Queste definizioni diventano una vera e propria **documentazione viva del codice**, facilitando il lavoro in team e riducendo gli errori di integrazione.
+
+---
+
+## Tooling e Developer Experience
+
+Uno dei maggiori punti di forza di TypeScript è l’integrazione con gli editor moderni:
+
+- autocompletamento intelligente
+- suggerimenti contestuali
+- refactoring più sicuro
+- navigazione rapida nel codice
+
+Questo migliora notevolmente la produttività, soprattutto in progetti complessi.
+
+---
+
+## Compilazione
+
+TypeScript non viene eseguito direttamente dal browser. Prima deve essere **compilato in JavaScript** tramite il TypeScript Compiler (`tsc`).
+Durante la compilazione, il codice viene controllato e trasformato in JavaScript compatibile con l’ambiente di destinazione.
+
+---
+
+## TypeScript nel mondo moderno
+
+Oggi TypeScript è utilizzato da:
+
+- framework come Angular, Next.js, NestJS
+- librerie come React e Vue (tramite supporto ufficiale)
+- grandi aziende e progetti open source
+
+È ormai considerato una base solida per applicazioni scalabili, backend in Node.js, frontend complessi e applicazioni enterprise.
+
+---
+
+## Conclusione
+
+TypeScript non è solo “JavaScript con i tipi”: è uno strumento che porta ordine, sicurezza e chiarezza nello sviluppo web.
+Rende il codice più prevedibile, riduce i bug e migliora la collaborazione tra sviluppatori.
+
+Che tu stia creando una piccola app o un sistema complesso, TypeScript rappresenta oggi una delle scelte più intelligenti per costruire software moderno, robusto e manutenibile.

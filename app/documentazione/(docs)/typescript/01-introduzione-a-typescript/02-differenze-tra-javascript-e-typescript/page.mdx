@@ -1,3 +1,157 @@
 # Differenze tra JavaScript e TypeScript
 
-In arrivo
+JavaScript e TypeScript sono strettamente collegati: **TypeScript è un superset di JavaScript**, cioè tutto il codice JavaScript valido è anche codice TypeScript valido.
+La differenza principale è che TypeScript aggiunge **tipizzazione statica, controlli a tempo di compilazione e strumenti avanzati** per rendere il codice più sicuro, leggibile e manutenibile.
+
+Vediamo nel dettaglio cosa cambia davvero tra i due.
+
+---
+
+## 1. Tipizzazione: dinamica vs statica
+
+### JavaScript (tipizzazione dinamica)
+
+In JavaScript il tipo di una variabile viene deciso a runtime:
+
+```js
+let age = 25;
+age = "venticinque"; // nessun errore
+```
+
+Questo può causare bug difficili da individuare, perché l’errore emerge solo quando il codice viene eseguito.
+
+---
+
+### TypeScript (tipizzazione statica)
+
+In TypeScript puoi dichiarare esplicitamente i tipi:
+
+```ts
+let age: number = 25;
+age = "venticinque"; // Errore a tempo di compilazione
+```
+
+TypeScript intercetta il problema **prima** che il codice venga eseguito.
+
+---
+
+## 2. Controlli a tempo di compilazione
+
+JavaScript segnala gli errori solo quando il codice viene eseguito nel browser o su Node.js.
+
+TypeScript invece analizza il codice **prima** di generare JavaScript:
+
+```ts
+function sum(a: number, b: number): number {
+  return a + b;
+}
+
+sum(10, "20"); // Errore segnalato dal compilatore
+```
+
+Questo riduce drasticamente i bug in produzione.
+
+---
+
+## 3. Interfacce e tipizzazione strutturata
+
+TypeScript introduce strumenti che non esistono in JavaScript:
+
+```ts
+interface User {
+  id: number;
+  name: string;
+}
+
+const user: User = {
+  id: 1,
+  name: "Marco",
+};
+```
+
+Le **interfacce** permettono di definire la struttura dei dati e di far rispettare contratti chiari tra le parti dell’applicazione.
+
+---
+
+## 4. Autocompletamento e refactoring migliori
+
+Grazie ai tipi, gli editor come VS Code possono:
+
+- suggerire proprietà e metodi corretti
+- prevenire errori di battitura
+- aiutare nel refactoring sicuro
+
+In JavaScript queste funzionalità sono limitate o imprecise.
+
+---
+
+## 5. Classi più potenti
+
+TypeScript estende il sistema di classi di JavaScript:
+
+```ts
+class Person {
+  constructor(
+    public name: string,
+    private age: number,
+  ) {}
+
+  greet(): string {
+    return `Ciao, sono ${this.name}`;
+  }
+}
+```
+
+- `public`, `private`, `protected`
+- tipizzazione dei metodi
+- controllo sugli accessi
+
+JavaScript non fornisce queste garanzie in modo nativo.
+
+---
+
+## 6. Gestione degli errori più prevedibile
+
+Con TypeScript puoi evitare errori comuni:
+
+```ts
+let user: { name: string } | null = null;
+
+// user.name // Errore: potrebbe essere null
+
+if (user) {
+  console.log(user.name); // OK
+}
+```
+
+Questo riduce bug legati a `undefined` e `null`.
+
+---
+
+## 7. Compatibilità totale con JavaScript
+
+- Tutto il codice JavaScript è valido in TypeScript.
+- TypeScript viene **compilato in JavaScript**.
+- Puoi adottarlo gradualmente in un progetto esistente.
+
+---
+
+## 8. Riepilogo delle differenze principali
+
+| Caratteristica    | JavaScript | TypeScript           |
+| ----------------- | ---------- | -------------------- |
+| Tipizzazione      | Dinamica   | Statica              |
+| Controlli         | A runtime  | A compilazione       |
+| Interfacce        | ❌ No      | ✅ Sì                |
+| Autocompletamento | Limitato   | Avanzato             |
+| Sicurezza         | Più bassa  | Più alta             |
+| Output finale     | JavaScript | JavaScript compilato |
+
+---
+
+## Conclusione
+
+JavaScript è flessibile e veloce da scrivere, ma su progetti grandi può diventare difficile da mantenere.
+TypeScript aggiunge **struttura, sicurezza e chiarezza**, senza rinunciare alla compatibilità con JavaScript.
+
+Per questo oggi TypeScript è lo standard de facto nello sviluppo web moderno.
