@@ -1,3 +1,155 @@
 # Architettura di base
 
-In arrivo
+L’architettura di React è progettata per rendere lo sviluppo di interfacce utente **modulare, scalabile e prevedibile**. Non si tratta di un framework completo, ma di una libreria focalizzata sulla **view** dell’applicazione.
+Questo significa che React non impone una struttura rigida, ma fornisce i concetti fondamentali su cui costruire applicazioni moderne e manutenibili.
+
+Vediamo i pilastri dell’architettura di base di React.
+
+---
+
+## 1. Componenti
+
+Il cuore di React è il **componente**.
+
+Un componente è una funzione (o classe, nei progetti più vecchi) che:
+
+- riceve dati in ingresso (props)
+- gestisce uno stato interno (state)
+- restituisce una porzione di interfaccia (JSX)
+
+Ogni applicazione React è una **gerarchia di componenti**, dove:
+
+- un componente padre passa dati ai figli
+- ogni componente è isolato e riutilizzabile
+
+Questo approccio permette di:
+
+- separare le responsabilità
+- riutilizzare codice
+- testare facilmente ogni parte dell’interfaccia
+
+---
+
+## 2. Unidirectional Data Flow
+
+React utilizza un **flusso di dati unidirezionale**:
+
+- i dati scendono dall’alto verso il basso
+- i figli non modificano direttamente lo stato dei genitori
+- le modifiche avvengono tramite funzioni passate come props
+
+Questo modello rende l’applicazione:
+
+- più prevedibile
+- più semplice da debuggare
+- più facile da mantenere nel tempo
+
+---
+
+## 3. Stato (State) e Proprietà (Props)
+
+### Props
+
+Le **props** sono dati passati da un componente padre a uno figlio.
+Sono **sola lettura** e non possono essere modificate dal componente che le riceve.
+
+### State
+
+Lo **state** rappresenta i dati interni di un componente che possono cambiare nel tempo.
+
+Quando lo state cambia:
+
+1. React ricalcola il componente
+2. confronta il nuovo output con quello precedente
+3. aggiorna solo le parti necessarie del DOM
+
+---
+
+## 4. Separazione tra logica e presentazione
+
+In React, la UI non è separata in HTML, CSS e JS come file distinti, ma è **composta da componenti che contengono logica e markup insieme**.
+
+Questo approccio:
+
+- semplifica il ragionamento
+- mantiene la coerenza tra stato e interfaccia
+- rende il codice più leggibile nel contesto del componente
+
+---
+
+## 5. Gerarchia ad albero
+
+Un’app React ha una struttura ad **albero di componenti**:
+
+```
+App
+ ├── Header
+ ├── Sidebar
+ └── Main
+     ├── Card
+     └── Card
+```
+
+Ogni nodo dell’albero:
+
+- riceve dati dal genitore
+- può avere figli
+- può gestire il proprio stato
+
+Questa struttura favorisce:
+
+- riutilizzo
+- composizione
+- isolamento delle funzionalità
+
+---
+
+## 6. Render e riconciliazione
+
+Quando lo stato o le props cambiano, React:
+
+1. riesegue il componente
+2. crea una nuova rappresentazione virtuale
+3. confronta il risultato con quello precedente
+4. applica solo le differenze reali al DOM
+
+Questo processo si chiama **reconciliation** ed è una delle chiavi delle prestazioni di React.
+
+---
+
+## 7. Ruolo del componente principale
+
+Ogni applicazione React ha un **componente radice** (di solito `App`) che:
+
+- contiene la struttura principale
+- gestisce lo stato globale o delega a librerie esterne
+- collega l’interfaccia al resto dell’applicazione
+
+Da questo componente nasce l’intera UI.
+
+---
+
+## 8. Architettura modulare
+
+React non obbliga a un’architettura fissa, ma favorisce:
+
+- separazione per feature
+- componenti riutilizzabili
+- logica isolata
+- testabilità
+
+Questo rende React adatto sia a piccoli progetti che a grandi applicazioni enterprise.
+
+---
+
+## Conclusione
+
+L’architettura di base di React si fonda su:
+
+- componenti
+- flusso di dati unidirezionale
+- stato e props
+- struttura ad albero
+- rendering reattivo
+
+Questo modello permette di costruire interfacce moderne, performanti e facilmente manutenibili, mantenendo il controllo sulla complessità anche nei progetti di grandi dimensioni.

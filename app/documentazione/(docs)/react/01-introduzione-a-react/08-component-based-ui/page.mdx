@@ -1,3 +1,144 @@
 # Component-based UI
 
-In arrivo
+Uno dei concetti fondamentali di React è la **Component-based UI**, ovvero un’interfaccia utente costruita a partire da **componenti riutilizzabili e indipendenti**.
+Questo approccio cambia radicalmente il modo di progettare e sviluppare le applicazioni web, rendendole più modulari, scalabili e facili da mantenere.
+
+In React, tutto è un componente: un pulsante, un form, una card, una navbar, fino a un’intera pagina.
+
+---
+
+## Cos’è un componente
+
+Un **componente** è una funzione (o classe, nei vecchi progetti) che:
+
+- Riceve dei dati (chiamati **props**)
+- Gestisce uno stato interno (con **state**)
+- Ritorna una porzione di interfaccia (JSX)
+
+Esempio semplice:
+
+```jsx
+function Button({ text }) {
+  return <button>{text}</button>;
+}
+```
+
+Questo è un componente riutilizzabile: può essere usato ovunque nell’app.
+
+---
+
+## Composizione dei componenti
+
+React segue il principio della **composizione**:
+interfacce complesse vengono costruite combinando componenti più piccoli.
+
+```jsx
+function App() {
+  return (
+    <div>
+      <Header />
+      <MainContent />
+      <Footer />
+    </div>
+  );
+}
+```
+
+Ogni parte dell’interfaccia è isolata, chiara e modificabile senza rompere il resto dell’app.
+
+---
+
+## Vantaggi dell’approccio Component-based
+
+### 1. Riutilizzabilità
+
+Un componente può essere usato in più parti dell’app senza duplicare codice.
+
+### 2. Manutenibilità
+
+Ogni componente ha una responsabilità precisa.
+Se qualcosa non funziona, sai esattamente dove intervenire.
+
+### 3. Scalabilità
+
+Le grandi applicazioni React nascono dalla somma di centinaia di piccoli componenti organizzati in modo logico.
+
+### 4. Testabilità
+
+I componenti possono essere testati singolarmente, rendendo il debugging più semplice.
+
+---
+
+## Componenti come mattoncini dell’interfaccia
+
+Puoi immaginare l’interfaccia come un **LEGO**:
+
+- Componenti piccoli → pezzi base
+- Componenti medi → blocchi più complessi
+- Componenti grandi → pagine complete
+
+Ogni livello è costruito partendo da quello inferiore.
+
+---
+
+## Separazione delle responsabilità
+
+Nel modello component-based:
+
+- **Logica**
+- **Struttura**
+- **Comportamento**
+
+vivono nello stesso componente, invece di essere separati in file HTML, CSS e JS non correlati.
+
+Questo rende il codice più coeso e leggibile.
+
+---
+
+## Stato e flusso dei dati
+
+I componenti possono:
+
+- Ricevere dati dall’alto (**props**)
+- Gestire dati interni (**state**)
+
+Il flusso dei dati è **unidirezionale** (dall’alto verso il basso), rendendo il comportamento prevedibile e più facile da debuggare.
+
+---
+
+## Componenti controllati e presentazionali
+
+In React si tende a distinguere tra:
+
+- **Componenti presentazionali**
+  Mostrano solo l’interfaccia (UI)
+
+- **Componenti contenitore**
+  Gestiscono logica, stato e chiamate API
+
+Questa separazione migliora la chiarezza e l’organizzazione del progetto.
+
+---
+
+## Component-based UI come standard moderno
+
+L’approccio a componenti non è esclusivo di React, ma React lo ha reso uno standard nel web moderno.
+Oggi quasi tutti i framework (Vue, Angular, Svelte) adottano questo modello perché:
+
+- Riduce la complessità
+- Aumenta la produttività
+- Favorisce il lavoro in team
+
+---
+
+## Conclusione
+
+La **Component-based UI** è il cuore di React.
+Pensare in termini di componenti significa progettare interfacce:
+
+- Modulari
+- Riutilizzabili
+- Scalabili
+- Facili da mantenere
+
+Capire questo concetto è il primo vero passo per padroneggiare React.

@@ -1,3 +1,105 @@
 # Virtual DOM
 
-In arrivo
+Il **Virtual DOM** è uno dei concetti fondamentali di React e uno dei motivi principali per cui questa libreria è così performante e diffusa. Capire come funziona aiuta a scrivere applicazioni più efficienti e a comprendere meglio il comportamento interno di React.
+
+---
+
+## Cos’è il DOM reale
+
+Il **DOM (Document Object Model)** è la rappresentazione in memoria della struttura HTML di una pagina web.
+Ogni volta che modifichiamo un elemento (testo, classe, attributo, stile), il browser deve:
+
+1. Aggiornare il DOM
+2. Ricalcolare il layout
+3. Ridisegnare la pagina (repaint/reflow)
+
+Queste operazioni sono costose in termini di prestazioni, soprattutto quando gli aggiornamenti sono frequenti o coinvolgono molte parti dell’interfaccia.
+
+---
+
+## Cos’è il Virtual DOM
+
+Il **Virtual DOM** è una rappresentazione leggera del DOM reale, mantenuta in memoria da React come un semplice albero di oggetti JavaScript.
+
+Quando lo stato di un componente cambia, React:
+
+1. Crea una nuova versione del Virtual DOM
+2. La confronta con la versione precedente
+3. Calcola le differenze
+4. Aggiorna **solo** le parti necessarie del DOM reale
+
+Questo processo rende gli aggiornamenti molto più efficienti rispetto alla manipolazione diretta del DOM.
+
+---
+
+## Come funziona il diffing
+
+Il confronto tra la versione precedente e quella nuova del Virtual DOM è chiamato **diffing**.
+
+React utilizza un algoritmo ottimizzato che:
+
+- Confronta i nodi per tipo
+- Ricostruisce solo i rami modificati
+- Riutilizza i nodi invariati
+
+Il risultato è una lista minima di modifiche da applicare al DOM reale.
+
+---
+
+## Il processo di aggiornamento
+
+1. Cambia lo stato (`state`) o le proprietà (`props`)
+2. React esegue il render del componente
+3. Viene creato un nuovo Virtual DOM
+4. React confronta il nuovo albero con quello precedente
+5. Viene generato un elenco di differenze
+6. React applica solo le modifiche necessarie al DOM reale
+
+Questo processo è chiamato **reconciliation**.
+
+---
+
+## Perché il Virtual DOM migliora le prestazioni
+
+Sebbene anche il Virtual DOM richieda calcoli, questi sono molto più veloci rispetto alle operazioni sul DOM reale.
+I vantaggi principali sono:
+
+- Meno accessi diretti al DOM
+- Aggiornamenti più rapidi
+- Migliore gestione delle interfacce complesse
+- UI più fluida
+
+---
+
+## Virtual DOM e rendering dichiarativo
+
+React adotta un approccio **dichiarativo**: lo sviluppatore descrive _come dovrebbe apparire l’interfaccia_, non _come aggiornarla passo dopo passo_.
+
+Il Virtual DOM permette a React di:
+
+- Capire cosa è cambiato
+- Decidere come aggiornare l’interfaccia
+- Farlo nel modo più efficiente possibile
+
+Lo sviluppatore non deve preoccuparsi di gestire manualmente il DOM.
+
+---
+
+## Limiti del Virtual DOM
+
+Il Virtual DOM non è una soluzione magica:
+
+- Ha un costo computazionale
+- Non sostituisce una buona architettura
+- Non risolve problemi di performance causati da logiche inefficienti
+
+Per questo React fornisce strumenti come `memo`, `useMemo`, `useCallback` e `PureComponent` per evitare render inutili.
+
+---
+
+## Conclusione
+
+Il Virtual DOM è il cuore del sistema di rendering di React.
+Grazie a questo meccanismo, React riesce a gestire interfacce complesse in modo efficiente, mantenendo alte prestazioni e un’esperienza utente fluida.
+
+Comprendere il Virtual DOM significa capire come React pensa e perché il suo modello di sviluppo è così potente.

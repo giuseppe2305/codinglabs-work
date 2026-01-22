@@ -1,3 +1,123 @@
 # Single Page Application (SPA)
 
-In arrivo
+Una **Single Page Application (SPA)** è un tipo di applicazione web che funziona all’interno di **una sola pagina HTML**, caricata inizialmente dal browser.
+Da quel momento in poi, le interazioni con l’utente non provocano il ricaricamento completo della pagina: il contenuto viene aggiornato dinamicamente tramite JavaScript.
+
+React è nato proprio per facilitare la creazione di SPA moderne, veloci e scalabili.
+
+---
+
+## Come funziona una SPA
+
+In una SPA il flusso è questo:
+
+1. Il browser carica una sola pagina HTML iniziale.
+2. Viene eseguito il codice JavaScript dell’applicazione (React).
+3. L’interfaccia viene costruita e aggiornata dinamicamente.
+4. Quando l’utente cambia “pagina”, **non avviene un nuovo caricamento**, ma React:
+   - cambia lo stato dell’app,
+   - aggiorna i componenti necessari,
+   - modifica il DOM in modo intelligente.
+
+Dal punto di vista dell’utente sembra di navigare tra più pagine, ma in realtà si rimane sempre sulla stessa.
+
+---
+
+## Differenza tra SPA e siti tradizionali
+
+| Siti tradizionali                 | SPA                           |
+| --------------------------------- | ----------------------------- |
+| Ogni link carica una nuova pagina | La pagina non si ricarica     |
+| Il server invia HTML completo     | Il server fornisce dati (API) |
+| Transizioni più lente             | Navigazione fluida            |
+| Stato disperso tra pagine         | Stato centralizzato nell’app  |
+
+In una SPA il **backend** fornisce principalmente dati (JSON), mentre il **frontend** gestisce interfaccia e navigazione.
+
+---
+
+## Il ruolo di React nelle SPA
+
+React gestisce:
+
+- **Stato dell’applicazione**
+- **Rendering dinamico dell’interfaccia**
+- **Aggiornamenti efficienti del DOM**
+- **Navigazione client-side** (con librerie come `react-router`)
+
+Ogni “pagina” è in realtà un **componente React** che viene mostrato o nascosto in base all’URL.
+
+---
+
+## Routing nelle SPA
+
+Per simulare le pagine si usa un **router client-side**.
+
+Esempio con React Router:
+
+- `/` → Home
+- `/about` → About
+- `/dashboard` → Dashboard
+
+Il browser non ricarica nulla: React intercetta l’URL e mostra il componente corretto.
+
+---
+
+## Vantaggi delle SPA
+
+- **Esperienza utente fluida** (simile a un’app desktop)
+- **Maggiore velocità dopo il primo caricamento**
+- **Separazione frontend/backend**
+- **Migliore gestione dello stato**
+- **Facile creazione di interfacce complesse**
+
+---
+
+## Svantaggi e limiti
+
+- **Primo caricamento più pesante**
+- **SEO più complesso** (senza rendering lato server)
+- **Gestione dello stato più articolata**
+- **Maggiore complessità architetturale**
+
+Questi problemi vengono spesso risolti con:
+
+- Server Side Rendering (SSR)
+- Static Site Generation (SSG)
+- Framework come Next.js.
+
+---
+
+## Quando una SPA è la scelta giusta
+
+Una SPA è ideale per:
+
+- Dashboard
+- Pannelli di controllo
+- Web app complesse
+- Social network
+- E-commerce dinamici
+- Applicazioni con molte interazioni
+
+Non è sempre necessaria per siti semplici o puramente informativi.
+
+---
+
+## SPA e architettura moderna
+
+In un’architettura moderna:
+
+- **Frontend (React)**: gestisce UI e logica.
+- **Backend (API REST / GraphQL)**: fornisce i dati.
+- **Browser**: esegue l’app come se fosse un programma.
+
+Questo modello è detto **client-driven** ed è alla base delle web app moderne.
+
+---
+
+## Conclusione
+
+Una **Single Page Application** rappresenta il cuore delle applicazioni web moderne.
+React è progettato per questo modello: componenti, stato, routing e aggiornamenti efficienti rendono naturale costruire interfacce dinamiche, veloci e scalabili.
+
+Capire il concetto di SPA significa capire come funziona il web moderno.
