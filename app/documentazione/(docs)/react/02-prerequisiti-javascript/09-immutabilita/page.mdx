@@ -1,3 +1,228 @@
 # Immutabilità
 
-In arrivo
+L’**immutabilità** è un principio fondamentale nella programmazione moderna, ed è particolarmente importante in React.
+Significa che **i dati non vengono mai modificati direttamente**, ma che ogni cambiamento produce **una nuova copia** del valore originale.
+
+In JavaScript molti tipi di dato sono _mutabili_ (possono essere cambiati), ma in React lavorare in modo immutabile è essenziale per:
+
+- evitare bug difficili da tracciare
+- migliorare le performance
+- permettere a React di rilevare correttamente i cambiamenti
+- rendere il codice più prevedibile e manutenibile
+
+---
+
+## Mutabilità vs Immutabilità
+
+### Esempio mutabile (da evitare)
+
+```js
+const user = { name: "Luca", age: 25 };
+
+user.age = 26; // modifica diretta
+```
+
+Qui stai **alterando l’oggetto originale**.
+
+### Esempio immutabile (corretto)
+
+```js
+const user = { name: "Luca", age: 25 };
+
+const updatedUser = {
+  ...user,
+  age: 26,
+};
+```
+
+In questo caso **crei un nuovo oggetto**, lasciando intatto quello originale.
+
+---
+
+## Perché è così importante in React
+
+React basa il suo sistema di rendering sul **confronto tra riferimenti di memoria**.
+
+Se modifichi direttamente un oggetto o un array, il riferimento non cambia:
+
+```js
+state.user.age = 26;
+setState(state); // React potrebbe non aggiornare la UI
+```
+
+Se invece crei una nuova copia:
+
+```js
+setState({
+  ...state,
+  user: {
+    ...state.user,
+    age: 26,
+  },
+});
+```
+
+React vede che il riferimento è diverso e **sa che deve aggiornare il componente**.
+
+---
+
+## Immutabilità con Array
+
+### ❌ Mutabile
+
+```js
+const numbers = [1, 2, 3];
+numbers.push(4);
+```
+
+### ✅ Immutabile
+
+```js
+const numbers = [1, 2, 3];
+const newNumbers = [...numbers, 4];
+```
+
+---
+
+### Rimuovere un elemento
+
+```js
+const numbers = [1, 2, 3, 4];
+
+const filtered = numbers.filter((n) => n !== 3);
+```
+
+---
+
+### Aggiornare un elemento
+
+```js
+const users = [
+  { id: 1, name: "Anna" },
+  { id: 2, name: "Marco" },
+];
+
+const updatedUsers = users.map((user) => (user.id === 2 ? { ...user, name: "Giulia" } : user));
+```
+
+---
+
+## Immutabilità con Oggetti
+
+### Aggiungere o modificare proprietà
+
+```js
+const settings = { theme: "dark", lang: "it" };
+
+const newSettings = {
+  ...settings,
+  theme: "light",
+};
+```
+
+---
+
+### Oggetti annidati
+
+```js
+const state = {
+  user: {
+    name: "Luca",
+    address: {
+      city: "Roma",
+    },
+  },
+};
+
+const newState = {
+  ...state,
+  user: {
+    ...state.user,
+    address: {
+      ...state.user.address,
+      city: "Milano",
+    },
+  },
+};
+```
+
+Ogni livello deve essere copiato per evitare mutazioni.
+
+---
+
+## Metodi che NON mutano
+
+Questi metodi **ritornano un nuovo array**:
+
+- `map()`
+- `filter()`
+- `reduce()`
+- `slice()`
+- `concat()`
+
+---
+
+## Metodi che MUTANO (da evitare)
+
+- `push()`
+- `pop()`
+- `shift()`
+- `unshift()`
+- `splice()`
+- `sort()`
+- `reverse()`
+
+Se devi usarli, fallo **su una copia**:
+
+```js
+const sorted = [...numbers].sort();
+```
+
+---
+
+## Immutabilità e Stato in React
+
+```js
+const [count, setCount] = useState(0);
+
+// corretto
+setCount((prev) => prev + 1);
+```
+
+```js
+const [todos, setTodos] = useState([]);
+
+setTodos((prev) => [...prev, newTodo]);
+```
+
+Mai fare:
+
+```js
+todos.push(newTodo);
+setTodos(todos); // comportamento imprevedibile
+```
+
+---
+
+## Vantaggi dell’Immutabilità
+
+- Stato prevedibile
+- Debug più semplice
+- Rendering più efficiente
+- Meno side effects
+- Codice più leggibile
+
+---
+
+## In sintesi
+
+| Mutabile                 | Immutabile                   |
+| ------------------------ | ---------------------------- |
+| Modifica diretta         | Crea una nuova copia         |
+| Difficile da tracciare   | Prevedibile                  |
+| Bug nascosti             | Più sicuro                   |
+| React può non aggiornare | React aggiorna correttamente |
+
+---
+
+L’immutabilità non è solo una “buona pratica”: in React è una **regola fondamentale** per scrivere codice stabile, performante e professionale.

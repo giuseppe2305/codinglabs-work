@@ -1,3 +1,225 @@
 # Closures
 
-In arrivo
+Le **closures** sono uno dei concetti più potenti (e spesso sottovalutati) di JavaScript.
+Capirle è fondamentale per scrivere codice pulito, sicuro e riutilizzabile, soprattutto in React, dove vengono usate continuamente negli hook, negli handler e nello stato.
+
+---
+
+## Cos’è una closure
+
+Una **closure** è una funzione che **ricorda e può accedere alle variabili del suo scope esterno anche dopo che quella funzione esterna ha terminato l’esecuzione**.
+
+In altre parole:
+
+> una funzione “chiude” (chiude = _to close over_) i valori che erano disponibili nel momento in cui è stata creata.
+
+---
+
+## Esempio base
+
+```js
+function creaContatore() {
+  let count = 0;
+
+  return function () {
+    count++;
+    return count;
+  };
+}
+
+const contatore = creaContatore();
+
+contatore(); // 1
+contatore(); // 2
+contatore(); // 3
+```
+
+### Cosa succede
+
+1. `creaContatore()` viene eseguita
+2. La variabile `count` viene creata
+3. Viene restituita una funzione interna
+4. Anche se `creaContatore()` ha finito, la funzione interna **mantiene un riferimento a `count`**
+
+Questa è una **closure**.
+
+---
+
+## Perché esistono le closures
+
+Le closures derivano dal **lexical scoping** di JavaScript:
+una funzione può accedere alle variabili definite nello scope in cui è stata creata, non in quello in cui viene eseguita.
+
+```js
+const nome = "Luca";
+
+function saluta() {
+  console.log(nome);
+}
+
+saluta(); // "Luca"
+```
+
+La funzione “ricorda” dove è nata.
+
+---
+
+## Scope chain
+
+Quando una funzione cerca una variabile:
+
+1. Cerca nel suo scope locale
+2. Se non la trova, sale nello scope padre
+3. Continua fino allo scope globale
+
+La closure **mantiene viva questa catena**.
+
+---
+
+## Closure con parametri
+
+```js
+function creaSaluto(nome) {
+  return function () {
+    console.log(`Ciao ${nome}`);
+  };
+}
+
+const salutaMarco = creaSaluto("Marco");
+salutaMarco(); // Ciao Marco
+```
+
+Ogni chiamata crea una **closure indipendente**.
+
+---
+
+## Incapsulamento con closures
+
+Le closures permettono di creare **dati privati**.
+
+```js
+function creaUtente() {
+  let password = "1234";
+
+  return {
+    verifica(p) {
+      return p === password;
+    },
+  };
+}
+
+const utente = creaUtente();
+utente.password; // undefined
+utente.verifica("1234"); // true
+```
+
+La variabile `password` non è accessibile dall’esterno.
+
+---
+
+## Problema classico con i loop
+
+```js
+for (var i = 1; i <= 3; i++) {
+  setTimeout(() => console.log(i), 1000);
+}
+// Output: 4 4 4
+```
+
+Perché?
+`var` è function-scoped, tutte le funzioni condividono **la stessa closure**.
+
+### Soluzione con `let`
+
+```js
+for (let i = 1; i <= 3; i++) {
+  setTimeout(() => console.log(i), 1000);
+}
+// Output: 1 2 3
+```
+
+`let` crea una nuova closure per ogni iterazione.
+
+---
+
+## Closures e React
+
+In React le closures sono ovunque:
+
+### 1. Event handler
+
+```jsx
+function Counter() {
+  const [count, setCount] = React.useState(0);
+
+  function increment() {
+    setCount(count + 1);
+  }
+
+  return <button onClick={increment}>{count}</button>;
+}
+```
+
+`increment` è una closure che “vede” `count`.
+
+---
+
+### 2. Problema di stale closure
+
+```jsx
+function Counter() {
+  const [count, setCount] = React.useState(0);
+
+  React.useEffect(() => {
+    const id = setInterval(() => {
+      setCount(count + 1); // count resta bloccato al valore iniziale
+    }, 1000);
+
+    return () => clearInterval(id);
+  }, []);
+}
+```
+
+Qui la closure “ricorda” il valore iniziale di `count`.
+
+### Soluzione
+
+```jsx
+setCount((prev) => prev + 1);
+```
+
+In questo modo React fornisce sempre il valore aggiornato.
+
+---
+
+## Quando usare le closures
+
+- Funzioni factory
+- Stato privato
+- Callback asincrone
+- Hook di React
+- Event handler
+- Memoizzazione
+- Gestione di configurazioni dinamiche
+
+---
+
+## Rischi
+
+Le closures **mantengono riferimenti in memoria**.
+Se non gestite correttamente, possono causare:
+
+- memory leak
+- dati obsoleti
+- bug difficili da individuare
+
+---
+
+## In sintesi
+
+- Una closure è una funzione che **ricorda lo scope in cui è stata creata**
+- Permette incapsulamento, stato persistente e funzioni dinamiche
+- È alla base di React, hook, callback e stato
+- Può causare bug se non si gestisce correttamente lo stato
+
+Le closures non sono un “trucco”, ma una **caratteristica fondamentale del linguaggio JavaScript**.

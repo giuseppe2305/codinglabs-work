@@ -1,3 +1,184 @@
 # Modules (import/export)
 
-In arrivo
+I **moduli JavaScript** permettono di suddividere il codice in file separati, organizzati e riutilizzabili.
+Sono fondamentali nello sviluppo moderno e sono alla base di React e di tutti i principali framework.
+
+Grazie ai moduli puoi:
+
+- Separare la logica in più file
+- Riutilizzare funzioni e componenti
+- Rendere il codice più leggibile e manutenibile
+- Evitare conflitti tra variabili globali
+
+---
+
+## Cos’è un modulo
+
+Un **modulo** è un file JavaScript che può:
+
+- **esportare** valori (funzioni, variabili, classi, oggetti)
+- **importare** valori da altri file
+
+Ogni file è isolato dal resto del codice, a meno che qualcosa non venga esplicitamente esportato.
+
+---
+
+## Export
+
+### Export nominato
+
+Permette di esportare più elementi da uno stesso file.
+
+```js
+// math.js
+export const PI = 3.14;
+
+export function somma(a, b) {
+  return a + b;
+}
+```
+
+Puoi anche scrivere:
+
+```js
+const PI = 3.14;
+function somma(a, b) {
+  return a + b;
+}
+
+export { PI, somma };
+```
+
+---
+
+### Export di default
+
+Un file può avere **un solo export di default**.
+
+```js
+// utils.js
+export default function saluta(nome) {
+  return `Ciao ${nome}`;
+}
+```
+
+Non serve il nome durante l’export: verrà deciso in fase di import.
+
+---
+
+## Import
+
+### Import di export nominati
+
+```js
+import { PI, somma } from "./math.js";
+```
+
+Il nome deve combaciare con quello esportato.
+
+Puoi rinominare:
+
+```js
+import { somma as add } from "./math.js";
+```
+
+---
+
+### Import di export di default
+
+```js
+import saluta from "./utils.js";
+```
+
+Il nome è libero.
+
+---
+
+### Import misto
+
+```js
+import saluta, { PI, somma } from "./math.js";
+```
+
+---
+
+## Import di tutto il modulo
+
+```js
+import * as math from "./math.js";
+
+math.somma(2, 3);
+math.PI;
+```
+
+---
+
+## Estensioni e path
+
+- I file vanno importati con **path relativo** o assoluto
+- Nei browser moderni è obbligatoria l’estensione
+
+```js
+import { somma } from "./math.js";
+```
+
+---
+
+## Moduli nel browser
+
+Per usare i moduli in HTML:
+
+```html
+<script type="module" src="main.js"></script>
+```
+
+Questo:
+
+- abilita import/export
+- isola lo scope
+- carica i file in modo asincrono
+
+---
+
+## Moduli in React
+
+Ogni componente React è un modulo.
+
+```js
+// Button.jsx
+export default function Button() {
+  return <button>Clicca</button>;
+}
+```
+
+```js
+// App.jsx
+import Button from "./Button";
+
+function App() {
+  return <Button />;
+}
+```
+
+---
+
+## Best practice
+
+- Un modulo = una responsabilità
+- Usa export nominati per utility condivise
+- Usa export default per componenti principali
+- Mantieni i file piccoli e leggibili
+- Non usare variabili globali
+
+---
+
+## Perché sono fondamentali
+
+I moduli rendono possibile:
+
+- la scalabilità delle applicazioni
+- la collaborazione tra sviluppatori
+- il code splitting
+- la manutenzione a lungo termine
+
+Senza i moduli, React e il moderno web development non esisterebbero così come li conosciamo oggi.

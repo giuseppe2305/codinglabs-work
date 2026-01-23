@@ -1,3 +1,170 @@
 # Array methods (map, filter, reduce)
 
-In arrivo
+Nel moderno sviluppo JavaScript (e quindi in React), lavorare con gli array in modo **funzionale** è fondamentale.
+I metodi `map`, `filter` e `reduce` permettono di trasformare i dati senza modificarli direttamente, rendendo il codice più leggibile, prevedibile e facile da mantenere.
+
+Questi tre metodi:
+
+- **non mutano** l’array originale
+- restituiscono **un nuovo array o valore**
+- favoriscono uno stile dichiarativo, molto usato in React
+
+---
+
+## map()
+
+`map()` trasforma ogni elemento di un array e restituisce un **nuovo array** con gli elementi modificati.
+
+### Sintassi
+
+```js
+array.map((elemento, indice, array) => nuovoValore);
+```
+
+### Esempio
+
+```js
+const numeri = [1, 2, 3, 4];
+
+const raddoppiati = numeri.map((n) => n * 2);
+
+console.log(raddoppiati); // [2, 4, 6, 8]
+```
+
+### Caso reale (React)
+
+```js
+const users = [
+  { id: 1, name: "Luca" },
+  { id: 2, name: "Anna" },
+];
+
+const names = users.map((user) => user.name);
+// ["Luca", "Anna"]
+```
+
+`map()` è molto usato per **renderizzare liste** in React.
+
+---
+
+## filter()
+
+`filter()` restituisce un **nuovo array** contenente solo gli elementi che soddisfano una condizione.
+
+### Sintassi
+
+```js
+array.filter((elemento, indice, array) => true | false);
+```
+
+### Esempio
+
+```js
+const numeri = [1, 2, 3, 4, 5];
+
+const pari = numeri.filter((n) => n % 2 === 0);
+
+console.log(pari); // [2, 4]
+```
+
+### Caso reale
+
+```js
+const users = [
+  { name: "Luca", active: true },
+  { name: "Anna", active: false },
+];
+
+const activeUsers = users.filter((user) => user.active);
+```
+
+---
+
+## reduce()
+
+`reduce()` serve a **ridurre** un array a un singolo valore: numero, stringa, oggetto o array.
+
+### Sintassi
+
+```js
+array.reduce((accumulatore, elemento, indice, array) => nuovoAccumulatore, valoreIniziale);
+```
+
+- **accumulatore**: valore che cresce a ogni iterazione
+- **valoreIniziale**: valore iniziale dell’accumulatore
+
+### Esempio: somma
+
+```js
+const numeri = [1, 2, 3, 4];
+
+const somma = numeri.reduce((tot, n) => tot + n, 0);
+
+console.log(somma); // 10
+```
+
+### Esempio: contare elementi
+
+```js
+const frutti = ["mela", "banana", "mela", "pera"];
+
+const conteggio = frutti.reduce((acc, frutto) => {
+  acc[frutto] = (acc[frutto] || 0) + 1;
+  return acc;
+}, {});
+
+console.log(conteggio);
+// { mela: 2, banana: 1, pera: 1 }
+```
+
+---
+
+## Combinare map, filter e reduce
+
+Spesso questi metodi vengono concatenati.
+
+```js
+const numeri = [1, 2, 3, 4, 5, 6];
+
+const risultato = numeri
+  .filter((n) => n % 2 === 0)
+  .map((n) => n * 10)
+  .reduce((sum, n) => sum + n, 0);
+
+console.log(risultato); // 120
+```
+
+---
+
+## Perché sono fondamentali in React
+
+In React lo stato deve essere **immutabile**.
+Questi metodi permettono di:
+
+- aggiornare liste
+- filtrare dati
+- creare nuove strutture
+
+senza mai modificare direttamente lo stato originale.
+
+```js
+setTodos((prev) => prev.map((todo) => (todo.id === id ? { ...todo, done: true } : todo)));
+```
+
+---
+
+## Confronto rapido
+
+| Metodo | Ritorno     | Uso principale       |
+| ------ | ----------- | -------------------- |
+| map    | Nuovo array | Trasformare dati     |
+| filter | Nuovo array | Selezionare elementi |
+| reduce | Qualsiasi   | Aggregare dati       |
+
+---
+
+## Consiglio Utile
+
+> Se stai usando un `for` per trasformare dati, probabilmente puoi usare `map`, `filter` o `reduce`.
+
+Usarli migliora la leggibilità del codice, riduce i bug e si integra perfettamente con il paradigma di React.

@@ -1,3 +1,204 @@
 # Promises e async/await
 
-In arrivo
+Nel mondo JavaScript moderno, **Promises** e **async/await** sono il cuore della programmazione asincrona. Sono fondamentali in React perché permettono di gestire operazioni come chiamate API, lettura di file, timer e qualsiasi processo che non restituisce un risultato immediato.
+
+Capire bene questi concetti significa scrivere codice più pulito, leggibile e affidabile.
+
+---
+
+## Cos’è la programmazione asincrona
+
+JavaScript è **single-thread**, cioè può eseguire una sola cosa alla volta.
+Per evitare di bloccare l’interfaccia mentre aspettiamo una risposta dal server, JavaScript usa operazioni **asincrone**.
+
+Esempio:
+
+```js
+console.log("Inizio");
+
+setTimeout(() => {
+  console.log("Operazione completata");
+}, 2000);
+
+console.log("Fine");
+```
+
+Output:
+
+```
+Inizio
+Fine
+Operazione completata
+```
+
+La funzione dentro `setTimeout` viene eseguita **dopo**, senza bloccare il resto del codice.
+
+---
+
+## Le Promises
+
+Una **Promise** rappresenta un valore che sarà disponibile **in futuro**.
+
+### Stati di una Promise
+
+Una Promise può essere:
+
+- `pending` → in attesa
+- `fulfilled` → completata con successo
+- `rejected` → fallita con errore
+
+### Creare una Promise
+
+```js
+const promessa = new Promise((resolve, reject) => {
+  const successo = true;
+
+  if (successo) {
+    resolve("Operazione riuscita");
+  } else {
+    reject("Errore");
+  }
+});
+```
+
+### Consumare una Promise
+
+```js
+promessa
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((error) => {
+    console.error(error);
+  })
+  .finally(() => {
+    console.log("Promise completata");
+  });
+```
+
+---
+
+## Catena di Promises (chaining)
+
+Le Promises possono essere concatenate:
+
+```js
+fetch("/api/user")
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => {
+    console.error("Errore:", err);
+  });
+```
+
+Ogni `then` riceve il risultato del `then` precedente.
+
+---
+
+## async e await
+
+`async/await` è **solo sintassi sopra le Promises**, ma rende il codice molto più leggibile.
+
+### Funzione async
+
+```js
+async function getData() {
+  return "Ciao";
+}
+```
+
+Una funzione `async` restituisce **sempre una Promise**.
+
+---
+
+### await
+
+`await` mette in pausa l’esecuzione **finché la Promise non è risolta**.
+
+```js
+async function getUser() {
+  const res = await fetch("/api/user");
+  const data = await res.json();
+  console.log(data);
+}
+```
+
+Questo codice è equivalente al chaining con `.then()`, ma è più chiaro.
+
+---
+
+## Gestione degli errori con try/catch
+
+Con `async/await` si usa `try/catch`:
+
+```js
+async function loadUser() {
+  try {
+    const res = await fetch("/api/user");
+    const data = await res.json();
+    console.log(data);
+  } catch (error) {
+    console.error("Errore:", error);
+  }
+}
+```
+
+---
+
+## Promise.all
+
+Esegue più Promises in parallelo:
+
+```js
+const [user, posts] = await Promise.all([
+  fetch("/api/user").then((r) => r.json()),
+  fetch("/api/posts").then((r) => r.json()),
+]);
+```
+
+Se una fallisce, falliscono tutte.
+
+---
+
+## Perché sono fondamentali in React
+
+In React si usano per:
+
+- Caricare dati da API
+- Gestire eventi asincroni
+- Effetti collaterali (`useEffect`)
+- Sincronizzare stato e server
+
+Esempio tipico:
+
+```js
+useEffect(() => {
+  async function fetchData() {
+    const res = await fetch("/api/data");
+    const data = await res.json();
+    setData(data);
+  }
+
+  fetchData();
+}, []);
+```
+
+---
+
+## Best practices
+
+- Usa `async/await` per codice leggibile
+- Gestisci sempre gli errori
+- Evita callback annidate
+- Usa `Promise.all` quando puoi parallelizzare
+- Non bloccare mai l’UI con operazioni sincrone pesanti
+
+---
+
+## Conclusione
+
+Le Promises e `async/await` sono la base della comunicazione asincrona in JavaScript moderno.
+In React sono indispensabili per costruire applicazioni dinamiche, performanti e affidabili.
+Saperli usare correttamente è una competenza fondamentale per ogni sviluppatore web.

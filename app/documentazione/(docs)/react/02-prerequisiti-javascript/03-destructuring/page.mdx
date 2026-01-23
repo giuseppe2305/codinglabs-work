@@ -1,3 +1,172 @@
 # Destructuring
 
-In arrivo
+Il **destructuring** è una sintassi introdotta con ES6 che permette di **estrarre valori da array e oggetti** e assegnarli a variabili in modo chiaro e compatto.
+È uno strumento fondamentale nel mondo React e JavaScript moderno perché rende il codice più leggibile, riduce la verbosità e facilita il lavoro con dati complessi.
+
+---
+
+## Destructuring di array
+
+Permette di estrarre valori in base alla posizione.
+
+```js
+const colori = ["rosso", "verde", "blu"];
+
+const [primo, secondo, terzo] = colori;
+
+console.log(primo); // "rosso"
+console.log(secondo); // "verde"
+```
+
+### Saltare elementi
+
+```js
+const numeri = [10, 20, 30, 40];
+
+const [, , terzo] = numeri;
+
+console.log(terzo); // 30
+```
+
+### Valori di default
+
+```js
+const [a = 1, b = 2] = [10];
+
+console.log(a); // 10
+console.log(b); // 2
+```
+
+---
+
+## Destructuring di oggetti
+
+Con gli oggetti si usa il **nome della proprietà**.
+
+```js
+const utente = {
+  nome: "Luca",
+  eta: 30,
+  ruolo: "Developer",
+};
+
+const { nome, ruolo } = utente;
+
+console.log(nome); // "Luca"
+console.log(ruolo); // "Developer"
+```
+
+### Rinominare le variabili
+
+```js
+const { nome: userName } = utente;
+
+console.log(userName); // "Luca"
+```
+
+### Valori di default
+
+```js
+const { telefono = "non disponibile" } = utente;
+
+console.log(telefono); // "non disponibile"
+```
+
+---
+
+## Destructuring annidato
+
+Funziona anche con strutture complesse.
+
+```js
+const risposta = {
+  data: {
+    user: {
+      id: 1,
+      email: "test@mail.com",
+    },
+  },
+};
+
+const {
+  data: {
+    user: { email },
+  },
+} = risposta;
+
+console.log(email); // "test@mail.com"
+```
+
+---
+
+## Destructuring nei parametri delle funzioni
+
+Molto usato in React per props e configurazioni.
+
+```js
+function saluta({ nome, eta }) {
+  console.log(`Ciao ${nome}, hai ${eta} anni`);
+}
+
+saluta({ nome: "Anna", eta: 25 });
+```
+
+Con valori di default:
+
+```js
+function creaUtente({ nome = "Guest", ruolo = "User" } = {}) {
+  return { nome, ruolo };
+}
+```
+
+---
+
+## Uso con array e rest operator
+
+```js
+const numeri = [1, 2, 3, 4, 5];
+
+const [primo, secondo, ...resto] = numeri;
+
+console.log(primo); // 1
+console.log(secondo); // 2
+console.log(resto); // [3, 4, 5]
+```
+
+---
+
+## Perché è importante in React
+
+In React il destructuring è ovunque:
+
+```js
+function Card({ titolo, descrizione }) {
+  return (
+    <div>
+      <h2>{titolo}</h2>
+      <p>{descrizione}</p>
+    </div>
+  );
+}
+```
+
+Nei hook:
+
+```js
+const [count, setCount] = useState(0);
+```
+
+Senza destructuring il codice sarebbe molto più verboso e meno leggibile.
+
+---
+
+## Best practice
+
+- Usa il destructuring per rendere il codice più chiaro.
+- Evita annidamenti troppo profondi: riducono la leggibilità.
+- Usa valori di default per evitare `undefined`.
+- Rinominare le variabili quando il contesto lo richiede.
+
+---
+
+Il destructuring è una delle funzionalità più potenti e utilizzate di JavaScript moderno. Padroneggiarlo è essenziale per scrivere codice pulito, manutenibile e allineato agli standard moderni.

@@ -1,3 +1,159 @@
 # Arrow functions
 
-In arrivo
+Le **arrow functions** sono una sintassi introdotta con ES6 che permette di scrivere funzioni in modo più compatto e leggibile. Sono molto usate in React e nel moderno JavaScript perché riducono il codice boilerplate e gestiscono il contesto (`this`) in modo più prevedibile.
+
+---
+
+## Sintassi base
+
+```js
+// Funzione tradizionale
+function somma(a, b) {
+  return a + b;
+}
+
+// Arrow function equivalente
+const somma = (a, b) => {
+  return a + b;
+};
+
+// Forma compatta (return implicito)
+const somma = (a, b) => a + b;
+```
+
+### Regole principali
+
+- Se c’è **un solo parametro**, le parentesi possono essere omesse:
+
+  ```js
+  const quadrato = (x) => x * x;
+  ```
+
+- Se il corpo contiene **una sola espressione**, le graffe e il `return` sono impliciti:
+
+  ```js
+  const doppio = (x) => x * 2;
+  ```
+
+- Se il corpo ha **più istruzioni**, servono le graffe e il `return` esplicito:
+
+  ```js
+  const saluta = (nome) => {
+    const messaggio = `Ciao ${nome}`;
+    return messaggio;
+  };
+  ```
+
+---
+
+## Arrow functions e oggetti
+
+Se vuoi restituire un oggetto in forma compatta, devi racchiuderlo tra parentesi:
+
+```js
+const creaUtente = (nome, età) => ({ nome, età });
+```
+
+Senza parentesi, JavaScript interpreterebbe `{}` come blocco di codice.
+
+---
+
+## Differenze con le funzioni tradizionali
+
+### 1. `this` lessicale
+
+Le arrow functions **non creano il proprio `this`**, ma ereditano quello del contesto esterno.
+
+```js
+function Timer() {
+  this.secondi = 0;
+
+  setInterval(() => {
+    this.secondi++; // this è quello di Timer
+  }, 1000);
+}
+```
+
+Con una funzione tradizionale, `this` punterebbe a `window` (o `undefined` in strict mode), causando errori.
+
+---
+
+### 2. Nessun `arguments`
+
+Le arrow functions non hanno l’oggetto `arguments`.
+
+```js
+const test = () => {
+  console.log(arguments); // Errore
+};
+```
+
+Se serve, usare i **rest parameters**:
+
+```js
+const test = (...args) => {
+  console.log(args);
+};
+```
+
+---
+
+### 3. Non sono costruttori
+
+Non possono essere usate con `new`:
+
+```js
+const Persona = (nome) => {
+  this.nome = nome;
+};
+
+new Persona("Luca"); // Errore
+```
+
+---
+
+## Uso comune in React
+
+In React vengono spesso usate per:
+
+- callback
+- event handler
+- metodi di array (`map`, `filter`, `reduce`)
+
+```js
+const utenti = ["Anna", "Marco", "Luca"];
+
+const lista = utenti.map((nome) => <li key={nome}>{nome}</li>);
+```
+
+---
+
+## Quando usarle
+
+Usa le arrow functions quando:
+
+- lavori con callback
+- vuoi mantenere il `this` del contesto esterno
+- vuoi codice più leggibile e conciso
+
+Evita di usarle come:
+
+- metodi di oggetti che dipendono dal proprio `this`
+- costruttori
+
+---
+
+## Esempio completo
+
+```js
+const numeri = [1, 2, 3, 4, 5];
+
+const risultato = numeri
+  .filter((n) => n % 2 === 0)
+  .map((n) => n * 2)
+  .reduce((acc, n) => acc + n, 0);
+
+console.log(risultato); // 12
+```
+
+Le arrow functions rendono questo tipo di codice funzionale chiaro, compatto e facile da mantenere.

@@ -1,3 +1,181 @@
 # Spread e Rest operator
 
-In arrivo
+Gli **Spread (`...`)** e **Rest (`...`) operator** sono una delle funzionalità più utili introdotte con ES6.
+Usano la **stessa sintassi**, ma hanno **scopi opposti**:
+
+- **Spread** → _“espande”_ un array o un oggetto.
+- **Rest** → _“raccoglie”_ più valori in un unico array o oggetto.
+
+Sono fondamentali in React per lavorare con **props**, **state**, **immutabilità** e funzioni flessibili.
+
+---
+
+## Spread Operator
+
+Lo **Spread operator** “spacchetta” gli elementi di un array o le proprietà di un oggetto.
+
+### Con gli array
+
+```js
+const numeri = [1, 2, 3];
+const nuoviNumeri = [...numeri, 4, 5];
+
+console.log(nuoviNumeri);
+// [1, 2, 3, 4, 5]
+```
+
+Qui `...numeri` copia ogni elemento dentro il nuovo array.
+
+### Copia di array (immutabilità)
+
+```js
+const originale = [10, 20, 30];
+const copia = [...originale];
+```
+
+> In React è essenziale non modificare direttamente array o oggetti.
+
+---
+
+### Unione di array
+
+```js
+const a = [1, 2];
+const b = [3, 4];
+
+const unione = [...a, ...b];
+// [1, 2, 3, 4]
+```
+
+---
+
+### Con gli oggetti
+
+```js
+const utente = { nome: "Mario", eta: 30 };
+
+const utenteAggiornato = {
+  ...utente,
+  eta: 31,
+};
+```
+
+> Le proprietà successive sovrascrivono quelle precedenti.
+
+---
+
+### Copia e modifica di oggetti (React state)
+
+```js
+setUser((prev) => ({
+  ...prev,
+  nome: "Luca",
+}));
+```
+
+Questo evita mutazioni dirette dello state.
+
+---
+
+## Rest Operator
+
+Il **Rest operator** raccoglie più valori in un’unica variabile.
+
+---
+
+### Con le funzioni
+
+```js
+function somma(...numeri) {
+  return numeri.reduce((acc, n) => acc + n, 0);
+}
+
+somma(1, 2, 3, 4);
+// 10
+```
+
+Qui `...numeri` crea un array con tutti gli argomenti.
+
+---
+
+### Con destructuring di array
+
+```js
+const numeri = [10, 20, 30, 40];
+
+const [primo, ...altri] = numeri;
+
+console.log(primo); // 10
+console.log(altri); // [20, 30, 40]
+```
+
+---
+
+### Con destructuring di oggetti
+
+```js
+const utente = {
+  nome: "Anna",
+  eta: 25,
+  città: "Roma",
+};
+
+const { nome, ...resto } = utente;
+
+console.log(nome); // "Anna"
+console.log(resto); // { eta: 25, città: "Roma" }
+```
+
+---
+
+## Differenza chiave
+
+| Operatore | Fa cosa   | Esempio             |
+| --------- | --------- | ------------------- |
+| Spread    | Espande   | `[...array]`        |
+| Rest      | Raccoglie | `function(...args)` |
+
+---
+
+## Uso tipico in React
+
+### Aggiornare uno stato senza mutarlo
+
+```js
+const [items, setItems] = useState([1, 2, 3]);
+
+setItems((prev) => [...prev, 4]);
+```
+
+---
+
+### Passare props
+
+```jsx
+const props = { nome: "Marco", eta: 28 };
+
+<Utente {...props} />;
+```
+
+---
+
+### Gestire parametri dinamici
+
+```js
+function Button({ type, ...props }) {
+  return <button type={type} {...props} />;
+}
+```
+
+---
+
+## Conclusione
+
+Lo Spread e il Rest operator sono strumenti essenziali per:
+
+- Gestire l’immutabilità
+- Lavorare con array e oggetti
+- Scrivere funzioni flessibili
+- Passare e copiare dati in React
+
+Saperli usare correttamente è una competenza fondamentale per ogni sviluppatore moderno.

@@ -1,3 +1,155 @@
 # Template literals
 
-In arrivo
+I **Template Literals** sono una funzionalità introdotta con **ES6** che permette di creare stringhe in modo più leggibile, flessibile e potente rispetto alle stringhe tradizionali.
+Sono fondamentali nello sviluppo moderno in JavaScript e vengono usati molto anche in React per costruire testi dinamici, classi CSS, template HTML e messaggi.
+
+Si riconoscono perché utilizzano il **backtick** ( ` ) invece degli apici:
+
+```js
+const testo = `Ciao mondo`;
+```
+
+---
+
+## Interpolazione di variabili
+
+Con i template literals puoi inserire variabili o espressioni direttamente nella stringa usando `${}`.
+
+```js
+const nome = "Marco";
+const eta = 30;
+
+const messaggio = `Mi chiamo ${nome} e ho ${eta} anni.`;
+```
+
+Senza template literals dovresti usare la concatenazione:
+
+```js
+const messaggio = "Mi chiamo " + nome + " e ho " + eta + " anni.";
+```
+
+Con i template literals il codice è più leggibile e meno soggetto a errori.
+
+---
+
+## Espressioni dentro le stringhe
+
+Dentro `${}` puoi usare **qualsiasi espressione JavaScript**:
+
+```js
+const a = 5;
+const b = 3;
+
+const risultato = `La somma è ${a + b}`;
+```
+
+Puoi anche chiamare funzioni:
+
+```js
+function saluta(nome) {
+  return `Ciao ${nome}!`;
+}
+
+const messaggio = `Messaggio: ${saluta("Luca")}`;
+```
+
+---
+
+## Stringhe multilinea
+
+I template literals permettono di scrivere stringhe su più righe senza caratteri speciali come `\n`.
+
+```js
+const testo = `
+Riga 1
+Riga 2
+Riga 3
+`;
+```
+
+Con le stringhe tradizionali sarebbe necessario:
+
+```js
+const testo = "Riga 1\nRiga 2\nRiga 3";
+```
+
+---
+
+## Uso con HTML
+
+Sono molto utili per generare markup dinamico:
+
+```js
+const nome = "Anna";
+
+const card = `
+  <div class="card">
+    <h2>${nome}</h2>
+    <p>Benvenuta!</p>
+  </div>
+`;
+```
+
+Questo è molto comune quando si lavora con DOM o con framework come React per costruire stringhe dinamiche.
+
+---
+
+## Template literals e condizioni
+
+Puoi usare operatori ternari o logica dentro l’interpolazione:
+
+```js
+const isAdmin = true;
+
+const ruolo = `Ruolo: ${isAdmin ? "Admin" : "Utente"}`;
+```
+
+---
+
+## Escaping dei caratteri
+
+Se devi usare il backtick all’interno di un template literal, puoi fare l’escape con `\`:
+
+```js
+const testo = `Questo è un \`backtick\``;
+```
+
+---
+
+## Tagged Template Literals (avanzato)
+
+I template literals possono essere **taggati**, cioè passati a una funzione che riceve le parti della stringa e i valori dinamici.
+
+```js
+function tag(strings, value) {
+  return `${strings[0]}${value.toUpperCase()}`;
+}
+
+const nome = "marco";
+const testo = tag`Ciao ${nome}`;
+```
+
+Questo meccanismo è usato in librerie come **styled-components**.
+
+---
+
+## Quando usarli
+
+Usa i template literals quando:
+
+- Devi costruire stringhe dinamiche
+- Devi scrivere HTML in JavaScript
+- Devi concatenare molte variabili
+- Hai bisogno di stringhe multilinea
+
+---
+
+## Best practice
+
+- Preferisci i template literals alla concatenazione con `+`
+- Mantieni le espressioni dentro `${}` semplici
+- Non inserire logica complessa direttamente nella stringa
+
+---
+
+I **Template Literals** rendono il codice più pulito, leggibile e moderno. Sono uno strumento essenziale nello sviluppo JavaScript e React.

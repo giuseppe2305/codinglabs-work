@@ -1,3 +1,155 @@
 # ES6+ overview
 
-In arrivo
+ES6 (ECMAScript 2015) rappresenta una delle evoluzioni più importanti di JavaScript. Da questa versione in poi, il linguaggio ha introdotto una serie di funzionalità che lo hanno reso più moderno, leggibile, modulare e adatto allo sviluppo di applicazioni complesse, come quelle realizzate con **React**.
+
+Con il termine **ES6+** si fa riferimento non solo a ES6, ma a tutte le versioni successive (ES2016, ES2017, … fino a oggi), che aggiungono costantemente nuove funzionalità senza rompere la compatibilità con il codice esistente.
+
+Per lavorare efficacemente con React è fondamentale conoscere i principali concetti introdotti da ES6+, perché fanno parte dello stile di scrittura moderno del codice JavaScript.
+
+---
+
+## Perché ES6+ è così importante per React
+
+React è costruito pensando a JavaScript moderno. La maggior parte del codice React utilizza:
+
+- Funzioni compatte
+- Gestione immutabile dei dati
+- Destrutturazione di oggetti e array
+- Moduli con `import` e `export`
+- Programmazione asincrona con `async/await`
+- Metodi funzionali sugli array
+
+Senza una buona conoscenza di ES6+, il codice React risulta difficile da leggere e mantenere.
+
+---
+
+## Cosa ha introdotto ES6+
+
+Di seguito una panoramica dei cambiamenti principali che rendono ES6+ fondamentale nello sviluppo web moderno.
+
+### 1. Nuove dichiarazioni di variabili
+
+Prima di ES6 si usava solo `var`. Ora si usano:
+
+- `let` → variabile riassegnabile
+- `const` → riferimento non riassegnabile
+
+```js
+let count = 0;
+const PI = 3.14;
+```
+
+Queste parole chiave hanno uno **scope a blocco**, più prevedibile rispetto a `var`.
+
+---
+
+### 2. Funzioni più compatte
+
+Le **arrow functions** rendono il codice più breve e leggibile:
+
+```js
+const somma = (a, b) => a + b;
+```
+
+In React sono usate ovunque per componenti, callback e funzioni inline.
+
+---
+
+### 3. Strutture dati più semplici
+
+Con **destructuring**, **spread operator** e **rest operator** puoi lavorare con oggetti e array in modo pulito:
+
+```js
+const user = { name: "Luca", age: 30 };
+const { name, age } = user;
+```
+
+```js
+const newArray = [...oldArray, 5];
+```
+
+Queste tecniche sono fondamentali per mantenere i dati **immutabili**.
+
+---
+
+### 4. Stringhe più potenti
+
+I **template literals** permettono di scrivere stringhe multilinea e interpolare variabili:
+
+```js
+const message = `Ciao ${name}`;
+```
+
+Molto utili per JSX, log e messaggi dinamici.
+
+---
+
+### 5. Sistema di moduli
+
+Con ES6 sono arrivati i **moduli nativi**:
+
+```js
+export default function App() {}
+import App from "./App";
+```
+
+Questo sistema è alla base dell’architettura di React.
+
+---
+
+### 6. Gestione asincrona moderna
+
+Le **Promises** e `async/await` rendono il codice asincrono più leggibile:
+
+```js
+const data = await fetch(url);
+```
+
+Sono fondamentali per chiamate API e gestione degli effetti in React.
+
+---
+
+### 7. Programmazione funzionale sugli array
+
+Metodi come:
+
+- `map`
+- `filter`
+- `reduce`
+
+permettono di trasformare i dati senza mutarli:
+
+```js
+const doubled = numbers.map((n) => n * 2);
+```
+
+In React si usano per generare liste di componenti.
+
+---
+
+### 8. Immutabilità e closures
+
+- **Immutabilità**: i dati non vengono modificati direttamente.
+- **Closures**: le funzioni ricordano il contesto in cui sono state create.
+
+Questi concetti sono fondamentali per capire come funzionano gli **state** e gli **hooks** di React.
+
+---
+
+## ES6+ e compatibilità
+
+I browser moderni supportano la maggior parte delle funzionalità ES6+, ma nel mondo reale si usano strumenti come:
+
+- **Babel** → trasforma il codice moderno in codice compatibile
+- **Bundler** (Vite, Webpack, ecc.)
+
+Questo permette di scrivere JavaScript moderno senza preoccuparsi dei browser più vecchi.
+
+---
+
+## Conclusione
+
+ES6+ non è solo un aggiornamento del linguaggio, ma un **nuovo modo di scrivere JavaScript**.
+React nasce e vive in questo ecosistema moderno.
+
+Prima di approfondire React, è essenziale avere dimestichezza con ES6+, perché ogni parte del framework fa uso di queste funzionalità. Conoscere ES6+ significa scrivere codice più pulito, sicuro, leggibile e mantenibile.
