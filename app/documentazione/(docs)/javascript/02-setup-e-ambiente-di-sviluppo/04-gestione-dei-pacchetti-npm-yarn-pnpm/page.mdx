@@ -1,3 +1,286 @@
 # Gestione dei pacchetti (npm, yarn, pnpm)
 
-In arrivo
+La **gestione dei pacchetti** è una parte fondamentale dello sviluppo JavaScript moderno. Permette di installare, aggiornare e gestire librerie e strumenti esterni in modo standardizzato, riproducibile e sicuro.
+
+In JavaScript i tre principali package manager sono **npm**, **yarn** e **pnpm**. Tutti risolvono lo stesso problema, ma con approcci e caratteristiche diverse.
+
+---
+
+## Cos’è un package manager
+
+Un **package manager** è uno strumento che consente di:
+
+- Installare librerie JavaScript (dipendenze)
+- Gestire versioni e aggiornamenti
+- Risolvere automaticamente le dipendenze tra pacchetti
+- Eseguire script di progetto
+- Condividere e riprodurre lo stesso ambiente di sviluppo
+
+Senza un package manager, gestire manualmente file e versioni diventerebbe rapidamente ingestibile.
+
+---
+
+## Il file `package.json`
+
+Il cuore di ogni progetto JavaScript è il file **`package.json`**.
+
+Questo file descrive il progetto e contiene:
+
+- Nome e versione del progetto
+- Dipendenze (`dependencies`)
+- Dipendenze di sviluppo (`devDependencies`)
+- Script eseguibili
+- Informazioni sul progetto (autore, licenza, ecc.)
+
+Esempio semplificato:
+
+```json
+{
+  "name": "my-project",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "node index.js",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "react": "^18.0.0"
+  }
+}
+```
+
+Il package manager legge questo file per sapere **cosa installare** e **come gestire il progetto**.
+
+---
+
+## npm (Node Package Manager)
+
+### Cos’è npm
+
+**npm** è il package manager ufficiale di Node.js ed è installato automaticamente insieme a Node.
+
+È il più diffuso e supportato nell’ecosistema JavaScript.
+
+### Comandi principali
+
+Installare tutte le dipendenze del progetto:
+
+```bash
+npm install
+```
+
+Installare un pacchetto:
+
+```bash
+npm install nome-pacchetto
+```
+
+Installare una dipendenza di sviluppo:
+
+```bash
+npm install nome-pacchetto --save-dev
+```
+
+Avviare uno script:
+
+```bash
+npm run dev
+```
+
+### File `package-lock.json`
+
+npm genera il file **`package-lock.json`**, che:
+
+- Blocca le versioni esatte delle dipendenze
+- Garantisce installazioni identiche su macchine diverse
+- Migliora la sicurezza e la riproducibilità
+
+Questo file **va sempre versionato** nel repository.
+
+---
+
+## Yarn
+
+### Cos’è Yarn
+
+**Yarn** nasce come alternativa a npm, con l’obiettivo di:
+
+- Migliorare le performance
+- Rendere le installazioni più affidabili
+- Offrire una gestione più rigorosa delle dipendenze
+
+Oggi npm ha colmato molte lacune, ma Yarn resta molto usato.
+
+### Comandi principali
+
+Installare le dipendenze:
+
+```bash
+yarn install
+```
+
+Installare un pacchetto:
+
+```bash
+yarn add nome-pacchetto
+```
+
+Installare una dipendenza di sviluppo:
+
+```bash
+yarn add nome-pacchetto --dev
+```
+
+Avviare uno script:
+
+```bash
+yarn dev
+```
+
+### File `yarn.lock`
+
+Yarn utilizza il file **`yarn.lock`**, con lo stesso scopo del `package-lock.json`:
+
+- Versioni bloccate
+- Installazioni deterministiche
+- Coerenza tra ambienti
+
+---
+
+## pnpm
+
+### Cos’è pnpm
+
+**pnpm** è un package manager più recente, progettato per essere:
+
+- Molto più veloce
+- Estremamente efficiente in termini di spazio
+- Più rigoroso nella gestione delle dipendenze
+
+È sempre più adottato in progetti professionali e monorepo.
+
+### Come funziona
+
+pnpm utilizza un **content-addressable store** globale:
+
+- I pacchetti vengono scaricati una sola volta
+- I progetti li collegano tramite link
+- Si evita la duplicazione inutile dei file
+
+Questo riduce drasticamente lo spazio su disco e i tempi di installazione.
+
+### Comandi principali
+
+Installare le dipendenze:
+
+```bash
+pnpm install
+```
+
+Installare un pacchetto:
+
+```bash
+pnpm add nome-pacchetto
+```
+
+Installare una dipendenza di sviluppo:
+
+```bash
+pnpm add nome-pacchetto -D
+```
+
+Avviare uno script:
+
+```bash
+pnpm dev
+```
+
+### File `pnpm-lock.yaml`
+
+pnpm genera **`pnpm-lock.yaml`**, che:
+
+- Blocca le versioni esatte
+- Impone una struttura delle dipendenze più corretta
+- Riduce problemi di dipendenze fantasma
+
+---
+
+## Dipendenze vs Dev Dipendenze
+
+È importante distinguere tra:
+
+### `dependencies`
+
+- Librerie necessarie **in produzione**
+- Usate dall’applicazione finale
+
+Esempi:
+
+- React
+- Vue
+- Axios
+
+### `devDependencies`
+
+- Strumenti usati **solo in sviluppo**
+- Non necessari in produzione
+
+Esempi:
+
+- Vite
+- Webpack
+- ESLint
+- Prettier
+
+Una corretta separazione migliora performance e chiarezza del progetto.
+
+---
+
+## Script di progetto
+
+I package manager permettono di definire **script personalizzati** nel `package.json`.
+
+Esempio:
+
+```json
+"scripts": {
+  "dev": "vite",
+  "build": "vite build",
+  "lint": "eslint ."
+}
+```
+
+Esecuzione:
+
+```bash
+npm run build
+yarn build
+pnpm build
+```
+
+Gli script standardizzano i comandi e rendono il progetto più professionale e collaborativo.
+
+---
+
+## Quale scegliere
+
+Non esiste una scelta “giusta” in assoluto:
+
+- **npm**: standard, semplice, supportato ovunque
+- **yarn**: stabile, maturo, molto diffuso
+- **pnpm**: moderno, veloce, ideale per progetti complessi
+
+La regola fondamentale è **usarne uno solo per progetto** e non mescolare file lock diversi.
+
+---
+
+## Buone pratiche
+
+- Versionare sempre `package.json` e il file lock
+- Non modificare manualmente i file lock
+- Non mescolare npm, yarn e pnpm nello stesso progetto
+- Usare versioni coerenti di Node.js
+- Aggiornare le dipendenze con consapevolezza
+
+---
+
+La gestione dei pacchetti è uno dei pilastri dello sviluppo JavaScript moderno. Comprenderla a fondo significa lavorare in modo più pulito, sicuro e scalabile, sia in piccoli progetti che in applicazioni enterprise.

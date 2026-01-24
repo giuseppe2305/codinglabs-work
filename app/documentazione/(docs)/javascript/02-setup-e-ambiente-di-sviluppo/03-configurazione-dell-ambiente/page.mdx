@@ -1,3 +1,196 @@
-# Configurazione dell'ambiente
+# Configurazione dell’ambiente
 
-In arrivo
+Configurare correttamente l’ambiente di sviluppo JavaScript è un passaggio fondamentale per lavorare in modo efficiente, scalabile e professionale. Un buon setup riduce errori, migliora la produttività e rende il progetto più semplice da mantenere nel tempo, sia per sviluppatori singoli sia per team.
+
+Questa guida descrive una configurazione standard, moderna e consigliata, adatta sia a chi inizia sia a chi lavora già in ambito professionale.
+
+---
+
+## Obiettivo dell’ambiente di sviluppo
+
+Un ambiente di sviluppo JavaScript ben configurato deve permettere di:
+
+- Scrivere codice in modo chiaro e consistente
+- Eseguire e testare il codice localmente
+- Gestire dipendenze e versioni
+- Individuare e correggere errori rapidamente
+- Preparare il progetto per ambienti di produzione
+
+---
+
+## Requisiti di base
+
+Prima di procedere, assicurati di avere:
+
+- Node.js installato
+- Un editor di codice moderno (es. VS Code, WebStorm)
+- Un terminale (integrato o di sistema)
+- Un browser moderno (Chrome, Firefox, Edge)
+
+---
+
+## Inizializzazione di un progetto JavaScript
+
+La maggior parte dei progetti JavaScript moderni utilizza Node.js anche se il codice finale gira nel browser.
+
+### Creazione della cartella del progetto
+
+```bash
+mkdir nome-progetto
+cd nome-progetto
+```
+
+### Inizializzazione con npm
+
+```bash
+npm init
+```
+
+Oppure, per una configurazione rapida:
+
+```bash
+npm init -y
+```
+
+Questo comando crea il file `package.json`, che rappresenta il cuore della configurazione del progetto.
+
+---
+
+## Il file package.json
+
+`package.json` contiene le informazioni principali del progetto:
+
+- Nome e versione
+- Script eseguibili
+- Dipendenze
+- Metadati del progetto
+
+Esempio semplificato:
+
+```json
+{
+  "name": "nome-progetto",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "node index.js"
+  }
+}
+```
+
+Questo file permette di standardizzare l’ambiente e renderlo replicabile su qualsiasi macchina.
+
+---
+
+## Configurazione dell’editor di codice
+
+### Impostazioni consigliate
+
+Un editor ben configurato migliora qualità e velocità di sviluppo.
+
+Impostazioni comuni:
+
+- Auto-formatting al salvataggio
+- Evidenziazione errori in tempo reale
+- Supporto ESLint
+- Supporto Prettier
+
+### File di configurazione
+
+È buona pratica includere file di configurazione nel progetto, ad esempio:
+
+- `.editorconfig`
+- `.vscode/settings.json`
+- `.vscode/extensions.json`
+
+Questo garantisce coerenza tra diversi sviluppatori e ambienti.
+
+---
+
+## Gestione delle variabili d’ambiente
+
+Le variabili d’ambiente permettono di separare configurazione e codice.
+
+### File `.env`
+
+Esempio:
+
+```env
+PORT=3000
+API_URL=https://api.example.com
+```
+
+Questi valori non dovrebbero mai essere hardcoded nel codice.
+
+### Uso nel codice
+
+```js
+const port = process.env.PORT;
+```
+
+Il file `.env` non va mai versionato ed è solitamente incluso in `.gitignore`.
+
+---
+
+## Configurazione del versionamento
+
+### Git
+
+Inizializza il repository:
+
+```bash
+git init
+```
+
+### File `.gitignore`
+
+Un esempio base per progetti JavaScript:
+
+```txt
+node_modules/
+.env
+dist/
+build/
+```
+
+Questo evita di versionare file generati automaticamente o sensibili.
+
+---
+
+## Organizzazione dell’ambiente per sviluppo e produzione
+
+È importante distinguere:
+
+- **Ambiente di sviluppo**: debug, log dettagliati, hot reload
+- **Ambiente di produzione**: codice ottimizzato, meno log, maggiore sicurezza
+
+Questa separazione avviene tramite:
+
+- Variabili d’ambiente
+- Script dedicati
+- Configurazioni differenti
+
+Esempio:
+
+```json
+"scripts": {
+  "dev": "node index.js",
+  "start": "NODE_ENV=production node index.js"
+}
+```
+
+---
+
+## Verifica dell’ambiente
+
+Una volta configurato tutto:
+
+1. Avvia il progetto
+2. Controlla che non ci siano errori nel terminale
+3. Verifica che le variabili d’ambiente siano lette correttamente
+4. Assicurati che editor e formattazione funzionino come previsto
+
+---
+
+## Considerazioni finali
+
+Una configurazione solida dell’ambiente di sviluppo non è un dettaglio secondario, ma una base essenziale per scrivere codice JavaScript di qualità. Investire tempo in questa fase riduce problemi futuri, facilita la collaborazione e rende il progetto più professionale e manutenibile.
