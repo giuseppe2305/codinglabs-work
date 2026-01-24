@@ -1,3 +1,174 @@
 # Case sensitivity
 
-In arrivo
+JavaScript è un linguaggio **case-sensitive**, cioè **fa distinzione tra lettere maiuscole e minuscole**. Questo significa che due parole che differiscono anche solo per una lettera maiuscola/minuscola vengono considerate **entità completamente diverse** dal linguaggio.
+
+Questa caratteristica è fondamentale e influisce su vari aspetti del codice: nomi di variabili, funzioni, oggetti, metodi e proprietà.
+
+---
+
+## Cosa significa in pratica
+
+In JavaScript, i seguenti identificatori **non sono uguali**:
+
+```js
+variabile;
+Variabile;
+VARIABILE;
+```
+
+Ognuno di questi rappresenta un nome distinto. Se dichiari una variabile con un certo nome, dovrai **usare esattamente lo stesso casing** ogni volta che la richiami.
+
+Esempio:
+
+```js
+let nome = "Mario";
+
+console.log(nome); // OK
+console.log(Nome); // Errore: Nome is not defined
+```
+
+---
+
+## Case sensitivity nelle variabili e funzioni
+
+La distinzione tra maiuscole e minuscole vale per:
+
+- Variabili
+- Funzioni
+- Parametri
+- Costanti
+
+Esempio con funzioni:
+
+```js
+function calcolaTotale() {
+  return 100;
+}
+
+calcolatotale(); // Errore
+calcolaTotale(); // OK
+```
+
+---
+
+## Case sensitivity negli oggetti e nelle proprietà
+
+Anche le **proprietà degli oggetti** sono case-sensitive.
+
+```js
+const utente = {
+  nome: "Luca",
+  eta: 30,
+};
+
+utente.nome; // OK
+utente.Nome; // undefined
+```
+
+JavaScript non genera un errore in questo caso, ma restituisce `undefined`, rendendo il bug più difficile da individuare.
+
+---
+
+## Case sensitivity nelle parole riservate
+
+Le **parole riservate** del linguaggio devono essere scritte **esattamente come definite**.
+
+Esempi corretti:
+
+```js
+if
+else
+return
+function
+```
+
+Esempi non validi:
+
+```js
+If;
+ELSE;
+Return;
+Function;
+```
+
+Queste versioni causano errori di sintassi.
+
+---
+
+## Convenzioni di naming e case sensitivity
+
+Per ridurre errori e migliorare la leggibilità, in JavaScript si seguono convenzioni precise:
+
+### camelCase (standard più comune)
+
+Usato per:
+
+- Variabili
+- Funzioni
+- Metodi
+- Proprietà
+
+```js
+let nomeUtente;
+function calcolaPrezzoFinale() {}
+```
+
+### PascalCase
+
+Usato per:
+
+- Classi
+- Costruttori
+
+```js
+class Utente {}
+```
+
+### UPPER_SNAKE_CASE
+
+Usato per:
+
+- Costanti
+
+```js
+const MAX_TENTATIVI = 3;
+```
+
+Seguire queste convenzioni aiuta a **sfruttare la case sensitivity invece di subirla**.
+
+---
+
+## Errori comuni legati alla case sensitivity
+
+- Usare nomi simili con casing diverso
+- Cambiare involontariamente una maiuscola durante il refactoring
+- Confondere proprietà di oggetti (`length` ≠ `Length`)
+- Copiare codice da fonti diverse con convenzioni differenti
+
+Questi errori possono causare:
+
+- `ReferenceError`
+- Valori `undefined`
+- Bug difficili da tracciare
+
+---
+
+## Best practice
+
+- Usa sempre **naming coerente**
+- Segui le convenzioni standard di JavaScript
+- Evita nomi che differiscono solo per il casing
+- Affidati agli strumenti di linting (es. ESLint)
+- Usa editor con evidenziazione degli errori
+
+---
+
+## Riepilogo
+
+- JavaScript è **case-sensitive**
+- Maiuscole e minuscole contano sempre
+- Identificatori con casing diverso sono entità diverse
+- La case sensitivity è una fonte comune di bug
+- Le convenzioni di naming riducono drasticamente gli errori
+
+Comprendere e rispettare la case sensitivity è un requisito fondamentale per scrivere codice JavaScript corretto, leggibile e manutenibile.

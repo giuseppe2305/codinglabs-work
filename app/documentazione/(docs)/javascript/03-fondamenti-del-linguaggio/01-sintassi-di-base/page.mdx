@@ -1,3 +1,179 @@
 # Sintassi di base
 
-In arrivo
+La sintassi di base di JavaScript definisce le regole fondamentali con cui il codice viene scritto e interpretato dal motore JavaScript. Comprendere queste regole è essenziale per scrivere codice corretto, leggibile e manutenibile, sia in contesti semplici che in applicazioni complesse.
+
+---
+
+## Struttura di un programma JavaScript
+
+Un programma JavaScript è composto da una sequenza di **istruzioni** (statements).  
+Ogni istruzione rappresenta un’azione da eseguire.
+
+```javascript
+let x = 10;
+x = x + 5;
+console.log(x);
+```
+
+Le istruzioni vengono eseguite dall’alto verso il basso, salvo eccezioni introdotte da strutture di controllo come condizioni o cicli.
+
+---
+
+## Istruzioni e punto e virgola
+
+In JavaScript, le istruzioni possono terminare con un **punto e virgola (`;`)**.
+
+```javascript
+let nome = "Mario";
+let eta = 30;
+```
+
+Il punto e virgola è **opzionale** grazie al meccanismo di _Automatic Semicolon Insertion (ASI)_, ma è buona pratica usarlo in modo coerente per evitare comportamenti ambigui in casi complessi.
+
+---
+
+## Blocchi di codice
+
+Un **blocco di codice** è un insieme di istruzioni racchiuse tra parentesi graffe `{}`.
+I blocchi vengono utilizzati in funzioni, condizioni, cicli e altre strutture.
+
+```javascript
+if (eta >= 18) {
+  console.log("Maggiorenne");
+}
+```
+
+Le parentesi graffe definiscono chiaramente l’inizio e la fine di un contesto logico.
+
+---
+
+## Spazi bianchi e formattazione
+
+JavaScript **ignora gli spazi bianchi** (spazi, tab, a capo) nella maggior parte dei casi.
+Questo significa che il codice seguente è tecnicamente valido:
+
+```javascript
+let x = 10;
+```
+
+Tuttavia, una formattazione chiara migliora enormemente la leggibilità:
+
+```javascript
+let x = 10;
+```
+
+Indentazione e spaziatura non influiscono sull’esecuzione, ma sono fondamentali per la qualità del codice.
+
+---
+
+## Identificatori
+
+Gli **identificatori** sono i nomi assegnati a variabili, funzioni, parametri e altre entità.
+
+Regole principali:
+
+- Possono contenere lettere, numeri, `_` e `$`
+- Non possono iniziare con un numero
+- Non possono essere parole riservate
+- Sono case-sensitive
+
+```javascript
+let totale;
+let _contatore;
+let $prezzo;
+```
+
+---
+
+## Assegnazione e operatori di base
+
+L’operatore di assegnazione (`=`) assegna un valore a una variabile.
+
+```javascript
+let numero = 5;
+```
+
+JavaScript supporta operatori aritmetici di base:
+
+```javascript
+let somma = 10 + 5;
+let differenza = 10 - 5;
+let prodotto = 10 * 5;
+let divisione = 10 / 5;
+```
+
+---
+
+## Espressioni
+
+Un’**espressione** è qualsiasi frammento di codice che produce un valore.
+
+```javascript
+5 + 3;
+x * 2;
+nome === "Luca";
+```
+
+Le istruzioni spesso contengono una o più espressioni.
+
+---
+
+## Stringhe, numeri e valori letterali
+
+I **valori letterali** rappresentano dati scritti direttamente nel codice.
+
+```javascript
+10; // numero
+3.14; // numero
+("ciao"); // stringa
+("ciao"); // stringa
+true; // booleano
+false; // booleano
+```
+
+Le stringhe possono essere definite con:
+
+- Doppi apici `" "`
+- Apici singoli `' '`
+- Backtick `` ` ` `` (template literal)
+
+```javascript
+let messaggio = `Ciao ${nome}`;
+```
+
+---
+
+## Chiamata di funzioni
+
+Una funzione viene eseguita tramite la **chiamata**, utilizzando il nome seguito da parentesi tonde.
+
+```javascript
+console.log("Hello world");
+```
+
+Le parentesi possono contenere zero o più argomenti separati da virgole.
+
+---
+
+## Sensibilità agli errori di sintassi
+
+JavaScript è molto tollerante, ma **errori di sintassi** impediscono l’esecuzione del codice.
+
+```javascript
+let x = ; // errore di sintassi
+```
+
+Un singolo errore sintattico può bloccare completamente lo script, rendendo fondamentale una scrittura attenta e ordinata del codice.
+
+---
+
+## Conclusione
+
+La sintassi di base di JavaScript è relativamente semplice, ma estremamente flessibile.
+Padroneggiare questi elementi permette di:
+
+- Scrivere codice chiaro e corretto
+- Evitare errori comuni
+- Comprendere facilmente codice scritto da altri sviluppatori
+
+Queste fondamenta sono alla base di ogni utilizzo avanzato del linguaggio.

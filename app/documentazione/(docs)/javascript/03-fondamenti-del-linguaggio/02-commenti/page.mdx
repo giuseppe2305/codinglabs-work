@@ -1,3 +1,179 @@
 # Commenti
 
-In arrivo
+I **commenti** in JavaScript sono porzioni di testo ignorate dal motore di esecuzione. Servono esclusivamente agli sviluppatori per **spiegare il codice**, **documentarne il funzionamento** o **disabilitare temporaneamente alcune istruzioni** senza eliminarle.
+
+Un buon uso dei commenti migliora la **leggibilità**, la **manutenibilità** e la **collaborazione** all’interno di un progetto, soprattutto nel lungo periodo.
+
+---
+
+## A cosa servono i commenti
+
+I commenti vengono utilizzati per:
+
+- Spiegare _perché_ una certa scelta è stata fatta (non solo _cosa_ fa il codice)
+- Rendere il codice più comprensibile a chi lo leggerà in futuro (incluso te stesso)
+- Documentare funzioni, classi e moduli
+- Evidenziare comportamenti particolari o casi limite
+- Disabilitare temporaneamente parti di codice durante il debug
+
+I commenti **non influiscono sulle prestazioni** né sul risultato finale dell’esecuzione.
+
+---
+
+## Tipi di commenti in JavaScript
+
+JavaScript supporta **tre principali tipologie di commenti**.
+
+---
+
+### Commenti su singola riga
+
+Si utilizzano con `//` e tutto ciò che segue, sulla stessa riga, viene ignorato.
+
+```javascript
+// Questo è un commento su singola riga
+let totale = 10; // Commento alla fine della riga
+```
+
+**Quando usarli:**
+
+- Spiegazioni brevi
+- Chiarimenti immediati su una riga specifica
+- Commenti temporanei durante il debug
+
+---
+
+### Commenti multi-linea
+
+Si utilizzano con `/* ... */` e possono estendersi su più righe.
+
+```javascript
+/*
+  Questo è un commento
+  su più righe.
+  Viene spesso usato per
+  spiegazioni più lunghe.
+*/
+let prezzo = 99;
+```
+
+**Quando usarli:**
+
+- Spiegazioni articolate
+- Intestazioni di file
+- Commenti che richiedono più contesto
+
+---
+
+### Commenti di documentazione (JSDoc)
+
+I commenti **JSDoc** sono una forma strutturata di commenti multi-linea che iniziano con `/**`.
+
+Sono ampiamente usati per:
+
+- Documentare API
+- Migliorare l’autocompletamento negli editor
+- Generare documentazione automatica
+
+```javascript
+/**
+ * Calcola il prezzo finale applicando uno sconto.
+ * @param {number} prezzo - Il prezzo iniziale
+ * @param {number} sconto - Percentuale di sconto
+ * @returns {number} Prezzo scontato
+ */
+function calcolaPrezzo(prezzo, sconto) {
+  return prezzo - (prezzo * sconto) / 100;
+}
+```
+
+Anche se non obbligatori, i commenti JSDoc sono considerati **best practice** in progetti strutturati o condivisi.
+
+---
+
+## Commentare codice: buone pratiche
+
+Un commento efficace **non descrive il codice riga per riga**, ma aggiunge valore.
+
+### Scrivi commenti utili, non ovvi
+
+❌ **Inutile**
+
+```javascript
+let x = 10; // Assegna 10 a x
+```
+
+✅ **Utile**
+
+```javascript
+let tentativiMassimi = 10; // Limite per evitare loop infiniti
+```
+
+---
+
+### Spiega il perché, non il cosa
+
+Il codice mostra già _cosa_ fa. Il commento dovrebbe spiegare _perché_ lo fa in quel modo.
+
+```javascript
+// Usiamo setTimeout invece di setInterval per evitare accumuli di chiamate
+setTimeout(eseguiTask, 1000);
+```
+
+---
+
+### Mantieni i commenti aggiornati
+
+Un commento errato è **peggio di nessun commento**.
+Se il codice cambia, il commento deve cambiare con lui.
+
+---
+
+### Non usare i commenti per “nascondere” codice morto
+
+❌
+
+```javascript
+// vecchiaFunzione();
+// altroCodiceInutile();
+```
+
+Il codice non più utilizzato dovrebbe essere **rimosso** o gestito tramite un sistema di versionamento (es. Git).
+
+---
+
+## Commenti e debugging
+
+Durante il debug è comune commentare temporaneamente parti di codice:
+
+```javascript
+// console.log(dati);
+// inviaRichiesta();
+```
+
+Questa pratica è accettabile **solo temporaneamente**.
+Prima di considerare il codice “finito”, i commenti di debug dovrebbero essere rimossi.
+
+---
+
+## Commenti e codice professionale
+
+In un contesto professionale:
+
+- Il codice deve essere **auto-esplicativo**
+- I commenti servono per chiarire **logica complessa**, **vincoli di business** o **decisioni architetturali**
+- Un eccesso di commenti può indicare codice poco chiaro
+
+L’obiettivo è trovare il giusto equilibrio tra **chiarezza del codice** e **documentazione scritta**.
+
+---
+
+## Riepilogo
+
+- I commenti non vengono eseguiti dal motore JavaScript
+- Esistono commenti su singola riga, multi-linea e JSDoc
+- Servono a migliorare leggibilità, manutenzione e collaborazione
+- Devono essere chiari, utili e sempre aggiornati
+- Il miglior commento è spesso un codice scritto bene
+
+Un uso corretto dei commenti è una competenza fondamentale per ogni sviluppatore JavaScript, dal principiante al professionista.

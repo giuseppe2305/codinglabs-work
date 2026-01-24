@@ -1,3 +1,146 @@
 # Oggetti
 
-In arrivo
+In JavaScript, un **oggetto** è una collezione di coppie **chiave-valore**. Gli oggetti permettono di raggruppare dati e funzionalità correlate in un'unica struttura, rendendo il codice più organizzato e leggibile.
+
+## Creazione di un oggetto
+
+Esistono diversi modi per creare un oggetto:
+
+### 1. Notazione letterale
+
+```javascript
+const persona = {
+  nome: "Giuseppe",
+  età: 28,
+  professione: "Sviluppatore Web",
+};
+```
+
+### 2. Con il costruttore `Object`
+
+```javascript
+const persona = new Object();
+persona.nome = "Giuseppe";
+persona.età = 28;
+persona.professione = "Sviluppatore Web";
+```
+
+### 3. Funzioni costruttore
+
+```javascript
+function Persona(nome, età, professione) {
+  this.nome = nome;
+  this.età = età;
+  this.professione = professione;
+}
+
+const persona = new Persona("Giuseppe", 28, "Sviluppatore Web");
+```
+
+## Proprietà e accesso ai valori
+
+Le proprietà di un oggetto possono essere lette o modificate in due modi principali:
+
+### 1. Notazione punto
+
+```javascript
+console.log(persona.nome); // "Giuseppe"
+persona.età = 29;
+```
+
+### 2. Notazione con parentesi quadre
+
+```javascript
+console.log(persona["professione"]); // "Sviluppatore Web"
+persona["nome"] = "Mario";
+```
+
+> La notazione con parentesi quadre è utile quando il nome della proprietà è dinamico o non è un identificatore valido.
+
+## Aggiungere, modificare ed eliminare proprietà
+
+```javascript
+// Aggiungere proprietà
+persona.città = "Roma";
+
+// Modificare proprietà
+persona.età = 30;
+
+// Eliminare proprietà
+delete persona.professione;
+```
+
+## Metodi
+
+Un oggetto può contenere **funzioni**, chiamate metodi, che agiscono sui suoi dati:
+
+```javascript
+const persona = {
+  nome: "Giuseppe",
+  saluta: function () {
+    console.log(`Ciao, sono ${this.nome}`);
+  },
+};
+
+persona.saluta(); // "Ciao, sono Giuseppe"
+```
+
+Con la sintassi moderna si può anche usare:
+
+```javascript
+const persona = {
+  nome: "Giuseppe",
+  saluta() {
+    console.log(`Ciao, sono ${this.nome}`);
+  },
+};
+```
+
+## Iterare su un oggetto
+
+Per scorrere le proprietà di un oggetto si possono usare:
+
+### `for...in`
+
+```javascript
+for (let chiave in persona) {
+  console.log(chiave, persona[chiave]);
+}
+```
+
+### `Object.keys` e `Object.values`
+
+```javascript
+console.log(Object.keys(persona)); // ["nome", "età", "città", "saluta"]
+console.log(Object.values(persona)); // ["Giuseppe", 30, "Roma", ƒ]
+```
+
+### `Object.entries`
+
+```javascript
+console.log(Object.entries(persona));
+// [["nome","Giuseppe"], ["età",30], ["città","Roma"], ["saluta", ƒ]]
+```
+
+## Concetti avanzati
+
+- **Oggetti annidati**: un oggetto può contenere altri oggetti.
+
+```javascript
+const studente = {
+  nome: "Luca",
+  indirizzo: {
+    città: "Milano",
+    CAP: "20100",
+  },
+};
+console.log(studente.indirizzo.città); // "Milano"
+```
+
+- **Shallow copy vs deep copy**: copiare oggetti complessi richiede attenzione per evitare di condividere riferimenti indesiderati.
+
+- **`this`**: all'interno di un metodo, `this` fa riferimento all'oggetto che lo contiene.
+
+## Riepilogo
+
+Gli oggetti sono fondamentali in JavaScript e rappresentano una struttura flessibile per gestire dati e funzioni correlate. Comprendere come crearli, accedere alle loro proprietà, modificarli e iterarli è essenziale per scrivere codice chiaro, modulare e manutenibile.

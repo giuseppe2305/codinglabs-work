@@ -1,3 +1,213 @@
 # Parole riservate
 
-In arrivo
+In JavaScript esistono alcune **parole riservate** (in inglese _reserved words_ o _keywords_) che hanno un significato speciale per il linguaggio.
+Queste parole fanno parte della sintassi di JavaScript e **non possono essere usate come nomi di variabili, funzioni, classi o parametri**, perché il motore JavaScript le interpreta come istruzioni.
+
+Comprendere le parole riservate è fondamentale per evitare errori di sintassi e scrivere codice corretto e leggibile.
+
+---
+
+## Cosa sono le parole riservate
+
+Le parole riservate sono termini che JavaScript utilizza per:
+
+- definire il flusso del programma
+- dichiarare variabili, funzioni e classi
+- gestire condizioni, cicli ed errori
+- lavorare con moduli, oggetti e contesto di esecuzione
+
+Esempio **non valido**:
+
+```js
+let if = 10; // Errore: "if" è una parola riservata
+```
+
+Esempio **valido**:
+
+```js
+let condition = 10;
+```
+
+---
+
+## Principali parole riservate in JavaScript
+
+Di seguito sono elencate le parole riservate più importanti, suddivise per categoria logica per facilitarne la comprensione.
+
+---
+
+### Dichiarazione di variabili e costanti
+
+```js
+var
+let
+const
+```
+
+Queste parole servono a dichiarare variabili e costanti.
+Non possono essere usate come identificatori.
+
+---
+
+### Controllo di flusso
+
+```js
+if
+else
+switch
+case
+default
+```
+
+Permettono di eseguire porzioni di codice in base a condizioni.
+
+---
+
+### Cicli
+
+```js
+for
+while
+do
+break
+continue
+```
+
+Servono per ripetere istruzioni o interrompere l’esecuzione di un ciclo.
+
+---
+
+### Funzioni e classi
+
+```js
+function
+return
+class
+extends
+super
+constructor
+```
+
+Utilizzate per definire funzioni, classi e gestire l’ereditarietà.
+
+---
+
+### Gestione degli errori
+
+```js
+try
+catch
+finally
+throw
+```
+
+Consentono di intercettare e gestire errori durante l’esecuzione del codice.
+
+---
+
+### Operatori e logica
+
+```js
+new
+typeof
+instanceof
+void
+delete
+```
+
+Parole chiave che eseguono operazioni specifiche su valori e oggetti.
+
+---
+
+### Moduli
+
+```js
+import
+export
+from
+as
+```
+
+Utilizzate nel sistema di moduli ES per organizzare il codice in file separati.
+
+---
+
+### Contesto e oggetti
+
+```js
+this
+in
+of
+with
+```
+
+Gestiscono il contesto di esecuzione e l’iterazione su strutture dati.
+
+---
+
+### Valori speciali
+
+```js
+true;
+false;
+null;
+```
+
+Rappresentano valori primitivi con significato speciale.
+
+> Nota: `undefined` **non è una parola riservata**, ma un valore globale predefinito. È comunque sconsigliato usarlo come nome di variabile.
+
+---
+
+## Parole riservate future o contestuali
+
+Alcune parole sono **riservate per compatibilità futura** o hanno un significato speciale solo in certi contesti:
+
+```js
+await yield;
+enum;
+implements;
+interface;
+package;
+private;
+protected;
+public;
+static;
+```
+
+Anche se alcune di queste non generano errori in ogni situazione, **non dovrebbero mai essere usate come identificatori**, per evitare problemi di compatibilità e leggibilità.
+
+---
+
+## Case sensitivity e parole riservate
+
+JavaScript è **case-sensitive**, quindi:
+
+```js
+class // parola riservata
+Class // identificatore valido (ma sconsigliato)
+```
+
+Tecnicamente `Class` è valido, ma usare nomi simili a parole riservate è una **cattiva pratica**, perché rende il codice confuso e meno manutenibile.
+
+---
+
+## Buone pratiche
+
+- Non usare mai parole riservate come nomi di variabili o funzioni
+- Evitare identificatori troppo simili alle parole chiave
+- Preferire nomi descrittivi e chiari
+- Scrivere codice pensando anche alla compatibilità futura del linguaggio
+
+---
+
+## Conclusione
+
+Le parole riservate sono una parte fondamentale della sintassi di JavaScript.
+Conoscerle ti permette di:
+
+- evitare errori di sintassi
+- scrivere codice più pulito e professionale
+- comprendere meglio il funzionamento interno del linguaggio
+
+Una buona padronanza di questi concetti è essenziale sia per chi inizia, sia per chi sviluppa applicazioni JavaScript complesse e scalabili.

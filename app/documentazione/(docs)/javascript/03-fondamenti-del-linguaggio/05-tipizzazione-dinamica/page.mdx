@@ -1,3 +1,162 @@
 # Tipizzazione dinamica
 
-In arrivo
+JavaScript è un linguaggio **a tipizzazione dinamica**. Questo significa che **il tipo di una variabile non è fissato in fase di dichiarazione**, ma viene determinato **a runtime** in base al valore che la variabile contiene in quel momento.
+
+In altre parole: non sei tu a dire a JavaScript “questa variabile è un numero” o “questa variabile è una stringa”. È JavaScript che lo deduce automaticamente.
+
+---
+
+## Cosa significa “tipizzazione dinamica”
+
+In JavaScript:
+
+- una variabile **non ha un tipo fisso**
+- il **valore** ha un tipo
+- lo stesso identificatore può contenere **valori di tipo diverso nel tempo**
+
+Esempio:
+
+```js
+let valore = 10; // number
+valore = "ciao"; // string
+valore = true; // boolean
+```
+
+La variabile `valore` è sempre la stessa, ma il tipo cambia in base al valore assegnato.
+
+---
+
+## Confronto concettuale con la tipizzazione statica
+
+Nei linguaggi a **tipizzazione statica** (come Java, C, TypeScript):
+
+- il tipo viene dichiarato esplicitamente
+- non può cambiare
+- molti errori vengono intercettati in fase di compilazione
+
+In JavaScript:
+
+- il tipo viene determinato a runtime
+- può cambiare liberamente
+- gli errori di tipo emergono solo durante l’esecuzione
+
+Questo rende JavaScript **molto flessibile**, ma richiede maggiore attenzione da parte dello sviluppatore.
+
+---
+
+## Determinazione del tipo a runtime
+
+JavaScript determina il tipo di un valore quando il codice viene eseguito.
+
+Esempio:
+
+```js
+let x = 5;
+typeof x; // "number"
+
+x = "5";
+typeof x; // "string"
+```
+
+L’operatore `typeof` restituisce una stringa che rappresenta il tipo del valore.
+
+Tipi restituiti più comuni:
+
+- `"number"`
+- `"string"`
+- `"boolean"`
+- `"undefined"`
+- `"object"`
+- `"function"`
+
+---
+
+## Conversioni implicite (type coercion)
+
+La tipizzazione dinamica permette a JavaScript di **convertire automaticamente i tipi** in determinate situazioni. Questo comportamento è chiamato **type coercion**.
+
+Esempio:
+
+```js
+"5" + 2; // "52"
+"5" - 2; // 3
+true + 1; // 2
+```
+
+JavaScript prova a “far funzionare” l’operazione convertendo i valori coinvolti.
+Questo può essere comodo, ma anche fonte di bug difficili da individuare.
+
+---
+
+## Uguaglianza e tipizzazione dinamica
+
+La tipizzazione dinamica influisce anche sui confronti.
+
+Con l’operatore `==` JavaScript effettua conversioni automatiche:
+
+```js
+5 == "5"; // true
+0 == false; // true
+null == undefined; // true
+```
+
+Con l’operatore `===` **non avviene alcuna conversione**:
+
+```js
+5 === "5"; // false
+0 === false; // false
+```
+
+Nello sviluppo moderno è **fortemente consigliato usare sempre `===`** per evitare comportamenti inattesi.
+
+---
+
+## Vantaggi della tipizzazione dinamica
+
+- Scrittura del codice più rapida
+- Meno verbosità
+- Maggiore flessibilità
+- Ideale per scripting, prototipazione e sviluppo frontend
+
+Per molti contesti web, questi vantaggi rendono JavaScript molto produttivo.
+
+---
+
+## Svantaggi e rischi
+
+- Errori di tipo rilevati solo a runtime
+- Bug silenziosi dovuti a conversioni implicite
+- Codice più difficile da mantenere in progetti grandi
+- Minore prevedibilità rispetto a linguaggi tipizzati staticamente
+
+Per questo motivo, in progetti complessi si adottano spesso strumenti aggiuntivi.
+
+---
+
+## Tipizzazione dinamica e TypeScript
+
+TypeScript nasce proprio per mitigare i limiti della tipizzazione dinamica di JavaScript.
+
+- JavaScript: tipizzazione dinamica pura
+- TypeScript: tipizzazione statica sopra JavaScript
+
+Il codice JavaScript resta dinamico a runtime, ma TypeScript aggiunge un livello di controllo **in fase di sviluppo**.
+
+---
+
+## Buone pratiche
+
+- Usare `===` e `!==` invece di `==` e `!=`
+- Evitare conversioni implicite non necessarie
+- Essere espliciti nelle trasformazioni di tipo
+- Scrivere codice leggibile e prevedibile
+- Validare i dati in ingresso (soprattutto input esterni)
+
+---
+
+## Conclusione
+
+La tipizzazione dinamica è una caratteristica fondamentale di JavaScript.
+Offre grande flessibilità e velocità di sviluppo, ma richiede consapevolezza e disciplina.
+
+Comprenderla a fondo è essenziale per scrivere codice JavaScript **robusto, mantenibile e professionale**, sia per chi inizia sia per chi lavora su applicazioni complesse.
