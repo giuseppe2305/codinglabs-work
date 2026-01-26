@@ -1,3 +1,220 @@
 # Struttura di un progetto JavaScript
 
-In arrivo
+La struttura di un progetto JavaScript è l’organizzazione delle cartelle e dei file che compongono un’applicazione. Una buona struttura rende il codice più leggibile, manutenibile, scalabile e comprensibile sia per chi inizia sia per sviluppatori esperti che lavorano in team.
+
+Non esiste una struttura “unica e obbligatoria”, ma esistono convenzioni consolidate che rappresentano uno standard de facto nel mondo del web development moderno.
+
+---
+
+## Struttura di base di un progetto JavaScript
+
+Un progetto JavaScript moderno, basato su Node.js, parte generalmente da questa struttura minima:
+
+```
+
+nome-progetto/
+├─ node_modules/
+├─ src/
+├─ package.json
+├─ package-lock.json
+└─ README.md
+
+```
+
+Vediamo nel dettaglio ogni elemento.
+
+---
+
+## `node_modules/`
+
+Questa cartella contiene tutte le dipendenze installate tramite un package manager (npm, yarn o pnpm).
+
+- Viene generata automaticamente
+- Non va mai modificata manualmente
+- Non va mai versionata (va esclusa con `.gitignore`)
+- Può diventare molto grande
+
+Ogni volta che esegui `npm install`, questa cartella viene creata o aggiornata.
+
+---
+
+## `package.json`
+
+È il file **più importante** di un progetto JavaScript basato su Node.js.
+
+Contiene:
+
+- Informazioni sul progetto (nome, versione, descrizione)
+- Dipendenze (`dependencies` e `devDependencies`)
+- Script di esecuzione
+- Configurazioni di base
+
+Esempio semplificato:
+
+```json
+{
+  "name": "nome-progetto",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node src/index.js"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
+```
+
+Questo file permette a chiunque di ricostruire l’intero progetto con un semplice `npm install`.
+
+---
+
+## `package-lock.json` / `yarn.lock` / `pnpm-lock.yaml`
+
+È il file di lock delle dipendenze.
+
+- Garantisce che tutti usino **le stesse versioni**
+- Evita bug legati a differenze di ambiente
+- Va sempre versionato insieme al progetto
+
+Non va mai modificato manualmente.
+
+---
+
+## `src/` (Source)
+
+La cartella `src` contiene **il codice sorgente dell’applicazione**.
+
+È una convenzione molto diffusa e consigliata.
+
+Esempio:
+
+```
+src/
+├─ index.js
+└─ app.js
+```
+
+- `index.js` è spesso il punto di ingresso dell’applicazione
+- Tutta la logica applicativa vive qui dentro
+
+Separare il codice sorgente dal resto aiuta a mantenere ordine e chiarezza.
+
+---
+
+## Punto di ingresso (`index.js`)
+
+Il file `index.js` (o `main.js`) è solitamente il file da cui parte l’applicazione.
+
+Esempio:
+
+```js
+console.log("Applicazione avviata");
+```
+
+In applicazioni più complesse, questo file:
+
+- Inizializza il progetto
+- Importa moduli
+- Avvia server o logiche principali
+
+---
+
+## Organizzazione avanzata della cartella `src`
+
+Con la crescita del progetto, è buona pratica suddividere il codice in cartelle più specifiche:
+
+```
+src/
+├─ config/
+├─ modules/
+├─ services/
+├─ utils/
+├─ controllers/
+└─ index.js
+```
+
+### Esempi di responsabilità
+
+- `config/` → configurazioni (env, database, API)
+- `modules/` → moduli principali dell’app
+- `services/` → logica di business
+- `utils/` → funzioni di utilità riutilizzabili
+- `controllers/` → gestione delle richieste (tipico nei backend)
+
+Questa separazione segue il principio della **single responsibility**.
+
+---
+
+## File di configurazione comuni
+
+In molti progetti sono presenti anche:
+
+```
+.env
+.gitignore
+.eslintrc
+.prettierrc
+```
+
+### `.env`
+
+Contiene variabili d’ambiente (chiavi API, configurazioni sensibili).
+Non va mai versionato.
+
+### `.gitignore`
+
+Indica a Git quali file o cartelle ignorare (es. `node_modules`).
+
+### ESLint e Prettier
+
+Strumenti per:
+
+- mantenere uno stile di codice coerente
+- prevenire errori comuni
+- migliorare la qualità del codice
+
+---
+
+## Struttura per progetti frontend
+
+In un progetto frontend JavaScript (Vanilla, React, Vue, ecc.) la struttura può includere:
+
+```
+src/
+├─ assets/
+├─ components/
+├─ pages/
+├─ styles/
+├─ scripts/
+└─ main.js
+```
+
+- `assets/` → immagini, font
+- `components/` → componenti riutilizzabili
+- `pages/` → pagine dell’app
+- `styles/` → CSS o preprocessori
+- `scripts/` → logica JavaScript
+
+---
+
+## Convenzioni importanti
+
+- Nomi chiari e coerenti
+- Cartelle al plurale per collezioni (`components`, `utils`)
+- Un file = una responsabilità
+- Evitare file troppo grandi
+- Preferire import espliciti e modulari
+
+---
+
+## Perché la struttura è fondamentale
+
+Una buona struttura:
+
+- Riduce il tempo di onboarding
+- Facilita la manutenzione
+- Previene errori
+- Migliora la scalabilità
+- Riflette la maturità dello sviluppatore
+
+Scrivere codice è solo una parte del lavoro: **organizzarlo bene è ciò che distingue un progetto amatoriale da uno professionale**.

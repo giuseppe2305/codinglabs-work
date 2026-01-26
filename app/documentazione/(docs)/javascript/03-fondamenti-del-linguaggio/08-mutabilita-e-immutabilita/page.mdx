@@ -1,3 +1,104 @@
 # Mutabilità e immutabilità
 
-In arrivo
+In JavaScript, comprendere la differenza tra **mutabile** e **immutabile** è fondamentale per scrivere codice chiaro, efficiente e privo di effetti collaterali indesiderati. Questi concetti riguardano il comportamento dei valori quando vengono modificati.
+
+## Cos’è la mutabilità
+
+Un valore è **mutabile** quando può essere modificato dopo la sua creazione senza creare una nuova variabile. In JavaScript, gli **oggetti** e gli **array** sono mutabili.
+
+Esempio con un oggetto:
+
+```javascript
+const persona = { nome: "Giuseppe", età: 30 };
+
+// Modifica una proprietà dell'oggetto
+persona.età = 31;
+
+console.log(persona); // { nome: "Giuseppe", età: 31 }
+```
+
+In questo caso, l’oggetto `persona` è stato modificato direttamente, senza creare una nuova istanza.
+
+Esempio con un array:
+
+```javascript
+const numeri = [1, 2, 3];
+
+// Aggiungi un elemento
+numeri.push(4);
+
+console.log(numeri); // [1, 2, 3, 4]
+```
+
+L’array originale viene aggiornato direttamente: questo è un comportamento **mutabile**.
+
+## Cos’è l’immutabilità
+
+Un valore è **immutabile** quando non può essere modificato dopo la sua creazione. In JavaScript, i **tipi primitivi** come `number`, `string`, `boolean`, `null`, `undefined` e `symbol` sono immutabili.
+
+Esempio con una stringa:
+
+```javascript
+let nome = "Giuseppe";
+
+// Creiamo una nuova stringa aggiungendo testo
+let nuovoNome = nome + " Rossi";
+
+console.log(nome); // "Giuseppe" (immutata)
+console.log(nuovoNome); // "Giuseppe Rossi"
+```
+
+La stringa originale `nome` non viene modificata: ogni operazione produce una **nuova** stringa.
+
+Esempio con un numero:
+
+```javascript
+let numero = 10;
+
+// Operazione che crea un nuovo valore
+let nuovoNumero = numero + 5;
+
+console.log(numero); // 10 (immutato)
+console.log(nuovoNumero); // 15
+```
+
+## Perché è importante conoscere la differenza
+
+- La **mutabilità** può portare a **effetti collaterali** se più parti del codice condividono lo stesso oggetto o array e lo modificano.
+- L’**immutabilità** rende il codice più **prevedibile e sicuro**, specialmente in applicazioni complesse o con gestione dello stato (ad esempio React o Redux).
+
+## Come lavorare con dati immutabili
+
+Per rendere un oggetto o un array immutabile, possiamo usare tecniche come:
+
+- **Copia superficiale** con lo spread operator:
+
+```javascript
+const persona = { nome: "Giuseppe", età: 30 };
+const nuovaPersona = { ...persona, età: 31 };
+
+console.log(persona); // { nome: "Giuseppe", età: 30 }
+console.log(nuovaPersona); // { nome: "Giuseppe", età: 31 }
+```
+
+- **Array immutabili** con metodi che restituiscono nuovi array:
+
+```javascript
+const numeri = [1, 2, 3];
+const nuoviNumeri = [...numeri, 4];
+
+console.log(numeri); // [1, 2, 3]
+console.log(nuoviNumeri); // [1, 2, 3, 4]
+```
+
+## Riepilogo
+
+| Tipo di valore | Mutabile | Immutabile |
+| -------------- | -------- | ---------- |
+| Oggetti        | ✔        | ✖          |
+| Array          | ✔        | ✖          |
+| Stringhe       | ✖        | ✔          |
+| Numeri         | ✖        | ✔          |
+| Boolean        | ✖        | ✔          |
+
+Conoscere la mutabilità e l’immutabilità è essenziale per evitare errori e scrivere codice più chiaro, prevedibile e manutenibile.

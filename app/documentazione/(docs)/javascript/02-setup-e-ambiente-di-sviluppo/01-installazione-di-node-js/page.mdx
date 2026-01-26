@@ -1,3 +1,199 @@
 # Installazione di Node.js
 
-In arrivo
+Node.js è un ambiente di esecuzione che permette di eseguire JavaScript **al di fuori del browser**, direttamente sul sistema operativo. È uno strumento fondamentale nello sviluppo web moderno: viene utilizzato per creare server, API, strumenti di build, gestire dipendenze e automatizzare processi di sviluppo.
+
+In questa guida vedremo **come installare correttamente Node.js**, quali versioni scegliere e come verificare che l’installazione sia andata a buon fine.
+
+---
+
+## Cos’è Node.js (in breve)
+
+Node.js:
+
+- esegue JavaScript lato server
+- è basato sul motore **V8 di Google Chrome**
+- utilizza un modello **event-driven e non bloccante**
+- include **npm**, il gestore di pacchetti più diffuso per JavaScript
+
+Anche se non si intende sviluppare backend, Node.js è indispensabile per lavorare con framework e tool moderni come:
+
+- React, Vue, Angular
+- Vite, Webpack, Parcel
+- ESLint, Prettier
+- TypeScript
+
+---
+
+## Versioni di Node.js: quale scegliere
+
+Sul sito ufficiale di Node.js sono disponibili due tipi di versioni:
+
+### LTS (Long Term Support)
+
+- consigliata per la maggior parte dei casi
+- più stabile
+- supportata a lungo nel tempo
+- ideale per produzione e per chi sta imparando
+
+### Current
+
+- include le funzionalità più recenti
+- può avere cambiamenti frequenti
+- consigliata solo se si sa cosa si sta facendo
+
+**Scelta consigliata:** installare sempre la versione **LTS**.
+
+---
+
+## Installazione su Windows
+
+1. Vai sul sito ufficiale di Node.js  
+   https://nodejs.org
+
+2. Scarica la versione **LTS per Windows**
+
+3. Avvia il file `.msi` scaricato
+
+4. Segui il wizard di installazione:
+   - accetta la licenza
+   - lascia le opzioni di default
+   - assicurati che siano selezionate:
+     - Node.js runtime
+     - npm package manager
+     - Add to PATH
+
+5. Completa l’installazione
+
+Non è necessario configurare nulla manualmente: Node.js e npm vengono aggiunti automaticamente al sistema.
+
+---
+
+## Installazione su macOS
+
+### Metodo consigliato: Homebrew
+
+Se Homebrew è già installato:
+
+```bash
+brew update
+brew install node
+```
+
+Questo metodo è preferibile perché semplifica aggiornamenti e gestione delle versioni.
+
+### Metodo alternativo: installer ufficiale
+
+1. Vai su [https://nodejs.org](https://nodejs.org)
+2. Scarica la versione **LTS per macOS**
+3. Avvia il file `.pkg`
+4. Segui l’installazione guidata
+
+---
+
+## Installazione su Linux
+
+### Ubuntu / Debian
+
+```bash
+sudo apt update
+sudo apt install nodejs npm
+```
+
+Verifica la versione installata:
+
+```bash
+node -v
+```
+
+In alcuni casi le versioni nei repository possono essere datate. Per un controllo più preciso delle versioni, è consigliato l’uso di **Node Version Manager (nvm)**.
+
+---
+
+## Installazione tramite NVM (consigliata per sviluppatori)
+
+NVM permette di:
+
+- installare più versioni di Node.js
+- cambiare versione per progetto
+- evitare conflitti di sistema
+
+### Installazione NVM (macOS / Linux)
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+```
+
+Riavvia il terminale, poi:
+
+```bash
+nvm install --lts
+nvm use --lts
+```
+
+Questo approccio è **standard negli ambienti professionali**.
+
+---
+
+## Verifica dell’installazione
+
+Dopo l’installazione, apri il terminale (o Prompt dei comandi) e digita:
+
+```bash
+node -v
+```
+
+```bash
+npm -v
+```
+
+Se entrambi i comandi restituiscono un numero di versione, l’installazione è corretta.
+
+Esempio:
+
+```text
+v20.11.0
+10.2.4
+```
+
+---
+
+## Dove viene usato Node.js nel flusso di lavoro
+
+Una volta installato, Node.js viene utilizzato per:
+
+- inizializzare progetti JavaScript
+- installare librerie e framework
+- eseguire script di sviluppo
+- avviare server locali
+- compilare e ottimizzare il codice
+
+Node.js **non sostituisce il browser**, ma lavora insieme ad esso durante lo sviluppo.
+
+---
+
+## Problemi comuni e soluzioni rapide
+
+### `node` non è riconosciuto come comando
+
+- Node.js non è nel PATH
+- su Windows: reinstallare assicurandosi che “Add to PATH” sia selezionato
+- su macOS/Linux: riavviare il terminale
+
+### Versione sbagliata di Node
+
+- usare `nvm` per installare e selezionare la versione corretta
+
+### npm install fallisce
+
+- verificare la versione di Node
+- controllare i permessi (soprattutto su Linux/macOS)
+- evitare `sudo npm install` salvo casi specifici
+
+---
+
+## Conclusione
+
+Node.js è una base imprescindibile per lo sviluppo JavaScript moderno.
+Un’installazione corretta fin dall’inizio evita problemi futuri e rende l’ambiente di sviluppo stabile, prevedibile e professionale.
+
+Nelle sezioni successive vedremo come utilizzare Node.js insieme agli editor di codice, configurare correttamente l’ambiente e gestire i pacchetti di progetto.

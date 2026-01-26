@@ -1,3 +1,235 @@
 # Debugging di base
 
-In arrivo
+Il **debugging** è il processo di individuazione e risoluzione degli errori (bug) nel codice. È una competenza fondamentale per ogni sviluppatore JavaScript, perché gli errori sono inevitabili, indipendentemente dal livello di esperienza.
+
+In questo articolo vedremo **le basi del debugging**, con un approccio pratico e progressivo, utile sia a chi inizia sia a chi vuole consolidare buone abitudini professionali.
+
+---
+
+## Cos’è un bug
+
+Un **bug** è un comportamento non previsto del programma. Può manifestarsi in diversi modi:
+
+- Il codice genera un errore e si blocca
+- Il codice funziona ma produce risultati sbagliati
+- Il codice non esegue nulla senza mostrare errori evidenti
+
+Il debugging serve a rispondere a una domanda precisa:
+
+> _Perché il mio codice non si comporta come mi aspetto?_
+
+---
+
+## Tipologie comuni di errori in JavaScript
+
+### Errori di sintassi
+
+Errori nella scrittura del codice.
+
+```js
+if (x > 10 {
+  console.log(x);
+}
+```
+
+JavaScript non riesce nemmeno a eseguire il file.
+
+---
+
+### Errori di runtime
+
+Errori che avvengono **durante l’esecuzione** del codice.
+
+```js
+console.log(user.name);
+```
+
+Se `user` è `undefined`, il codice si interrompe.
+
+---
+
+### Errori logici
+
+Il codice funziona, ma il risultato è sbagliato.
+
+```js
+function somma(a, b) {
+  return a - b;
+}
+```
+
+Sono i bug più difficili da individuare.
+
+---
+
+## Console.log: lo strumento base del debugging
+
+Il metodo più semplice e immediato per fare debugging è usare:
+
+```js
+console.log();
+```
+
+Permette di:
+
+- Verificare il valore delle variabili
+- Capire se una funzione viene eseguita
+- Seguire il flusso del programma
+
+Esempio:
+
+```js
+function calcolaPrezzo(prezzo) {
+  console.log("Prezzo iniziale:", prezzo);
+  return prezzo * 1.22;
+}
+```
+
+### Buone pratiche
+
+- Logga **valori significativi**
+- Aggiungi **testi descrittivi**
+- Rimuovi i `console.log` inutili prima del deploy
+
+---
+
+## Altri metodi utili della console
+
+JavaScript mette a disposizione diversi strumenti oltre a `console.log`.
+
+```js
+console.warn("Questo è un warning");
+console.error("Questo è un errore");
+console.table(arrayDiOggetti);
+```
+
+- `console.warn` → evidenzia problemi non bloccanti
+- `console.error` → segnala errori
+- `console.table` → visualizza dati strutturati in modo leggibile
+
+---
+
+## Comprendere i messaggi di errore
+
+Quando JavaScript genera un errore, fornisce sempre informazioni utili:
+
+- Tipo di errore (`TypeError`, `ReferenceError`, ecc.)
+- Messaggio descrittivo
+- File e numero di riga
+
+Esempio:
+
+```
+Uncaught TypeError: Cannot read properties of undefined
+```
+
+Questo indica che stai cercando di accedere a una proprietà di una variabile non definita.
+
+**Leggere attentamente il messaggio di errore è parte essenziale del debugging.**
+
+---
+
+## Debugging passo per passo (breakpoint)
+
+I **breakpoint** permettono di fermare l’esecuzione del codice in un punto preciso e analizzare lo stato del programma.
+
+Nel browser o negli strumenti di sviluppo puoi:
+
+- Mettere in pausa l’esecuzione
+- Ispezionare variabili
+- Eseguire il codice riga per riga
+
+In alternativa, puoi usare direttamente nel codice:
+
+```js
+debugger;
+```
+
+Quando il browser incontra questa istruzione, l’esecuzione si ferma automaticamente.
+
+---
+
+## Analizzare il flusso del codice
+
+Un errore spesso nasce da:
+
+- Funzioni chiamate nel momento sbagliato
+- Dati non ancora disponibili
+- Condizioni logiche errate
+
+Domande utili durante il debugging:
+
+- Questa funzione viene eseguita?
+- Con quali parametri?
+- In quale ordine vengono eseguite le istruzioni?
+
+---
+
+## Debugging asincrono (concetti base)
+
+JavaScript è fortemente basato su operazioni asincrone (`setTimeout`, `fetch`, `Promise`, `async/await`).
+
+Errori comuni:
+
+- Usare dati prima che siano disponibili
+- Dimenticare `await`
+- Non gestire gli errori
+
+Esempio corretto:
+
+```js
+async function caricaDati() {
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+```
+
+---
+
+## Gestione degli errori con try/catch
+
+Il blocco `try/catch` permette di intercettare errori senza bloccare l’applicazione.
+
+```js
+try {
+  eseguiOperazione();
+} catch (errore) {
+  console.error("Errore:", errore);
+}
+```
+
+È fondamentale soprattutto quando:
+
+- Si lavora con API
+- Si gestiscono input utente
+- Si usano librerie esterne
+
+---
+
+## Mentalità corretta nel debugging
+
+Un approccio da sviluppatore senior prevede:
+
+- Non indovinare: **osservare i dati**
+- Isolare il problema
+- Procedere per piccoli passi
+- Capire la causa, non solo la soluzione
+
+Il debugging non è solo “aggiustare”, ma **comprendere profondamente il codice**.
+
+---
+
+## Conclusione
+
+Il debugging è una competenza che si affina con l’esperienza. Padroneggiare gli strumenti di base ti permette di:
+
+- Scrivere codice più affidabile
+- Risparmiare tempo
+- Ragionare in modo strutturato
+
+Saper debuggare bene significa **diventare davvero uno sviluppatore JavaScript efficace**.

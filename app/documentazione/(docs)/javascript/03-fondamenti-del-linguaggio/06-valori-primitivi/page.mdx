@@ -1,3 +1,209 @@
 # Valori primitivi
 
-In arrivo
+In JavaScript, i **valori primitivi** rappresentano i tipi di dato più semplici e fondamentali del linguaggio. Sono chiamati “primitivi” perché **non sono oggetti**, non hanno metodi propri persistenti e **sono immutabili**.
+
+Comprendere bene i valori primitivi è essenziale per scrivere codice corretto, prevedibile e performante.
+
+---
+
+## Cosa sono i valori primitivi
+
+Un valore primitivo è un dato che:
+
+- rappresenta **un singolo valore semplice**
+- **non contiene proprietà o metodi**
+- è **immutabile** (non può essere modificato direttamente)
+- viene passato **per valore**, non per riferimento
+
+In JavaScript esistono **7 tipi di valori primitivi**.
+
+---
+
+## Tipi di valori primitivi in JavaScript
+
+### 1. `string`
+
+Rappresenta una sequenza di caratteri.
+
+```js
+let nome = "Mario";
+let saluto = "Ciao";
+let frase = `Benvenuto ${nome}`;
+```
+
+Caratteristiche principali:
+
+- possono essere definite con `" "`, `' '` o `` ` ``
+- sono **immutabili**
+- ogni operazione crea una **nuova stringa**
+
+```js
+let testo = "ciao";
+testo[0] = "C"; // non ha effetto
+```
+
+---
+
+### 2. `number`
+
+Rappresenta **numeri interi e decimali**, senza distinzione.
+
+```js
+let eta = 30;
+let prezzo = 19.99;
+let risultato = 10 / 3;
+```
+
+Include anche valori speciali:
+
+- `Infinity`
+- `-Infinity`
+- `NaN` (Not a Number)
+
+```js
+let errore = 10 / "abc"; // NaN
+```
+
+---
+
+### 3. `bigint`
+
+Usato per rappresentare numeri interi **molto grandi**, oltre il limite di `number`.
+
+```js
+let numeroGrande = 123456789012345678901234567890n;
+```
+
+Note importanti:
+
+- si definisce aggiungendo `n` alla fine
+- non può essere mischiato direttamente con `number`
+
+---
+
+### 4. `boolean`
+
+Rappresenta un valore logico: **vero o falso**.
+
+```js
+let isOnline = true;
+let isAdmin = false;
+```
+
+È fondamentale per:
+
+- condizioni (`if`)
+- cicli
+- logica di controllo
+
+---
+
+### 5. `undefined`
+
+Indica che una variabile è stata dichiarata ma **non ha ancora un valore assegnato**.
+
+```js
+let valore;
+console.log(valore); // undefined
+```
+
+Spesso indica:
+
+- variabile non inizializzata
+- valore di ritorno mancante da una funzione
+
+---
+
+### 6. `null`
+
+Rappresenta **assenza intenzionale di valore**.
+
+```js
+let utente = null;
+```
+
+Differenza concettuale:
+
+- `undefined` → valore non ancora assegnato
+- `null` → valore volutamente “vuoto”
+
+---
+
+### 7. `symbol`
+
+Tipo unico e immutabile, usato principalmente come **chiave unica**.
+
+```js
+let id = Symbol("id");
+```
+
+Caratteristiche:
+
+- ogni `Symbol` è sempre diverso da un altro
+- usato soprattutto in contesti avanzati (oggetti, librerie, framework)
+
+---
+
+## Immutabilità dei valori primitivi
+
+I valori primitivi sono **immutabili**: una volta creati, **non possono essere modificati**.
+
+```js
+let x = 10;
+x = 20; // non modifica 10, assegna un nuovo valore a x
+```
+
+Anche quando sembra che un valore venga modificato, in realtà:
+
+- viene creato **un nuovo valore**
+- la variabile punta al nuovo valore
+
+Questo comportamento è cruciale per:
+
+- evitare effetti collaterali
+- comprendere confronti e assegnazioni
+
+---
+
+## Confronto tra valori primitivi
+
+I valori primitivi vengono confrontati **per valore**.
+
+```js
+10 === 10; // true
+"ciao" === "ciao"; // true
+```
+
+Due valori primitivi uguali sono sempre considerati uguali, perché **contengono lo stesso valore**, non un riferimento.
+
+---
+
+## Metodi sui valori primitivi
+
+Anche se i primitivi **non sono oggetti**, JavaScript permette di usare metodi come:
+
+```js
+"ciao".toUpperCase();
+(10).toString();
+```
+
+Questo è possibile grazie al **boxing automatico**:
+
+- JavaScript crea temporaneamente un oggetto wrapper
+- esegue il metodo
+- distrugge l’oggetto subito dopo
+
+Il valore originale **non viene mai modificato**.
+
+---
+
+## Perché i valori primitivi sono importanti
+
+Capire i valori primitivi permette di:
+
+- evitare bug legati a mutazioni involontarie
+- comprendere la differenza tra valore e riferimento
+- scrivere codice più prevedibile e sicuro
+- padroneggiare le basi del funzionamento di JavaScript
+
+I valori primitivi sono la **base di tutto il linguaggio**: una conoscenza solida di questi concetti è indispensabile per lavorare in modo professionale con JavaScript.

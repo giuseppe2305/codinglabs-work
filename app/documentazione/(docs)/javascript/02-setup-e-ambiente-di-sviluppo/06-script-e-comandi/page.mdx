@@ -1,3 +1,272 @@
 # Script e comandi
 
-In arrivo
+In JavaScript, **script e comandi** servono per automatizzare operazioni comuni di un progetto: avviare il server di sviluppo, eseguire test, costruire la versione finale (build), controllare il codice, o svolgere task ripetitivi.
+Questa gestione avviene principalmente tramite **Node.js** e il file **`package.json`**.
+
+---
+
+## Cos’è un comando
+
+Un **comando** è un’istruzione che viene eseguita dal terminale (CLI – Command Line Interface).
+Nel contesto JavaScript moderno, i comandi più comuni vengono eseguiti con:
+
+- `npm`
+- `yarn`
+- `pnpm`
+
+Esempio di comando da terminale:
+
+```bash
+npm start
+```
+
+Questo comando avvia uno script definito nel progetto.
+
+---
+
+## Il file package.json
+
+Il file `package.json` è il **cuore operativo** di un progetto JavaScript basato su Node.js.
+Contiene informazioni come:
+
+- nome del progetto
+- versioni
+- dipendenze
+- **script personalizzati**
+
+Esempio semplificato:
+
+```json
+{
+  "name": "my-project",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "build": "vite build"
+  }
+}
+```
+
+La sezione importante per questo articolo è **`scripts`**.
+
+---
+
+## Cosa sono gli script
+
+Gli **script** sono comandi personalizzati definiti in `package.json` che possono essere eseguiti dal terminale.
+
+Struttura:
+
+```json
+"scripts": {
+  "nome-script": "comando-da-eseguire"
+}
+```
+
+Esecuzione:
+
+```bash
+npm run nome-script
+```
+
+Eccezioni comuni:
+
+- `npm start`
+- `npm test`
+
+Questi possono essere eseguiti anche senza `run`.
+
+---
+
+## Script più comuni in un progetto JavaScript
+
+### start
+
+Usato per avviare l’applicazione in modalità standard.
+
+```json
+"start": "node index.js"
+```
+
+```bash
+npm start
+```
+
+---
+
+### dev
+
+Avvia l’app in modalità sviluppo, spesso con hot reload o watch mode.
+
+```json
+"dev": "vite"
+```
+
+```bash
+npm run dev
+```
+
+---
+
+### build
+
+Genera la versione finale del progetto pronta per la produzione.
+
+```json
+"build": "vite build"
+```
+
+```bash
+npm run build
+```
+
+---
+
+### test
+
+Esegue i test automatici.
+
+```json
+"test": "jest"
+```
+
+```bash
+npm test
+```
+
+---
+
+### lint
+
+Controlla la qualità del codice (linting).
+
+```json
+"lint": "eslint ."
+```
+
+```bash
+npm run lint
+```
+
+---
+
+## Script con argomenti
+
+È possibile passare parametri agli script:
+
+```bash
+npm run build -- --mode=production
+```
+
+Tutto ciò che segue `--` viene passato al comando interno.
+
+---
+
+## Comandi npm fondamentali
+
+### Inizializzare un progetto
+
+```bash
+npm init
+```
+
+Oppure in modo rapido:
+
+```bash
+npm init -y
+```
+
+---
+
+### Installare dipendenze
+
+```bash
+npm install nome-pacchetto
+```
+
+Dipendenza di sviluppo:
+
+```bash
+npm install nome-pacchetto --save-dev
+```
+
+---
+
+### Rimuovere dipendenze
+
+```bash
+npm uninstall nome-pacchetto
+```
+
+---
+
+### Installare tutte le dipendenze
+
+```bash
+npm install
+```
+
+Usato quando si clona un progetto esistente.
+
+---
+
+## Differenza tra npm, yarn e pnpm (a livello di script)
+
+Dal punto di vista degli **script**, non cambia quasi nulla.
+
+Esempio:
+
+```bash
+npm run dev
+yarn dev
+pnpm dev
+```
+
+Il contenuto di `package.json` rimane lo stesso.
+Cambia solo il tool che esegue i comandi.
+
+---
+
+## Script concatenati
+
+È possibile eseguire più comandi in uno script.
+
+```json
+"scripts": {
+  "build": "npm run lint && npm run test && vite build"
+}
+```
+
+- `&&` → il comando successivo parte solo se il precedente ha successo
+- `||` → parte se il precedente fallisce
+
+---
+
+## Script come standard di progetto
+
+In un progetto ben strutturato:
+
+- gli script **documentano il flusso di lavoro**
+- evitano comandi manuali ripetitivi
+- rendono il progetto più chiaro per altri sviluppatori
+
+Uno sviluppatore non dovrebbe chiedersi _“come avvio il progetto?”_:
+la risposta deve essere uno script (`npm run dev`, `npm start`, ecc.).
+
+---
+
+## Buone pratiche
+
+- Usa nomi di script chiari e prevedibili (`dev`, `build`, `test`)
+- Evita comandi troppo lunghi direttamente nel terminale
+- Centralizza la logica negli script
+- Mantieni coerenza tra progetti diversi
+
+---
+
+## Conclusione
+
+Gli **script e comandi** sono uno strumento fondamentale nello sviluppo JavaScript moderno.
+Permettono di automatizzare il lavoro, standardizzare i processi e migliorare la collaborazione.
+Imparare a leggerli e scriverli correttamente è una competenza essenziale, sia per principianti che per sviluppatori esperti.
