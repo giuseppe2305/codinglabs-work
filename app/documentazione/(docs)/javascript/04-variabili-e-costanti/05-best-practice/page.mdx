@@ -1,3 +1,204 @@
 # Best practice
 
-In arrivo
+In questa sezione vediamo le **migliori pratiche** per dichiarare e gestire variabili e costanti in JavaScript.
+Seguire queste regole rende il codice **più leggibile, sicuro, prevedibile e manutenibile**, specialmente in progetti di medie e grandi dimensioni.
+
+---
+
+## 1. Preferisci sempre `const` a `let` e `var`
+
+Usa `const` come scelta predefinita.
+Passa a `let` **solo se sai che il valore deve cambiare**.
+
+```js
+const maxUsers = 100; // corretto
+let counter = 0; // cambia nel tempo
+```
+
+`var` **non dovrebbe mai essere usato** nel codice moderno.
+
+---
+
+## 2. Usa `let` solo quando serve davvero
+
+Dichiara una variabile con `let` solo se:
+
+- verrà riassegnata
+- il suo valore cambia nel tempo
+
+```js
+let total = 0;
+total += price;
+```
+
+Se non c’è riassegnazione, usa `const`.
+
+---
+
+## 3. Non usare mai `var`
+
+`var` introduce comportamenti pericolosi:
+
+- scope di funzione (non di blocco)
+- hoisting ambiguo
+- possibilità di ridefinizione silenziosa
+
+```js
+var x = 10;
+var x = 20; // nessun errore, comportamento pericoloso
+```
+
+In JavaScript moderno, **`var` è da evitare completamente**.
+
+---
+
+## 4. Dichiara le variabili il più vicino possibile all’uso
+
+Non dichiarare tutte le variabili all’inizio del file o della funzione.
+
+```js
+function calculate(price) {
+  const tax = price * 0.22;
+  return price + tax;
+}
+```
+
+Questo rende il codice:
+
+- più leggibile
+- più facile da mantenere
+- meno soggetto a errori
+
+---
+
+## 5. Non riutilizzare la stessa variabile per scopi diversi
+
+Ogni variabile deve avere **un solo significato**.
+
+```js
+// ❌ sbagliato
+let value = 10;
+value = "test";
+
+// ✅ corretto
+const numberValue = 10;
+const textValue = "test";
+```
+
+---
+
+## 6. Evita variabili globali
+
+Le variabili globali:
+
+- possono essere sovrascritte
+- causano conflitti
+- rendono il codice imprevedibile
+
+Usa:
+
+- funzioni
+- moduli
+- blocchi di scope
+
+```js
+(function () {
+  const secret = 42;
+})();
+```
+
+---
+
+## 7. Usa blocchi di scope (`{}`) per limitare la visibilità
+
+```js
+if (isLogged) {
+  const user = "Mario";
+  console.log(user);
+}
+// user non esiste fuori dal blocco
+```
+
+Questo evita conflitti e shadowing non intenzionale.
+
+---
+
+## 8. Non mutare costanti che rappresentano configurazioni
+
+Se un valore rappresenta una configurazione, trattalo come **immutabile**.
+
+```js
+const API_URL = "https://api.example.com";
+```
+
+Non riassegnarlo mai in altre parti del codice.
+
+---
+
+## 9. Usa nomi chiari e descrittivi
+
+Evita nomi generici come:
+
+```js
+let data;
+let temp;
+let value;
+```
+
+Preferisci:
+
+```js
+const userList = [];
+const totalPrice = 0;
+const isAuthenticated = true;
+```
+
+---
+
+## 10. Una dichiarazione per riga
+
+Evita:
+
+```js
+let a = 1,
+  b = 2,
+  c = 3;
+```
+
+Preferisci:
+
+```js
+let a = 1;
+let b = 2;
+let c = 3;
+```
+
+Questo migliora la leggibilità e facilita il debug.
+
+---
+
+## 11. Inizializza sempre le variabili
+
+Non lasciare variabili senza valore.
+
+```js
+// ❌
+let result;
+
+// ✅
+let result = 0;
+```
+
+---
+
+## 12. Mantieni coerente lo stile in tutto il progetto
+
+Scegli uno standard e rispettalo:
+
+- `const` per default
+- `let` solo se necessario
+- niente `var`
+- nomi chiari
+- scope limitato
+
+La coerenza rende il codice più professionale e facile da mantenere.

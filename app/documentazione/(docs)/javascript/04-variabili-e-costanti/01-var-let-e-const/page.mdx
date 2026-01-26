@@ -1,3 +1,162 @@
 # var, let e const
 
-In arrivo
+In JavaScript le **variabili** sono contenitori che permettono di memorizzare dati da riutilizzare nel codice.
+Le parole chiave per dichiararle sono **var**, **let** e **const**.
+
+Anche se svolgono la stessa funzione di base, hanno **comportamenti diversi** in termini di scope, riassegnazione e sicurezza del codice.
+
+---
+
+## Dichiarare una variabile
+
+```js
+var nome = "Mario";
+let età = 30;
+const paese = "Italia";
+```
+
+---
+
+## var
+
+`var` è il metodo **più vecchio** per dichiarare variabili (prima di ES6).
+
+### Caratteristiche
+
+- Scope **di funzione**
+- Può essere **dichiarata più volte**
+- Può essere **riasgnata**
+- Viene **hoistata** (spostata in cima allo scope)
+
+### Esempio
+
+```js
+var x = 10;
+
+if (true) {
+  var x = 20;
+}
+
+console.log(x); // 20
+```
+
+La variabile `x` viene sovrascritta perché `var` non rispetta il block scope.
+
+---
+
+## let
+
+`let` è stata introdotta con ES6 ed è il **modo moderno** di dichiarare variabili modificabili.
+
+### Caratteristiche
+
+- Scope **di blocco**
+- Non può essere ridichiarata nello stesso scope
+- Può essere **riasgnata**
+- Hoisting con **zona morta temporale (TDZ)**
+
+### Esempio
+
+```js
+let y = 10;
+
+if (true) {
+  let y = 20;
+}
+
+console.log(y); // 10
+```
+
+Qui `y` interna al blocco non influisce su quella esterna.
+
+---
+
+## const
+
+`const` serve per dichiarare **costanti**, ovvero variabili che non devono essere riassegnate.
+
+### Caratteristiche
+
+- Scope **di blocco**
+- **Obbligo di inizializzazione**
+- Non può essere riasgnata
+- Non può essere ridichiarata
+
+### Esempio
+
+```js
+const PI = 3.14;
+PI = 3.1416; // Errore
+```
+
+### Oggetti e array con const
+
+```js
+const user = { nome: "Anna" };
+user.nome = "Marco"; // OK
+
+user = {}; // Errore
+```
+
+`const` protegge la **referenza**, non il contenuto.
+
+---
+
+## Confronto rapido
+
+| Keyword | Scope    | Riassegnabile | Ridichiarabile | Uso consigliato |
+| ------- | -------- | ------------- | -------------- | --------------- |
+| var     | Funzione | Sì            | Sì             | ❌ Evitare      |
+| let     | Blocco   | Sì            | No             | ✔ Variabili     |
+| const   | Blocco   | No            | No             | ✔ Default       |
+
+---
+
+## Quando usare cosa
+
+- Usa **const** di default
+- Usa **let** solo se devi riassegnare il valore
+- Evita **var** nei progetti moderni
+
+---
+
+## Esempio reale
+
+```js
+const MAX_USERS = 100;
+let currentUsers = 0;
+
+function addUser() {
+  if (currentUsers < MAX_USERS) {
+    currentUsers++;
+  }
+}
+```
+
+---
+
+## Errore comune
+
+```js
+console.log(a); // undefined
+var a = 10;
+```
+
+```js
+console.log(b); // Errore
+let b = 10;
+```
+
+Questo accade perché `var` viene inizializzata a `undefined`, mentre `let` e `const` sono bloccate nella **Temporal Dead Zone**.
+
+---
+
+## Conclusione
+
+`var` è una scelta **obsoleta**, mentre `let` e `const` rendono il codice:
+
+- più sicuro
+- più leggibile
+- più prevedibile
+
+Adotta `const` come regola e `let` solo quando necessario.

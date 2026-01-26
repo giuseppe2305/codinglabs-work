@@ -1,3 +1,193 @@
 # Shadowing
 
-In arrivo
+Lo **shadowing** in JavaScript si verifica quando una variabile dichiarata in uno scope interno ha lo stesso nome di una variabile presente in uno scope esterno. In questo caso, la variabile interna **“oscura” (shadow)** quella esterna: all’interno dello scope più interno, viene utilizzata la variabile locale invece di quella esterna.
+
+Questo comportamento è legale e fa parte delle regole di scope del linguaggio, ma se usato senza attenzione può rendere il codice difficile da leggere e da mantenere.
+
+---
+
+## Cos’è lo shadowing
+
+```js
+let nome = "Marco";
+
+function saluta() {
+  let nome = "Luca"; // shadowing
+  console.log(nome); // "Luca"
+}
+
+saluta();
+console.log(nome); // "Marco"
+```
+
+In questo esempio:
+
+- `nome` dentro `saluta()` **shadowa** la variabile `nome` esterna.
+- All’interno della funzione, `nome` fa riferimento alla versione locale.
+- Fuori dalla funzione, `nome` resta invariato.
+
+---
+
+## Shadowing con scope di blocco
+
+Con `let` e `const`, lo shadowing può avvenire anche nei blocchi `{}`:
+
+```js
+let valore = 10;
+
+if (true) {
+  let valore = 20; // shadowing
+  console.log(valore); // 20
+}
+
+console.log(valore); // 10
+```
+
+Ogni blocco crea un nuovo scope. La variabile interna non modifica quella esterna.
+
+---
+
+## Shadowing con var
+
+`var` ha scope di funzione, non di blocco. Questo cambia il comportamento:
+
+```js
+var x = 5;
+
+if (true) {
+  var x = 10; // NON è shadowing, sovrascrive
+}
+
+console.log(x); // 10
+```
+
+Qui non si parla di shadowing, perché la variabile è la stessa.
+
+Con una funzione, invece:
+
+```js
+var y = 1;
+
+function test() {
+  var y = 2; // shadowing
+  console.log(y); // 2
+}
+
+test();
+console.log(y); // 1
+```
+
+---
+
+## Shadowing e parametri di funzione
+
+I parametri di una funzione possono essere shadowati:
+
+```js
+let numero = 100;
+
+function stampa(numero) {
+  console.log(numero); // parametro, non la variabile esterna
+}
+
+stampa(50); // 50
+console.log(numero); // 100
+```
+
+Il parametro `numero` oscura quello esterno.
+
+---
+
+## Shadowing e scope annidati
+
+```js
+let a = 1;
+
+function esterna() {
+  let a = 2;
+
+  function interna() {
+    let a = 3;
+    console.log(a); // 3
+  }
+
+  interna();
+  console.log(a); // 2
+}
+
+esterna();
+console.log(a); // 1
+```
+
+Ogni livello di scope può shadoware quello precedente.
+
+---
+
+## Shadowing con const
+
+Il comportamento è identico a `let`:
+
+```js
+const stato = "offline";
+
+if (true) {
+  const stato = "online"; // shadowing
+  console.log(stato); // "online"
+}
+
+console.log(stato); // "offline"
+```
+
+---
+
+## Quando è pericoloso
+
+Lo shadowing può causare:
+
+- confusione su quale variabile viene usata
+- bug difficili da individuare
+- codice poco leggibile
+
+Esempio problematico:
+
+```js
+let totale = 0;
+
+function calcola(valori) {
+  let totale = 0; // shadowing non evidente
+  for (let v of valori) {
+    totale += v;
+  }
+  return totale;
+}
+```
+
+Chi legge potrebbe pensare che venga aggiornato il `totale` esterno.
+
+---
+
+## Shadowing intenzionale
+
+A volte è utile, ad esempio per limitare lo scope:
+
+```js
+let config = { debug: false };
+
+function avvia() {
+  let config = { debug: true }; // versione locale
+  // usa solo questa configurazione
+}
+```
+
+Qui lo shadowing è una scelta consapevole per isolare i dati.
+
+---
+
+## Regole chiave da ricordare
+
+- Una variabile interna con lo stesso nome **nasconde** quella esterna.
+- Vale per `var`, `let`, `const` e parametri di funzione.
+- Con `let` e `const` lo shadowing avviene anche nei blocchi.
+- Con `var` avviene solo a livello di funzione.
+
+Lo shadowing è uno strumento potente, ma va usato con attenzione per evitare ambiguità nel codice.

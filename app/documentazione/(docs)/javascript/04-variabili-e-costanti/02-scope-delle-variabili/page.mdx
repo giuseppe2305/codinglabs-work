@@ -1,3 +1,184 @@
 # Scope delle variabili
 
-In arrivo
+Lo **scope** (ambito di visibilità) di una variabile indica **da dove nel codice è possibile accedere a quella variabile**.
+In JavaScript lo scope è fondamentale per evitare conflitti tra nomi, bug difficili da individuare e comportamenti imprevedibili.
+
+Comprendere bene lo scope significa scrivere codice **più sicuro, leggibile e manutenibile**.
+
+---
+
+## Cos’è lo scope
+
+Lo scope definisce il **contesto** in cui una variabile esiste ed è accessibile.
+Fuori dal suo scope, la variabile **non può essere letta né modificata**.
+
+In JavaScript esistono tre principali tipi di scope:
+
+1. **Global Scope**
+2. **Function Scope**
+3. **Block Scope**
+
+---
+
+## Global Scope
+
+Una variabile dichiarata fuori da qualsiasi funzione o blocco è **globale**.
+
+```js
+let appName = "My App";
+
+function printName() {
+  console.log(appName);
+}
+
+printName(); // "My App"
+```
+
+### Attenzione
+
+Le variabili globali:
+
+- Sono accessibili ovunque
+- Possono essere sovrascritte per errore
+- Aumentano il rischio di bug
+
+In applicazioni reali è buona pratica **ridurre al minimo lo scope globale**.
+
+---
+
+## Function Scope
+
+Le variabili dichiarate con `var`, `let` o `const` **dentro una funzione** esistono solo all’interno di quella funzione.
+
+```js
+function test() {
+  let message = "Hello";
+  console.log(message);
+}
+
+test();
+console.log(message); // ❌ ReferenceError
+```
+
+Qui `message` è **visibile solo dentro `test()`**.
+
+---
+
+## Block Scope
+
+I blocchi sono delimitati da `{ }` e includono:
+
+- `if`
+- `for`
+- `while`
+- `try/catch`
+- blocchi `{}`
+
+Solo `let` e `const` rispettano il **block scope**.
+
+```js
+if (true) {
+  let x = 10;
+  const y = 20;
+}
+
+console.log(x); // ❌ ReferenceError
+console.log(y); // ❌ ReferenceError
+```
+
+Con `var` invece:
+
+```js
+if (true) {
+  var z = 30;
+}
+
+console.log(z); // 30
+```
+
+`var` **ignora il block scope** e diventa function-scoped, creando comportamenti pericolosi.
+
+---
+
+## Scope annidato
+
+Gli scope possono essere **annidati**: uno scope interno può accedere a quelli esterni.
+
+```js
+let a = 1;
+
+function outer() {
+  let b = 2;
+
+  function inner() {
+    let c = 3;
+    console.log(a, b, c);
+  }
+
+  inner();
+}
+
+outer(); // 1 2 3
+```
+
+Regola:
+
+> Uno scope interno può leggere gli scope esterni, ma **non il contrario**.
+
+---
+
+## Lexical Scope
+
+JavaScript utilizza lo **scope lessicale**, cioè:
+
+> Lo scope è determinato **dalla posizione nel codice**, non da dove viene chiamata la funzione.
+
+```js
+let name = "Global";
+
+function print() {
+  console.log(name);
+}
+
+function run() {
+  let name = "Local";
+  print();
+}
+
+run(); // "Global"
+```
+
+Anche se `print()` viene chiamata dentro `run()`, continua a usare lo scope in cui è stata **definita**.
+
+---
+
+## Differenza pratica tra var, let e const nello scope
+
+| Keyword | Scope    | Consigliata |
+| ------- | -------- | ----------- |
+| var     | Function | ❌ No       |
+| let     | Block    | ✅ Sì       |
+| const   | Block    | ✅ Sì       |
+
+---
+
+## Perché lo scope è così importante
+
+Un uso scorretto dello scope può causare:
+
+- Sovrascrittura di variabili
+- Comportamenti imprevedibili
+- Bug difficili da tracciare
+- Collisioni tra moduli
+
+Gestire correttamente lo scope permette di:
+
+- Isolare la logica
+- Scrivere codice più sicuro
+- Ridurre gli effetti collaterali
+- Migliorare la manutenibilità
+
+---
+
+Comprendere lo scope significa **capire dove vivono i tuoi dati** nel programma.
+È una delle basi più importanti per diventare uno sviluppatore JavaScript solido e professionale.

@@ -1,3 +1,262 @@
 # Naming convention
 
-In arrivo
+Le _naming convention_ sono regole condivise per scegliere i nomi di variabili, funzioni, costanti, classi e file.
+In JavaScript non sono obbligatorie a livello di linguaggio, ma sono fondamentali per:
+
+- rendere il codice leggibile
+- evitare ambiguità
+- facilitare il lavoro in team
+- ridurre errori e bug
+- migliorare la manutenzione nel tempo
+
+Scrivere codice “che si legge come una frase” è una delle competenze principali di uno sviluppatore web professionista.
+
+---
+
+## Perché sono così importanti
+
+Un buon nome:
+
+- **spiega cosa fa** una variabile o una funzione
+- **non richiede commenti** per essere capito
+- **riduce il carico mentale** di chi legge il codice
+- **previene bug logici** causati da nomi fuorvianti
+
+Confronta:
+
+```js
+let x = 120;
+```
+
+```js
+let maxUploadSize = 120;
+```
+
+Il secondo esempio comunica immediatamente lo scopo della variabile.
+
+---
+
+## Stili di scrittura più comuni
+
+In JavaScript si utilizzano principalmente questi stili:
+
+### camelCase
+
+Usato per:
+
+- variabili
+- funzioni
+- metodi
+
+```js
+let userName;
+function getUserData() {}
+```
+
+---
+
+### PascalCase
+
+Usato per:
+
+- classi
+- costruttori
+
+```js
+class UserProfile {}
+```
+
+---
+
+### UPPER_SNAKE_CASE
+
+Usato per:
+
+- costanti globali
+- valori che non devono mai cambiare
+
+```js
+const API_URL = "https://api.example.com";
+```
+
+---
+
+### kebab-case
+
+Usato per:
+
+- nomi di file
+- nomi di cartelle
+- attributi HTML personalizzati
+
+```text
+user-service.js
+main-layout.css
+```
+
+---
+
+## Regole generali
+
+### 1. Usa nomi descrittivi
+
+Evita nomi vaghi come `data`, `temp`, `value`.
+
+```js
+// ❌
+let d;
+
+// ✅
+let userBirthDate;
+```
+
+---
+
+### 2. Usa l’inglese
+
+La community JavaScript usa l’inglese come standard.
+
+```js
+// ❌
+let nomeUtente;
+
+// ✅
+let userName;
+```
+
+---
+
+### 3. Non abbreviare senza motivo
+
+```js
+// ❌
+let usrNm;
+
+// ✅
+let userName;
+```
+
+Le abbreviazioni sono accettabili solo se universalmente note (`id`, `url`, `api`).
+
+---
+
+### 4. Usa prefissi semantici per i booleani
+
+I booleani dovrebbero sembrare una domanda.
+
+```js
+let isLoggedIn;
+let hasPermission;
+let canEdit;
+```
+
+---
+
+### 5. Funzioni = verbi
+
+Le funzioni dovrebbero descrivere un’azione.
+
+```js
+function calculateTotal() {}
+function fetchUsers() {}
+function saveSettings() {}
+```
+
+---
+
+### 6. Array e collezioni al plurale
+
+```js
+let users = [];
+let orders = [];
+```
+
+---
+
+### 7. Evita nomi troppo generici
+
+```js
+// ❌
+let data;
+let result;
+
+// ✅
+let userList;
+let totalPrice;
+```
+
+---
+
+### 8. Mantieni coerenza
+
+Scegli uno stile e usalo ovunque.
+
+```js
+// ❌
+let user_name;
+let userName;
+
+// ✅
+let userName;
+```
+
+---
+
+## Convenzioni per casi comuni
+
+### Callback
+
+```js
+function handleClick() {}
+function onSubmit() {}
+```
+
+---
+
+### Funzioni asincrone
+
+```js
+async function fetchProducts() {}
+```
+
+---
+
+### Eventi
+
+```js
+function handleResize() {}
+function onLoginSuccess() {}
+```
+
+---
+
+### File
+
+```text
+auth-service.js
+user-controller.js
+product.model.js
+```
+
+---
+
+## Errori comuni da evitare
+
+- usare una sola lettera (`x`, `y`)
+- usare numeri nel nome (`data1`, `value2`)
+- mescolare lingue diverse
+- usare nomi troppo lunghi
+- usare nomi che non riflettono più il comportamento reale
+
+---
+
+## Obiettivo finale
+
+Una buona naming convention permette di:
+
+- leggere il codice senza commenti
+- capire il flusso logico a colpo d’occhio
+- rendere il progetto scalabile
+- ridurre il tempo di onboarding di nuovi sviluppatori
+
+Un buon nome è una forma di documentazione.

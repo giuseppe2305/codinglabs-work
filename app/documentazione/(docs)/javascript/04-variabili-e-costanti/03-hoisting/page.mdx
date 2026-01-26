@@ -1,3 +1,148 @@
 # Hoisting
 
-In arrivo
+In JavaScript, **l’hoisting** è un comportamento del linguaggio per cui **dichiarazioni di variabili e funzioni vengono “spostate” in cima al loro scope** durante la fase di compilazione, prima che il codice venga eseguito.
+
+Non significa che il codice venga fisicamente spostato, ma che il motore JavaScript **registra le dichiarazioni** prima di eseguire le istruzioni riga per riga.
+
+Capire l’hoisting è fondamentale per evitare bug difficili da individuare e scrivere codice più prevedibile.
+
+---
+
+## Come funziona l’hoisting
+
+JavaScript esegue il codice in due fasi:
+
+1. **Fase di creazione**
+   - Registra le dichiarazioni di variabili e funzioni.
+
+2. **Fase di esecuzione**
+   - Esegue le istruzioni nell’ordine in cui compaiono.
+
+Durante la fase di creazione:
+
+- Le dichiarazioni vengono caricate in memoria.
+- Le assegnazioni **non** vengono eseguite.
+
+---
+
+## Hoisting con `var`
+
+Le variabili dichiarate con `var` vengono hoistate e inizializzate a `undefined`.
+
+```js
+console.log(nome); // undefined
+var nome = "Mario";
+```
+
+Il codice viene interpretato come:
+
+```js
+var nome;
+console.log(nome);
+nome = "Mario";
+```
+
+Questo comportamento può causare bug perché la variabile esiste, ma non ha ancora valore.
+
+---
+
+## Hoisting con `let` e `const`
+
+Anche `let` e `const` vengono hoistate, **ma non inizializzate**.
+
+```js
+console.log(eta); // ReferenceError
+let eta = 25;
+```
+
+Qui la variabile esiste nello scope, ma si trova nella **Temporal Dead Zone (TDZ)**, cioè un’area di codice in cui non può essere usata prima della dichiarazione.
+
+Con `const` vale la stessa regola:
+
+```js
+console.log(pi); // ReferenceError
+const pi = 3.14;
+```
+
+---
+
+## Hoisting delle funzioni
+
+### Function Declaration
+
+Le funzioni dichiarate con `function` vengono hoistate completamente.
+
+```js
+saluta();
+
+function saluta() {
+  console.log("Ciao!");
+}
+```
+
+Funziona perché la funzione è disponibile prima dell’esecuzione.
+
+---
+
+### Function Expression
+
+Le funzioni assegnate a variabili seguono le regole di hoisting della variabile.
+
+```js
+saluta(); // TypeError
+var saluta = function () {
+  console.log("Ciao!");
+};
+```
+
+Con `let` o `const`:
+
+```js
+saluta(); // ReferenceError
+const saluta = () => {
+  console.log("Ciao!");
+};
+```
+
+---
+
+## Classi e hoisting
+
+Le classi **non sono utilizzabili prima della dichiarazione**.
+
+```js
+const a = new Persona(); // ReferenceError
+
+class Persona {}
+```
+
+Anche le classi sono soggette alla TDZ.
+
+---
+
+## Perché l’hoisting è importante
+
+- Spiega comportamenti “strani” del codice.
+- Aiuta a evitare errori di riferimento.
+- Rende chiaro perché `let` e `const` sono più sicuri di `var`.
+- Migliora la leggibilità e la prevedibilità del codice.
+
+---
+
+## Riepilogo
+
+| Tipo       | Hoistata | Inizializzata | Usabile prima |
+| ---------- | -------- | ------------- | ------------- |
+| `var`      | sì       | `undefined`   | sì            |
+| `let`      | sì       | no (TDZ)      | no            |
+| `const`    | sì       | no (TDZ)      | no            |
+| `function` | sì       | sì            | sì            |
+| `class`    | sì       | no (TDZ)      | no            |
+
+---
+
+## Regola pratica
+
+> **Dichiara sempre variabili e funzioni prima di usarle.**
+
+Anche se JavaScript permette l’hoisting, affidarsi a questo comportamento rende il codice più difficile da leggere, testare e mantenere.
