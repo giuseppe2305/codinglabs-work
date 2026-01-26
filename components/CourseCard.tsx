@@ -1,13 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { AlertCircle, Clock, Info, ShoppingCart } from "lucide-react";
 
 import { Alert, AlertTitle } from "./ui/alert";
@@ -24,17 +17,20 @@ interface Props {
 function CourseCard({ disabled, courseInfo: info }: Props) {
   return (
     <Card
-      className={`pt-0 pb-4 gap-0 h-full overflow-hidden rounded-md w-full max-w-120 mx-auto shadow-xl duration-150 hover:scale-101 ${
-        disabled
-          ? "hover:shadow-black/25 cursor-not-allowed"
-          : "hover:shadow-primary/10"
-      }`}
+      className={`pt-0 pb-4 gap-0 h-full rounded-md w-full relative max-w-100 mx-auto shadow-xl duration-150 hover:scale-101 ${
+        disabled ? "hover:shadow-black/25 cursor-not-allowed" : "hover:shadow-primary/10"
+      } ${info.hot ? "border-primary border bg-primary/10 shadow-primary/25" : ""}`}
     >
+      {info.hot && (
+        <span className="bg-linear-to-r px-2 from-teal-400 to-primary text-black rounded-full text-sm py-0.5 uppercase absolute z-10 top- left-0 -translate-1/2 shadow-lg shadow-teal-400/50">
+          Novità
+        </span>
+      )}
       {!info.image ? (
         <CourseImagePlaceholder />
       ) : (
         <Link href={`/corsi/${info.link}`} scroll={false}>
-          <div className="w-full aspect-2/1 relative">
+          <div className="w-full aspect-2/1 relative overflow-hidden rounded-t-md">
             <Image src={`/courses/${info.image}`} alt="Course Picture" fill />
           </div>
         </Link>
@@ -50,9 +46,7 @@ function CourseCard({ disabled, courseInfo: info }: Props) {
       </CardHeader>
       <CardContent className="mt-1 mb-5">
         <CardTitle className="text-lg">{info.title}</CardTitle>
-        <CardDescription className="line-clamp-2">
-          {info.description}
-        </CardDescription>
+        <CardDescription className="line-clamp-2">{info.description}</CardDescription>
         {!disabled && (
           <div className="flex items-center justify-between mt-5">
             <Badge variant="secondary">

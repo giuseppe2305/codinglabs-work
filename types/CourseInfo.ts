@@ -16,6 +16,8 @@ export interface CourseInfo {
     suggested: string[];
   };
 
+  hot?: boolean;
+
   tags: string[];
   id: number;
   disabled: boolean;

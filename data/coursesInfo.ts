@@ -3,16 +3,18 @@ import { CourseInfo } from "@/types/CourseInfo";
 export const coursesInfo: CourseInfo[] = [
   {
     title: "Web Development Mastery",
-    description: "Diventa uno Sviluppatore Web nel 2026.",
-    length: 4,
+    description:
+      "Corso Completo per diventare uno Sviluppatore Web nel 2026, percorso completo e strutturato mirato a quello che le aziende realmente cercano, non solo codice, ma tutto quello che ti servirá per lavorare in questo settore.",
+    length: 12,
     link: "/webdevmastery",
     buyLink: "https://www.skool.com/web-development-mastery-6843/about",
     price: 49.99,
-    tags: ["Web Development", "Complete"],
+    tags: ["Web Development", "Completo"],
 
     id: 1,
     disabled: false,
     image: "webdevmastery.png",
+    hot: true,
 
     requirements: {
       needed: [],
@@ -36,20 +38,17 @@ export const coursesInfo: CourseInfo[] = [
         ],
       },
       {
-        title:
-          "Checklist giornaliera + Habit tracker per monitorare i progressi e rimanere costanti e performanti",
-        lessons: [
-          "Checklist giornaliera + Habit tracker per monitorare i progressi e rimanere costanti e performanti",
-        ],
+        title: "Checklist giornaliera + Habit tracker per monitorare i progressi e rimanere costanti e performanti",
+        lessons: ["Checklist giornaliera + Habit tracker per monitorare i progressi e rimanere costanti e performanti"],
       },
     ],
   },
 
   {
-    title: "AI Generativa e ChatGPT nel 2026 - Impara TUTTO DA ZERO",
+    title: "AI Generativa e ChatGPT",
     description:
-      "Guida pratica 2026 per imparare da zero a usare l’AI in modo efficace, produttivo e consapevole.",
-    length: 2,
+      "Guida pratica per imparare da zero a usare l’AI in modo efficace, produttivo e consapevole. Impara come comunicare in maniera efficace ed ottenere risposte complete e dettagliate.",
+    length: 3,
     link: "/generativeai",
     buyLink:
       "https://www.udemy.com/course/ai-generativa-nel-2026-impara-ad-utilizzarla-correttamente/?referralCode=4EA1AF2A4C0BC1720EA4",
@@ -182,11 +181,7 @@ export const coursesInfo: CourseInfo[] = [
       },
       {
         title: "Sezione 6: Dimensioni (sizing)",
-        lessons: [
-          "Introduzione alla Sezione",
-          "Lavorare con Width ed Height",
-          "Novitá di TailwindCSS v4: Classe Size",
-        ],
+        lessons: ["Introduzione alla Sezione", "Lavorare con Width ed Height", "Novitá di TailwindCSS v4: Classe Size"],
       },
       {
         title: "Sezione 7: Spaziatura (spacing)",
@@ -206,11 +201,7 @@ export const coursesInfo: CourseInfo[] = [
       },
       {
         title: "Sezione 9: Background e Gradients",
-        lessons: [
-          "Introduzione alla Sezione",
-          "Background e Background Color",
-          "Gradients",
-        ],
+        lessons: ["Introduzione alla Sezione", "Background e Background Color", "Gradients"],
       },
       {
         title: "Sezione 10: Borders",
@@ -237,11 +228,7 @@ export const coursesInfo: CourseInfo[] = [
       },
       {
         title: "Sezione 12: Responsive Design",
-        lessons: [
-          "Introduzione al Responsive Design",
-          "Responsive Breakpoints",
-          "Breakpoints in Pratica",
-        ],
+        lessons: ["Introduzione al Responsive Design", "Responsive Breakpoints", "Breakpoints in Pratica"],
       },
       {
         title: "Sezione 13: Progetto Pratico (Card Moderna)",
@@ -295,88 +282,85 @@ export const coursesInfo: CourseInfo[] = [
       },
       {
         title: "Sezione 15: Fine del Corso",
-        lessons: [
-          "Grazie per Aver Seguito il Corso",
-          "Aggiornamenti e Progetti Futuri per il 2026",
-        ],
+        lessons: ["Grazie per Aver Seguito il Corso", "Aggiornamenti e Progetti Futuri per il 2026"],
       },
     ],
   },
 
-  {
-    title: "Corso HTML & CSS 2026",
-    description:
-      "Corso di HTML5 e CSS3 con l'obiettivo di costruire interfacce solide, responsive e manutenibili, come si fa oggi nello sviluppo frontend professionale.",
-    length: 12,
-    link: "/htmlcss",
-    price: 40,
-    tags: ["Frontend Development"],
-    requirements: {
-      needed: [],
-      suggested: [],
-    },
+  // {
+  //   title: "Corso HTML & CSS 2026",
+  //   description:
+  //     "Corso di HTML5 e CSS3 con l'obiettivo di costruire interfacce solide, responsive e manutenibili, come si fa oggi nello sviluppo frontend professionale.",
+  //   length: 12,
+  //   link: "/htmlcss",
+  //   price: 40,
+  //   tags: ["Frontend Development"],
+  //   requirements: {
+  //     needed: [],
+  //     suggested: [],
+  //   },
 
-    id: 10,
-    disabled: true,
-    image: "htmlcss.png",
-    content: [],
-    buyLink: "/",
-  },
-  {
-    title: "Corso JavaScript 2026",
-    description:
-      "Corso di JavaScript pensato per imparare JavaScript moderno, aggiornato agli standard attuali e alle best practice utilizzate nel mondo reale.",
-    length: 12,
-    link: "/javascript",
-    price: 40,
-    tags: ["Frontend Development"],
-    requirements: {
-      needed: [],
-      suggested: [],
-    },
+  //   id: 10,
+  //   disabled: true,
+  //   image: "htmlcss.png",
+  //   content: [],
+  //   buyLink: "/",
+  // },
+  // {
+  //   title: "Corso JavaScript 2026",
+  //   description:
+  //     "Corso di JavaScript pensato per imparare JavaScript moderno, aggiornato agli standard attuali e alle best practice utilizzate nel mondo reale.",
+  //   length: 12,
+  //   link: "/javascript",
+  //   price: 40,
+  //   tags: ["Frontend Development"],
+  //   requirements: {
+  //     needed: [],
+  //     suggested: [],
+  //   },
 
-    id: 11,
-    disabled: true,
-    image: "javascript.png",
-    content: [],
-    buyLink: "/",
-  },
-  {
-    title: "Corso React.js 19.2 2026",
-    description:
-      "Corso di React.js con l’obiettivo di costruire applicazioni frontend moderne, scalabili e manutenibili, basate su componenti riutilizzabili, gestione efficace dello stato e integrazione con API, seguendo le pratiche utilizzate oggi nello sviluppo frontend professionale.",
-    length: 12,
-    link: "/react",
-    price: 40,
-    tags: ["Frontend Development"],
-    requirements: {
-      needed: [],
-      suggested: [],
-    },
+  //   id: 11,
+  //   disabled: true,
+  //   image: "javascript.png",
+  //   content: [],
+  //   buyLink: "/",
+  // },
+  // {
+  //   title: "Corso React.js 19.2 2026",
+  //   description:
+  //     "Corso di React.js con l’obiettivo di costruire applicazioni frontend moderne, scalabili e manutenibili, basate su componenti riutilizzabili, gestione efficace dello stato e integrazione con API, seguendo le pratiche utilizzate oggi nello sviluppo frontend professionale.",
+  //   length: 12,
+  //   link: "/react",
+  //   price: 40,
+  //   tags: ["Frontend Development"],
+  //   requirements: {
+  //     needed: [],
+  //     suggested: [],
+  //   },
 
-    id: 12,
-    disabled: true,
-    image: "react.png",
-    content: [],
-    buyLink: "/",
-  },
-  {
-    title: "Corso Next.js 16 2026",
-    description:
-      "Corso di Next.js con l’obiettivo di costruire applicazioni web moderne, performanti e SEO-friendly, sfruttando rendering ibrido, routing avanzato, data fetching e architetture scalabili, secondo le pratiche adottate oggi nello sviluppo frontend professionale.",
-    length: 12,
-    link: "/nextjs",
-    price: 40,
-    tags: ["Frontend Development"],
-    requirements: {
-      needed: [],
-      suggested: [],
-    },
+  //   id: 12,
+  //   disabled: true,
+  //   image: "react.png",
+  //   content: [],
+  //   buyLink: "/",
+  // },
+  // {
+  //   title: "Corso Next.js 16 2026",
+  //   description:
+  //     "Corso di Next.js con l’obiettivo di costruire applicazioni web moderne, performanti e SEO-friendly, sfruttando rendering ibrido, routing avanzato, data fetching e architetture scalabili, secondo le pratiche adottate oggi nello sviluppo frontend professionale.",
+  //   length: 12,
+  //   link: "/nextjs",
+  //   price: 40,
+  //   tags: ["Frontend Development"],
+  //   requirements: {
+  //     needed: [],
+  //     suggested: [],
+  //   },
 
-    id: 13,
-    disabled: true,
-    image: "nextjs.png",
-    content: [],
-    buyLink: "/",
-  },
+  //   id: 13,
+  //   disabled: true,
+  //   image: "nextjs.png",
+  //   content: [],
+  //   buyLink: "/",
+  // },
 ];
