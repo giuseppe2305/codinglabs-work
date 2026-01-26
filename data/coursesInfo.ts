@@ -136,7 +136,7 @@ export const coursesInfo: CourseInfo[] = [
 
     id: 3,
     disabled: false,
-    image: "tailwindcss.png",
+    image: "tailwindcss.jpg",
 
     content: [
       {
