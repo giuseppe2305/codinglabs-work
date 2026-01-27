@@ -1,3 +1,178 @@
 # Boolean
 
-In arrivo
+In JavaScript, **Boolean** è un tipo di dato primitivo che rappresenta un valore logico:
+può assumere **solo due valori**:
+
+```js
+true;
+false;
+```
+
+Viene utilizzato per controllare il flusso del programma, prendere decisioni e verificare condizioni.
+
+---
+
+## Cos’è un Boolean
+
+Un valore booleano indica se una condizione è **vera** o **falsa**.
+È alla base di costrutti come:
+
+- `if / else`
+- `while`
+- `for`
+- operatori logici (`&&`, `||`, `!`)
+
+Esempio:
+
+```js
+let isLogged = true;
+
+if (isLogged) {
+  console.log("Utente autenticato");
+}
+```
+
+---
+
+## Creazione di valori Boolean
+
+### Valore letterale
+
+```js
+let isActive = true;
+let isDisabled = false;
+```
+
+### Tramite il costruttore `Boolean()`
+
+```js
+let result = Boolean(10); // true
+let empty = Boolean(0); // false
+```
+
+> **Nota:** `Boolean()` converte un valore in booleano (type casting).
+
+---
+
+## Oggetto Boolean (da evitare)
+
+JavaScript permette anche di creare oggetti Boolean:
+
+```js
+let b = new Boolean(false);
+```
+
+Questo **non è un primitivo**, ma un oggetto.
+
+```js
+if (b) {
+  console.log("Questo viene eseguito!");
+}
+```
+
+Anche se `b` contiene `false`, l’oggetto è **truthy**, quindi la condizione risulta vera.
+
+**Best practice:** usa sempre i valori primitivi `true` e `false`, mai `new Boolean()`.
+
+---
+
+## Operatori logici
+
+### AND `&&`
+
+```js
+true && true; // true
+true && false; // false
+```
+
+### OR `||`
+
+```js
+true || false; // true
+false || false; // false
+```
+
+### NOT `!`
+
+```js
+!true; // false
+!false; // true
+```
+
+---
+
+## Confronti e Boolean
+
+Gli operatori di confronto restituiscono sempre un Boolean:
+
+```js
+5 > 3; // true
+10 === 5; // false
+"a" !== "b"; // true
+```
+
+---
+
+## Boolean nei controlli di flusso
+
+```js
+let age = 18;
+
+if (age >= 18) {
+  console.log("Accesso consentito");
+} else {
+  console.log("Accesso negato");
+}
+```
+
+Il risultato di `age >= 18` è un valore booleano.
+
+---
+
+## Conversione implicita
+
+JavaScript converte automaticamente i valori in booleani nei contesti logici:
+
+```js
+if ("hello") {
+  // true
+  console.log("Eseguito");
+}
+
+if (0) {
+  // false
+  console.log("Non eseguito");
+}
+```
+
+Questa conversione è legata al concetto di **truthy** e **falsy**, trattato in un articolo dedicato.
+
+---
+
+## typeof con Boolean
+
+```js
+typeof true; // "boolean"
+typeof false; // "boolean"
+typeof Boolean(); // "boolean"
+```
+
+Ma:
+
+```js
+typeof new Boolean(true); // "object"
+```
+
+---
+
+## Riepilogo
+
+| Valore               | Tipo    |
+| -------------------- | ------- |
+| `true`               | boolean |
+| `false`              | boolean |
+| `Boolean(1)`         | boolean |
+| `new Boolean(false)` | object  |
+
+Il tipo **Boolean** è essenziale per gestire condizioni, validazioni e flussi logici in JavaScript.
+Usalo sempre come valore primitivo per evitare comportamenti inattesi.

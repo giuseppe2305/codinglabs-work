@@ -1,3 +1,180 @@
 # Conversioni di tipo
 
-In arrivo
+In JavaScript le **conversioni di tipo** (type conversion o type coercion) indicano il processo con cui un valore viene trasformato da un tipo di dato a un altro.
+
+Queste conversioni possono essere:
+
+- **Esplicite**: quando lo sviluppatore forza il tipo.
+- **Implicite**: quando è JavaScript a cambiare automaticamente il tipo durante un’operazione.
+
+Capire come funzionano è fondamentale per evitare bug difficili da individuare e per scrivere codice prevedibile.
+
+---
+
+## Conversioni esplicite
+
+Le conversioni esplicite avvengono quando usi funzioni o costrutti specifici per cambiare tipo.
+
+### In Number
+
+```js
+Number("42"); // 42
+Number("42.5"); // 42.5
+Number(true); // 1
+Number(false); // 0
+Number(null); // 0
+Number(undefined); // NaN
+Number("abc"); // NaN
+```
+
+Alternativa rapida:
+
+```js
++"10"; // 10
+```
+
+---
+
+### In String
+
+```js
+String(100); // "100"
+String(true); // "true"
+String(null); // "null"
+String(undefined); // "undefined"
+```
+
+Oppure:
+
+```js
+100 + ""; // "100"
+```
+
+---
+
+### In Boolean
+
+```js
+Boolean(1); // true
+Boolean(0); // false
+Boolean(""); // false
+Boolean("ciao"); // true
+Boolean(null); // false
+Boolean(undefined); // false
+```
+
+Oppure:
+
+```js
+!!"test"; // true
+!!0; // false
+```
+
+---
+
+### In BigInt
+
+```js
+BigInt(10); // 10n
+BigInt("20"); // 20n
+```
+
+> Non è possibile convertire numeri decimali o stringhe non numeriche in BigInt.
+
+---
+
+## Conversioni implicite
+
+Le conversioni implicite avvengono quando JavaScript cambia tipo automaticamente durante un’operazione.
+
+### Con l’operatore `+`
+
+```js
+"5" + 2; // "52"
+5 + "2"; // "52"
+```
+
+Il `+` con una stringa forza tutto a **stringa**.
+
+---
+
+### Con operatori matematici
+
+```js
+"10" - 5; // 5
+"10" * 2; // 20
+"10" / 2; // 5
+```
+
+Qui JavaScript converte le stringhe in **Number**.
+
+---
+
+### Con i confronti
+
+```js
+"5" == 5; // true
+0 == false; // true
+null == undefined; // true
+```
+
+Con `==` avviene una conversione automatica.
+
+Con `===` **non** avviene alcuna conversione:
+
+```js
+"5" === 5; // false
+```
+
+---
+
+## Conversione a oggetto
+
+```js
+Object("ciao"); // String {"ciao"}
+Object(10); // Number {10}
+Object(true); // Boolean {true}
+```
+
+Serve raramente, ma è utile per capire che anche i primitivi possono essere “wrappati” in oggetti.
+
+---
+
+## NaN e conversioni non valide
+
+Quando una conversione numerica fallisce, JavaScript restituisce:
+
+```js
+Number("abc"); // NaN
+```
+
+`NaN` è un valore speciale di tipo `number` che rappresenta un risultato non valido.
+
+```js
+typeof NaN; // "number"
+```
+
+---
+
+## Regole pratiche da ricordare
+
+- `+` con una stringa → **stringa**
+- `-`, `*`, `/` → **number**
+- `==` converte, `===` no
+- `null` e `undefined` sono speciali
+- `NaN` indica una conversione fallita
+- `Boolean()` segue le regole di truthy e falsy
+
+---
+
+## Best practice
+
+- Usa sempre `===` e `!==`
+- Converte esplicitamente i tipi
+- Non fare affidamento sulle conversioni automatiche
+- Valida sempre i dati in ingresso
+- Evita confronti ambigui
+
+---
+
+Le conversioni di tipo sono uno dei meccanismi più potenti e pericolosi di JavaScript: padroneggiarle significa scrivere codice più sicuro, chiaro e affidabile.

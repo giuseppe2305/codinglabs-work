@@ -1,3 +1,169 @@
 # typeof
 
-In arrivo
+L’operatore **`typeof`** in JavaScript serve a determinare il _tipo di dato_ di una variabile o di un valore.
+Restituisce sempre una **stringa** che rappresenta il tipo.
+
+È uno strumento fondamentale per:
+
+- controllare il tipo di una variabile
+- prevenire errori
+- scrivere codice più robusto e sicuro
+
+---
+
+## Sintassi
+
+```js
+typeof valore;
+```
+
+Oppure:
+
+```js
+typeof valore;
+```
+
+Entrambe le forme sono valide.
+
+---
+
+## Tipi restituiti da typeof
+
+| Valore           | Risultato di typeof |
+| ---------------- | ------------------- |
+| `42`             | `"number"`          |
+| `10n`            | `"bigint"`          |
+| `"ciao"`         | `"string"`          |
+| `true` / `false` | `"boolean"`         |
+| `undefined`      | `"undefined"`       |
+| `null`           | `"object"` !!       |
+| `Symbol()`       | `"symbol"`          |
+| `{}`             | `"object"`          |
+| `[]`             | `"object"`          |
+| `function(){}`   | `"function"`        |
+
+---
+
+## Il caso speciale di null
+
+```js
+typeof null; // "object"
+```
+
+Questo è **un bug storico di JavaScript**.
+`null` **non è un oggetto**, ma `typeof` lo segnala come tale per motivi di compatibilità.
+
+Per controllare correttamente `null`:
+
+```js
+valore === null;
+```
+
+---
+
+## Funzioni
+
+```js
+typeof function () {}; // "function"
+```
+
+Tecnicamente le funzioni sono oggetti, ma `typeof` restituisce `"function"` per comodità.
+
+---
+
+## Oggetti e array
+
+```js
+typeof {}; // "object"
+typeof []; // "object"
+```
+
+Per distinguere un array:
+
+```js
+Array.isArray(valore);
+```
+
+---
+
+## typeof con variabili non dichiarate
+
+```js
+typeof variabileInesistente; // "undefined"
+```
+
+A differenza di un accesso diretto, **non genera errore**.
+Questo lo rende utile per verifiche di sicurezza.
+
+---
+
+## Controlli di tipo comuni
+
+```js
+if (typeof x === "string") {
+  // x è una stringa
+}
+
+if (typeof y === "number") {
+  // y è un numero
+}
+
+if (typeof fn === "function") {
+  fn();
+}
+```
+
+---
+
+## typeof e strict comparison
+
+`typeof` restituisce una stringa, quindi va sempre confrontato con stringhe:
+
+```js
+typeof 5 === "number"; // true
+```
+
+---
+
+## Tipi non distinguibili con typeof
+
+| Valore       | typeof   |
+| ------------ | -------- |
+| `null`       | "object" |
+| `{}`         | "object" |
+| `[]`         | "object" |
+| `new Date()` | "object" |
+
+Per questi casi servono controlli aggiuntivi:
+
+```js
+valore === null;
+Array.isArray(valore);
+valore instanceof Date;
+```
+
+---
+
+## Best practice
+
+- Usa `typeof` per controlli di tipo **primitivi**
+- Non usarlo per distinguere array, oggetti o `null`
+- Combinalo con altri controlli quando lavori con strutture complesse
+
+---
+
+## Riepilogo
+
+| Tipo JavaScript | typeof restituisce        |
+| --------------- | ------------------------- |
+| Number          | "number"                  |
+| BigInt          | "bigint"                  |
+| String          | "string"                  |
+| Boolean         | "boolean"                 |
+| Undefined       | "undefined"               |
+| Null            | "object" (errore storico) |
+| Symbol          | "symbol"                  |
+| Object          | "object"                  |
+| Function        | "function"                |
+
+`typeof` è uno strumento semplice ma potente: usato correttamente permette di scrivere codice più sicuro, leggibile e prevedibile.

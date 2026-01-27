@@ -1,3 +1,166 @@
 # Null
 
-In arrivo
+In JavaScript, **`null`** è un valore primitivo che rappresenta **l’assenza intenzionale di un valore**.
+A differenza di `undefined`, che indica qualcosa di non inizializzato o mancante, `null` viene assegnato esplicitamente dallo sviluppatore per indicare che una variabile **non deve contenere alcun valore**.
+
+---
+
+## Cos’è `null`
+
+`null` è un valore:
+
+- **primitivo**
+- **assegnato manualmente**
+- **che indica “nessun valore”**
+
+```js
+let user = null;
+```
+
+In questo esempio, `user` esiste, ma il suo valore è intenzionalmente vuoto.
+
+---
+
+## Differenza tra `null` e `undefined`
+
+| Valore      | Significato                               | Come si ottiene              |
+| ----------- | ----------------------------------------- | ---------------------------- |
+| `undefined` | Variabile dichiarata ma non inizializzata | Automaticamente da JS        |
+| `null`      | Nessun valore intenzionale                | Assegnato dallo sviluppatore |
+
+```js
+let a;
+let b = null;
+
+console.log(a); // undefined
+console.log(b); // null
+```
+
+---
+
+## Tipo di `null`
+
+Un comportamento storico di JavaScript fa sì che:
+
+```js
+typeof null; // "object"
+```
+
+Questo è **un bug del linguaggio**, mantenuto per compatibilità.
+`null` **non è un oggetto**, è un valore primitivo.
+
+---
+
+## Confronti con `null`
+
+### Confronto debole (`==`)
+
+```js
+null == undefined; // true
+null == 0; // false
+null == false; // false
+```
+
+`null` è considerato uguale solo a `undefined`.
+
+### Confronto stretto (`===`)
+
+```js
+null === undefined; // false
+null === null; // true
+```
+
+Usa sempre `===` per evitare comportamenti ambigui.
+
+---
+
+## `null` nei controlli
+
+```js
+if (value === null) {
+  // valore volutamente assente
+}
+```
+
+Per controllare sia `null` che `undefined`:
+
+```js
+if (value == null) {
+  // true per null e undefined
+}
+```
+
+---
+
+## `null` come valore di reset
+
+`null` è spesso usato per **resettare** una variabile:
+
+```js
+let selectedItem = { id: 1 };
+selectedItem = null;
+```
+
+Questo indica che non c’è più un elemento selezionato.
+
+---
+
+## `null` negli oggetti
+
+```js
+const user = {
+  name: "Luca",
+  avatar: null,
+};
+```
+
+Qui `avatar` esiste, ma non ha un valore valido.
+
+---
+
+## `null` come valore di ritorno
+
+Alcune funzioni restituiscono `null` per indicare che **non è stato trovato nulla**:
+
+```js
+document.querySelector(".not-exist"); // null
+```
+
+---
+
+## Truthiness
+
+`null` è un valore **falsy**:
+
+```js
+Boolean(null); // false
+```
+
+```js
+if (null) {
+  // non viene eseguito
+}
+```
+
+---
+
+## Quando usare `null`
+
+Usa `null` quando:
+
+- vuoi indicare che un valore **non esiste volutamente**
+- vuoi distinguere tra “non ancora assegnato” (`undefined`) e “assenza intenzionale” (`null`)
+- vuoi azzerare una variabile o una proprietà
+
+---
+
+## Riepilogo
+
+- `null` rappresenta l’assenza intenzionale di valore
+- È un valore primitivo
+- `typeof null` restituisce `"object"` (bug storico)
+- È diverso da `undefined`
+- È `falsy`
+- Si usa per resettare o indicare “nessun valore”
+
+`null` è uno strumento fondamentale per gestire stati vuoti e dati mancanti in modo chiaro e controllato.

@@ -1,3 +1,180 @@
 # Symbol
 
-In arrivo
+`Symbol` è un **tipo di dato primitivo** introdotto in JavaScript con ES6 (ECMAScript 2015).
+Il suo scopo principale è creare **identificatori unici**, utili come chiavi di oggetti che non entrano in conflitto con altre proprietà.
+
+Ogni `Symbol` è **sempre unico**, anche se creato con la stessa descrizione.
+
+---
+
+## Creazione di un Symbol
+
+```js
+const id = Symbol();
+```
+
+Puoi anche passare una descrizione (solo per debugging):
+
+```js
+const userId = Symbol("userId");
+```
+
+> La descrizione non rende il Symbol uguale ad un altro.
+
+```js
+Symbol("test") === Symbol("test"); // false
+```
+
+---
+
+## Unicità
+
+```js
+const a = Symbol("id");
+const b = Symbol("id");
+
+console.log(a === b); // false
+```
+
+Anche se hanno la stessa descrizione, **non sono mai uguali**.
+
+---
+
+## Symbol come chiavi di oggetto
+
+Uno degli usi principali è come **proprietà nascoste** negli oggetti.
+
+```js
+const id = Symbol("id");
+
+const user = {
+  name: "Marco",
+  [id]: 123,
+};
+
+console.log(user[id]); // 123
+```
+
+### Vantaggi
+
+- Non c’è rischio di sovrascrivere una proprietà esistente
+- Non appaiono nei normali cicli `for...in` o in `Object.keys()`
+
+```js
+for (let key in user) {
+  console.log(key); // stampa solo "name"
+}
+```
+
+---
+
+## Recuperare Symbol da un oggetto
+
+Per ottenere le chiavi Symbol:
+
+```js
+Object.getOwnPropertySymbols(user);
+```
+
+---
+
+## Symbol globali: `Symbol.for()`
+
+Esiste un **registro globale** di Symbol.
+
+```js
+const a = Symbol.for("shared");
+const b = Symbol.for("shared");
+
+console.log(a === b); // true
+```
+
+Qui, a differenza di `Symbol()`, lo stesso nome restituisce **lo stesso Symbol**.
+
+### Recuperare la chiave
+
+```js
+Symbol.keyFor(a); // "shared"
+```
+
+---
+
+## Symbol e typeof
+
+```js
+typeof Symbol(); // "symbol"
+```
+
+---
+
+## Symbol nei metodi interni di JavaScript
+
+JavaScript usa Symbol per definire comportamenti speciali negli oggetti.
+
+Alcuni esempi:
+
+| Symbol               | Scopo                                    |
+| -------------------- | ---------------------------------------- |
+| `Symbol.iterator`    | rende un oggetto iterabile               |
+| `Symbol.toStringTag` | personalizza `Object.prototype.toString` |
+| `Symbol.toPrimitive` | controlla la conversione a primitivo     |
+
+### Esempio: iteratore personalizzato
+
+```js
+const collection = {
+  items: [1, 2, 3],
+  [Symbol.iterator]() {
+    let index = 0;
+    return {
+      next: () => ({
+        value: this.items[index++],
+        done: index > this.items.length,
+      }),
+    };
+  },
+};
+
+for (let item of collection) {
+  console.log(item);
+}
+```
+
+---
+
+## Conversione di Symbol
+
+I Symbol **non possono essere convertiti automaticamente** in stringhe o numeri.
+
+```js
+const s = Symbol("id");
+
+String(s); // "Symbol(id)"
+s + ""; // TypeError
+```
+
+Questo evita errori silenziosi e conflitti.
+
+---
+
+## Quando usare Symbol
+
+Usa `Symbol` quando:
+
+- Devi creare **chiavi uniche**
+- Vuoi evitare collisioni tra proprietà
+- Stai scrivendo librerie o framework
+- Vuoi estendere oggetti senza rischiare conflitti
+
+---
+
+## Riepilogo
+
+- `Symbol` è un tipo primitivo
+- Ogni Symbol è **unico**
+- È perfetto come chiave di oggetti
+- Non è enumerabile nei cicli standard
+- Può essere globale con `Symbol.for()`
+- È usato internamente da JavaScript per comportamenti speciali
+
+`Symbol` è uno strumento potente per scrivere codice più sicuro, modulare e a prova di conflitti.

@@ -1,3 +1,171 @@
 # Truthiness e Falsiness
 
-In arrivo
+In JavaScript, **truthiness** e **falsiness** descrivono il modo in cui un valore viene interpretato come `true` o `false` quando viene usato in un contesto booleano, come:
+
+- condizioni `if`
+- cicli `while`
+- operatori logici (`&&`, `||`, `!`)
+
+Anche se un valore non è di tipo `Boolean`, JavaScript può **convertirlo automaticamente** in `true` o `false`. Questo meccanismo si chiama **coercizione booleana**.
+
+---
+
+## Valori Falsy
+
+Esistono **solo 7 valori falsy** in JavaScript. Tutti gli altri sono truthy.
+
+| Valore      | Descrizione                    |
+| ----------- | ------------------------------ |
+| `false`     | booleano falso                 |
+| `0`         | numero zero                    |
+| `-0`        | zero negativo                  |
+| `0n`        | BigInt zero                    |
+| `""`        | stringa vuota                  |
+| `null`      | assenza intenzionale di valore |
+| `undefined` | valore non definito            |
+| `NaN`       | risultato numerico non valido  |
+
+### Esempio
+
+```js
+if (0) {
+  console.log("vero");
+} else {
+  console.log("falso"); // viene eseguito
+}
+```
+
+---
+
+## Valori Truthy
+
+**Tutti gli altri valori** sono truthy, anche se sembrano “falsi” a prima vista.
+
+### Alcuni esempi truthy:
+
+```js
+true
+"0"
+"false"
+[]
+{}
+function() {}
+-1
+Infinity
+```
+
+```js
+if ("false") {
+  console.log("vero"); // viene eseguito
+}
+```
+
+---
+
+## Come funziona la coercizione booleana
+
+Quando JavaScript valuta una condizione, applica internamente:
+
+```js
+Boolean(valore);
+```
+
+### Esempi
+
+```js
+Boolean(""); // false
+Boolean("test"); // true
+Boolean(0); // false
+Boolean(42); // true
+Boolean(null); // false
+Boolean([]); // true
+```
+
+---
+
+## Operatori logici e truthiness
+
+Gli operatori `&&` e `||` **non restituiscono sempre un booleano**, ma l’ultimo valore valutato.
+
+### Operatore AND (`&&`)
+
+Restituisce il **primo valore falsy**, oppure l’ultimo se tutti sono truthy.
+
+```js
+"a" && "b" && 0 && "c"; // 0
+"a" && "b" && "c"; // "c"
+```
+
+### Operatore OR (`||`)
+
+Restituisce il **primo valore truthy**.
+
+```js
+0 || "" || "test"; // "test"
+```
+
+### Operatore NOT (`!`)
+
+Forza la conversione a booleano:
+
+```js
+!0; // true
+!!"ciao"; // true
+!!""; // false
+```
+
+---
+
+## Pattern comuni
+
+### Valori di default
+
+```js
+let nome = input || "Anonimo";
+```
+
+Se `input` è falsy, viene usato `"Anonimo"`.
+
+---
+
+### Controllo rapido di esistenza
+
+```js
+if (utente) {
+  console.log("Utente valido");
+}
+```
+
+Funziona perché `null` e `undefined` sono falsy.
+
+---
+
+## Attenzione ai casi ambigui
+
+```js
+if (0) {
+} // non entra
+if ("") {
+} // non entra
+if (" ") {
+} // entra
+if ([]) {
+} // entra
+if ({}) {
+} // entra
+```
+
+Molti bug derivano dal non conoscere questi comportamenti.
+
+---
+
+## Best practice
+
+- Usa `===` quando serve un confronto preciso.
+- Non affidarti alla truthiness per valori numerici critici.
+- Usa `Boolean(valore)` o `!!valore` per chiarezza.
+- Documenta i casi in cui sfrutti coercizioni intenzionali.
+
+---
+
+La conoscenza di truthiness e falsiness è fondamentale per scrivere codice JavaScript robusto, leggibile e privo di comportamenti imprevisti.

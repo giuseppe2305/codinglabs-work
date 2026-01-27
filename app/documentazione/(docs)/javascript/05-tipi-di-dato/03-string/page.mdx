@@ -1,3 +1,212 @@
 # String
 
-In arrivo
+In JavaScript, **String** è il tipo di dato usato per rappresentare il testo. Una stringa è una sequenza di caratteri racchiusa tra apici singoli (`'`), doppi (`"`) o backtick (`` ` ``).
+
+```js
+"ciao";
+"JavaScript"`Hello world`;
+```
+
+Le stringhe sono **primitive** e **immutabili**: una volta creata, una stringa non può essere modificata direttamente. Ogni operazione che sembra “cambiare” una stringa in realtà ne crea una nuova.
+
+---
+
+## Creazione delle stringhe
+
+```js
+let a = "Ciao";
+let b = "Mondo";
+let c = `Ciao Mondo`;
+```
+
+Con i **template literal** (backtick) puoi inserire variabili ed espressioni:
+
+```js
+let nome = "Luca";
+let messaggio = `Ciao ${nome}!`;
+```
+
+---
+
+## Proprietà e metodi principali
+
+### Lunghezza
+
+```js
+let testo = "JavaScript";
+testo.length; // 10
+```
+
+---
+
+### Accesso ai caratteri
+
+```js
+let parola = "web";
+
+parola[0]; // "w"
+parola.charAt(1); // "e"
+```
+
+---
+
+### Maiuscole e minuscole
+
+```js
+"ciao".toUpperCase(); // "CIAO"
+"HELLO".toLowerCase(); // "hello"
+```
+
+---
+
+### Ricerca
+
+```js
+let frase = "Imparare JavaScript";
+
+frase.includes("Java"); // true
+frase.startsWith("Imparare"); // true
+frase.endsWith("Script"); // true
+frase.indexOf("Java"); // 9
+```
+
+---
+
+### Sottostringhe
+
+```js
+let testo = "JavaScript";
+
+testo.slice(0, 4); // "Java"
+testo.substring(4); // "Script"
+```
+
+---
+
+### Sostituzione
+
+```js
+let frase = "Ciao mondo";
+frase.replace("mondo", "JavaScript");
+// "Ciao JavaScript"
+```
+
+---
+
+### Suddivisione
+
+```js
+let lista = "rosso,verde,blu";
+lista.split(","); // ["rosso", "verde", "blu"]
+```
+
+---
+
+### Rimozione spazi
+
+```js
+let valore = "  test  ";
+valore.trim(); // "test"
+```
+
+---
+
+### Concatenazione
+
+```js
+let a = "Ciao";
+let b = "Mondo";
+
+a + " " + b; // "Ciao Mondo"
+```
+
+Con template literal:
+
+```js
+`${a} ${b}`;
+```
+
+---
+
+## Escape dei caratteri speciali
+
+```js
+let testo = 'Lui disse: "ciao"';
+let percorso = "C:\\Users\\Admin";
+```
+
+| Carattere | Significato |
+| --------- | ----------- |
+| `\n`      | Nuova riga  |
+| `\t`      | Tab         |
+| `\\`      | Backslash   |
+| `\"`      | Virgolette  |
+
+---
+
+## Stringhe come oggetti
+
+```js
+let s1 = "ciao";
+let s2 = new String("ciao");
+
+typeof s1; // "string"
+typeof s2; // "object"
+```
+
+È consigliato **non usare `new String()`**: crea un oggetto invece di una primitiva.
+
+---
+
+## Confronto tra stringhe
+
+```js
+"apple" < "banana"; // true
+"Z" < "a"; // true (codici Unicode)
+```
+
+Il confronto avviene in base ai **codici Unicode**, non all’ordine alfabetico umano.
+
+---
+
+## Iterazione
+
+```js
+for (let char of "ciao") {
+  console.log(char);
+}
+```
+
+---
+
+## Stringhe e immutabilità
+
+```js
+let nome = "Marco";
+nome[0] = "L"; // non cambia nulla
+nome = "L" + nome.slice(1); // "Larco"
+```
+
+Ogni modifica crea una **nuova stringa**.
+
+---
+
+## Conversione in stringa
+
+```js
+String(123); // "123"
+(45).toString(); // "45"
+true + ""; // "true"
+```
+
+---
+
+## Quando usare le stringhe
+
+- Testi e messaggi
+- Dati provenienti da input utente
+- Costruzione dinamica di HTML
+- URL, percorsi, nomi di file
+- Log e debug
+
+Le stringhe sono uno dei tipi fondamentali di JavaScript e vengono usate in quasi ogni parte di un’applicazione web. Conoscere bene i loro metodi è essenziale per scrivere codice chiaro, efficiente e leggibile.

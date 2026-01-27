@@ -1,3 +1,209 @@
 # Undefined
 
-In arrivo
+In JavaScript, **`undefined`** è un valore primitivo che rappresenta l’assenza di un valore assegnato. È uno dei tipi di dato fondamentali del linguaggio e viene utilizzato dal motore JavaScript per indicare che una variabile o una proprietà esiste, ma **non ha ancora un valore definito**.
+
+---
+
+## Cos’è `undefined`
+
+`undefined` è:
+
+- un **valore**
+- un **tipo di dato**
+- una **parola chiave riservata** di JavaScript
+
+Quando una variabile viene dichiarata ma non inizializzata, il suo valore è `undefined`.
+
+```js
+let a;
+console.log(a); // undefined
+```
+
+---
+
+## Quando una variabile è `undefined`
+
+Una variabile o un’espressione restituisce `undefined` nei seguenti casi:
+
+### 1. Variabile dichiarata ma non inizializzata
+
+```js
+let nome;
+console.log(nome); // undefined
+```
+
+---
+
+### 2. Proprietà inesistente di un oggetto
+
+```js
+const user = { name: "Luca" };
+
+console.log(user.age); // undefined
+```
+
+La proprietà `age` non esiste, quindi il valore restituito è `undefined`.
+
+---
+
+### 3. Funzione senza `return`
+
+Se una funzione non restituisce nulla, il valore di ritorno è `undefined`.
+
+```js
+function saluta() {
+  console.log("Ciao");
+}
+
+console.log(saluta()); // undefined
+```
+
+---
+
+### 4. Parametro mancante
+
+Se una funzione viene chiamata senza fornire un argomento, il parametro assume valore `undefined`.
+
+```js
+function stampa(nome) {
+  console.log(nome);
+}
+
+stampa(); // undefined
+```
+
+---
+
+### 5. Accesso fuori dai limiti di un array
+
+```js
+const numeri = [1, 2, 3];
+
+console.log(numeri[5]); // undefined
+```
+
+---
+
+## `undefined` vs variabile non dichiarata
+
+Una variabile **non dichiarata** genera un errore:
+
+```js
+console.log(x); // ReferenceError
+```
+
+Una variabile dichiarata ma non inizializzata vale `undefined`:
+
+```js
+let x;
+console.log(x); // undefined
+```
+
+---
+
+## Confronti con `undefined`
+
+### Confronto stretto (`===`)
+
+```js
+let a;
+
+console.log(a === undefined); // true
+```
+
+### Confronto non stretto (`==`)
+
+```js
+let a;
+
+console.log(a == undefined); // true
+```
+
+Con `==`, `undefined` è considerato uguale anche a `null`.
+
+---
+
+## Differenza tra `undefined` e `null`
+
+| `undefined`                      | `null`                       |
+| -------------------------------- | ---------------------------- |
+| Valore assegnato automaticamente | Valore assegnato manualmente |
+| Indica assenza non intenzionale  | Indica assenza intenzionale  |
+| Tipo: `undefined`                | Tipo: `object` (storico)     |
+
+```js
+let a;
+let b = null;
+
+console.log(a); // undefined
+console.log(b); // null
+```
+
+---
+
+## `typeof undefined`
+
+```js
+console.log(typeof undefined); // "undefined"
+```
+
+Questo permette di verificare in modo sicuro se una variabile è `undefined`.
+
+---
+
+## Assegnare `undefined`
+
+È possibile assegnare manualmente `undefined`, ma **non è una buona pratica**.
+
+```js
+let x = undefined; // sconsigliato
+```
+
+È preferibile usare `null` per indicare volontariamente l’assenza di un valore.
+
+---
+
+## Uso pratico
+
+### Controllare se un valore esiste
+
+```js
+if (variabile === undefined) {
+  console.log("Valore non definito");
+}
+```
+
+Oppure:
+
+```js
+if (typeof variabile === "undefined") {
+  console.log("Variabile non definita");
+}
+```
+
+---
+
+## Comportamento nei booleani
+
+`undefined` è un valore **falsy**.
+
+```js
+if (undefined) {
+  console.log("vero");
+} else {
+  console.log("falso"); // viene eseguito
+}
+```
+
+---
+
+## Riepilogo
+
+- `undefined` indica che una variabile esiste ma non ha valore.
+- È assegnato automaticamente da JavaScript.
+- È diverso da `null`.
+- È un valore **falsy**.
+- Il suo tipo è `"undefined"`.
+- Non dovrebbe essere assegnato manualmente.
+
+Comprendere `undefined` è essenziale per evitare bug, controllare dati mancanti e scrivere codice più robusto.

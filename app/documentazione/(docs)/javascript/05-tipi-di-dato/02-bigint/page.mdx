@@ -1,3 +1,168 @@
 # BigInt
 
-In arrivo
+`BigInt` è un tipo di dato primitivo introdotto in JavaScript per rappresentare **numeri interi molto grandi**, oltre il limite massimo gestibile dal tipo `Number`.
+
+In JavaScript, il tipo `Number` può rappresentare in modo sicuro solo interi compresi tra:
+
+```js
+-(2^53 - 1) e (2^53 - 1)
+```
+
+Questo valore è noto come:
+
+```js
+Number.MAX_SAFE_INTEGER; // 9007199254740991
+```
+
+Se hai bisogno di lavorare con numeri più grandi (ad esempio ID, timestamp, contatori, crittografia), devi usare **BigInt**.
+
+---
+
+## Creazione di un BigInt
+
+Esistono due modi per creare un BigInt.
+
+### 1. Suffisso `n`
+
+```js
+const a = 9007199254740991n;
+const b = 123456789012345678901234567890n;
+```
+
+Il suffisso `n` indica che il numero è un `BigInt`.
+
+### 2. Funzione `BigInt()`
+
+```js
+const a = BigInt(9007199254740991);
+const b = BigInt("123456789012345678901234567890");
+```
+
+È possibile passare una stringa per evitare errori di precisione.
+
+---
+
+## Differenze tra BigInt e Number
+
+| Caratteristica   | Number          | BigInt             |
+| ---------------- | --------------- | ------------------ |
+| Tipo             | `number`        | `bigint`           |
+| Precisione       | Fino a 2^53 - 1 | Illimitata         |
+| Decimali         | Sì              | **No**             |
+| Suffisso `n`     | No              | Sì                 |
+| Operazioni miste | Consentite      | **Non consentite** |
+
+---
+
+## Operazioni con BigInt
+
+Puoi usare gli operatori matematici standard:
+
+```js
+const a = 10n;
+const b = 3n;
+
+a + b; // 13n
+a - b; // 7n
+a * b; // 30n
+a / b; // 3n (divisione intera)
+a % b; // 1n
+```
+
+> ⚠️ La divisione tra BigInt è sempre **intera**: la parte decimale viene scartata.
+
+---
+
+## Confronti
+
+I confronti funzionano normalmente:
+
+```js
+10n > 5n; // true
+10n === 10n; // true
+10n == 10; // true
+10n === 10; // false (tipi diversi)
+```
+
+---
+
+## BigInt e Number insieme
+
+Non puoi mescolare `BigInt` e `Number` nelle operazioni matematiche:
+
+```js
+10n + 5; // ❌ TypeError
+```
+
+Devi convertire esplicitamente:
+
+```js
+10n + BigInt(5); // 15n
+Number(10n) + 5; // 15
+```
+
+---
+
+## Metodi utili
+
+### Conversione
+
+```js
+BigInt("123"); // 123n
+Number(123n); // 123
+String(123n); // "123"
+```
+
+### Proprietà
+
+```js
+typeof 10n; // "bigint"
+```
+
+---
+
+## Limitazioni
+
+- I BigInt **non supportano numeri decimali**
+- Non funzionano con `Math`
+- Non possono essere serializzati con `JSON.stringify`
+
+```js
+JSON.stringify(10n); // ❌ TypeError
+```
+
+Soluzione:
+
+```js
+JSON.stringify(10n.toString()); // "10"
+```
+
+---
+
+## Quando usare BigInt
+
+Usa `BigInt` quando:
+
+- lavori con ID molto grandi
+- gestisci contatori ad alta precisione
+- tratti valori crittografici
+- superi `Number.MAX_SAFE_INTEGER`
+
+Per tutti gli altri casi, `Number` è più veloce e compatibile.
+
+---
+
+## Esempio pratico
+
+```js
+const max = BigInt(Number.MAX_SAFE_INTEGER);
+const risultato = max + 2n;
+
+console.log(risultato); // 9007199254740993n
+```
+
+Senza BigInt, questo risultato sarebbe **errato**.
+
+---
+
+`BigInt` rende JavaScript adatto anche a calcoli numerici estremamente grandi, evitando problemi di overflow e perdita di precisione.

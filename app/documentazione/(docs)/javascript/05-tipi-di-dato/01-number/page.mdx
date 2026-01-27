@@ -1,3 +1,157 @@
 # Number
 
-In arrivo
+In JavaScript il tipo di dato **Number** rappresenta tutti i numeri, sia **interi** che **decimali**, positivi e negativi.
+A differenza di molti altri linguaggi, **non esistono tipi separati** come `int`, `float` o `double`: tutto è un `Number`.
+
+Internamente JavaScript utilizza lo standard **IEEE 754 a 64 bit (double precision)**.
+
+---
+
+## Creare un Number
+
+```js
+let a = 10;
+let b = 3.14;
+let c = -42;
+```
+
+Anche i numeri scientifici sono supportati:
+
+```js
+let d = 1e3; // 1000
+let e = 2.5e-4; // 0.00025
+```
+
+---
+
+## Operazioni matematiche
+
+```js
+let x = 10 + 5; // 15
+let y = 10 - 5; // 5
+let z = 10 * 5; // 50
+let w = 10 / 5; // 2
+let r = 10 % 3; // 1 (resto)
+```
+
+---
+
+## Numeri speciali
+
+JavaScript ha alcuni valori numerici speciali:
+
+| Valore      | Descrizione              |
+| ----------- | ------------------------ |
+| `Infinity`  | Numero infinito positivo |
+| `-Infinity` | Numero infinito negativo |
+| `NaN`       | Not a Number             |
+
+```js
+10 / 0; // Infinity
+-10 / 0; // -Infinity
+"ciao" * 2; // NaN
+```
+
+---
+
+## Verifiche sui Number
+
+```js
+Number.isNaN(NaN); // true
+Number.isFinite(10); // true
+Number.isInteger(5); // true
+```
+
+---
+
+## Precisione e limiti
+
+I `Number` non sono sempre precisi:
+
+```js
+0.1 + 0.2; // 0.30000000000000004
+```
+
+Questo accade per via della rappresentazione binaria.
+
+### Limiti massimi e minimi
+
+```js
+Number.MAX_VALUE;
+Number.MIN_VALUE;
+Number.MAX_SAFE_INTEGER; // 9007199254740991
+Number.MIN_SAFE_INTEGER; // -9007199254740991
+```
+
+Oltre questi valori, i numeri non sono più affidabili.
+
+---
+
+## Arrotondamenti
+
+```js
+Math.round(4.6); // 5
+Math.floor(4.6); // 4
+Math.ceil(4.2); // 5
+Math.trunc(4.9); // 4
+```
+
+---
+
+## Conversione in Number
+
+```js
+Number("123"); // 123
+Number("12.5"); // 12.5
+Number("ciao"); // NaN
+
+parseInt("10px"); // 10
+parseFloat("3.14px"); // 3.14
+```
+
+---
+
+## Controllare se è un Number
+
+```js
+typeof 10; // "number"
+typeof NaN; // "number"
+typeof Infinity; // "number"
+```
+
+---
+
+## Confronti
+
+```js
+10 === 10; // true
+10 === "10"; // false
+10 == "10"; // true (conversione implicita)
+```
+
+Usa sempre `===` per evitare conversioni automatiche.
+
+---
+
+## Quando usare Number
+
+Usa `Number` per:
+
+- Calcoli matematici
+- Valori di prezzo, contatori, percentuali
+- Coordinate, dimensioni, punteggi
+
+Se devi gestire numeri **molto grandi**, usa `BigInt`.
+
+---
+
+## Best practice
+
+- Non fidarti mai delle somme decimali senza arrotondare.
+- Evita confronti diretti tra numeri con virgola.
+- Usa `Number.isNaN()` invece di `isNaN()`.
+- Preferisci `===` a `==`.
+
+---
+
+Il tipo `Number` è uno dei pilastri di JavaScript: semplice in apparenza, ma con comportamenti che è fondamentale conoscere per evitare bug nascosti.

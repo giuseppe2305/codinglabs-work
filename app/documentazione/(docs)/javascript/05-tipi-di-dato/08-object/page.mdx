@@ -1,3 +1,290 @@
 # Object
 
-In arrivo
+In JavaScript, **Object** è uno dei tipi di dato più importanti e potenti.
+Quasi tutto in JavaScript è un oggetto: array, funzioni, date, regex, persino le classi sono basate su oggetti.
+
+Un oggetto rappresenta una **collezione di coppie chiave → valore**, dove:
+
+- la **chiave** (property) è una stringa o un simbolo
+- il **valore** può essere di qualsiasi tipo (primitivo o altro oggetto)
+
+---
+
+## Cos’è un oggetto
+
+```js
+const user = {
+  name: "Marco",
+  age: 30,
+  isAdmin: true,
+};
+```
+
+Qui `user` è un oggetto con tre proprietà:
+
+- `name` → stringa
+- `age` → numero
+- `isAdmin` → booleano
+
+---
+
+## Creazione di oggetti
+
+### Literal notation (più comune)
+
+```js
+const car = {
+  brand: "Fiat",
+  year: 2020,
+};
+```
+
+### Con `new Object()`
+
+```js
+const car = new Object();
+car.brand = "Fiat";
+car.year = 2020;
+```
+
+### Con funzione costruttore
+
+```js
+function User(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+const u1 = new User("Anna", 25);
+```
+
+### Con `class` (syntactic sugar)
+
+```js
+class User {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+}
+
+const u1 = new User("Anna", 25);
+```
+
+---
+
+## Accesso alle proprietà
+
+### Dot notation
+
+```js
+user.name; // "Marco"
+user.age; // 30
+```
+
+### Bracket notation
+
+```js
+user["name"]; // "Marco"
+
+const key = "age";
+user[key]; // 30
+```
+
+La bracket notation è necessaria quando:
+
+- il nome della chiave è dinamico
+- la chiave contiene spazi o caratteri speciali
+
+---
+
+## Modifica e aggiunta di proprietà
+
+```js
+user.age = 31; // modifica
+user.city = "Roma"; // aggiunta
+```
+
+---
+
+## Eliminare una proprietà
+
+```js
+delete user.city;
+```
+
+---
+
+## Verificare se una proprietà esiste
+
+```js
+"name" in user; // true
+user.hasOwnProperty("age"); // true
+```
+
+---
+
+## Metodi
+
+Un metodo è una funzione salvata come proprietà di un oggetto.
+
+```js
+const user = {
+  name: "Marco",
+  greet() {
+    return `Ciao, sono ${this.name}`;
+  },
+};
+
+user.greet(); // "Ciao, sono Marco"
+```
+
+`this` fa riferimento all’oggetto che invoca il metodo.
+
+---
+
+## Oggetti annidati
+
+```js
+const company = {
+  name: "Tech SRL",
+  address: {
+    city: "Milano",
+    zip: "20100",
+  },
+};
+
+company.address.city; // "Milano"
+```
+
+---
+
+## Copia di oggetti
+
+Gli oggetti sono **passati per riferimento**, non per valore.
+
+```js
+const a = { x: 1 };
+const b = a;
+
+b.x = 2;
+a.x; // 2
+```
+
+### Copia superficiale
+
+```js
+const copy = { ...a };
+```
+
+oppure
+
+```js
+const copy = Object.assign({}, a);
+```
+
+### Copia profonda (deep copy)
+
+```js
+const deep = JSON.parse(JSON.stringify(a));
+```
+
+> Attenzione: questo metodo non copia funzioni, `undefined`, `Symbol` o riferimenti circolari.
+
+---
+
+## Iterare sulle proprietà
+
+```js
+for (const key in user) {
+  console.log(key, user[key]);
+}
+```
+
+### Metodi utili
+
+```js
+Object.keys(user); // ["name", "age", "isAdmin"]
+Object.values(user); // ["Marco", 30, true]
+Object.entries(user); // [["name","Marco"], ["age",30], ["isAdmin",true]]
+```
+
+---
+
+## Confronto tra oggetti
+
+```js
+const a = { x: 1 };
+const b = { x: 1 };
+
+a === b; // false
+```
+
+Gli oggetti sono uguali **solo se fanno riferimento alla stessa istanza**.
+
+---
+
+## Oggetti come struttura dati
+
+Gli oggetti sono spesso usati come:
+
+- **mappe chiave/valore**
+- **strutture dati complesse**
+- **modelli di stato**
+- **rappresentazioni di entità**
+
+Esempio:
+
+```js
+const users = {
+  1: { name: "Anna" },
+  2: { name: "Luca" },
+};
+
+users[1].name; // "Anna"
+```
+
+---
+
+## Oggetti e prototipi
+
+Ogni oggetto ha un **prototipo** da cui eredita proprietà e metodi.
+
+```js
+const arr = [];
+arr.toString(); // metodo ereditato da Array.prototype
+```
+
+Puoi accedere al prototipo con:
+
+```js
+Object.getPrototypeOf(arr);
+```
+
+---
+
+## Oggetto globale
+
+Nel browser:
+
+```js
+window;
+```
+
+In Node.js:
+
+```js
+global;
+```
+
+Questi sono oggetti che contengono funzioni e variabili globali.
+
+---
+
+## In sintesi
+
+- Un **Object** è una struttura chiave → valore.
+- Può contenere qualsiasi tipo di dato.
+- È passato per riferimento.
+- Supporta metodi, annidamento e prototipi.
+- È alla base dell’architettura di JavaScript.
