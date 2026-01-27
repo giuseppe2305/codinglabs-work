@@ -1,3 +1,181 @@
 # Operatori di coalescenza e optional chaining
 
-In arrivo
+In JavaScript moderno esistono due operatori fondamentali per scrivere codice più sicuro, leggibile e robusto quando si lavora con valori che possono essere `null`, `undefined` o con oggetti annidati:
+
+- **Nullish Coalescing (`??`)**
+- **Optional Chaining (`?.`)**
+
+Questi operatori risolvono problemi comuni senza dover scrivere lunghe catene di controlli condizionali.
+
+---
+
+## Operatore di coalescenza nulla (`??`)
+
+L’operatore `??` restituisce il **primo valore definito**, cioè il primo valore che **non è `null` e non è `undefined`**.
+
+### Sintassi
+
+```js
+valoreFinale = valore1 ?? valore2;
+```
+
+Se `valore1` è `null` o `undefined`, viene restituito `valore2`.
+Altrimenti viene restituito `valore1`.
+
+### Esempi
+
+```js
+let username = null;
+let nome = username ?? "Ospite";
+
+console.log(nome); // "Ospite"
+```
+
+```js
+let count = 0;
+let risultato = count ?? 10;
+
+console.log(risultato); // 0
+```
+
+In questo caso `0` **non viene sostituito**, perché non è `null` né `undefined`.
+
+---
+
+## Differenza con l’operatore OR (`||`)
+
+L’operatore logico `||` considera _falsy_ anche:
+
+- `0`
+- `""` (stringa vuota)
+- `false`
+- `NaN`
+
+Questo può causare comportamenti indesiderati.
+
+```js
+let numero = 0;
+
+console.log(numero || 10); // 10 (sbagliato)
+console.log(numero ?? 10); // 0 (corretto)
+```
+
+Usa `??` quando vuoi solo intercettare valori **non definiti**, non valori validi ma falsy.
+
+---
+
+## Optional chaining (`?.`)
+
+L’operatore `?.` permette di accedere a proprietà, metodi o indici **senza generare errori** se una parte della catena è `null` o `undefined`.
+
+### Sintassi
+
+```js
+oggetto?.proprieta;
+oggetto?.metodo();
+oggetto?.[chiave];
+```
+
+Se `oggetto` è `null` o `undefined`, l’espressione restituisce `undefined` invece di lanciare un errore.
+
+---
+
+## Accesso sicuro alle proprietà
+
+```js
+let user = {
+  profile: {
+    name: "Marco",
+  },
+};
+
+console.log(user.profile?.name); // "Marco"
+console.log(user.address?.city); // undefined
+```
+
+Senza `?.`, il secondo accesso causerebbe un errore.
+
+---
+
+## Chiamata sicura di funzioni
+
+```js
+let handler = null;
+
+handler?.(); // non fa nulla, nessun errore
+```
+
+Utile quando una funzione può essere opzionale.
+
+---
+
+## Accesso a indici dinamici
+
+```js
+let data = null;
+
+console.log(data?.["value"]); // undefined
+```
+
+---
+
+## Combinazione di `?.` e `??`
+
+Spesso vengono usati insieme per fornire un valore di fallback.
+
+```js
+let user = null;
+
+let nome = user?.profile?.name ?? "Utente anonimo";
+
+console.log(nome); // "Utente anonimo"
+```
+
+---
+
+## Catene lunghe e sicure
+
+```js
+let response = {
+  data: {
+    user: {
+      email: "test@mail.com",
+    },
+  },
+};
+
+let email = response?.data?.user?.email ?? "Nessuna email";
+
+console.log(email);
+```
+
+---
+
+## Limitazioni importanti
+
+- `?.` **non intercetta errori di tipo diverso** da `null` o `undefined`
+- Non può essere usato sul lato sinistro di un’assegnazione
+
+```js
+user?.name = "Luca"; // Errore
+```
+
+---
+
+## Best practice
+
+- Usa `??` al posto di `||` quando i valori `0`, `false` e `""` sono validi.
+- Usa `?.` per dati provenienti da API, JSON o oggetti dinamici.
+- Combina i due operatori per evitare `TypeError` e rendere il codice più pulito.
+
+---
+
+## Riepilogo
+
+| Operatore   | Funzione                                           |
+| ----------- | -------------------------------------------------- |
+| `??`        | Restituisce il primo valore non `null`/`undefined` |
+| `?.`        | Accede in modo sicuro a proprietà, metodi e indici |
+| `?.` + `??` | Accesso sicuro con valore di fallback              |
+
+Questi operatori rendono il codice più chiaro, riducono i controlli manuali e prevengono errori comuni in fase di esecuzione.

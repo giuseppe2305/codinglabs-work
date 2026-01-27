@@ -1,3 +1,169 @@
 # Operatori di spread e rest
 
-In arrivo
+In JavaScript gli operatori **spread (`...`)** e **rest (`...`)** condividono la stessa sintassi ma hanno **significati opposti**, a seconda del contesto in cui vengono usati.
+
+- **Spread** → _espande_ un valore iterabile o un oggetto.
+- **Rest** → _raccoglie_ più valori in una singola variabile.
+
+Sono strumenti fondamentali per scrivere codice moderno, pulito e immutabile.
+
+---
+
+## Operatore Spread (`...`)
+
+Lo **spread operator** “spalma” il contenuto di un array, un oggetto o una stringa.
+
+### Spread con array
+
+```js
+const numeri = [1, 2, 3];
+const copia = [...numeri];
+
+console.log(copia); // [1, 2, 3]
+```
+
+Unisce più array:
+
+```js
+const a = [1, 2];
+const b = [3, 4];
+
+const unione = [...a, ...b];
+console.log(unione); // [1, 2, 3, 4]
+```
+
+Inserisce valori in mezzo:
+
+```js
+const base = [1, 4];
+const risultato = [1, 2, 3, ...base];
+```
+
+---
+
+### Spread con oggetti
+
+```js
+const utente = { nome: "Luca", eta: 30 };
+const copia = { ...utente };
+```
+
+Unisce oggetti:
+
+```js
+const a = { nome: "Luca" };
+const b = { eta: 30 };
+
+const unione = { ...a, ...b };
+```
+
+Sovrascrittura:
+
+```js
+const utente = { nome: "Luca", eta: 30 };
+const aggiornato = { ...utente, eta: 31 };
+```
+
+---
+
+### Spread con stringhe
+
+```js
+const testo = "ciao";
+const lettere = [...testo];
+
+console.log(lettere); // ["c", "i", "a", "o"]
+```
+
+---
+
+### Spread nelle chiamate di funzione
+
+```js
+const numeri = [2, 5, 8];
+Math.max(...numeri); // 8
+```
+
+---
+
+## Operatore Rest (`...`)
+
+Il **rest operator** raccoglie più valori in un unico array o oggetto.
+
+---
+
+### Rest nei parametri di funzione
+
+```js
+function somma(...numeri) {
+  return numeri.reduce((a, b) => a + b, 0);
+}
+
+somma(1, 2, 3); // 6
+```
+
+---
+
+### Rest con destrutturazione array
+
+```js
+const [a, b, ...resto] = [1, 2, 3, 4, 5];
+
+console.log(resto); // [3, 4, 5]
+```
+
+---
+
+### Rest con destrutturazione oggetti
+
+```js
+const utente = { nome: "Luca", eta: 30, città: "Roma" };
+const { nome, ...altro } = utente;
+
+console.log(altro); // { eta: 30, città: "Roma" }
+```
+
+---
+
+## Spread vs Rest
+
+| Operatore | Azione    | Direzione    |
+| --------- | --------- | ------------ |
+| Spread    | Espande   | da 1 a molti |
+| Rest      | Raccoglie | da molti a 1 |
+
+---
+
+## Uso tipico nello sviluppo moderno
+
+- Copiare array e oggetti senza mutare gli originali
+- Unire strutture dati
+- Gestire parametri dinamici
+- Lavorare con destrutturazione
+- Scrivere codice più leggibile e funzionale
+
+---
+
+## Errori comuni
+
+```js
+const obj = { a: 1 };
+const errato = [...obj]; // ❌ TypeError
+```
+
+Lo spread sugli oggetti funziona **solo dentro oggetti**:
+
+```js
+const corretto = { ...obj };
+```
+
+---
+
+## Compatibilità
+
+Supportato da tutti i browser moderni (ES6+).
+Per ambienti legacy è necessario un transpiler come **Babel**.
+
+---
+
+Gli operatori **spread** e **rest** sono essenziali per scrivere codice JavaScript moderno, modulare e privo di effetti collaterali. Usarli correttamente significa adottare uno stile più chiaro, flessibile e professionale.

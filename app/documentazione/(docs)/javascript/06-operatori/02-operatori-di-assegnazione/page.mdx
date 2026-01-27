@@ -1,3 +1,150 @@
 # Operatori di assegnazione
 
-In arrivo
+Gli **operatori di assegnazione** in JavaScript servono per assegnare un valore a una variabile.
+Oltre all’operatore base `=`, esistono molte varianti che permettono di **combinare un’operazione e un’assegnazione in un’unica istruzione**, rendendo il codice più compatto e leggibile.
+
+---
+
+## Operatore di assegnazione semplice (`=`)
+
+Assegna il valore a destra alla variabile a sinistra.
+
+```js
+let x = 10;
+let nome = "Mario";
+let attivo = true;
+```
+
+---
+
+## Operatori di assegnazione con operazione
+
+Questi operatori eseguono prima un’operazione, poi assegnano il risultato alla variabile.
+
+| Operatore | Significato     | Equivalente a |
+| --------- | --------------- | ------------- |
+| `+=`      | Addizione       | `x = x + y`   |
+| `-=`      | Sottrazione     | `x = x - y`   |
+| `*=`      | Moltiplicazione | `x = x * y`   |
+| `/=`      | Divisione       | `x = x / y`   |
+| `%=`      | Modulo (resto)  | `x = x % y`   |
+| `**=`     | Potenza         | `x = x ** y`  |
+
+### Esempi
+
+```js
+let x = 10;
+
+x += 5; // 15
+x -= 3; // 12
+x *= 2; // 24
+x /= 4; // 6
+x %= 4; // 2
+x **= 3; // 8
+```
+
+---
+
+## Operatori di assegnazione bitwise
+
+Applicano un’operazione bitwise prima di assegnare.
+
+| Operatore | Significato                | Equivalente a |        |     |
+| --------- | -------------------------- | ------------- | ------ | --- |
+| `&=`      | AND bitwise                | `x = x & y`   |        |     |
+| `         | =`                         | OR bitwise    | `x = x | y`  |
+| `^=`      | XOR bitwise                | `x = x ^ y`   |        |     |
+| `<<=`     | Shift a sinistra           | `x = x << y`  |        |     |
+| `>>=`     | Shift a destra             | `x = x >> y`  |        |     |
+| `>>>=`    | Shift a destra senza segno | `x = x >>> y` |        |     |
+
+### Esempio
+
+```js
+let flags = 5; // 0101
+flags |= 2; // 0111 → 7
+```
+
+---
+
+## Operatori di assegnazione logici (ES2021+)
+
+Consentono di assegnare un valore **solo se una condizione è vera**.
+
+| Operatore | Comportamento                               |     |                                |
+| --------- | ------------------------------------------- | --- | ------------------------------ |
+| `         |                                             | =`  | Assegna se il valore è _falsy_ |
+| `&&=`     | Assegna se il valore è _truthy_             |     |                                |
+| `??=`     | Assegna se il valore è `null` o `undefined` |     |                                |
+
+### Esempi
+
+```js
+let nome = "";
+nome ||= "Ospite"; // "Ospite"
+
+let attivo = true;
+attivo &&= false; // false
+
+let colore = null;
+colore ??= "blu"; // "blu"
+```
+
+---
+
+## Assegnazione destrutturata
+
+Permette di estrarre valori da array o oggetti e assegnarli a variabili.
+
+### Array
+
+```js
+const [a, b] = [10, 20];
+```
+
+### Oggetti
+
+```js
+const user = { nome: "Luca", eta: 30 };
+const { nome, eta } = user;
+```
+
+---
+
+## Assegnazione concatenata
+
+L’assegnazione in JavaScript restituisce il valore assegnato, quindi può essere concatenata.
+
+```js
+let a, b, c;
+a = b = c = 10;
+```
+
+---
+
+## Differenza tra `=` e `==` / `===`
+
+| Operatore | Funzione                          |
+| --------- | --------------------------------- |
+| `=`       | Assegna un valore                 |
+| `==`      | Confronto con conversione di tipo |
+| `===`     | Confronto senza conversione       |
+
+```js
+let x = 5; // assegnazione
+x == "5"; // true
+x === "5"; // false
+```
+
+---
+
+## Buone pratiche
+
+- Preferisci gli operatori composti (`+=`, `??=`, ecc.) per codice più pulito.
+- Usa `??=` invece di `||=` quando vuoi evitare falsi positivi con `0`, `""` o `false`.
+- Evita assegnazioni complesse su una sola riga se compromettono la leggibilità.
+
+---
+
+Gli operatori di assegnazione sono fondamentali per la gestione dello stato delle variabili.
+Usarli correttamente rende il codice **più espressivo, compatto e leggibile**.

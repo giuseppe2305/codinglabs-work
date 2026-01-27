@@ -1,3 +1,240 @@
 # Operatori bitwise
 
-In arrivo
+Gli **operatori bitwise** (o operatori a livello di bit) lavorano direttamente sulla rappresentazione binaria dei numeri.
+In JavaScript tutti gli operatori bitwise **convertono i valori in interi a 32 bit con segno** prima di eseguire l’operazione.
+
+Questo significa che:
+
+- i decimali vengono troncati
+- i numeri molto grandi vengono ridotti a 32 bit
+- il risultato è sempre un intero
+
+Sono poco usati nello sviluppo web quotidiano, ma risultano fondamentali in ambiti come:
+
+- ottimizzazioni
+- crittografia
+- gestione di flag
+- manipolazione binaria
+- sistemi a basso livello
+
+---
+
+## Rappresentazione binaria (ripasso veloce)
+
+Un numero in JavaScript:
+
+```js
+let n = 5;
+```
+
+In binario (8 bit):
+
+```
+00000101
+```
+
+Ogni operatore bitwise agisce **bit per bit**.
+
+---
+
+## AND bitwise (`&`)
+
+Confronta i bit:
+ritorna `1` solo se **entrambi** sono `1`.
+
+```js
+5 & 3;
+```
+
+```
+5  -> 00000101
+3  -> 00000011
+----------------
+      00000001  -> 1
+```
+
+**Risultato:** `1`
+
+---
+
+## OR bitwise (`|`)
+
+Ritorna `1` se **almeno uno** dei bit è `1`.
+
+```js
+5 | 3;
+```
+
+```
+5  -> 00000101
+3  -> 00000011
+----------------
+      00000111  -> 7
+```
+
+---
+
+## XOR bitwise (`^`)
+
+Ritorna `1` solo se **i bit sono diversi**.
+
+```js
+5 ^ 3;
+```
+
+```
+5  -> 00000101
+3  -> 00000011
+----------------
+      00000110  -> 6
+```
+
+---
+
+## NOT bitwise (`~`)
+
+Inverte tutti i bit.
+
+```js
+~5;
+```
+
+```
+5   -> 00000101
+~5  -> 11111010
+```
+
+Poiché è un numero con segno a 32 bit:
+
+```
+~5 = -6
+```
+
+Formula utile:
+
+```js
+~n === -(n + 1);
+```
+
+---
+
+## Shift a sinistra (`<<`)
+
+Sposta i bit a sinistra, moltiplicando per 2 ogni shift.
+
+```js
+5 << 1;
+```
+
+```
+00000101 -> 00001010
+```
+
+**Risultato:** `10`
+
+```js
+5 << 2; // 20
+```
+
+---
+
+## Shift a destra con segno (`>>`)
+
+Sposta i bit a destra mantenendo il segno.
+
+```js
+5 >> 1;
+```
+
+```
+00000101 -> 00000010
+```
+
+**Risultato:** `2`
+
+```js
+-5 >> 1; // -3
+```
+
+---
+
+## Shift a destra senza segno (`>>>`)
+
+Riempie con zeri anche per numeri negativi.
+
+```js
+-5 >>> 1;
+```
+
+```
+11111011 -> 01111101
+```
+
+**Risultato:** `2147483645`
+
+---
+
+## Tabella riassuntiva
+
+| Operatore | Nome              | Descrizione                |
+| --------- | ----------------- | -------------------------- |
+| `&`       | AND               | 1 se entrambi i bit sono 1 |
+| `\|\|`    | OR                | 1 se almeno un bit è 1     |
+| `^`       | XOR               | 1 se i bit sono diversi    |
+| `~`       | NOT               | Inverte tutti i bit        |
+| `<<`      | Shift sinistra    | Sposta a sinistra          |
+| `>>`      | Shift destra      | Mantiene il segno          |
+| `>>>`     | Shift destra zero | Riempie con zeri           |
+
+---
+
+## Esempio pratico: gestione di flag
+
+```js
+const READ = 1; // 0001
+const WRITE = 2; // 0010
+const EXEC = 4; // 0100
+
+let permessi = READ | WRITE;
+
+// verifica
+((permessi & READ) !==
+  0(
+    // true
+    permessi & EXEC,
+  )) !==
+  0; // false
+```
+
+---
+
+## Conversione rapida in intero
+
+```js
+let n = 3.9;
+n | 0; // 3
+```
+
+Usato spesso per forzare un valore a intero.
+
+---
+
+## Limiti importanti
+
+- Tutti i numeri diventano **32 bit signed**
+- Non funzionano correttamente con numeri molto grandi
+- Non vanno usati per calcoli finanziari o ad alta precisione
+
+---
+
+## Quando usarli
+
+- Gestione di flag
+- Maschere di bit
+- Parsing binario
+- Ottimizzazioni low-level
+- Crittografia e compressione
+
+---
+
+Gli operatori bitwise permettono un controllo diretto sui dati a livello binario: strumenti potenti, ma da usare con consapevolezza.

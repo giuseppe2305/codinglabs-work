@@ -1,3 +1,185 @@
 # Operatori logici
 
-In arrivo
+Gli **operatori logici** in JavaScript permettono di combinare o invertire valori booleani (`true` / `false`) per costruire condizioni complesse.
+Sono fondamentali per il controllo del flusso (`if`, `while`, `for`, `return`) e per la gestione delle espressioni condizionali.
+
+In JavaScript, questi operatori non lavorano solo con booleani, ma con **valori “truthy” e “falsy”**, restituendo uno degli operandi originali.
+
+---
+
+## Valori truthy e falsy
+
+JavaScript considera come `false` i seguenti valori:
+
+```js
+false;
+0 - 0;
+0n;
+("");
+null;
+undefined;
+NaN;
+```
+
+Tutti gli altri valori sono considerati **truthy**.
+
+---
+
+## AND logico (`&&`)
+
+Restituisce il **primo valore falsy** oppure l’ultimo valore se tutti sono truthy.
+
+```js
+true && true; // true
+true && false; // false
+```
+
+Con valori non booleani:
+
+```js
+"a" && 10; // 10
+0 && "ciao"; // 0
+```
+
+Uso tipico:
+
+```js
+if (user && user.isAdmin) {
+  console.log("Accesso consentito");
+}
+```
+
+Oppure come controllo rapido:
+
+```js
+isLogged && showDashboard();
+```
+
+---
+
+## OR logico (`||`)
+
+Restituisce il **primo valore truthy** oppure l’ultimo se tutti sono falsy.
+
+```js
+true || false; // true
+false || false; // false
+```
+
+Con valori non booleani:
+
+```js
+"" || "default"; // "default"
+0 || 100; // 100
+null || "valore"; // "valore"
+```
+
+Uso comune per valori di fallback:
+
+```js
+const nome = input || "Utente";
+```
+
+---
+
+## NOT logico (`!`)
+
+Inverte il valore booleano.
+
+```js
+!true; // false
+!false; // true
+```
+
+Con valori non booleani:
+
+```js
+!0; // true
+!"ciao"; // false
+```
+
+Doppia negazione per forzare un booleano:
+
+```js
+!!"test"; // true
+!!0; // false
+```
+
+---
+
+## Short-circuit evaluation
+
+Gli operatori `&&` e `||` **interrompono la valutazione** non appena il risultato è determinabile.
+
+```js
+false && funzione(); // funzione() non viene eseguita
+true || funzione(); // funzione() non viene eseguita
+```
+
+Questo comportamento è molto usato per eseguire codice in modo condizionale.
+
+---
+
+## Combinazioni di operatori
+
+```js
+if (isOnline && (isAdmin || isModerator)) {
+  console.log("Accesso autorizzato");
+}
+```
+
+---
+
+## Differenza tra operatori logici e booleani puri
+
+In JavaScript:
+
+```js
+"test" && 5; // 5
+null || "ciao"; // "ciao"
+```
+
+Non viene restituito `true` o `false`, ma uno degli **operandi originali**.
+
+---
+
+## Operatore logico nullish (`??`) (cenno)
+
+A differenza di `||`, considera solo `null` e `undefined` come valori nulli:
+
+```js
+0 || 10; // 10
+0 ?? 10; // 0
+```
+
+---
+
+## Precedenza degli operatori logici
+
+| Operatore | Precedenza |     |       |
+| --------- | ---------- | --- | ----- |
+| `!`       | Alta       |     |       |
+| `&&`      | Media      |     |       |
+| `         |            | `   | Bassa |
+
+Esempio:
+
+```js
+true || (false && false);
+// equivale a: true || (false && false)
+```
+
+---
+
+## Riepilogo
+
+| Operatore | Nome         | Comportamento                                 |
+| --------- | ------------ | --------------------------------------------- |
+| `&&`      | AND          | Restituisce il primo falsy o l’ultimo valore  |
+| `\|\|`    | OR           | Restituisce il primo truthy o l’ultimo valore |
+| `!`       | NOT          | Inverte il valore                             |
+| `!!`      | Boolean cast | Converte in true/false                        |
+
+---
+
+Gli operatori logici sono uno strumento centrale per scrivere condizioni leggibili, controllare flussi e creare logiche compatte e performanti in JavaScript.

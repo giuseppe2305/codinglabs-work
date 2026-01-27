@@ -1,3 +1,202 @@
 # Operatori aritmetici
 
-In arrivo
+Gli **operatori aritmetici** in JavaScript permettono di eseguire calcoli matematici su numeri e valori numerici. Sono fondamentali in qualsiasi applicazione: dal semplice contatore fino a logiche complesse di calcolo, validazione e animazione.
+
+In JavaScript gli operatori aritmetici lavorano principalmente con il tipo `number`, ma possono comportarsi in modo diverso quando coinvolgono stringhe o altri tipi.
+
+---
+
+## Elenco degli operatori aritmetici
+
+| Operatore | Nome            | Esempio  | Risultato |
+| --------- | --------------- | -------- | --------- |
+| `+`       | Addizione       | `5 + 2`  | `7`       |
+| `-`       | Sottrazione     | `5 - 2`  | `3`       |
+| `*`       | Moltiplicazione | `5 * 2`  | `10`      |
+| `/`       | Divisione       | `5 / 2`  | `2.5`     |
+| `%`       | Modulo (resto)  | `5 % 2`  | `1`       |
+| `**`      | Esponenziazione | `5 ** 2` | `25`      |
+| `++`      | Incremento      | `x++`    | `x + 1`   |
+| `--`      | Decremento      | `x--`    | `x - 1`   |
+
+---
+
+## Addizione (`+`)
+
+```js
+let a = 10;
+let b = 5;
+let risultato = a + b; // 15
+```
+
+In JavaScript `+` è anche l’operatore di **concatenazione** per le stringhe:
+
+```js
+"5" + 2; // "52"
+5 + "2"; // "52"
+```
+
+Quando uno dei due operandi è una stringa, JavaScript converte l’altro in stringa.
+
+---
+
+## Sottrazione (`-`)
+
+```js
+10 - 3; // 7
+```
+
+Converte automaticamente le stringhe numeriche in numeri:
+
+```js
+"10" - 3; // 7
+```
+
+---
+
+## Moltiplicazione (`*`)
+
+```js
+4 * 5; // 20
+```
+
+Anche qui JavaScript converte le stringhe numeriche:
+
+```js
+"4" * "2"; // 8
+```
+
+---
+
+## Divisione (`/`)
+
+```js
+10 / 4; // 2.5
+```
+
+Casi particolari:
+
+```js
+10 / 0 - // Infinity
+  10 / 0; // -Infinity
+0 / 0; // NaN
+```
+
+---
+
+## Modulo (`%`)
+
+Restituisce il **resto della divisione**.
+
+```js
+10 % 3; // 1
+```
+
+Utile per:
+
+- verificare numeri pari/dispari
+- cicli ripetitivi
+- gestione di indici
+
+```js
+10 % 2 === 0; // true → numero pari
+```
+
+---
+
+## Esponenziazione (`**`)
+
+Eleva un numero a potenza.
+
+```js
+2 ** 3; // 8
+5 ** 2; // 25
+```
+
+Equivale a:
+
+```js
+Math.pow(2, 3);
+```
+
+---
+
+## Incremento (`++`) e Decremento (`--`)
+
+### Post-incremento
+
+```js
+let x = 5;
+x++; // x diventa 6
+```
+
+### Pre-incremento
+
+```js
+let x = 5;
+++x; // x diventa 6
+```
+
+La differenza:
+
+```js
+let x = 5;
+let y = x++; // y = 5, x = 6
+
+let a = 5;
+let b = ++a; // b = 6, a = 6
+```
+
+Stesso concetto per `--`.
+
+---
+
+## Conversioni automatiche (type coercion)
+
+JavaScript tenta di convertire i valori:
+
+```js
+"10" * 2; // 20
+"10" - 2; // 8
+"10" / 2; // 5
+```
+
+Ma con `+` avviene la concatenazione:
+
+```js
+"10" + 2; // "102"
+```
+
+Per evitare errori, è buona pratica convertire esplicitamente:
+
+```js
+Number("10") + 2; // 12
+```
+
+---
+
+## Valori speciali: NaN e Infinity
+
+| Valore      | Significato            |
+| ----------- | ---------------------- |
+| `NaN`       | Risultato non numerico |
+| `Infinity`  | Numero troppo grande   |
+| `-Infinity` | Numero troppo piccolo  |
+
+```js
+"ciao" * 3; // NaN
+```
+
+---
+
+## Buone pratiche
+
+- Converti sempre le stringhe in numeri prima di fare calcoli.
+- Usa `Number()` o `parseInt()` / `parseFloat()`.
+- Attenzione a `+` con stringhe.
+- Evita divisioni per zero.
+- Controlla sempre i risultati con `isNaN()` quando lavori con input esterni.
+
+---
+
+Gli operatori aritmetici sono alla base di qualsiasi logica di calcolo in JavaScript. Una loro corretta comprensione permette di evitare bug, errori di conversione e comportamenti inattesi nel codice.

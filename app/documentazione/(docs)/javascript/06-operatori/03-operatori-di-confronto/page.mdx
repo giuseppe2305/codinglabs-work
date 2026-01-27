@@ -1,3 +1,173 @@
 # Operatori di confronto
 
-In arrivo
+Gli **operatori di confronto** in JavaScript servono per confrontare due valori e restituiscono sempre un valore booleano: `true` o `false`.
+
+Sono fondamentali in tutte le strutture di controllo come `if`, `while`, `for`, e nelle espressioni logiche più complesse.
+
+---
+
+## Elenco degli operatori di confronto
+
+| Operatore | Nome                | Descrizione                                     |
+| --------- | ------------------- | ----------------------------------------------- |
+| `==`      | Uguaglianza debole  | Confronta i valori dopo conversione di tipo     |
+| `!=`      | Diversità debole    | Confronta i valori dopo conversione di tipo     |
+| `===`     | Uguaglianza stretta | Confronta valore e tipo                         |
+| `!==`     | Diversità stretta   | Confronta valore e tipo                         |
+| `>`       | Maggiore di         | Verifica se il primo valore è maggiore          |
+| `<`       | Minore di           | Verifica se il primo valore è minore            |
+| `>=`      | Maggiore o uguale   | Verifica se il primo valore è maggiore o uguale |
+| `<=`      | Minore o uguale     | Verifica se il primo valore è minore o uguale   |
+
+---
+
+## Uguaglianza debole (`==`) e diversità debole (`!=`)
+
+Confrontano i valori **dopo una conversione automatica di tipo** (type coercion).
+
+```js
+5 == "5"; // true
+0 == false; // true
+null == undefined; // true
+```
+
+```js
+5 != "5"; // false
+```
+
+### Perché evitarli
+
+La conversione implicita può portare a risultati imprevedibili e bug difficili da individuare.
+
+---
+
+## Uguaglianza stretta (`===`) e diversità stretta (`!==`)
+
+Confrontano **sia il valore che il tipo**.
+
+```js
+5 === "5"; // false
+5 !== "5"; // true
+0 === false; // false
+```
+
+### Best practice
+
+Usa **sempre** `===` e `!==` salvo casi molto specifici e consapevoli.
+
+---
+
+## Operatori relazionali
+
+### Maggiore (`>`), minore (`<`), maggiore o uguale (`>=`), minore o uguale (`<=`)
+
+```js
+10 > 5; // true
+3 < 7; // true
+8 >= 8; // true
+4 <= 2; // false
+```
+
+### Confronto tra stringhe
+
+Le stringhe vengono confrontate **in ordine lessicografico** (Unicode).
+
+```js
+"a" < "b"; // true
+"Z" < "a"; // true
+"10" < "2"; // true (confronto come stringhe)
+```
+
+---
+
+## Confronto tra tipi diversi
+
+Quando i tipi sono diversi:
+
+- `==` prova a convertirli
+- `===` non converte nulla
+
+```js
+"5" > 3; // true  → "5" diventa 5
+"5" === 5; // false
+```
+
+---
+
+## Confronto con `null` e `undefined`
+
+```js
+null == undefined; // true
+null === undefined; // false
+null > 0; // false
+null == 0; // false
+null >= 0; // true (conversione a numero)
+```
+
+Questi casi sono tra le principali fonti di bug.
+
+---
+
+## Confronto tra oggetti
+
+Gli oggetti vengono confrontati **per riferimento**, non per valore.
+
+```js
+const a = { x: 1 };
+const b = { x: 1 };
+const c = a;
+
+a === b; // false
+a === c; // true
+```
+
+Per confrontare il contenuto di oggetti è necessario confrontare manualmente le proprietà.
+
+---
+
+## Confronto tra array
+
+```js
+[1, 2] === [1, 2]; // false
+```
+
+Anche gli array sono oggetti e seguono le stesse regole.
+
+---
+
+## Valori speciali
+
+```js
+NaN === NaN; // false
+NaN == NaN; // false
+```
+
+Per verificare se un valore è `NaN`:
+
+```js
+Number.isNaN(NaN); // true
+```
+
+---
+
+## Operatore `Object.is()`
+
+Metodo più preciso di `===` in casi particolari:
+
+```js
+Object.is(NaN, NaN); // true
+Object.is(0, -0); // false
+0 === -0; // true
+```
+
+---
+
+## Riepilogo
+
+- Usa sempre `===` e `!==`
+- Evita `==` e `!=` salvo casi consapevoli
+- Ricorda che oggetti e array si confrontano per riferimento
+- Attenzione a `null`, `undefined` e `NaN`
+- Le stringhe vengono confrontate per ordine Unicode
+
+Gli operatori di confronto sono la base di ogni decisione logica in JavaScript: comprenderli a fondo è essenziale per scrivere codice affidabile e prevedibile.

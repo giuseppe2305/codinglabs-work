@@ -1,3 +1,163 @@
 # Precedenza degli operatori
 
-In arrivo
+In JavaScript, **la precedenza degli operatori** stabilisce l’ordine con cui le espressioni vengono valutate quando sono presenti più operatori nella stessa riga di codice.
+
+Se non si conosce questo ordine, il codice può produrre risultati inattesi. Per questo motivo, è fondamentale comprenderlo a fondo.
+
+---
+
+## Cos’è la precedenza
+
+Ogni operatore in JavaScript ha un **livello di precedenza**.
+Gli operatori con precedenza più alta vengono valutati **prima** di quelli con precedenza più bassa.
+
+Esempio:
+
+```js
+let risultato = 2 + 3 * 4;
+console.log(risultato); // 14
+```
+
+Il `*` ha precedenza maggiore di `+`, quindi:
+
+```txt
+3 * 4 = 12
+2 + 12 = 14
+```
+
+---
+
+## Uso delle parentesi
+
+Le **parentesi** hanno sempre la precedenza più alta e forzano l’ordine di valutazione.
+
+```js
+let risultato = (2 + 3) * 4;
+console.log(risultato); // 20
+```
+
+---
+
+## Associazione degli operatori
+
+Oltre alla precedenza, conta anche **l’associatività**:
+
+- **Left-to-right** → valutazione da sinistra a destra
+- **Right-to-left** → valutazione da destra a sinistra
+
+Esempio:
+
+```js
+let x = (y = z = 5);
+```
+
+L’assegnazione è **right-to-left**:
+
+```txt
+z = 5
+y = z
+x = y
+```
+
+---
+
+## Tabella di precedenza (dalla più alta alla più bassa)
+
+| Livello | Operatori                                        |
+| ------- | ------------------------------------------------ |
+| 1       | `()`                                             |
+| 2       | `++` `--` (postfisso)                            |
+| 3       | `!` `~` `+` `-` `typeof` `void` `delete` `await` |
+| 4       | `**`                                             |
+| 5       | `*` `/` `%`                                      |
+| 6       | `+` `-`                                          |
+| 7       | `<<` `>>` `>>>`                                  |
+| 8       | `<` `<=` `>` `>=` `in` `instanceof`              |
+| 9       | `==` `!=` `===` `!==`                            |
+| 10      | `&`                                              |
+| 11      | `^`                                              |
+| 12      | `\|`                                             |
+| 13      | `&&`                                             |
+| 14      | `\|\|`                                           |
+| 15      | `??`                                             |
+| 16      | `? :`                                            |
+| 17      | `=` `+=` `-=` `*=` `/=`                          |
+| 18      | `,`                                              |
+
+---
+
+## Esempi pratici
+
+### 1. Confronto e logica
+
+```js
+true || (false && false);
+```
+
+`&&` ha precedenza maggiore di `||`:
+
+```txt
+false && false → false
+true || false → true
+```
+
+---
+
+### 2. Coalescenza e logica
+
+```js
+null ?? false || true
+```
+
+`??` ha precedenza maggiore di `||`:
+
+```txt
+null ?? false → false
+false || true → true
+```
+
+---
+
+### 3. Ternario con confronto
+
+```js
+let risultato = 5 > 3 ? "ok" : "no";
+```
+
+Il confronto `>` viene valutato prima del ternario.
+
+---
+
+### 4. Assegnazione con operazioni
+
+```js
+let x = 2 + 3 * 4;
+```
+
+Moltiplicazione prima della somma:
+
+```txt
+3 * 4 → 12
+2 + 12 → 14
+x = 14
+```
+
+---
+
+## Perché usare sempre le parentesi
+
+Anche se conosci la precedenza, **le parentesi rendono il codice più chiaro e sicuro**:
+
+```js
+let risultato = (a && b) || (c && d);
+```
+
+Questo evita errori logici e migliora la leggibilità, specialmente in codice complesso.
+
+---
+
+## Regola da seguire
+
+> Se un’espressione non è immediatamente chiara, **usa le parentesi**.
+
+La precedenza è uno strumento potente, ma la leggibilità e la manutenzione del codice vengono sempre prima.

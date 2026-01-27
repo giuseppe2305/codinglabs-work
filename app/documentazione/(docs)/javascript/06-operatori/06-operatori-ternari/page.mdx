@@ -1,3 +1,143 @@
 # Operatori ternari
 
-In arrivo
+L’**operatore ternario** è l’unico operatore condizionale di JavaScript ed è una forma compatta dell’istruzione `if...else`.
+Viene spesso utilizzato per assegnare valori o restituire risultati diversi in base a una condizione, mantenendo il codice più conciso.
+
+---
+
+## Sintassi
+
+```js
+condizione ? valoreSeVero : valoreSeFalso;
+```
+
+- **condizione** → un’espressione che viene valutata come `true` o `false`
+- **valoreSeVero** → restituito se la condizione è vera
+- **valoreSeFalso** → restituito se la condizione è falsa
+
+---
+
+## Esempio base
+
+```js
+let eta = 18;
+let messaggio = eta >= 18 ? "Maggiorenne" : "Minorenne";
+
+console.log(messaggio); // "Maggiorenne"
+```
+
+È equivalente a:
+
+```js
+let messaggio;
+
+if (eta >= 18) {
+  messaggio = "Maggiorenne";
+} else {
+  messaggio = "Minorenne";
+}
+```
+
+---
+
+## Uso per assegnazioni
+
+```js
+let saldo = 50;
+let stato = saldo > 0 ? "Credito disponibile" : "Saldo insufficiente";
+```
+
+---
+
+## Uso come valore di ritorno
+
+```js
+function controllaNumero(n) {
+  return n % 2 === 0 ? "Pari" : "Dispari";
+}
+```
+
+---
+
+## Ternari concatenati (annidati)
+
+È possibile usare più operatori ternari insieme, ma è importante mantenere il codice leggibile.
+
+```js
+let voto = 8;
+
+let giudizio = voto >= 9 ? "Ottimo" : voto >= 7 ? "Buono" : voto >= 6 ? "Sufficiente" : "Insufficiente";
+```
+
+---
+
+## Uso nelle espressioni
+
+```js
+let sconto = isVip ? prezzo * 0.8 : prezzo * 0.95;
+```
+
+---
+
+## Ternario con valori booleani
+
+```js
+let attivo = true;
+let stato = attivo ? true : false;
+```
+
+Questo esempio è ridondante e può essere semplificato:
+
+```js
+let stato = attivo;
+```
+
+---
+
+## Ternario con espressioni complesse
+
+```js
+let risultato = a > b && c > d ? "Condizione vera" : "Condizione falsa";
+```
+
+---
+
+## Ternario come alternativa compatta a `if...else`
+
+```js
+let accesso = loggedIn ? "Accesso consentito" : "Accesso negato";
+```
+
+---
+
+## Buone pratiche
+
+- Usare il ternario **solo per condizioni semplici**
+- Evitare annidamenti troppo profondi
+- Preferire `if...else` se la logica è complessa
+- Usarlo per assegnazioni, ritorni rapidi e UI logic
+
+---
+
+## Errori comuni
+
+### Dimenticare i due punti `:`
+
+```js
+// ❌ Errore
+condizione ? valore1 valore2
+```
+
+### Usare istruzioni invece di espressioni
+
+```js
+// ❌ Non valido
+condizione ? console.log("Sì") : if (x) {}
+```
+
+---
+
+## Conclusione
+
+L’operatore ternario è uno strumento potente per scrivere codice più compatto e leggibile, se usato con criterio.
+È ideale per condizioni semplici, assegnazioni rapide e logica inline, ma non deve sostituire completamente le strutture di controllo tradizionali.
