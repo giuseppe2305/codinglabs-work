@@ -1,3 +1,181 @@
 # break e continue
 
-In arrivo
+In JavaScript, `break` e `continue` sono istruzioni di controllo del flusso utilizzate **all’interno dei cicli** (`for`, `while`, `do...while`) e dello `switch`. Servono per **modificare il comportamento normale di iterazione**, interrompendo o saltando parti del ciclo in base a determinate condizioni.
+
+---
+
+## break
+
+L’istruzione `break` **interrompe immediatamente l’esecuzione del ciclo o dello switch** in cui si trova. Una volta eseguito `break`, il controllo del programma passa all’istruzione successiva al blocco interrotto.
+
+### Utilizzo con i cicli
+
+```javascript
+for (let i = 0; i < 10; i++) {
+  if (i === 5) {
+    break;
+  }
+  console.log(i);
+}
+```
+
+Output:
+
+```
+0
+1
+2
+3
+4
+```
+
+Quando `i` raggiunge il valore `5`, il ciclo viene terminato definitivamente.
+
+### Utilizzo con while
+
+```javascript
+let i = 0;
+
+while (true) {
+  if (i === 3) {
+    break;
+  }
+  console.log(i);
+  i++;
+}
+```
+
+`break` è spesso usato nei cicli potenzialmente infiniti per definire una condizione di uscita esplicita.
+
+### Utilizzo con switch
+
+```javascript
+const ruolo = "admin";
+
+switch (ruolo) {
+  case "admin":
+    console.log("Accesso completo");
+    break;
+  case "user":
+    console.log("Accesso limitato");
+    break;
+  default:
+    console.log("Ruolo non valido");
+}
+```
+
+Nel contesto di `switch`, `break` **impedisce il fall-through**, cioè l’esecuzione dei casi successivi.
+
+---
+
+## continue
+
+L’istruzione `continue` **interrompe l’iterazione corrente del ciclo** e passa direttamente alla successiva, senza terminare il ciclo.
+
+A differenza di `break`, il ciclo **continua a eseguire** fino al completamento naturale della condizione.
+
+### Utilizzo con for
+
+```javascript
+for (let i = 0; i < 5; i++) {
+  if (i === 2) {
+    continue;
+  }
+  console.log(i);
+}
+```
+
+Output:
+
+```
+0
+1
+3
+4
+```
+
+Quando `i` è uguale a `2`, il codice sotto `continue` viene saltato per quella iterazione.
+
+### Utilizzo con while
+
+```javascript
+let i = 0;
+
+while (i < 5) {
+  i++;
+  if (i === 3) {
+    continue;
+  }
+  console.log(i);
+}
+```
+
+In questo caso è fondamentale aggiornare la variabile di controllo **prima** di `continue`, per evitare cicli infiniti.
+
+---
+
+## Differenze principali tra break e continue
+
+| Istruzione | Effetto                                                  |
+| ---------- | -------------------------------------------------------- |
+| `break`    | Termina completamente il ciclo o lo switch               |
+| `continue` | Salta l’iterazione corrente e prosegue con la successiva |
+
+---
+
+## break e continue con cicli annidati
+
+Quando usati in cicli annidati, `break` e `continue` **agiscono solo sul ciclo più interno**.
+
+```javascript
+for (let i = 0; i < 3; i++) {
+  for (let j = 0; j < 3; j++) {
+    if (j === 1) {
+      break;
+    }
+    console.log(i, j);
+  }
+}
+```
+
+In questo esempio, `break` interrompe solo il ciclo interno (`j`), non quello esterno (`i`).
+
+---
+
+## Etichette (labels)
+
+JavaScript consente l’uso di **etichette** per controllare cicli esterni, anche se è una pratica rara e da usare con cautela.
+
+```javascript
+outerLoop: for (let i = 0; i < 3; i++) {
+  for (let j = 0; j < 3; j++) {
+    if (j === 1) {
+      break outerLoop;
+    }
+    console.log(i, j);
+  }
+}
+```
+
+In questo caso, `break outerLoop` interrompe direttamente il ciclo esterno.
+
+---
+
+## Buone pratiche
+
+- Usare `break` per uscire chiaramente da un ciclo quando una condizione è soddisfatta.
+- Usare `continue` per evitare `if` annidati e migliorare la leggibilità.
+- Evitare l’abuso di `break` e `continue` in codice complesso, poiché possono rendere il flusso meno intuitivo.
+- Prestare attenzione ai cicli `while` e `do...while` per evitare loop infiniti.
+
+---
+
+## Errori comuni
+
+- Dimenticare che `continue` salta il resto dell’iterazione corrente.
+- Usare `break` fuori da un ciclo o da uno `switch` (genera errore).
+- Usare etichette in modo eccessivo, riducendo la manutenibilità del codice.
+
+---
+
+`break` e `continue` sono strumenti potenti per il controllo del flusso, ma vanno utilizzati con consapevolezza per mantenere il codice chiaro, leggibile e prevedibile.

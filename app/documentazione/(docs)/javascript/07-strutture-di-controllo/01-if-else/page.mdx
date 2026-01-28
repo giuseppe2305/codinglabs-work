@@ -1,3 +1,173 @@
 # if, else
 
-In arrivo
+Le strutture di controllo `if` ed `else` permettono di eseguire porzioni di codice diverse in base a una condizione. Sono uno degli strumenti fondamentali di JavaScript e di qualunque linguaggio di programmazione, perché consentono di implementare la logica decisionale di un’applicazione.
+
+## Struttura di base
+
+La sintassi di base di un’istruzione `if` è la seguente:
+
+```javascript
+if (condizione) {
+  // codice eseguito se la condizione è vera
+}
+```
+
+La `condizione` è un’espressione che viene valutata come `true` o `false`.
+Se la condizione è vera, il codice all’interno del blocco viene eseguito; in caso contrario, viene ignorato.
+
+Esempio:
+
+```javascript
+const eta = 20;
+
+if (eta >= 18) {
+  console.log("Sei maggiorenne");
+}
+```
+
+## else
+
+L’istruzione `else` permette di definire un blocco di codice alternativo da eseguire quando la condizione dell’`if` risulta falsa.
+
+```javascript
+if (condizione) {
+  // codice se la condizione è vera
+} else {
+  // codice se la condizione è falsa
+}
+```
+
+Esempio:
+
+```javascript
+const eta = 16;
+
+if (eta >= 18) {
+  console.log("Sei maggiorenne");
+} else {
+  console.log("Sei minorenne");
+}
+```
+
+## else if
+
+Quando è necessario gestire più condizioni, si utilizza `else if`.
+Le condizioni vengono valutate dall’alto verso il basso e solo il primo blocco con condizione vera viene eseguito.
+
+```javascript
+if (condizione1) {
+  // codice
+} else if (condizione2) {
+  // codice
+} else {
+  // codice
+}
+```
+
+Esempio:
+
+```javascript
+const voto = 7;
+
+if (voto >= 9) {
+  console.log("Ottimo");
+} else if (voto >= 6) {
+  console.log("Sufficiente");
+} else {
+  console.log("Insufficiente");
+}
+```
+
+## Valutazione delle condizioni
+
+In JavaScript le condizioni vengono valutate secondo il concetto di _truthy_ e _falsy_.
+
+Valori considerati `false`:
+
+- `false`
+- `0`
+- `""` (stringa vuota)
+- `null`
+- `undefined`
+- `NaN`
+
+Tutti gli altri valori vengono considerati `true`.
+
+Esempio:
+
+```javascript
+const nome = "";
+
+if (nome) {
+  console.log("Nome presente");
+} else {
+  console.log("Nome mancante");
+}
+```
+
+## Operatori di confronto e logici
+
+Le condizioni degli `if` utilizzano spesso operatori di confronto e logici:
+
+- Confronto: `==`, `===`, `!=`, `!==`, `<`, `>`, `<=`, `>=`
+- Logici: `&&` (AND), `||` (OR), `!` (NOT)
+
+Esempio:
+
+```javascript
+const eta = 25;
+const patente = true;
+
+if (eta >= 18 && patente) {
+  console.log("Puoi guidare");
+}
+```
+
+È buona pratica preferire `===` e `!==` per evitare conversioni implicite di tipo.
+
+## Blocchi di codice e scope
+
+Le parentesi graffe `{}` definiscono un blocco di codice.
+Le variabili dichiarate con `let` o `const` all’interno di un blocco `if` esistono solo all’interno di quel blocco.
+
+```javascript
+if (true) {
+  let messaggio = "Ciao";
+  console.log(messaggio);
+}
+
+// console.log(messaggio); // Errore
+```
+
+## if su una sola riga
+
+Quando il blocco contiene una sola istruzione, è possibile omettere le parentesi graffe, anche se non è consigliato per motivi di leggibilità.
+
+```javascript
+if (saldo < 0) console.log("Saldo negativo");
+```
+
+## Annidamento degli if
+
+Un `if` può essere annidato all’interno di un altro `if`.
+È importante mantenere il codice leggibile ed evitare annidamenti eccessivi.
+
+```javascript
+if (utenteLoggato) {
+  if (utenteAdmin) {
+    console.log("Accesso amministratore");
+  }
+}
+```
+
+In molti casi è preferibile semplificare la logica usando operatori logici o un `return` anticipato.
+
+## Buone pratiche
+
+- Scrivere condizioni chiare e leggibili
+- Evitare confronti ambigui
+- Ridurre l’annidamento eccessivo
+- Usare nomi di variabili che rendano la condizione autoesplicativa
+- Preferire `===` a `==`
+
+Le istruzioni `if` ed `else` sono la base del controllo del flusso in JavaScript e costituiscono un elemento essenziale per scrivere codice chiaro, robusto e manutenibile.

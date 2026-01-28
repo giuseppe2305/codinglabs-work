@@ -1,3 +1,182 @@
 # throw
 
-In arrivo
+L’istruzione `throw` in JavaScript viene utilizzata per **generare manualmente un’eccezione**, cioè un errore. È uno strumento fondamentale per il controllo dei flussi di errore e per la gestione robusta delle condizioni anomale all’interno di un’applicazione.
+
+A differenza degli errori generati automaticamente dal linguaggio (come errori di sintassi o di runtime), `throw` permette allo sviluppatore di **definire quando e perché un errore deve verificarsi**, rendendo il codice più prevedibile, sicuro e manutenibile.
+
+---
+
+## Cos’è un’eccezione
+
+Un’eccezione è un evento che interrompe il normale flusso di esecuzione del programma. Quando viene lanciata un’eccezione tramite `throw`, JavaScript:
+
+1. Interrompe l’esecuzione del codice corrente
+2. Cerca un blocco `catch` in grado di gestire l’errore
+3. Se non trova alcun `catch`, l’errore termina l’esecuzione del programma
+
+---
+
+## Sintassi di base
+
+```javascript
+throw espressione;
+```
+
+L’`espressione` può essere **qualsiasi valore JavaScript**, ma nella pratica è fortemente consigliato lanciare un oggetto di tipo `Error` o una sua estensione.
+
+---
+
+## Lanciare un errore semplice
+
+```javascript
+throw "Errore generico";
+```
+
+Questa sintassi è valida, ma **sconsigliata**, perché lancia una stringa invece di un oggetto errore strutturato.
+
+---
+
+## Lanciare un oggetto Error
+
+Il modo corretto e più comune di usare `throw` è con il costruttore `Error`.
+
+```javascript
+throw new Error("Qualcosa è andato storto");
+```
+
+Questo consente di avere:
+
+- un messaggio di errore chiaro
+- uno stack trace utile per il debugging
+
+---
+
+## Tipi di Error integrati
+
+JavaScript mette a disposizione diversi tipi di errori standard:
+
+```javascript
+throw new TypeError("Tipo di dato non valido");
+throw new ReferenceError("Variabile non definita");
+throw new RangeError("Valore fuori intervallo");
+throw new SyntaxError("Errore di sintassi");
+```
+
+Utilizzare il tipo di errore corretto migliora la leggibilità del codice e la qualità della gestione degli errori.
+
+---
+
+## Uso di throw con try...catch
+
+`throw` viene quasi sempre utilizzato insieme a `try...catch` per intercettare e gestire l’errore.
+
+```javascript
+try {
+  let eta = -5;
+
+  if (eta < 0) {
+    throw new Error("L'età non può essere negativa");
+  }
+
+  console.log("Età valida");
+} catch (errore) {
+  console.error(errore.message);
+}
+```
+
+In questo esempio:
+
+- `throw` genera l’errore
+- il blocco `catch` lo intercetta
+- l’esecuzione del programma continua in modo controllato
+
+---
+
+## throw per la validazione dei dati
+
+Uno degli utilizzi più comuni di `throw` è la validazione degli input.
+
+```javascript
+function dividi(a, b) {
+  if (b === 0) {
+    throw new Error("Divisione per zero non consentita");
+  }
+  return a / b;
+}
+```
+
+Questo approccio:
+
+- separa la logica di validazione dalla logica di business
+- rende espliciti i casi di errore
+- evita risultati non validi o silenziosi
+
+---
+
+## Creare errori personalizzati
+
+È possibile creare classi di errore personalizzate estendendo `Error`.
+
+```javascript
+class ValidationError extends Error {
+  constructor(messaggio) {
+    super(messaggio);
+    this.name = "ValidationError";
+  }
+}
+
+throw new ValidationError("Dato non valido");
+```
+
+Questo è particolarmente utile in applicazioni complesse, API o librerie, dove è necessario distinguere diversi tipi di errore.
+
+---
+
+## throw interrompe immediatamente l’esecuzione
+
+Quando viene eseguito `throw`, **tutto il codice successivo nello stesso blocco non viene eseguito**.
+
+```javascript
+console.log("Prima");
+throw new Error("Errore");
+console.log("Dopo"); // Non verrà mai eseguito
+```
+
+È importante tenerne conto per evitare codice irraggiungibile.
+
+---
+
+## throw e funzioni asincrone
+
+All’interno di una funzione `async`, `throw` rigetta automaticamente la `Promise`.
+
+```javascript
+async function caricaDati() {
+  throw new Error("Errore nel caricamento");
+}
+
+caricaDati().catch((err) => {
+  console.error(err.message);
+});
+```
+
+In questo contesto:
+
+- `throw` equivale a `return Promise.reject(...)`
+- l’errore può essere gestito con `catch` o `try...catch` asincrono
+
+---
+
+## Buone pratiche
+
+- Lanciare sempre oggetti `Error`, non valori primitivi
+- Usare messaggi chiari e descrittivi
+- Non abusare di `throw` per il controllo del flusso normale
+- Creare errori personalizzati quando il dominio applicativo lo richiede
+- Gestire sempre gli errori lanciati, soprattutto in ambienti di produzione
+
+---
+
+## Conclusione
+
+`throw` è uno strumento essenziale per scrivere codice JavaScript affidabile e professionale. Permette allo sviluppatore di definire esplicitamente le condizioni di errore, migliorare la qualità del debugging e garantire un controllo preciso del flusso di esecuzione. Un uso corretto di `throw`, combinato con `try...catch`, è una delle basi della programmazione robusta e scalabile nel web development.

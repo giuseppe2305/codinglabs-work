@@ -1,3 +1,127 @@
 # while
 
-In arrivo
+Il costrutto `while` è una **struttura di controllo iterativa** che consente di eseguire ripetutamente un blocco di codice **finché una condizione rimane vera**. È particolarmente utile quando **non si conosce in anticipo il numero di iterazioni** necessarie.
+
+## Sintassi
+
+```javascript
+while (condizione) {
+  // blocco di codice da eseguire
+}
+```
+
+- **condizione**: un’espressione booleana valutata prima di ogni iterazione.
+- Se la condizione è `true`, il blocco di codice viene eseguito.
+- Se la condizione è `false`, il ciclo termina.
+
+## Funzionamento
+
+1. La condizione viene valutata.
+2. Se è `true`, il codice all’interno del blocco viene eseguito.
+3. Al termine del blocco, la condizione viene rivalutata.
+4. Il processo si ripete finché la condizione resta vera.
+
+Se la condizione è falsa fin dalla prima valutazione, il corpo del ciclo **non viene mai eseguito**.
+
+## Esempio base
+
+```javascript
+let contatore = 0;
+
+while (contatore < 5) {
+  console.log(contatore);
+  contatore++;
+}
+```
+
+In questo esempio:
+
+- Il ciclo parte con `contatore` uguale a 0.
+- Ad ogni iterazione il valore viene stampato e incrementato.
+- Quando `contatore` raggiunge 5, la condizione diventa falsa e il ciclo termina.
+
+## Uso tipico del ciclo while
+
+Il ciclo `while` è indicato quando:
+
+- Il numero di iterazioni dipende da un evento o da un risultato dinamico.
+- La condizione di uscita non è nota a priori.
+- Si lavora con input esterni, stream di dati o stati che cambiano nel tempo.
+
+Esempio con input condizionale:
+
+```javascript
+let passwordCorretta = false;
+
+while (!passwordCorretta) {
+  // logica di verifica password
+  passwordCorretta = verificaPassword();
+}
+```
+
+## Rischio di loop infinito
+
+Un errore comune è creare un **ciclo infinito**, ovvero un `while` la cui condizione non diventa mai falsa.
+
+```javascript
+while (true) {
+  console.log("Questo ciclo non terminerà mai");
+}
+```
+
+Per evitarlo è fondamentale:
+
+- Aggiornare correttamente le variabili coinvolte nella condizione.
+- Verificare sempre una possibile condizione di uscita.
+
+## Controllo del flusso all’interno del while
+
+All’interno di un ciclo `while` è possibile utilizzare:
+
+- `break` per interrompere il ciclo immediatamente.
+- `continue` per saltare l’iterazione corrente e passare alla successiva.
+
+Esempio con `break`:
+
+```javascript
+let numero = 0;
+
+while (numero < 10) {
+  if (numero === 5) {
+    break;
+  }
+  numero++;
+}
+```
+
+Esempio con `continue`:
+
+```javascript
+let i = 0;
+
+while (i < 5) {
+  i++;
+  if (i === 3) {
+    continue;
+  }
+  console.log(i);
+}
+```
+
+## while vs for
+
+Il `while` e il `for` sono entrambi cicli, ma con differenze concettuali:
+
+- `for` è preferibile quando il numero di iterazioni è noto.
+- `while` è più adatto a condizioni dinamiche e logica basata su stati.
+
+La scelta non è solo sintattica, ma riflette l’intento del codice e ne migliora la leggibilità.
+
+## Buone pratiche
+
+- Assicurarsi sempre che la condizione possa diventare falsa.
+- Evitare condizioni complesse difficili da leggere.
+- Preferire chiarezza e semplicità rispetto a ottimizzazioni premature.
+- Usare il `while` solo quando è realmente la scelta più espressiva.
+
+Il ciclo `while` è uno strumento potente e flessibile, fondamentale per gestire flussi di esecuzione dinamici in JavaScript.

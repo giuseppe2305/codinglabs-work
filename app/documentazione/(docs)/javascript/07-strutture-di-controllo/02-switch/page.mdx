@@ -1,3 +1,167 @@
 # switch
 
-In arrivo
+La struttura di controllo `switch` in JavaScript viene utilizzata per eseguire blocchi di codice differenti in base al valore di un’espressione. È particolarmente utile quando si devono confrontare più casi possibili sullo stesso valore, offrendo una sintassi più chiara e leggibile rispetto a una lunga catena di `if...else if`.
+
+## Sintassi di base
+
+```javascript
+switch (espressione) {
+  case valore1:
+    // codice eseguito se espressione === valore1
+    break;
+  case valore2:
+    // codice eseguito se espressione === valore2
+    break;
+  default:
+  // codice eseguito se nessun case corrisponde
+}
+```
+
+- **espressione**: viene valutata una sola volta.
+- **case**: ogni `case` rappresenta un possibile valore dell’espressione.
+- **break**: interrompe l’esecuzione dello `switch`.
+- **default**: opzionale, viene eseguito se nessun `case` corrisponde.
+
+Il confronto tra l’espressione e i valori dei `case` avviene tramite l’operatore di uguaglianza stretta (`===`).
+
+## Esempio pratico
+
+```javascript
+const giorno = 3;
+
+switch (giorno) {
+  case 1:
+    console.log("Lunedì");
+    break;
+  case 2:
+    console.log("Martedì");
+    break;
+  case 3:
+    console.log("Mercoledì");
+    break;
+  case 4:
+    console.log("Giovedì");
+    break;
+  case 5:
+    console.log("Venerdì");
+    break;
+  default:
+    console.log("Weekend");
+}
+```
+
+In questo esempio, verrà stampato `"Mercoledì"` perché il valore di `giorno` è `3`.
+
+## Importanza del break
+
+L’istruzione `break` è fondamentale per evitare il cosiddetto _fall-through_, ovvero l’esecuzione dei `case` successivi anche se uno è già stato soddisfatto.
+
+Esempio senza `break`:
+
+```javascript
+const valore = 1;
+
+switch (valore) {
+  case 1:
+    console.log("Caso 1");
+  case 2:
+    console.log("Caso 2");
+  default:
+    console.log("Default");
+}
+```
+
+Output:
+
+```
+Caso 1
+Caso 2
+Default
+```
+
+Questo comportamento può essere intenzionale in alcuni casi, ma va usato con consapevolezza.
+
+## Fall-through controllato
+
+Il _fall-through_ può essere sfruttato per gestire più casi con la stessa logica.
+
+```javascript
+const ruolo = "editor";
+
+switch (ruolo) {
+  case "admin":
+  case "editor":
+    console.log("Accesso consentito");
+    break;
+  case "guest":
+    console.log("Accesso limitato");
+    break;
+  default:
+    console.log("Ruolo non riconosciuto");
+}
+```
+
+In questo caso, sia `"admin"` che `"editor"` producono lo stesso risultato.
+
+## Uso del default
+
+Il blocco `default` viene eseguito quando nessun `case` corrisponde al valore dell’espressione. È buona pratica includerlo, soprattutto per gestire situazioni inattese.
+
+```javascript
+switch (status) {
+  case 200:
+    console.log("OK");
+    break;
+  case 404:
+    console.log("Non trovato");
+    break;
+  default:
+    console.log("Errore sconosciuto");
+}
+```
+
+Il `default` può essere posizionato ovunque nello `switch`, ma per leggibilità viene generalmente inserito alla fine.
+
+## Tipi di valori supportati
+
+I `case` possono utilizzare qualsiasi valore confrontabile con `===`, inclusi:
+
+- numeri
+- stringhe
+- booleani
+- costanti
+- espressioni che restituiscono un valore
+
+Esempio con stringhe:
+
+```javascript
+const metodo = "POST";
+
+switch (metodo) {
+  case "GET":
+    console.log("Recupero dati");
+    break;
+  case "POST":
+    console.log("Invio dati");
+    break;
+}
+```
+
+## switch vs if...else
+
+Lo `switch` è preferibile quando:
+
+- si confronta una sola variabile con molti valori possibili
+- i confronti sono basati su uguaglianza stretta
+- si vuole migliorare la leggibilità del codice
+
+In scenari complessi con condizioni logiche articolate, `if...else` resta spesso la scelta più flessibile.
+
+## Buone pratiche
+
+- Usare sempre `break` salvo casi di _fall-through_ intenzionale.
+- Limitare il numero di `case` per mantenere il codice leggibile.
+- Preferire valori chiari e semplici nei `case`.
+- Usare `default` per gestire stati imprevisti.
+
+La struttura `switch` è uno strumento potente e leggibile se utilizzato correttamente, ideale per rendere il flusso di controllo più chiaro in molte situazioni comuni dello sviluppo JavaScript.

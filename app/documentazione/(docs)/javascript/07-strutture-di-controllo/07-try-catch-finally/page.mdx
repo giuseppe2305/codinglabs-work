@@ -1,3 +1,134 @@
 # try, catch, finally
 
-In arrivo
+In JavaScript, `try`, `catch` e `finally` sono strutture di controllo utilizzate per **gestire gli errori a runtime** (errori che si verificano durante l’esecuzione del codice). Permettono di intercettare situazioni anomale senza interrompere bruscamente il programma, rendendo il codice più robusto, leggibile e manutenibile.
+
+Questa gestione prende il nome di **gestione delle eccezioni**.
+
+---
+
+## Il blocco `try`
+
+Il blocco `try` contiene il codice che **potenzialmente può generare un errore**. JavaScript esegue normalmente il codice al suo interno; se durante l’esecuzione si verifica un’eccezione, l’esecuzione del blocco `try` viene interrotta e il controllo passa al blocco `catch`.
+
+```javascript
+try {
+  let risultato = JSON.parse('{"nome": "Mario"}');
+}
+```
+
+Se all’interno del `try` non si verifica alcun errore, i blocchi `catch` vengono ignorati.
+
+---
+
+## Il blocco `catch`
+
+Il blocco `catch` viene eseguito **solo se si verifica un errore** all’interno del blocco `try`. Riceve come parametro l’oggetto errore, che contiene informazioni utili come il messaggio e lo stack di chiamate.
+
+```javascript
+try {
+  let risultato = JSON.parse("{nome: Mario}");
+} catch (errore) {
+  console.log(errore.message);
+}
+```
+
+L’oggetto errore è generalmente un’istanza di `Error`, ma può essere anche un valore lanciato manualmente tramite `throw`.
+
+---
+
+## Gestione selettiva degli errori
+
+All’interno del `catch` è possibile analizzare l’errore per gestirlo in modo specifico:
+
+```javascript
+try {
+  funzioneNonDefinita();
+} catch (errore) {
+  if (errore instanceof ReferenceError) {
+    console.log("Errore di riferimento");
+  } else {
+    console.log("Errore generico");
+  }
+}
+```
+
+Questo approccio è utile in applicazioni complesse dove diversi tipi di errore richiedono comportamenti differenti.
+
+---
+
+## Il blocco `finally`
+
+Il blocco `finally` è **opzionale** e viene eseguito **sempre**, indipendentemente dal fatto che si verifichi o meno un errore. È tipicamente utilizzato per operazioni di cleanup, come chiudere connessioni, liberare risorse o ripristinare stati.
+
+```javascript
+try {
+  let file = apriFile();
+  leggiFile(file);
+} catch (errore) {
+  console.log("Errore durante la lettura");
+} finally {
+  chiudiFile();
+}
+```
+
+Il codice nel `finally` viene eseguito anche se nel `try` o nel `catch` è presente un `return`.
+
+---
+
+## `try...catch` senza `catch`
+
+In JavaScript è possibile usare `try` con `finally` senza `catch`, quando non è necessario gestire direttamente l’errore ma solo garantire l’esecuzione di un’operazione finale.
+
+```javascript
+try {
+  operazioneCritica();
+} finally {
+  pulizia();
+}
+```
+
+L’errore, se presente, continuerà a propagarsi dopo l’esecuzione del `finally`.
+
+---
+
+## Annidamento di `try...catch`
+
+È possibile annidare più blocchi `try...catch`, anche se questa pratica va usata con cautela per non compromettere la leggibilità del codice.
+
+```javascript
+try {
+  try {
+    operazione();
+  } catch (errore) {
+    console.log("Errore interno");
+  }
+} catch (errore) {
+  console.log("Errore esterno");
+}
+```
+
+In genere è preferibile gestire gli errori a un livello coerente dell’applicazione.
+
+---
+
+## Best practice
+
+- Usare `try...catch` solo per **errori eccezionali**, non per il normale flusso di controllo.
+- Limitare il codice nel blocco `try` allo stretto necessario.
+- Gestire gli errori in modo esplicito e significativo.
+- Evitare `catch` vuoti che nascondono i problemi.
+- Usare `finally` per operazioni che devono sempre essere eseguite.
+
+---
+
+## Contesto di utilizzo comune
+
+`try`, `catch` e `finally` sono ampiamente utilizzati in:
+
+- Parsing di dati (JSON, API)
+- Operazioni asincrone con `async/await`
+- Accesso a risorse esterne
+- Validazione e gestione degli input
+- Logging e monitoraggio degli errori
+
+Una corretta gestione delle eccezioni è fondamentale per costruire applicazioni JavaScript affidabili e professionali.

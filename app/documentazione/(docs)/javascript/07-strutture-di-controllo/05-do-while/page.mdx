@@ -1,3 +1,135 @@
 # do while
 
-In arrivo
+Il ciclo `do while` è una struttura di controllo iterativa di JavaScript che permette di eseguire un blocco di codice **almeno una volta**, indipendentemente dalla condizione di partenza. La condizione viene infatti valutata **dopo** l’esecuzione del blocco.
+
+Questa caratteristica lo distingue dal ciclo `while`, nel quale la condizione viene verificata prima di eseguire il codice.
+
+---
+
+## Sintassi
+
+```javascript
+do {
+  // codice da eseguire
+} while (condizione);
+```
+
+- Il blocco `do` contiene il codice da ripetere.
+- La `condizione` è un’espressione booleana.
+- Il punto e virgola finale dopo `while` è obbligatorio.
+
+---
+
+## Funzionamento
+
+Il flusso di esecuzione è il seguente:
+
+1. Il codice all’interno del blocco `do` viene eseguito.
+2. La condizione nel `while` viene valutata.
+3. Se la condizione è `true`, il ciclo riparte dal punto 1.
+4. Se la condizione è `false`, il ciclo termina.
+
+Questo garantisce **almeno un’esecuzione** del blocco di codice.
+
+---
+
+## Esempio base
+
+```javascript
+let i = 0;
+
+do {
+  console.log(i);
+  i++;
+} while (i < 5);
+```
+
+Output:
+
+```
+0
+1
+2
+3
+4
+```
+
+Anche se `i` inizialmente fosse maggiore o uguale a `5`, il codice all’interno del ciclo verrebbe comunque eseguito una volta.
+
+---
+
+## Confronto con while
+
+```javascript
+let i = 10;
+
+while (i < 5) {
+  console.log(i);
+}
+```
+
+In questo caso il codice **non viene mai eseguito**, perché la condizione è falsa fin dall’inizio.
+
+```javascript
+let i = 10;
+
+do {
+  console.log(i);
+} while (i < 5);
+```
+
+Qui invece il valore `10` viene stampato una volta, perché il controllo avviene dopo l’esecuzione.
+
+---
+
+## Caso d’uso comune
+
+Il ciclo `do while` è particolarmente utile quando:
+
+- è necessario eseguire almeno una volta un’operazione
+- la condizione dipende da un risultato calcolato all’interno del ciclo
+
+Esempio:
+
+```javascript
+let input;
+do {
+  input = prompt("Inserisci un numero maggiore di 0");
+} while (input <= 0);
+```
+
+Il prompt viene mostrato almeno una volta e continua a ripetersi finché l’utente non inserisce un valore valido.
+
+---
+
+## Controllo del flusso
+
+All’interno di un ciclo `do while` è possibile usare:
+
+- `break` per interrompere immediatamente il ciclo
+- `continue` per saltare all’iterazione successiva
+
+```javascript
+let i = 0;
+
+do {
+  i++;
+  if (i === 3) continue;
+  if (i === 5) break;
+  console.log(i);
+} while (i < 10);
+```
+
+---
+
+## Buone pratiche
+
+- Assicurarsi sempre che la condizione possa diventare `false`, per evitare loop infiniti.
+- Usare `do while` solo quando l’esecuzione iniziale è necessaria.
+- Preferire `while` o `for` quando il numero di iterazioni o la condizione iniziale è già nota.
+
+---
+
+## Conclusione
+
+Il ciclo `do while` è una struttura semplice ma potente, ideale nei casi in cui il codice deve essere eseguito almeno una volta prima di verificare una condizione. Un utilizzo consapevole migliora la chiarezza del codice e rende più esplicita l’intenzione logica dello sviluppatore.
