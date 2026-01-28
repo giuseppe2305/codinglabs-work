@@ -1,3 +1,168 @@
 # Struttura del progetto
 
-In arrivo
+Comprendere la struttura di un progetto React è fondamentale per lavorare in modo ordinato, scalabile e manutenibile. Anche se strumenti come Vite e Create React App possono generare strutture leggermente diverse, i concetti di base rimangono gli stessi. In questa sezione analizziamo i file e le cartelle più comuni, spiegandone il ruolo e le buone pratiche associate.
+
+---
+
+## Cartella `node_modules`
+
+Questa cartella contiene tutte le dipendenze del progetto, ovvero le librerie installate tramite npm o altri package manager.  
+Non deve mai essere modificata manualmente e non va versionata con Git, poiché può essere rigenerata in qualsiasi momento usando il file `package.json`.
+
+---
+
+## File `package.json`
+
+È il cuore della configurazione del progetto. Contiene:
+
+- Nome e versione dell’applicazione
+- Dipendenze (`dependencies`) e dipendenze di sviluppo (`devDependencies`)
+- Script npm (ad esempio `dev`, `build`, `start`, `test`)
+- Metadati del progetto
+
+Ogni comando principale del progetto (avvio, build, linting) è definito qui.
+
+---
+
+## File `package-lock.json` / `pnpm-lock.yaml` / `yarn.lock`
+
+Questi file bloccano le versioni esatte delle dipendenze installate, garantendo coerenza tra ambienti diversi.  
+Devono essere versionati insieme al progetto.
+
+---
+
+## Cartella `public`
+
+Contiene file statici accessibili direttamente dal browser senza essere processati da React o dal bundler.
+
+Tipicamente include:
+
+- `index.html`: il file HTML principale in cui React monta l’applicazione
+- Asset statici come favicon, immagini o manifest
+
+Tutto ciò che è in `public` mantiene il proprio percorso originale nell’output finale.
+
+---
+
+## Cartella `src`
+
+È la parte più importante del progetto: qui vive il codice React.
+
+Al suo interno troviamo generalmente:
+
+### `main.jsx` / `index.jsx`
+
+È il punto di ingresso dell’applicazione.  
+Qui React viene inizializzato e collegato al DOM, montando il componente principale (`App`).
+
+---
+
+### `App.jsx`
+
+È il componente principale dell’applicazione.  
+Funziona come contenitore di alto livello per layout, routing e logica globale.
+
+---
+
+### Cartella `components`
+
+Contiene i componenti riutilizzabili dell’interfaccia utente.
+
+Buone pratiche:
+
+- Un componente per file
+- Nomi chiari e descrittivi
+- Eventuali file di stile o test associati al componente
+
+Esempio:
+
+```
+
+components/
+└── Button/
+├── Button.jsx
+└── Button.css
+
+```
+
+---
+
+### Cartella `pages` (opzionale ma consigliata)
+
+Usata soprattutto in applicazioni con routing.  
+Ogni file rappresenta una pagina o vista principale dell’app.
+
+Esempio:
+
+```
+
+pages/
+├── Home.jsx
+└── About.jsx
+
+```
+
+---
+
+### Cartella `hooks`
+
+Contiene hook personalizzati, ovvero funzioni che incapsulano logica riutilizzabile basata sugli hook React.
+
+Esempio:
+
+```
+
+hooks/
+└── useFetch.js
+
+```
+
+---
+
+### Cartella `services` o `api`
+
+Qui si gestisce la comunicazione con API esterne o backend.
+
+Serve a separare la logica di rete dalla logica di presentazione.
+
+---
+
+### Cartella `styles` o `assets`
+
+Utilizzata per:
+
+- Fogli di stile globali
+- Variabili CSS o file di tema
+- Immagini, font e altri asset importati nel codice
+
+---
+
+## File di configurazione principali
+
+A seconda dello strumento usato, possono essere presenti file come:
+
+- `vite.config.js`
+- `eslint.config.js` o `.eslintrc`
+- `.prettierrc`
+- `.gitignore`
+
+Questi file definiscono il comportamento dell’ambiente di sviluppo, della build e degli strumenti di qualità del codice.
+
+---
+
+## Struttura scalabile e organizzazione
+
+Non esiste una struttura unica valida per tutti i progetti. L’obiettivo è:
+
+- Separare responsabilità
+- Ridurre accoppiamenti inutili
+- Rendere il codice facile da navigare
+
+Nei progetti più grandi è comune adottare una struttura basata su feature invece che su tipo di file, organizzando componenti, hook e servizi per dominio funzionale.
+
+---
+
+## Conclusione
+
+La struttura del progetto React non è solo una questione estetica, ma influisce direttamente su produttività, collaborazione e manutenzione nel tempo.  
+Capire il ruolo di ogni cartella e file permette di prendere decisioni consapevoli e adattare l’architettura alle reali esigenze dell’applicazione.

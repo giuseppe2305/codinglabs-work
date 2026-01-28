@@ -1,3 +1,108 @@
 # Modalità di sviluppo e produzione
 
-In arrivo
+Quando si lavora con React, è fondamentale comprendere la differenza tra **modalità di sviluppo (development)** e **modalità di produzione (production)**. Queste due modalità influenzano il comportamento dell’applicazione, le prestazioni, il debugging e il modo in cui il codice viene eseguito dal browser.
+
+Capire bene questa distinzione permette di sviluppare in modo più efficiente e di distribuire applicazioni performanti, sicure e ottimizzate.
+
+---
+
+## Modalità di sviluppo (Development)
+
+La modalità di sviluppo è pensata per **scrivere codice, testare funzionalità e individuare errori**. È l’ambiente utilizzato durante la fase di sviluppo locale.
+
+### Caratteristiche principali
+
+- **Debug avanzato**  
+  React fornisce messaggi di errore dettagliati, warning e suggerimenti utili per individuare problemi comuni (hook usati in modo errato, dipendenze mancanti, componenti non ottimizzati).
+
+- **Codice non ottimizzato**  
+  Il codice JavaScript non viene minificato né compresso. Questo rende i file più grandi ma più leggibili, facilitando il debugging.
+
+- **Stack trace leggibili**  
+  Gli errori mostrano riferimenti chiari ai file sorgente e alle righe di codice, rendendo più semplice risalire alla causa del problema.
+
+- **Controlli aggiuntivi di React**  
+  In development, React esegue controlli extra (ad esempio con `StrictMode`) per individuare potenziali bug o comportamenti non sicuri. Questi controlli non sono presenti in produzione.
+
+### Avvio in modalità sviluppo
+
+Nella maggior parte dei progetti React, la modalità di sviluppo viene avviata tramite:
+
+```bash
+npm run dev
+```
+
+oppure:
+
+```bash
+npm start
+```
+
+a seconda dello strumento utilizzato (Vite, Create React App, ecc.).
+
+---
+
+## Modalità di produzione (Production)
+
+La modalità di produzione è quella utilizzata quando l’applicazione viene **distribuita agli utenti finali**. L’obiettivo principale è garantire **massime prestazioni e stabilità**.
+
+### Caratteristiche principali
+
+- **Codice ottimizzato**
+  Il codice viene minificato, compresso e ottimizzato. Variabili e funzioni vengono rinominate, il codice morto eliminato e le dimensioni dei file ridotte.
+
+- **Prestazioni migliori**
+  L’applicazione è più veloce da caricare ed eseguire, grazie all’assenza di controlli e messaggi di debug.
+
+- **Nessun messaggio di debug**
+  Warning e messaggi di errore dettagliati non vengono mostrati all’utente finale.
+
+- **Comportamento realistico**
+  L’applicazione si comporta esattamente come in ambiente reale, rendendo questa modalità ideale per test finali e deploy.
+
+### Creazione della build di produzione
+
+Per generare una versione di produzione dell’applicazione si utilizza generalmente:
+
+```bash
+npm run build
+```
+
+Questo comando crea una cartella (spesso chiamata `dist` o `build`) contenente file statici pronti per essere serviti da un web server.
+
+---
+
+## Differenze principali tra sviluppo e produzione
+
+| Aspetto         | Sviluppo               | Produzione             |
+| --------------- | ---------------------- | ---------------------- |
+| Debug           | Completo e dettagliato | Assente o minimo       |
+| Prestazioni     | Non ottimizzate        | Ottimizzate            |
+| Dimensione file | Maggiore               | Ridotta                |
+| Messaggi React  | Warning e suggerimenti | Disabilitati           |
+| Uso             | Sviluppo locale        | Deploy e distribuzione |
+
+---
+
+## Variabile `NODE_ENV`
+
+React e molti strumenti dell’ecosistema JavaScript utilizzano la variabile di ambiente `NODE_ENV` per distinguere tra le modalità:
+
+- `development` per lo sviluppo
+- `production` per la produzione
+
+Questa variabile viene impostata automaticamente dagli script di avvio e build, ma può essere utilizzata anche nel codice per eseguire logiche condizionali, ad esempio per abilitare strumenti di debug solo in sviluppo.
+
+---
+
+## Buone pratiche
+
+- Sviluppare sempre in **modalità development**
+- Testare l’applicazione almeno una volta in **modalità production** prima del deploy
+- Non affidarsi a comportamenti visibili solo in development
+- Verificare che log, console e messaggi di debug non siano presenti in produzione
+- Ottimizzare componenti e rendering pensando alle prestazioni reali
+
+---
+
+Comprendere e sfruttare correttamente le modalità di sviluppo e produzione è un passaggio chiave per costruire applicazioni React robuste, manutenibili e pronte per l’ambiente reale.

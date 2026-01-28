@@ -1,3 +1,154 @@
 # Creare un progetto con Create React App
 
-In arrivo
+Create React App (CRA) è uno strumento ufficiale messo a disposizione dal team di React per creare rapidamente un’applicazione React già configurata e pronta all’uso. È pensato per eliminare la complessità iniziale della configurazione, permettendo allo sviluppatore di concentrarsi subito sul codice dell’applicazione.
+
+Anche se oggi esistono alternative più moderne come Vite, Create React App resta un punto di riferimento importante, soprattutto per comprendere lo stack React “classico” e per lavorare su progetti esistenti che lo utilizzano.
+
+---
+
+## Prerequisiti
+
+Prima di creare un progetto con Create React App è necessario avere installato:
+
+- **Node.js** (versione LTS consigliata)
+- **npm** (incluso con Node.js) oppure **yarn**
+
+Per verificare l’installazione:
+
+```bash
+node -v
+npm -v
+```
+
+---
+
+## Creazione del progetto
+
+Create React App può essere utilizzato senza installazioni globali grazie a `npx`.
+
+### Comando base
+
+```bash
+npx create-react-app nome-progetto
+```
+
+Questo comando:
+
+1. Scarica temporaneamente Create React App
+2. Crea una nuova cartella con il nome del progetto
+3. Installa tutte le dipendenze necessarie
+4. Configura automaticamente Webpack, Babel, ESLint e Jest
+
+Al termine, nella cartella `nome-progetto` sarà presente un’app React funzionante.
+
+---
+
+## Avvio del server di sviluppo
+
+Entrare nella cartella del progetto ed eseguire:
+
+```bash
+cd nome-progetto
+npm start
+```
+
+Questo comando avvia il server di sviluppo e apre automaticamente l’app nel browser all’indirizzo:
+
+```
+http://localhost:3000
+```
+
+Ogni modifica ai file verrà riflessa immediatamente nel browser grazie all’hot reload.
+
+---
+
+## Script disponibili
+
+Create React App fornisce diversi script preconfigurati nel file `package.json`:
+
+- **npm start**
+  Avvia l’app in modalità sviluppo.
+
+- **npm run build**
+  Crea una versione ottimizzata dell’app per la produzione nella cartella `build`.
+
+- **npm test**
+  Avvia il test runner in modalità interattiva.
+
+- **npm run eject**
+  Espone tutta la configurazione interna (Webpack, Babel, ESLint).
+  È un’operazione irreversibile e va usata solo se strettamente necessario.
+
+---
+
+## Struttura iniziale del progetto
+
+Dopo la creazione, la struttura tipica è la seguente:
+
+```text
+nome-progetto/
+├── node_modules/
+├── public/
+│   ├── index.html
+│   └── favicon.ico
+├── src/
+│   ├── App.js
+│   ├── App.css
+│   ├── index.js
+│   └── index.css
+├── package.json
+└── README.md
+```
+
+- **public/index.html**
+  È il file HTML principale, contiene il nodo root su cui React monta l’app.
+
+- **src/index.js**
+  Punto di ingresso dell’applicazione React.
+
+- **src/App.js**
+  Componente principale dell’applicazione.
+
+- **src/**
+  Contiene tutto il codice JavaScript, CSS e le risorse dell’app.
+
+---
+
+## Filosofia di Create React App
+
+Create React App segue il principio di **convention over configuration**:
+
+- Configurazione nascosta ma solida
+- Ambiente di sviluppo pronto all’uso
+- Tooling moderno senza necessità di setup manuale
+
+Questo lo rende ideale per:
+
+- Principianti che vogliono imparare React senza distrazioni
+- Team che lavorano su progetti React già esistenti basati su CRA
+- Prototipi e applicazioni di media complessità
+
+---
+
+## Limitazioni da conoscere
+
+Un aspetto importante per uno sviluppatore esperto è conoscere i limiti di CRA:
+
+- Configurazione non facilmente personalizzabile senza `eject`
+- Build più lenta rispetto a soluzioni moderne
+- Meno flessibilità su bundle e ottimizzazioni avanzate
+
+Per questi motivi, in progetti nuovi e complessi spesso si preferiscono alternative come Vite o framework come Next.js.
+
+---
+
+## Quando usare Create React App
+
+Create React App è una buona scelta quando:
+
+- Si vuole uno standard consolidato
+- Si lavora su codice legacy
+- Si desidera un ambiente stabile e prevedibile
+- Il focus è sull’apprendimento di React piuttosto che sulla configurazione
+
+Comprendere Create React App rimane fondamentale per avere una visione completa dell’ecosistema React e per lavorare con sicurezza su un’ampia varietà di progetti.

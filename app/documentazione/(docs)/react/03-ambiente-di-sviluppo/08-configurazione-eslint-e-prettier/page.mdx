@@ -1,3 +1,188 @@
 # Configurazione ESLint e Prettier
 
-In arrivo
+ESLint e Prettier sono due strumenti fondamentali in un progetto React moderno. Il loro scopo è migliorare la qualità del codice, mantenerlo coerente nel tempo e facilitare il lavoro in team. Anche in progetti individuali, una buona configurazione riduce bug, incongruenze e tempo perso in revisioni.
+
+- **ESLint** si occupa dell’analisi statica del codice JavaScript e JSX, segnalando errori, pattern problematici e violazioni delle best practice.
+- **Prettier** è un formatter automatico che si occupa esclusivamente dello stile del codice (spazi, indentazione, virgolette, lunghezza delle righe).
+
+È importante capire che ESLint e Prettier hanno responsabilità diverse ma complementari. La configurazione corretta evita conflitti tra i due strumenti.
+
+---
+
+## Perché usare ESLint e Prettier in React
+
+In un progetto React, questi strumenti permettono di:
+
+- Individuare errori prima dell’esecuzione dell’applicazione
+- Applicare regole condivise su tutto il codice
+- Migliorare la leggibilità e la manutenibilità
+- Ridurre discussioni inutili sullo stile del codice
+- Rendere il codice più prevedibile e uniforme
+
+In contesti professionali sono considerati uno standard.
+
+---
+
+## Installazione delle dipendenze
+
+In un progetto React (Vite o Create React App), è consigliabile installare ESLint e Prettier come dipendenze di sviluppo.
+
+```bash
+npm install -D eslint prettier
+```
+
+Per React sono necessarie alcune estensioni di ESLint:
+
+```bash
+npm install -D eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jsx-a11y
+```
+
+Per evitare conflitti tra ESLint e Prettier:
+
+```bash
+npm install -D eslint-config-prettier eslint-plugin-prettier
+```
+
+---
+
+## Inizializzazione di ESLint
+
+ESLint può essere inizializzato tramite comando interattivo:
+
+```bash
+npx eslint --init
+```
+
+Scelte consigliate:
+
+- Tipo di progetto: JavaScript Modules
+- Framework: React
+- Uso di TypeScript: in base al progetto
+- Ambiente: Browser
+- Formato del file di configurazione: JavaScript
+
+Questo comando genera un file di configurazione (`.eslintrc.js`, `.eslintrc.json` o simile).
+
+---
+
+## Configurazione ESLint per React
+
+Un esempio di configurazione ESLint efficace per React:
+
+```js
+module.exports = {
+  env: {
+    browser: true,
+    es2021: true,
+  },
+  extends: [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:prettier/recommended",
+  ],
+  parserOptions: {
+    ecmaVersion: "latest",
+    sourceType: "module",
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
+  plugins: ["react"],
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
+  rules: {
+    "react/react-in-jsx-scope": "off",
+    "prettier/prettier": "error",
+  },
+};
+```
+
+Punti chiave:
+
+- `react/react-in-jsx-scope` è disabilitata perché non necessaria con React 17+
+- `plugin:prettier/recommended` disattiva le regole ESLint in conflitto con Prettier
+- Le violazioni di Prettier vengono trattate come errori ESLint
+
+---
+
+## Configurazione di Prettier
+
+Prettier utilizza un file di configurazione dedicato, ad esempio `.prettierrc`.
+
+Esempio di configurazione comune:
+
+```json
+{
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "printWidth": 80,
+  "tabWidth": 2,
+  "endOfLine": "lf"
+}
+```
+
+Queste regole definiscono esclusivamente lo stile del codice, senza influenzare la logica.
+
+---
+
+## Integrazione ESLint e Prettier
+
+L’integrazione corretta prevede che:
+
+- ESLint gestisca errori logici e best practice
+- Prettier gestisca solo la formattazione
+
+Il pacchetto `eslint-config-prettier` disattiva automaticamente le regole ESLint che entrano in conflitto con Prettier, mentre `eslint-plugin-prettier` permette di visualizzare gli errori di formattazione come errori ESLint.
+
+Questa separazione è essenziale per evitare comportamenti imprevedibili.
+
+---
+
+## Script npm utili
+
+È buona pratica aggiungere alcuni script nel `package.json`:
+
+```json
+{
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write ."
+  }
+}
+```
+
+- `lint`: analizza il codice senza modificarlo
+- `lint:fix`: corregge automaticamente gli errori risolvibili
+- `format`: formatta tutti i file secondo le regole Prettier
+
+---
+
+## Integrazione con l’editor
+
+Per ottenere il massimo beneficio, ESLint e Prettier devono essere integrati nell’editor.
+
+Con Visual Studio Code:
+
+- Installare le estensioni ESLint e Prettier
+- Abilitare il format on save
+- Impostare Prettier come formatter predefinito
+
+Questo garantisce codice formattato e validato automaticamente a ogni salvataggio.
+
+---
+
+## Buone pratiche
+
+- Mantenere le configurazioni versionate nel repository
+- Evitare configurazioni troppo rigide all’inizio
+- Allineare le regole con le esigenze reali del team
+- Usare ESLint come strumento di supporto, non come ostacolo
+
+Una configurazione ben fatta di ESLint e Prettier è un investimento che migliora la qualità del codice nel lungo periodo, riduce errori e rende il progetto più professionale e scalabile.

@@ -1,3 +1,139 @@
 # Git e versionamento
 
-In arrivo
+Il versionamento del codice è una pratica fondamentale nello sviluppo web moderno e Git è lo standard de facto per gestirlo. In un progetto React, Git permette di tenere traccia delle modifiche, collaborare con altri sviluppatori, sperimentare nuove funzionalità in sicurezza e mantenere una cronologia chiara e affidabile del codice.
+
+## Cos’è Git e perché è essenziale
+
+Git è un sistema di controllo di versione distribuito. Ogni sviluppatore ha una copia completa del repository, inclusa la cronologia, il che rende il lavoro veloce, affidabile e indipendente da una connessione costante a un server centrale.
+
+In un progetto React, Git è essenziale per:
+
+- Tracciare l’evoluzione del codice nel tempo
+- Tornare a versioni precedenti in caso di errori
+- Lavorare in team senza conflitti continui
+- Separare lo sviluppo di nuove funzionalità dal codice stabile
+- Automatizzare processi di build e deploy
+
+## Inizializzare un repository Git
+
+All’interno della cartella del progetto React, Git può essere inizializzato con:
+
+```bash
+git init
+```
+
+Questo comando crea una directory `.git` che contiene tutte le informazioni necessarie al versionamento. Da questo momento in poi, Git può monitorare i file del progetto.
+
+Molti tool come Vite e Create React App offrono l’opzione di inizializzare automaticamente Git durante la creazione del progetto.
+
+## File `.gitignore`
+
+Nel contesto di React, non tutti i file devono essere versionati. Il file `.gitignore` serve a escludere file e cartelle dal controllo di versione.
+
+Tipicamente, in un progetto React si ignorano:
+
+- `node_modules/` (dipendenze installate localmente)
+- file di build come `dist/` o `build/`
+- file di ambiente come `.env`
+- file di log o configurazioni locali dell’editor
+
+Un `.gitignore` corretto è fondamentale per mantenere il repository pulito e portabile.
+
+## Stati dei file in Git
+
+Git gestisce i file attraverso diversi stati:
+
+- **Untracked**: file nuovi, non ancora tracciati
+- **Modified**: file tracciati che hanno subito modifiche
+- **Staged**: file pronti per essere salvati in un commit
+- **Committed**: file salvati nella cronologia
+
+Il flusso tipico è:
+
+1. Modifica dei file
+2. Aggiunta allo staging (`git add`)
+3. Creazione del commit (`git commit`)
+
+## Commit: buone pratiche
+
+Un commit rappresenta un’unità logica di cambiamento. In un progetto React, i commit dovrebbero essere:
+
+- Piccoli e focalizzati su un singolo cambiamento
+- Descrittivi e chiari
+- Coerenti nello stile dei messaggi
+
+Esempio di commit ben scritto:
+
+```bash
+git commit -m "Aggiunta componente Button riutilizzabile"
+```
+
+Evitare commit generici come “fix” o “update”, che non spiegano il contenuto della modifica.
+
+## Branching e flussi di lavoro
+
+I branch permettono di lavorare su funzionalità o bug senza interferire con il codice principale.
+
+Struttura comune:
+
+- `main` o `master`: codice stabile e pronto per la produzione
+- `develop`: integrazione delle nuove funzionalità
+- branch di feature: `feature/login`, `feature/navbar`
+- branch di fix: `fix/header-responsive`
+
+In React, ogni nuova funzionalità o refactor importante dovrebbe essere sviluppato in un branch dedicato, poi unito al branch principale tramite merge o pull request.
+
+## Merge e gestione dei conflitti
+
+Quando due branch vengono uniti, Git tenta di combinare automaticamente le modifiche. Se due modifiche interessano le stesse righe di codice, si genera un conflitto.
+
+La risoluzione dei conflitti richiede:
+
+- Comprensione del contesto del codice React
+- Scelta consapevole della versione corretta
+- Test dell’applicazione dopo il merge
+
+Una buona organizzazione dei componenti e commit frequenti riducono drasticamente i conflitti.
+
+## Repository remoti (GitHub, GitLab, Bitbucket)
+
+Un repository remoto consente di:
+
+- Condividere il codice
+- Collaborare tramite pull request
+- Integrare strumenti di CI/CD
+- Tenere backup del progetto
+
+Il flusso tipico prevede:
+
+```bash
+git remote add origin <url>
+git push -u origin main
+```
+
+Da quel momento, il repository locale e quello remoto restano sincronizzati.
+
+## Versionamento semantico (SemVer)
+
+Nel contesto di librerie o applicazioni React, è buona pratica adottare il versionamento semantico:
+
+```
+MAJOR.MINOR.PATCH
+```
+
+- **MAJOR**: cambiamenti incompatibili
+- **MINOR**: nuove funzionalità compatibili
+- **PATCH**: bug fix
+
+Questo approccio aiuta a comunicare chiaramente l’impatto delle modifiche, soprattutto in progetti condivisi o pubblici.
+
+## Git e React: considerazioni pratiche
+
+Alcuni aspetti specifici per React:
+
+- I file di build non vanno versionati
+- I file `.env` vanno esclusi ma documentati
+- I componenti dovrebbero essere versionati insieme ai test
+- I refactor importanti vanno isolati in commit dedicati
+
+Git non è solo uno strumento tecnico, ma una parte integrante del processo di sviluppo. Usarlo correttamente migliora la qualità del codice, la collaborazione e la manutenibilità dei progetti React nel lungo periodo.

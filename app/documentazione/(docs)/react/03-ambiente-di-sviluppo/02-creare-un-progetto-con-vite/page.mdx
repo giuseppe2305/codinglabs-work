@@ -1,3 +1,125 @@
 # Creare un progetto con Vite
 
-In arrivo
+Vite è uno strumento moderno per la creazione e la gestione di progetti frontend. Nel contesto di React, rappresenta oggi una delle soluzioni più consigliate grazie alla sua velocità, semplicità e aderenza agli standard moderni del web. A differenza di tool più tradizionali, Vite sfrutta le funzionalità native dei browser moderni e un sistema di build ottimizzato per offrire un’esperienza di sviluppo estremamente fluida.
+
+## Cos’è Vite e perché usarlo con React
+
+Vite è un build tool e dev server creato con l’obiettivo di migliorare le prestazioni durante lo sviluppo. Il suo nome deriva dal termine francese “vite”, che significa “veloce”, e descrive bene la sua filosofia.
+
+I principali vantaggi di Vite in un progetto React sono:
+
+- Avvio del server di sviluppo quasi istantaneo
+- Hot Module Replacement (HMR) molto rapido
+- Configurazione minima per iniziare
+- Build di produzione basata su Rollup, quindi ottimizzata e affidabile
+- Supporto nativo a ES Modules
+
+Vite è particolarmente adatto sia a progetti piccoli che a codebase complesse, rendendolo una scelta valida anche in contesti professionali avanzati.
+
+## Prerequisiti
+
+Prima di creare un progetto React con Vite è necessario avere:
+
+- Node.js installato (versione LTS consigliata)
+- npm (oppure yarn o pnpm) disponibile nel sistema
+
+È consigliabile verificare l’installazione eseguendo da terminale:
+
+```bash
+node -v
+npm -v
+```
+
+## Creazione di un progetto React con Vite
+
+Vite mette a disposizione un comando ufficiale per inizializzare nuovi progetti tramite template preconfigurati, tra cui React.
+
+### Utilizzando npm
+
+Dal terminale, posizionati nella directory in cui vuoi creare il progetto ed esegui:
+
+```bash
+npm create vite@latest
+```
+
+Durante l’esecuzione ti verranno richieste alcune informazioni:
+
+- **Nome del progetto**: la cartella che conterrà il progetto
+- **Framework**: seleziona React
+- **Variant**: scegli tra JavaScript o TypeScript
+
+Una volta completata la procedura, entra nella cartella del progetto:
+
+```bash
+cd nome-progetto
+```
+
+Installa le dipendenze:
+
+```bash
+npm install
+```
+
+Avvia il server di sviluppo:
+
+```bash
+npm run dev
+```
+
+A questo punto l’applicazione React sarà accessibile tramite browser all’indirizzo indicato nel terminale (solitamente `http://localhost:5173`).
+
+## Template React disponibili
+
+Vite offre diverse varianti del template React:
+
+- React + JavaScript
+- React + TypeScript
+- React + SWC (compilatore alternativo più veloce)
+
+La scelta dipende dalle esigenze del progetto. In contesti professionali è comune preferire TypeScript per una maggiore robustezza del codice e migliore esperienza di sviluppo.
+
+## Struttura iniziale del progetto creato con Vite
+
+Un progetto React creato con Vite presenta una struttura essenziale e pulita. I file principali sono:
+
+- `index.html`: punto di ingresso dell’applicazione
+- `src/main.jsx` o `src/main.tsx`: entry point JavaScript/TypeScript
+- `src/App.jsx`: componente principale
+- `src/assets/`: risorse statiche come immagini
+- `vite.config.js`: file di configurazione di Vite
+- `package.json`: configurazione del progetto e script npm
+
+Questa struttura favorisce chiarezza e modularità, lasciando allo sviluppatore la libertà di organizzarla ulteriormente in base alla complessità dell’applicazione.
+
+## Differenze rispetto ad altri strumenti di scaffolding
+
+Rispetto a strumenti più tradizionali, Vite si distingue per:
+
+- Nessun bundling iniziale durante lo sviluppo
+- Utilizzo diretto dei moduli ES del browser
+- Configurazione più semplice e trasparente
+- Maggiore controllo sul processo di build
+
+Questo approccio riduce drasticamente i tempi di attesa e migliora la produttività, soprattutto su progetti di grandi dimensioni.
+
+## Build di produzione
+
+Per creare una versione ottimizzata dell’applicazione pronta per la distribuzione, è sufficiente eseguire:
+
+```bash
+npm run build
+```
+
+Vite genererà una cartella `dist/` contenente i file statici ottimizzati. Questi file possono essere distribuiti su qualsiasi servizio di hosting statico o integrati in backend più complessi.
+
+Per testare localmente la build di produzione:
+
+```bash
+npm run preview
+```
+
+## Considerazioni finali
+
+Creare un progetto React con Vite è oggi una delle scelte migliori per avviare uno sviluppo moderno, performante e scalabile. La semplicità iniziale non limita le possibilità avanzate: Vite è altamente configurabile e si integra facilmente con strumenti di testing, linting, gestione delle variabili d’ambiente e workflow professionali.
+
+Per questo motivo, Vite rappresenta un punto di partenza solido sia per chi si avvicina per la prima volta a React sia per sviluppatori esperti che cercano efficienza e controllo.

@@ -1,3 +1,122 @@
 # Hot Reload
 
-In arrivo
+L’**Hot Reload** (o **Hot Module Replacement – HMR**) è una funzionalità fondamentale negli ambienti di sviluppo moderni per React. Permette di aggiornare l’applicazione nel browser in tempo reale ogni volta che si modifica il codice sorgente, **senza ricaricare l’intera pagina** e, nella maggior parte dei casi, **senza perdere lo stato dell’applicazione**.
+
+Questo meccanismo migliora drasticamente la produttività, riduce il tempo di feedback e rende il ciclo di sviluppo più fluido ed efficiente.
+
+---
+
+## Cos’è l’Hot Reload
+
+In un’applicazione React, l’Hot Reload consente di:
+
+- Applicare le modifiche al codice immediatamente nel browser
+- Evitare il refresh completo della pagina
+- Mantenere lo stato dei componenti (quando possibile)
+- Visualizzare gli effetti delle modifiche in tempo reale
+
+A differenza del semplice **live reload**, che ricarica l’intera pagina, l’Hot Reload aggiorna solo i **moduli JavaScript modificati**, reiniettandoli nell’applicazione già in esecuzione.
+
+---
+
+## Come funziona a livello concettuale
+
+Il processo di Hot Reload segue generalmente questi passaggi:
+
+1. Il file sorgente viene modificato
+2. Il bundler di sviluppo (es. Vite, Webpack) rileva il cambiamento
+3. Il modulo aggiornato viene ricompilato
+4. Il browser riceve il nuovo modulo tramite una connessione persistente (WebSocket)
+5. React aggiorna il componente interessato senza riavviare l’app
+
+React, tramite strumenti come **React Fast Refresh**, è in grado di capire se può preservare lo stato del componente oppure se è necessario rimontarlo.
+
+---
+
+## Hot Reload in React
+
+Nell’ecosistema React moderno, l’Hot Reload è gestito principalmente da **React Fast Refresh**, una tecnologia ufficiale che ha sostituito i vecchi sistemi di hot reloading.
+
+React Fast Refresh:
+
+- Aggiorna componenti funzionali e class-based
+- Mantiene lo stato locale (useState, useReducer) quando possibile
+- Esegue un reset dello stato solo in caso di modifiche incompatibili
+
+È integrato di default nei principali tool di sviluppo React.
+
+---
+
+## Hot Reload con Vite
+
+Vite utilizza un sistema di HMR estremamente veloce basato su ES Modules nativi del browser.
+
+Caratteristiche principali:
+
+- Avvio del server quasi istantaneo
+- Hot Reload molto rapido anche in progetti grandi
+- Aggiornamento mirato solo dei moduli modificati
+
+In un progetto React creato con Vite, l’Hot Reload è attivo automaticamente in modalità di sviluppo, senza configurazioni aggiuntive.
+
+---
+
+## Hot Reload con Create React App
+
+Create React App include React Fast Refresh già configurato.
+
+Funzionalità principali:
+
+- Hot Reload automatico durante lo sviluppo
+- Supporto completo per componenti React
+- Reset automatico in caso di errori critici
+
+Anche in questo caso, non è necessaria alcuna configurazione manuale: è sufficiente avviare il progetto in modalità sviluppo.
+
+---
+
+## Limiti e comportamenti da conoscere
+
+Non sempre l’Hot Reload riesce a preservare lo stato. Alcuni casi comuni in cui avviene un reset:
+
+- Modifica della firma di un componente (es. cambio di export)
+- Cambiamenti negli hook personalizzati
+- Errori di sintassi o runtime
+- Modifica di moduli non compatibili con HMR
+
+In questi casi, il comportamento è comunque intenzionale e serve a garantire coerenza e stabilità dell’applicazione.
+
+---
+
+## Buone pratiche per sfruttare l’Hot Reload
+
+Per ottenere il massimo dall’Hot Reload in React:
+
+- Preferire componenti funzionali e hook
+- Evitare side effect complessi a livello di modulo
+- Separare logica e presentazione
+- Scrivere codice idempotente e prevedibile
+- Correggere immediatamente warning ed errori in console
+
+Un codice pulito e ben strutturato rende l’Hot Reload più affidabile ed efficace.
+
+---
+
+## Hot Reload e produttività
+
+L’Hot Reload non è solo una comodità, ma uno strumento chiave per:
+
+- Sviluppo iterativo rapido
+- Debug visivo immediato
+- Migliore esperienza di sviluppo
+- Riduzione dei tempi di build e refresh
+
+In progetti React moderni, è considerato uno standard imprescindibile e una delle principali ragioni per cui l’esperienza di sviluppo risulta così fluida.
+
+---
+
+## Conclusione
+
+L’Hot Reload è una componente essenziale dell’ambiente di sviluppo React. Grazie a strumenti come React Fast Refresh, Vite e Create React App, gli sviluppatori possono lavorare in modo rapido, continuo e senza interruzioni.
+
+Comprendere come funziona e quali sono i suoi limiti permette di sfruttarlo al meglio e di scrivere applicazioni React più solide, manutenibili e piacevoli da sviluppare.

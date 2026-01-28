@@ -1,3 +1,173 @@
 # Node.js e npm
 
-In arrivo
+Node.js e npm sono strumenti fondamentali per lo sviluppo moderno di applicazioni React. Anche se React gira nel browser, l’intero ecosistema di sviluppo si basa su Node.js per la gestione delle dipendenze, l’avvio dei server di sviluppo, la build del progetto e l’automazione di molte attività.
+
+Questa sezione spiega cosa sono Node.js e npm, perché sono necessari e come vengono utilizzati in un progetto React.
+
+---
+
+## Cos’è Node.js
+
+Node.js è un runtime JavaScript che permette di eseguire codice JavaScript al di fuori del browser, direttamente sul sistema operativo. È basato sul motore V8 di Google Chrome ed è progettato per essere veloce, scalabile ed efficiente.
+
+Nel contesto di React, Node.js **non serve per eseguire l’applicazione finale**, che gira nel browser dell’utente, ma è indispensabile per:
+
+- Avviare il server di sviluppo
+- Compilare e ottimizzare il codice (build)
+- Gestire le dipendenze del progetto
+- Utilizzare strumenti come Vite, Create React App, Webpack, ESLint, Prettier
+
+Senza Node.js non è possibile creare né mantenere un progetto React moderno.
+
+---
+
+## Cos’è npm
+
+npm (Node Package Manager) è il gestore di pacchetti incluso con Node.js. Permette di installare, aggiornare e gestire librerie e strumenti JavaScript.
+
+In un progetto React, npm viene utilizzato per:
+
+- Installare React e React DOM
+- Aggiungere librerie di terze parti
+- Gestire strumenti di sviluppo e build
+- Eseguire script personalizzati
+
+Ogni progetto React utilizza npm (o alternative compatibili come yarn o pnpm) per gestire il proprio ecosistema di dipendenze.
+
+---
+
+## Installazione di Node.js e npm
+
+Installando Node.js si ottiene automaticamente anche npm.
+
+### Verifica dell’installazione
+
+Dopo l’installazione è possibile verificare che tutto funzioni correttamente aprendo il terminale e digitando:
+
+```bash
+node -v
+npm -v
+```
+
+Questi comandi restituiscono la versione installata di Node.js e npm.
+
+---
+
+## Versioni di Node.js
+
+Node.js ha due principali tipologie di versioni:
+
+- **LTS (Long Term Support)**: consigliata per la maggior parte dei progetti, stabile e supportata a lungo
+- **Current**: include le ultime funzionalità ma può essere meno stabile
+
+Per lo sviluppo React è fortemente consigliato utilizzare una versione **LTS**, soprattutto in ambienti di produzione o team di lavoro.
+
+---
+
+## Il file package.json
+
+npm gestisce i progetti attraverso il file `package.json`, che rappresenta il cuore della configurazione Node di un’applicazione React.
+
+Questo file contiene:
+
+- Informazioni generali sul progetto
+- Dipendenze (`dependencies`)
+- Dipendenze di sviluppo (`devDependencies`)
+- Script personalizzati (`scripts`)
+- Configurazioni per strumenti esterni
+
+Esempio semplificato:
+
+```json
+{
+  "name": "my-react-app",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  }
+}
+```
+
+---
+
+## Dipendenze e devDependencies
+
+npm distingue due tipi principali di dipendenze:
+
+- **dependencies**
+  Librerie necessarie al funzionamento dell’applicazione (es. React)
+
+- **devDependencies**
+  Strumenti usati solo in fase di sviluppo (es. Vite, ESLint, Prettier)
+
+Questa distinzione è importante soprattutto in fase di build e distribuzione.
+
+---
+
+## La cartella node_modules
+
+Quando si installano le dipendenze, npm crea automaticamente la cartella `node_modules`, che contiene tutte le librerie del progetto e le loro dipendenze.
+
+Caratteristiche importanti:
+
+- Non va mai modificata manualmente
+- Non va versionata con Git
+- Può essere ricreata in qualsiasi momento usando `npm install`
+
+---
+
+## npm install e npm update
+
+I comandi principali di npm sono:
+
+- `npm install`
+  Installa tutte le dipendenze definite in `package.json`
+
+- `npm install nome-pacchetto`
+  Installa una nuova dipendenza
+
+- `npm update`
+  Aggiorna le dipendenze secondo le versioni consentite
+
+Questi comandi garantiscono che l’ambiente di sviluppo sia coerente tra tutti i membri del team.
+
+---
+
+## Script npm
+
+Gli script npm permettono di definire comandi personalizzati per il progetto, come avviare il server di sviluppo o creare la build di produzione.
+
+Esempi comuni:
+
+```json
+"scripts": {
+  "dev": "vite",
+  "build": "vite build",
+  "preview": "vite preview"
+}
+```
+
+Gli script vengono eseguiti con:
+
+```bash
+npm run dev
+npm run build
+```
+
+---
+
+## Ruolo di Node.js e npm nello sviluppo React
+
+In sintesi, Node.js e npm forniscono l’infrastruttura necessaria per:
+
+- Creare progetti React
+- Gestire dipendenze e strumenti
+- Automatizzare build e workflow
+- Garantire coerenza tra ambienti di sviluppo
+
+Ogni progetto React moderno si basa su Node.js e npm come fondamenta del proprio ambiente di sviluppo.

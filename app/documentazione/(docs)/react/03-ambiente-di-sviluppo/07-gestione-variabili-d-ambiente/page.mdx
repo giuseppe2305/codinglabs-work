@@ -1,3 +1,179 @@
 # Gestione variabili d'ambiente
 
-In arrivo
+La gestione delle variabili d’ambiente è un aspetto fondamentale nello sviluppo di applicazioni React moderne. Permette di separare la configurazione dal codice, rendendo l’applicazione più sicura, flessibile e facilmente adattabile a diversi ambienti (sviluppo, test, produzione).
+
+In questa sezione vedremo cosa sono le variabili d’ambiente, perché sono importanti e come gestirle correttamente in un progetto React.
+
+---
+
+## Cosa sono le variabili d’ambiente
+
+Le variabili d’ambiente sono coppie chiave-valore accessibili dall’applicazione a runtime o build-time, utilizzate per configurare il comportamento dell’app senza modificare il codice sorgente.
+
+Esempi comuni di utilizzo:
+
+- URL di API backend
+- Chiavi di servizi esterni
+- Flag di configurazione (feature toggle)
+- Modalità di esecuzione (development, production)
+
+Il vantaggio principale è evitare valori sensibili o specifici dell’ambiente direttamente nel codice.
+
+---
+
+## Variabili d’ambiente in React
+
+In React le variabili d’ambiente **non sono lette a runtime nel browser**, ma **iniettate durante il processo di build**. Questo significa che:
+
+- Sono disponibili nel codice JavaScript
+- Devono essere definite prima dell’avvio del server di sviluppo o della build
+- Qualsiasi variabile usata nel frontend è visibile nel bundle finale
+
+Di conseguenza **non devono mai contenere segreti reali**, come password o chiavi private.
+
+---
+
+## File `.env`
+
+Le variabili d’ambiente vengono generalmente definite in file `.env` nella root del progetto.
+
+Esempio:
+
+```env
+VITE_API_URL=https://api.example.com
+VITE_APP_NAME=MyReactApp
+```
+
+Ogni riga rappresenta una variabile d’ambiente.
+
+---
+
+## Convenzioni di naming
+
+### Vite
+
+Con Vite, tutte le variabili destinate al codice client **devono iniziare con `VITE_`**.
+
+Esempio valido:
+
+```env
+VITE_API_URL=https://api.example.com
+```
+
+Esempio non accessibile in React:
+
+```env
+API_URL=https://api.example.com
+```
+
+### Create React App
+
+Con Create React App, il prefisso richiesto è `REACT_APP_`.
+
+```env
+REACT_APP_API_URL=https://api.example.com
+```
+
+Senza il prefisso corretto, la variabile non sarà disponibile nell’applicazione.
+
+---
+
+## Accesso alle variabili d’ambiente nel codice
+
+### Con Vite
+
+```js
+const apiUrl = import.meta.env.VITE_API_URL;
+```
+
+### Con Create React App
+
+```js
+const apiUrl = process.env.REACT_APP_API_URL;
+```
+
+Le variabili sono disponibili ovunque nel codice JavaScript e JSX.
+
+---
+
+## Variabili d’ambiente per diversi ambienti
+
+È possibile definire file `.env` differenti in base all’ambiente:
+
+### Vite
+
+- `.env` – variabili comuni
+- `.env.development` – solo sviluppo
+- `.env.production` – solo produzione
+- `.env.local` – variabili locali (non versionate)
+
+### Create React App
+
+- `.env`
+- `.env.development`
+- `.env.production`
+- `.env.local`
+
+Le variabili più specifiche sovrascrivono quelle generiche.
+
+---
+
+## Ignorare i file `.env` nel versionamento
+
+I file `.env` contengono spesso configurazioni locali e **non dovrebbero essere versionati**.
+
+Nel file `.gitignore`:
+
+```gitignore
+.env
+.env.local
+.env.*.local
+```
+
+È buona pratica fornire un file di esempio:
+
+```env
+.env.example
+```
+
+In questo modo altri sviluppatori sanno quali variabili sono necessarie senza conoscere i valori reali.
+
+---
+
+## Variabili di ambiente predefinite
+
+React espone alcune variabili già definite:
+
+### Vite
+
+- `import.meta.env.MODE`
+- `import.meta.env.DEV`
+- `import.meta.env.PROD`
+
+### Create React App
+
+- `process.env.NODE_ENV`
+
+Sono utili per scrivere logica condizionale:
+
+```js
+if (import.meta.env.DEV) {
+  console.log("Modalità sviluppo");
+}
+```
+
+---
+
+## Best practice
+
+- Usare le variabili d’ambiente solo per configurazione, non per logica complessa
+- Non inserire segreti reali nel frontend
+- Documentare le variabili richieste nel progetto
+- Riavviare il server di sviluppo dopo ogni modifica ai file `.env`
+- Usare nomi chiari e coerenti
+
+---
+
+## Conclusione
+
+La gestione corretta delle variabili d’ambiente è essenziale per costruire applicazioni React scalabili e manutenibili. Permette di adattare l’applicazione a contesti diversi senza modificare il codice, migliorando sicurezza, collaborazione e qualità del progetto.
